@@ -1,5 +1,5 @@
 module Wpcc
-  class EngineController < ActionController::Base
+  class EngineController < Wpcc.parent_controller.constantize
     protect_from_forgery with: :exception
 
     layout 'wpcc/engine'
