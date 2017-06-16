@@ -6,6 +6,7 @@ All the things for Money Advice Service's Workplace Pension Contribution Calcula
 
 * [Git](http://git-scm.com)
 * [Rbenv](https://github.com/rbenv/rbenv)
+* [Ruby][Ruby] - see version specified in [Gemfile](Gemfile)
 
 ## Installation
 
