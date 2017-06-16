@@ -1,0 +1,9 @@
+{
+  "name": "wpcc",
+  "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "requirejs": "^2.2.0"
+  }
+}
