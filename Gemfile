@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'http://gems.dev.mas.local'
 
 # Declare your gem's dependencies in wpcc.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
@@ -6,6 +7,8 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'rails', '~> 4.2.7'
+gem 'bowndler', git: 'https://github.com/moneyadviceservice/bowndler'
+gem 'sass-rails'
 
 group :development, :test do
   gem 'pry-rails'
