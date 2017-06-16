@@ -23,7 +23,10 @@ Install ruby dependencies
 ```sh
 $ gem install bundler
 $ bundle
+$ bowndler install
 ```
+
+Install 
 
 ## Contributing
 TODO
