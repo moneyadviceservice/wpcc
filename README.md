@@ -19,11 +19,6 @@ $ bundle
 $ bowndler install
 ```
 
-Install 
-
-## Contributing
-TODO
-=======
 ## Mounting the engine
 
 The application that mounts this engine requires a controller to be the parent
