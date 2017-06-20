@@ -39,5 +39,6 @@ module Wpcc
         session[key] = params[:your_details_form][key]
       end
     end
+
   end
 end
