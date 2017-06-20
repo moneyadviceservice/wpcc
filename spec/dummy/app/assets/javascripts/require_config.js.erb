@@ -1,0 +1,19 @@
+<%
+  def requirejs_path(asset)
+    javascript_path(asset).sub(/.js\z/, '')
+  end
+
+  requirejs_config = {
+    baseUrl: (Rails.application.config.action_controller.asset_host || '') + \
+      Rails.application.config.assets.prefix,
+    paths: {
+      componentLoader: requirejs_path('dough/assets/js/lib/componentLoader'),
+      wpccConfig: requirejs_path('wpcc/require_config')
+    }
+  }
+%>
+
+// RequireJS config
+if(window.requirejs) {
+  requirejs.config(<%= JSON.pretty_generate(requirejs_config) %>);
+}

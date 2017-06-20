@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Dummy</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <%= yield(:head) %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= yield(:engine_content) %>
+
+    <!--[if ( !IE ) | ( gte IE 9 ) ]><!-->
+      <%= javascript_include_tag 'requirejs/require', data: {main: javascript_path('application')} %>
+    <!--<![endif]-->
   </body>
 </html>

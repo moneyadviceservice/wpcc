@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
+<% content_for(:head) do %>
   <title>Wpcc</title>
   <%= stylesheet_link_tag    "wpcc/application", media: "all" %>
   <%= javascript_include_tag "wpcc/application" %>
   <%= csrf_meta_tags %>
-</head>
-<body>
+<% end %>
 
-<%= yield %>
+<% content_for(:engine_content) do %>
+  <%= yield %>
+<% end %>
 
-</body>
-</html>
+<%= render template: parent_template %>
