@@ -25,6 +25,7 @@ module Wpcc
             get :new, locale: 'fr'
           end.to raise_error ActionController::UrlGenerationError
         end
+
       end
     end
 
