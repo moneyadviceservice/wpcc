@@ -45,6 +45,76 @@ implement internationalisation.
   end
 ```
 
+The main application.js requies the component loader to be present in order to 
+load the dough components
+
+```
+require(['wpccConfig'], function() {
+  require(['componentLoader'], function (componentLoader) {
+    componentLoader.init($('body'));
+  });
+});
+```
+
+In order for the component loader to function correctly, the parent_template  
+is required to set up the responsibility of the main app to render the html,
+head and body tags:
+
+``wpcc/spec/dummy/app/controllers/application_controller.rb``
+```ruby
+def parent_template
+  'layouts/application'
+end
+helper_method :parent_template
+```
+
+The WPCC engine layout uses content_for tags for both the head 
+and main content, and also the and instruction to render the parent template.
+
+``app/views/layouts/wpcc/engine.html.erb``
+
+```
+<html>
+  <head>
+    <% content_for(:head) do %>
+      <title>Wpcc</title>
+      <%= stylesheet_link_tag "wpcc/application", media: "all" %>
+      <%= javascript_include_tag "wpcc/application" %>
+    <% end %>
+  </head>
+  <body>
+    <% content_for(:engine_content) do %>
+      <%= yield %>
+    <% end %>
+  </body>
+</html>
+<%= render template: parent_template %>
+```
+
+With all of the above complete, it is required that the dummy template application
+layout includes the instruction to render the head and engine content from the
+main application, so that the assets and JS are avaiable to the dummy app.
+
+``
+spec/dummy/app/views/layouts/application.html.erb
+``
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= yield(:head) %>
+  </head>
+  <body>
+    <%= yield(:engine_content) %>
+
+    <!--[if ( !IE ) | ( gte IE 9 ) ]><!-->
+      <%= javascript_include_tag 'requirejs/require', data: {main: javascript_path('application')} %>
+    <!--<![endif]-->
+  </body>
+</html>
+```
+
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
