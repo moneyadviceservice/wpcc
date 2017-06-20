@@ -1,4 +1,6 @@
 Wpcc::Engine.routes.draw do
-  post 'validate_details', to: 'calculator#validate_details'
-  root to: 'home#start', as: 'wpcc_root'
+  resources :your_details, only: [:new, :create]
+  resources :your_contributions, only: [:new, :create]
+
+  root to: 'your_details#new', as: 'wpcc_root'
 end

@@ -17,6 +17,7 @@ gem 'turbolinks'
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.5'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :build, :test do
