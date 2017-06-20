@@ -14,7 +14,10 @@ Gem::Specification.new do |s|
   s.description = "Workplace Pensions Cost Calculator"
   s.license     = "MIT"
 
-  s.files = Dir['{app,data,config,lib,vendor}/**/*'] + ['Rakefile', 'README.md', 'bower.json.erb'] - Dir['vendor/assets/bower_components/**/*']
+  s.files = Dir['{app,data,config,lib,vendor}/**/*'] 
+          + ['Rakefile', 'README.md', 'bower.json.erb'] 
+          - Dir['vendor/assets/bower_components/**/*']
+          
   s.test_files = Dir["spec/**/*"]
 
   s.add_dependency 'dough-ruby'
