@@ -3,22 +3,28 @@ module Wpcc
     routes { Wpcc::Engine.routes }
 
     describe '#new' do
-      it 'renders the start view for english' do
-        get :new, locale: 'en'
+      context 'english' do
+        it 'renders the start view for english' do
+          get :new, locale: 'en'
 
-        expect(response).to be_success
+          expect(response).to be_success
+        end
       end
 
-      it 'renders the start view for welsh' do
-        get :new, locale: 'cy'
+      context 'welsh' do
+        it 'renders the start view for welsh' do
+          get :new, locale: 'cy'
 
-        expect(response).to be_success
+          expect(response).to be_success
+        end
       end
 
-      it 'throws an error for an unsupported locale' do
-        expect do
-          get :new, locale: 'fr'
-        end.to raise_error ActionController::UrlGenerationError
+      context 'translation not supported' do
+        it 'throws an error for an unsupported locale' do
+          expect do
+            get :new, locale: 'fr'
+          end.to raise_error ActionController::UrlGenerationError
+        end
       end
     end
 
@@ -30,7 +36,6 @@ module Wpcc
                age: 34,
                gender: 'f',
                salary: 30_000
-
           expect(response).to redirect_to your_contributions_path
         end
       end
@@ -41,7 +46,7 @@ module Wpcc
                locale: 'en',
                age: 34,
                gender: 'a',
-
+               salary: 30_000
           expect(response).to redirect_to wpcc_root_path(locale: 'en')
         end
       end

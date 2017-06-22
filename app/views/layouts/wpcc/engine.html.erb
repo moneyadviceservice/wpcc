@@ -6,13 +6,18 @@
 <% end %>
 
 <% content_for(:engine_content) do %>
-    <h1><%= t('wpcc.title') %></h1>
-    <div class="wpcc">
-      <main>
-        <p><%= t('wpcc.intro') %></p>
-        <%= yield %>
-      </main>
+  <div class="l-constrained">
+    <div class="l-container-tool">
+      <h1><%= t('wpcc.title') %></h1>
+
+      <div class="wpcc">
+        <main>
+          <p class="intro"><%= t('wpcc.intro') %></p>
+          <%= yield %>
+        </main>
+      </div>
     </div>
+  </div>
 <% end %>
 
 <%= render template: parent_template %>

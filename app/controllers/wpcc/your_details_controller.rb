@@ -5,15 +5,19 @@ module Wpcc
     def new; end
 
     def create
-      @your_details_form = YourDetailsForm.new(
-        params.permit(:age, :salary, :gender)
-      )
+      @your_details_form = YourDetailsForm.new(your_details_form_params)
 
       if @your_details_form.valid?
         redirect_to your_contributions_path
       else
         redirect_to wpcc_root_path
       end
+    end
+
+    private
+
+    def your_details_form_params
+      params.permit(:age, :salary, :gender)
     end
   end
 end

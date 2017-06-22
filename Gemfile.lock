@@ -168,8 +168,6 @@ DEPENDENCIES
   sass-rails
   shoulda-matchers (~> 3.1)
   turbolinks
-  shoulda-matchers (~> 3.1)
-  turbolinks
   wpcc!
 
 RUBY VERSION

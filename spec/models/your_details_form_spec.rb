@@ -8,6 +8,7 @@ describe Wpcc::YourDetailsForm, type: :model do
     it { should validate_inclusion_of(:gender).in_array %w[m f] }
     it { should validate_numericality_of(:salary) }
     it { should allow_value(12).for(:salary) }
+    it { should_not allow_value('foo').for(:salary) }
     it { should_not allow_value(0).for(:salary) }
     it { should_not allow_value(-1).for(:salary) }
     it { should_not allow_value(12.4).for(:salary) }

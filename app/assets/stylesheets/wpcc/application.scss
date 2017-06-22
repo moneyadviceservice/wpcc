@@ -1,7 +1,59 @@
 $responsive: true;
 
 @import 'dough/assets/stylesheets/lib';
+@import 'yeast/assets/lib/all';
+
+// Dough
 @import 'dough/assets/stylesheets/common';
 @import 'dough/assets/stylesheets/optional';
 
-@import 'yeast/assets/lib/all';
+// Helpers
+@import 'yeast/assets/helpers/form-input';
+@import 'yeast/assets/helpers/form-input-focus';
+@import 'yeast/assets/helpers/layout';
+
+// Base
+@import 'yeast/assets/base/variables';
+@import 'yeast/assets/base/forms';
+@import 'yeast/assets/base/headings';
+@import 'yeast/assets/base/reset';
+@import 'yeast/assets/base/type';
+
+// Layout
+@import 'yeast/assets/layout/common/constrained';
+@import 'yeast/assets/layout/common/tool';
+
+// Dough Theme Components
+@import 'yeast/assets/components/dough_theme/form/form';
+@import 'yeast/assets/components/dough_theme/field_help_text/field_help_text';
+@import 'yeast/assets/components/dough_theme/button/settings';
+@import 'yeast/assets/components/dough_theme/button/button';
+
+
+/**
+ * Styles to be moved into appropriate separate files
+ */
+body {
+	margin: 0;
+}
+
+.intro {
+	@extend %paragraph-intro;
+}
+
+.details__row {
+	@include row(12);
+}
+
+.details__field {
+  @include column(4);
+}
+
+.details__helper {
+  @include column(8);
+}
+
+.calculate__heading,
+.calculate__intro {
+	@include column(12);
+}
