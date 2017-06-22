@@ -1,5 +1,11 @@
 cy:
-  wpcc:
+  wpcc:   
+    activemodel:
+      attributes:
+        wpcc/your_details_form/gender:
+          female: "benywaidd"
+          male: "gwrywaidd"
+
     title: Cyfrifiannell cyfraniadau pensiwn gweithle
     intro: Mae’n gyfraith erbyn hyn y dylai’r rhan fwyaf o gyflogeion gael eu cofrestru ar gynllun pensiwn gweithle gan eu cyflogwr. Mae’n ofynnol i chi a’ch cyflogwr gyfrannu. Bydd y gyfrifiannell hon yn cyfrifo swm y cyfraniadau.
 
@@ -24,7 +30,7 @@ cy:
           year: y Flwyddyn
           month: y Mis
           fourweeks: fesul 4 wythnos
-          week: yr wythnos
+          week: y Wythnos
 
       calculate:
         legend: Dewiswch sut mae eich cyflogwr yn cyfrannu
@@ -33,3 +39,4 @@ cy:
         full: Mae fy nghyflogwr yn cyfrannu ar fy nghyflog llawn
 
       next: next
+      prompt: os gwelwch yn dda dewiswch

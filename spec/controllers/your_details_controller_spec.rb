@@ -16,9 +16,9 @@ module Wpcc
       end
 
       it 'throws an error for an unsupported locale' do
-        expect {
+        expect do
           get :new, locale: 'fr'
-        }.to raise_error ActionController::UrlGenerationError
+        end.to raise_error ActionController::UrlGenerationError
       end
     end
 
@@ -29,7 +29,8 @@ module Wpcc
                locale: 'en',
                age: 34,
                gender: 'f',
-               salary: 30000
+               salary: 30_000
+
           expect(response).to redirect_to your_contributions_path
         end
       end
@@ -40,7 +41,7 @@ module Wpcc
                locale: 'en',
                age: 34,
                gender: 'a',
-               salary: 30000
+
           expect(response).to redirect_to wpcc_root_path(locale: 'en')
         end
       end

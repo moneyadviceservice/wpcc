@@ -10,6 +10,6 @@ module Wpcc
 
     validates :age, presence: true
     validates :gender, inclusion: { in: GENDERS }
-    validates :salary, presence: true
+    validates :salary, numericality: { only_integer: true, greater_than: 0 }
   end
 end

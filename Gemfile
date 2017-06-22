@@ -8,10 +8,10 @@ gemspec
 
 ruby '2.2.5'
 
-gem 'rails', '~> 4.2.7'
 gem 'bowndler', git: 'https://github.com/moneyadviceservice/bowndler'
-gem 'sass-rails'
 gem 'jquery-rails'
+gem 'rails', '~> 4.2.7'
+gem 'sass-rails'
 gem 'turbolinks'
 
 group :development, :test do

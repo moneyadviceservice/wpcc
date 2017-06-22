@@ -6,7 +6,13 @@
 <% end %>
 
 <% content_for(:engine_content) do %>
-  <%= yield %>
+    <h1>1. <%= t('wpcc.title') %></h1>
+    <div class="wpcc">
+      <main>
+        <p><%= t('wpcc.intro') %></p>
+        <%= yield %>
+      </main>
+    </div>
 <% end %>
 
 <%= render template: parent_template %>

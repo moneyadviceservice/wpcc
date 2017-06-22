@@ -5,7 +5,7 @@ module Wpcc
     isolate_namespace Wpcc
     Wpcc.parent_controller = '::ApplicationController'
 
-    initializer 'wpcc precompile hooks', :group => :all do |app|
+    initializer 'wpcc precompile hooks', group: :all do |app|
       app.config.assets.precompile += [
 
       ]

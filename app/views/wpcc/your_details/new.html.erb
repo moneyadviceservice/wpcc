@@ -1,10 +1,10 @@
-<%= form_tag(your_details_path, remote: true) do %>
+<%= form_for(:your_details_form, remote: true) do |f| %>
   <section class="details">
     <h2 class="details__heading"><%= t('wpcc.details.title') %></h2>
     <div class="form__row">
        <div class="details__field">
-         <%= label_tag :age, t('wpcc.details.age.label'), class: 'form__label-heading' %>
-         <%= text_field_tag :age %>
+         <%= f.label :age, t('wpcc.details.age.label'), class: 'form__label-heading' %>
+         <%= f.text_field :age %>
        </div>
 
        <div class="details__helper">
@@ -14,8 +14,8 @@
 
       <div class="form__row">
         <div class="details__field">
-          <%= label_tag :gender, t('wpcc.details.gender.label'), class: 'form__label-heading' %>
-          <%= select_tag(:gender, options_for_select([['Plese choose']])) %>
+          <%= f.label :gender, t('wpcc.details.gender.label'), class: 'form__label-heading' %>
+          <%= f.select :gender, options_for_select(Wpcc::YourDetailsForm::GENDERS), {prompt: t('wpcc.details.prompt')} %>
         </div>
 
         <div class="details__helper">
@@ -25,11 +25,11 @@
 
       <div class="form__row">
         <div class="details__field">
-          <%= label_tag :salary, t('wpcc.details.salary.label'), class: 'form__label-heading' %>
-          <%= text_field_tag :salary %>
+          <%= f.label :salary, t('wpcc.details.salary.label'), class: 'form__label-heading' %>
+          <%= f.text_field :salary %>
 
-          <%= label_tag :frequency, t('wpcc.details.salary.frequency.label'), class: 'form__label-heading' %>
-          <%= select_tag(:frequency, options_for_select([[t('wpcc.details.salary.frequency.year')], [t('wpcc.details.salary.frequency.month')], [t('wpcc.details.salary.frequency.fourweeks')], [t('wpcc.details.salary.frequency.week')]])) %>
+          <%= f.label :frequency, t('wpcc.details.salary.frequency.label'), class: 'form__label-heading' %>
+          <%= f.select(:frequency, options_for_select([[t('wpcc.details.salary.frequency.year')], [t('wpcc.details.salary.frequency.month')], [t('wpcc.details.salary.frequency.fourweeks')], [t('wpcc.details.salary.frequency.week')]])) %>
         </div>
 
         <div class="details__helper">
@@ -42,16 +42,16 @@
           <legend><%= t('wpcc.details.calculate.legend') %></legend>
           <p><%= t('wpcc.details.calculate.details') %></p>
 
-          <%= radio_button_tag(:calculate, 'minimum') %>
-          <%= label_tag(:calculate_minimum, t('wpcc.details.calculate.minimum')) %>
+          <%= f.radio_button(:calculate, 'minimum') %>
+          <%= f.label(:calculate_minimum, t('wpcc.details.calculate.minimum')) %>
 
-          <%= radio_button_tag(:calculate, 'full') %>
-          <%= label_tag(:calculate_full, t('wpcc.details.calculate.full')) %>
+          <%= f.radio_button(:calculate, 'full') %>
+          <%= f.label(:calculate_full, t('wpcc.details.calculate.full')) %>
         </fieldset>
       </div>
 
       <div class="form__row">
-        <%= submit_tag(t('wpcc.details.next')) %>
+        <%= f.submit(t('wpcc.details.next')) %>
       </div>
     </section>
 <% end %>

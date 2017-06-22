@@ -166,8 +166,10 @@ DEPENDENCIES
   rails (~> 4.2.7)
   rspec-rails (~> 3.5)
   sass-rails
+  shoulda-matchers (~> 3.1)
   turbolinks
   shoulda-matchers (~> 3.1)
+  turbolinks
   wpcc!
 
 RUBY VERSION
