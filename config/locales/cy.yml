@@ -1,5 +1,5 @@
 cy:
-  wpcc:   
+  wpcc:
     activemodel:
       attributes:
         wpcc/your_details_form/gender:
@@ -38,5 +38,5 @@ cy:
         minimum: Mae fy nghyflogwr yn cyfrannu ar ran o fy nghyflog (os nad ydych yn siŵr dewiswch yr opsiwn hwn)
         full: Mae fy nghyflogwr yn cyfrannu ar fy nghyflog llawn
 
-      next: next
+      next: Next
       prompt: os gwelwch yn dda dewiswch
