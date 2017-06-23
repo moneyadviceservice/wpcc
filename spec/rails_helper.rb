@@ -3,8 +3,6 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../dummy/config/environment', __FILE__)
 abort('Do not run the tests in production mode!!!') if Rails.env.production?
 require 'rspec/rails'
-abort("The Rails environment is running in production mode!") if Rails.env.production?
-require 'rspec/rails'
 
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
