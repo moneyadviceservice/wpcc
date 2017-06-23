@@ -1,4 +1,4 @@
-<%= form_for(:your_details_form, remote: true) do |f| %>
+<%= form_for(:your_details_form, url: your_details_path) do |f| %>
   <section class="details">
     <h2 class="details__heading"><%= t('wpcc.details.title') %></h2>
     <div class="form__row">
