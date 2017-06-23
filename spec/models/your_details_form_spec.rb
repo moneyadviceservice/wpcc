@@ -22,17 +22,17 @@ describe Wpcc::YourDetailsForm, type: :model do
     end
 
     context 'salary_frequency' do
-      it { should allow_value('yearly').for(:salary_frequency) }
-      it { should allow_value('monthly').for(:salary_frequency) }
-      it { should allow_value('four_weekly').for(:salary_frequency) }
-      it { should allow_value('yearly').for(:salary_frequency) }
-      it { should_not allow_value('daily').for(:salary_frequency) }
+      it { should allow_value('year').for(:salary_frequency) }
+      it { should allow_value('month').for(:salary_frequency) }
+      it { should allow_value('fourweeks').for(:salary_frequency) }
+      it { should allow_value('year').for(:salary_frequency) }
+      it { should_not allow_value('day').for(:salary_frequency) }
     end
 
     context 'contribution' do
-      it { should allow_value('full').for(:contribution) }
-      it { should allow_value('minimum').for(:contribution) }
-      it { should_not allow_value('part').for(:contribution) }
+      it { should allow_value('full').for(:employer_contribution) }
+      it { should allow_value('minimum').for(:employer_contribution) }
+      it { should_not allow_value('part').for(:employer_contribution) }
     end
   end
 end
