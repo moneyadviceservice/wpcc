@@ -108,5 +108,17 @@ module Wpcc
              employer_percent: 1
            }
     end
+
+    describe '#create' do
+      context 'success' do
+        it 'redirects to step3 - results section' do
+        end
+      end
+
+      context 'failure' do
+        it 'redirects to the start page' do
+        end
+      end
+    end
   end
 end
