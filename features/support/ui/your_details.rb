@@ -12,7 +12,7 @@ module UI
     # element :minimum_contribution_button, '#your_details_form_contribution_preference_minimum'
     # element :full_contribution_button, '#your_details_form_contribution_preference_full'
 
-
     element :next_button, "input[name='commit']"
   end
 end
+

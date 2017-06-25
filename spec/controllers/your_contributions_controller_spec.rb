@@ -31,6 +31,29 @@ module Wpcc
             get :new, locale: 'fr'
           end.to raise_error ActionController::UrlGenerationError
         end
+
+        it 'instantiates the YourContributions form' do
+          expect(Wpcc::ContributionsCalculator).to receive(:calculate)
+          expect(Wpcc::YourContributionsForm).to receive(:new)
+          get :new
+        end
+
+        it 'renders the your contributions form view' do
+          get :new
+          expect(response).to render_template :new
+        end
+      end
+    end
+
+    describe '#create' do
+      context 'success' do
+        it 'redirects to step3 - results section' do
+        end
+      end
+
+      context 'failure' do
+        it 'redirects to the start page' do
+        end
       end
     end
   end
