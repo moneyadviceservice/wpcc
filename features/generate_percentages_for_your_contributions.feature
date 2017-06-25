@@ -26,4 +26,4 @@ Scenario: Calculate minimum contribution for salary equal to or less than the Up
   Then the Step 2 intro paragraph should display my eligible salary
   And the employee_percent input intro paragraph should display the correct percentage
   And the employer_percent input intro paragraph should display the correct percentage
-  
+

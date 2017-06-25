@@ -10,7 +10,7 @@ module UI
 
     section :employee_percent,   EmployeePercentSection, '.contributions__source--employee'
     section :employer_percent,   EmployerPercentSection, '.contributions__source--employer'
-    
+
     element :details, '.details__row'
     element :contributions_description, '.t-contributions_description'
     element :percent_input, '.contributions__source-input'
