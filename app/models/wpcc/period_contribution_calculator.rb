@@ -4,9 +4,11 @@ module Wpcc
                 :salary_frequency,
                 :employee_percent,
                 :employer_percent,
-                :tax_relief_percent
+                :tax_relief_percent,
+                :name
 
     def initialize(eligible_salary, salary_frequency, period_args)
+      @name = period_args[:name]
       @eligible_salary = eligible_salary
       @salary_frequency = salary_frequency
       @employee_percent = period_args[:employee_percent]
@@ -16,6 +18,7 @@ module Wpcc
 
     def contribution
       PeriodContribution.new(
+        name: name,
         employee_contribution: employee_contribution,
         employer_contribution: employer_contribution,
         total_contributions: total_contributions,

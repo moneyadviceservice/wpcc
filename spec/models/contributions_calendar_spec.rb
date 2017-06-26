@@ -44,6 +44,7 @@ describe Wpcc::ContributionsCalendar, type: :model do
             .to receive(:new)
             .with(eligible_salary,
                   salary_frequency,
+                  name: current_period.keys.first.to_s,
                   employee_percent: employee_percent,
                   employer_percent: employer_percent,
                   tax_relief_percent: 20)
@@ -71,6 +72,7 @@ describe Wpcc::ContributionsCalendar, type: :model do
             .to receive(:new)
             .with(eligible_salary,
                   salary_frequency,
+                  name: next_period.keys.first.to_s,
                   employee_percent: 3,
                   employer_percent: 4,
                   tax_relief_percent: 20)

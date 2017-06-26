@@ -9,6 +9,7 @@ describe Wpcc::PeriodContributionCalculator, type: :model do
 
   let(:period_args) do
     {
+      name: 'some period',
       employee_percent: employee_percent,
       employer_percent: employer_percent,
       tax_relief_percent: 20
@@ -23,6 +24,10 @@ describe Wpcc::PeriodContributionCalculator, type: :model do
       let(:salary_frequency) { 1 }
       let(:employee_percent) { 1 }
       let(:employer_percent) { 1 }
+
+      it 'knows which period its calculating contributions' do
+        expect(period_contribution.name).to eq('some period')
+      end
 
       it 'returns yearly employee contribution' do
         expect(period_contribution.employee_contribution).to eq(391.24)
