@@ -37,23 +37,23 @@ $responsive: true;
 
 // generic
 body {
-	margin: 0;
+  margin: 0;
 }
 
 .intro {
-	@extend %paragraph-intro;
+  @extend %paragraph-intro;
 }
 
 // page specific (details)
 .details__row {
-	@include row(12);
+  @include row(12);
 }
 
 .details__field {
   @include column(12);
 
   @include respond-to($mq-m) {
-	  @include column(4);
+    @include column(4);
   }
 }
 
@@ -61,40 +61,40 @@ body {
   @include column(12);
 
   @include respond-to($mq-m) {
-	  @include column(8);
+    @include column(8);
   }
 }
 
 .details__salary {
-	@include row(12);
+  @include row(12);
 }
 
 .salary__amount,
 .salary__frequency {
-	@include column(6);
+  @include column(6);
 }
 
 .salary__amount {
-	.form__label-heading {
-		width: 200%;
-	}
+  .form__label-heading {
+    width: 200%;
+  }
 }
 
 .salary__frequency {
-	.form__label-heading {
-		visibility: hidden;
-	}
+  .form__label-heading {
+    visibility: hidden;
+  }
 }
 
 .calculate__heading,
 .calculate__intro {
-	@include column(12);
+  @include column(12);
 }
 
 .calculate__item {
-	@include column(12);
+  @include column(12);
 
-	@include respond-to($mq-m) {
-		@include column(6);
-	}
+  @include respond-to($mq-m) {
+    @include column(6);
+  }
 }
