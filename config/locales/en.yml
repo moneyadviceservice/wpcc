@@ -33,10 +33,10 @@ en:
           week: per Week
 
       calculate:
-        legend: Choose how your employer makes contribution
+        legend: Choose how your employer makes contributions
         details: Your employer chooses whether to make contribution on part of the salary or your full salary. To find this out, you will need to check with your employer.
         minimum: My employer makes contributions on part of my salary (if you're not sure select this option)
         full: My employer makes contributions on my full salary
 
-      next: next
+      next: Next
       prompt: Please choose
