@@ -1,1 +1,42 @@
 cy:
+  wpcc:
+    activemodel:
+      attributes:
+        wpcc/your_details_form/gender:
+          female: "benywaidd"
+          male: "gwrywaidd"
+
+    title: Cyfrifiannell cyfraniadau pensiwn gweithle
+    intro: Mae’n gyfraith erbyn hyn y dylai’r rhan fwyaf o gyflogeion gael eu cofrestru ar gynllun pensiwn gweithle gan eu cyflogwr. Mae’n ofynnol i chi a’ch cyflogwr gyfrannu. Bydd y gyfrifiannell hon yn cyfrifo swm y cyfraniadau.
+
+    details:
+      title: Eich manylion
+      age:
+        label: Eich oedran
+        tooltip: Mae arnom angen gwybod eich oedran er mwyn i ni fedru cyfrifo’r cyfraniadau’n gywir – mae’r rheolau’n amrywio ychydig yn seiliedig ar oed. Eglurir hyn yn y llythyr a gewch gan eich cyflogwr am gofrestru awtomatig.
+        validation: Please enter your age
+
+      gender:
+        label: Eich rhyw
+        tooltip: Rhaid i ni wybod eich rhyw oherwydd mae rheolau cyfrannu’n amrywio ychydig yn sgil gwahaniaethau presennol yn nyddiadau ymddeol Pensiwn y Wladwriaeth ar gyfer dynion a merched.
+        validation: Please enter your gender
+
+      salary:
+        label: Eich cyflog sylfaenol
+        tooltip: Mae arnom angen eich cyflog i gyfrifo cyfraniadau misol ar eich cyfer chi a’ch cyflogwr.
+        validation: Please enter your salary
+        frequency:
+          label: Frequency
+          year: y Flwyddyn
+          month: y Mis
+          fourweeks: fesul 4 wythnos
+          week: y Wythnos
+
+      calculate:
+        legend: Dewiswch sut mae eich cyflogwr yn cyfrannu
+        details: Mae eich cyflogwr yn penderfynu un ai i gyfrannu ar ran o’r cyflog neu’ch cyflog yn llawn. I gael gwybod pa un, bydd angen i chi wirio gyda’ch cyflogwr.
+        minimum: Mae fy nghyflogwr yn cyfrannu ar ran o fy nghyflog (os nad ydych yn siŵr dewiswch yr opsiwn hwn)
+        full: Mae fy nghyflogwr yn cyfrannu ar fy nghyflog llawn
+
+      next: Next
+      prompt: os gwelwch yn dda dewiswch

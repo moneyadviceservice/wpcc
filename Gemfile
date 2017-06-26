@@ -8,15 +8,16 @@ gemspec
 
 ruby '2.2.5'
 
-gem 'rails', '~> 4.2.7'
 gem 'bowndler', git: 'https://github.com/moneyadviceservice/bowndler'
-gem 'sass-rails'
 gem 'jquery-rails'
+gem 'rails', '~> 4.2.7'
+gem 'sass-rails'
 gem 'turbolinks'
 
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.5'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :build, :test do

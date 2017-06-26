@@ -1,6 +1,6 @@
 module Wpcc
   class EngineController < Wpcc.parent_controller.constantize
-    protect_from_forgery with: :exception
+    protect_from_forgery
 
     layout 'wpcc/engine'
   end
