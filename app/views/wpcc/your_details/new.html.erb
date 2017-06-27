@@ -1,11 +1,11 @@
 <%= form_for(:your_details_form, url: your_details_path) do |f| %>
-  <section class="details">
+  <section class="details" data-dough-component="ConditionalMessaging">
     <h2 class="details__heading">1. <%= t('wpcc.details.title') %></h2>
     <div class="details__row">
       <div class="details__field">
         <div class="form__row">
            <%= f.label :age, t('wpcc.details.age.label'), class: 'form__label-heading' %>
-           <%= f.text_field :age %>
+           <%= f.text_field :age, 'data-dough-age-field': true %>
         </div>
       </div>
 
@@ -22,7 +22,7 @@
       <div class="details__field">
         <div class="form__row">
           <%= f.label :gender, t('wpcc.details.gender.label'), class: 'form__label-heading' %>
-          <%= f.select :gender, options_for_select(Wpcc::YourDetailsForm::GENDERS), {prompt: t('wpcc.details.prompt')} %>
+          <%= f.select :gender, options_for_select(Wpcc::YourDetailsForm::GENDERS), {prompt: t('wpcc.details.prompt')}, 'data-dough-gender-select': true %>
         </div>
       </div>
 
@@ -30,6 +30,28 @@
         <div class="field-help-text">
           <div class="tooltip__content-container">
             <p><%= t('wpcc.details.gender.tooltip') %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="details__row">
+      <div class="details__callouts">
+        <div class="form__row details__callout-inactive" data-dough-callout-lt16>
+          <div class="callout">
+            <p><%= t('wpcc.details.callout__lt16') %></p>
+          </div>
+        </div>
+
+        <div class="form__row details__callout-inactive" data-dough-callout-16to74>
+          <div class="callout">
+            <p><%= t('wpcc.details.callout__16to74') %></p>
+          </div>
+        </div>
+
+        <div class="form__row details__callout-inactive" data-dough-callout-gt74>
+          <div class="callout">
+            <p><%= t('wpcc.details.callout__gt74') %></p>
           </div>
         </div>
       </div>
@@ -81,7 +103,7 @@
     <div class="details__row">
       <div class="details__field">
         <div class="form__row">
-          <%= f.submit(t('wpcc.details.next'), class: 'button button--primary') %>
+          <%= f.submit(t('wpcc.details.next'), class: 'button button--primary', 'data-dough-submit': true) %>
         </div>
       </div>
     </div>

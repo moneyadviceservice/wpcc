@@ -41,8 +41,12 @@ en:
       next: Next
       prompt: Please choose
 
+      callout__lt16: You are too young to join a workplace pension. When you reach the age of 16 you may ask your employer to enrol you. If you do so, your employer will make contributions.
+      callout__16to74: Your employer will not automatically enrol you into a pension but you can choose to join. If you do so, your employer will make contributions.
+      callout__gt74: You are not eligible to join a workplace pension because you are above the maximum age.
+
     results:
       description: |
-        Minimum pension contribution rates will increase in stages until April 2019. 
-        These figures show how this will affect your contributions. Contributions will be 
+        Minimum pension contribution rates will increase in stages until April 2019.
+        These figures show how this will affect your contributions. Contributions will be
         based on your eligible salary of £%{eligible_salary per year.

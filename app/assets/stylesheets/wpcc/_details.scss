@@ -1,0 +1,69 @@
+.details {}
+
+.details__row {
+  @include row(12);
+}
+
+.details__field {
+  @include column(12);
+
+  @include respond-to($mq-m) {
+    @include column(4);
+  }
+}
+
+.details__callouts {
+  @include column(12);
+}
+
+.details__callout {
+  &-active {
+    display: block;
+  }
+
+  &-inactive {
+    display: none;
+  }
+}
+
+.details__helper {
+  @include column(12);
+
+  @include respond-to($mq-m) {
+    @include column(8);
+  }
+}
+
+.details__salary {
+  @include row(12);
+}
+
+.salary__amount,
+.salary__frequency {
+  @include column(6);
+}
+
+.salary__amount {
+  .form__label-heading {
+    width: 200%;
+  }
+}
+
+.salary__frequency {
+  .form__label-heading {
+    visibility: hidden;
+  }
+}
+
+.calculate__heading,
+.calculate__intro {
+  @include column(12);
+}
+
+.calculate__item {
+  @include column(12);
+
+  @include respond-to($mq-m) {
+    @include column(6);
+  }
+}
