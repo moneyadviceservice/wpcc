@@ -21,6 +21,7 @@ module Wpcc
 
     def schedule
       periods.map do |_, period|
+        period.symbolize_keys!
         if period[:employee_percent] && period[:employer_percent]
           calculate_contribution(period[:employee_percent],
                                  period[:employer_percent],
@@ -49,7 +50,7 @@ module Wpcc
       }
       Wpcc::PeriodContributionCalculator.new(eligible_salary,
                                              salary_frequency,
-                                             period_args)
+                                             period_args).contribution
     end
   end
 end

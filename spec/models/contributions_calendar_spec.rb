@@ -15,6 +15,9 @@ describe Wpcc::ContributionsCalendar, type: :model do
     let(:employee_percent) { 0 }
     let(:employer_percent) { 0 }
     let(:salary_frequency) { 0 }
+    let(:period_contribution_calculator) do
+      double('PeriodContributionCalculator')
+    end
 
     subject(:schedule) { contributions_calendar.schedule }
 
@@ -22,13 +25,14 @@ describe Wpcc::ContributionsCalendar, type: :model do
       expect(schedule).to be_an(Array)
       expect(schedule.size).to_not be_zero
       schedule.each do |period|
-        expect(period).to be_a Wpcc::PeriodContributionCalculator
+        expect(period).to be_a Wpcc::PeriodContribution
       end
     end
 
     describe 'creates PeriodContribution objects for each period' do
       context 'when the employee/employer percents ARE in the yml file' do
         let(:current_period) { { some_period: { tax_relief_percent: 20 } } }
+
         before do
           allow(contributions_calendar)
             .to receive(:periods)
@@ -43,7 +47,9 @@ describe Wpcc::ContributionsCalendar, type: :model do
                   employee_percent: employee_percent,
                   employer_percent: employer_percent,
                   tax_relief_percent: 20)
-          subject
+            .and_return(period_contribution_calculator)
+          expect(period_contribution_calculator).to receive(:contribution)
+          schedule
         end
       end
 
@@ -68,7 +74,9 @@ describe Wpcc::ContributionsCalendar, type: :model do
                   employee_percent: 3,
                   employer_percent: 4,
                   tax_relief_percent: 20)
-          subject
+            .and_return(period_contribution_calculator)
+          expect(period_contribution_calculator).to receive(:contribution)
+          schedule
         end
       end
     end
