@@ -32,17 +32,5 @@ $responsive: true;
 @import 'yeast/assets/components/dough_theme/callout/settings';
 @import 'yeast/assets/components/dough_theme/callout/callout';
 
-@import 'details';
-
-/**
- * Styles to be moved into appropriate separate files
- */
-
-// generic
-body {
-  margin: 0;
-}
-
-.intro {
-  @extend %paragraph-intro;
-}
+@import 'base/all';
+@import 'section/all';

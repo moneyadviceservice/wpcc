@@ -17,11 +17,11 @@
 }
 
 .details__callout {
-  &-active {
+  &.details__callout--active {
     display: block;
   }
 
-  &-inactive {
+  &.details__callout--inactive {
     display: none;
   }
 }
@@ -38,29 +38,29 @@
   @include row(12);
 }
 
-.salary__amount,
-.salary__frequency {
+.details__salary-amount,
+.details__salary-frequency {
   @include column(6);
 }
 
-.salary__amount {
+.details__salary-amount {
   .form__label-heading {
     width: 200%;
   }
 }
 
-.salary__frequency {
+.details__salary-frequency {
   .form__label-heading {
     visibility: hidden;
   }
 }
 
-.calculate__heading,
-.calculate__intro {
+.details__calculate-heading,
+.details__calculate-intro {
   @include column(12);
 }
 
-.calculate__item {
+.details__calculate-item {
   @include column(12);
 
   @include respond-to($mq-m) {
