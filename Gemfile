@@ -21,7 +21,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'cucumber-rails', require: false
   gem 'capybara'
+  gem 'cucumber-rails', require: false
   gem 'site_prism'
 end

@@ -5,6 +5,5 @@ module UI
     end
 
     element :intro, '.intro'
-
   end
 end
