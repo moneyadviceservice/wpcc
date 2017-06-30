@@ -34,8 +34,10 @@ module Wpcc
           post :create,
                locale: 'en',
                age: 34,
-               gender: 'f',
-               salary: 30_000
+               gender: 'female',
+               salary: 30_000,
+               salary_frequency: 'monthly',
+               contribution: 'full'
           expect(response).to redirect_to your_contributions_path
         end
       end
@@ -46,7 +48,9 @@ module Wpcc
                locale: 'en',
                age: 34,
                gender: 'a',
-               salary: 30_000
+               salary: 30_000,
+               salary_frequency: 'monthly',
+               contribution: 'full'
           expect(response).to redirect_to wpcc_root_path(locale: 'en')
         end
       end

@@ -17,7 +17,7 @@ module Wpcc
     private
 
     def your_details_form_params
-      params.permit(:age, :salary, :gender)
+      params.permit(:age, :gender, :salary, :salary_frequency, :contribution)
     end
   end
 end
