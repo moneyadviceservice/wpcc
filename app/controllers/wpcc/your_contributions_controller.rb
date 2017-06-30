@@ -6,7 +6,7 @@ module Wpcc
 
     def new
       @contributions = Wpcc::ContributionsCalculator.calculate(
-        session[:salary], session[:contribution_preference]
+        30_000, 'full'
       )
       @your_contributions_form = Wpcc::YourContributionsForm.new(@contributions)
     end
@@ -17,7 +17,7 @@ module Wpcc
     private
 
     def your_contributions_params
-      params.permit()
+      params.permit(:employee_contribution, :employer_contribution)
     end
   end
 end
