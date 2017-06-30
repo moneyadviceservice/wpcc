@@ -1,9 +1,34 @@
 {
   "name": "wpcc",
   "version": "1.0.0",
+  "description": "Karma tests for WPCC",
+  "main": "app/assets/javascripts/wpcc/application.js",
   "dependencies": {},
   "devDependencies": {
     "bower": "^1.7.9",
-    "requirejs": "^2.2.0"
-  }
+    "chai": "^4.0.2",
+    "chai-jquery": "^2.0.0",
+    "karma-chai": "^0.1.0",
+    "karma-html2js-preprocessor": "^1.1.0",
+    "karma-mocha": "^1.3.0",
+    "karma-requirejs": "~0.2.0",
+    "karma-sinon": "^1.0.5",
+    "mocha": "^3.4.2",
+    "requirejs": "^2.2.0",
+    "sinon": "^2.3.6",
+    "sinon-chai": "^2.11.0"
+  },
+  "scripts": {
+    "test": "./node_modules/karma/bin/karma start spec/javascripts/karma.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moneyadviceservice/wpcc.git"
+  },
+  "author": "David Trussler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moneyadviceservice/wpcc/issues"
+  },
+  "homepage": "https://github.com/moneyadviceservice/wpcc#readme"
 }
