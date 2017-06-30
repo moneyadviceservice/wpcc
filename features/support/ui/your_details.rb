@@ -1,9 +1,8 @@
 require_relative 'ui'
 
 module UI
-  class YourDetails < SitePrism::Page
+  class YourDetailsPage < SitePrism::Page
     set_url '/'
-    set_url_matcher(/wpcc\/\d+\/your_details/)
 
     element :age, "input[name='your_details_form[age]']"
     element :genders, "select[name='your_details_form[gender]']"

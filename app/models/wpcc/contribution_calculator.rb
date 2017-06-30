@@ -4,8 +4,8 @@ module Wpcc
   class ContributionCalculator
     include ActiveModel::Model
 
-    UPPER_EARNINGS_THRESHOLD = 45_000
-    LOWER_EARNINGS_THRESHOLD = 5_876
+    THRESHOLDS_FILE = Wpcc::Engine.root.join('config', 'earning_thresholds.yml')
+    THRESHOLDS = YAML.load_file(THRESHOLDS_FILE)
 
     attr_accessor :salary, :contribution_preference
 
@@ -19,7 +19,7 @@ module Wpcc
         eligible_salary: eligible_salary,
         employee_percent: employee_percent,
         employer_percent: employer_percent
-      )  
+      )
     end
 
     def eligible_salary
@@ -34,5 +34,14 @@ module Wpcc
       raise NotImplementedError
     end
 
+    protected
+
+    def upper_earnings_threshold
+      THRESHOLDS['upper']
+    end
+
+    def lower_earnings_threshold
+      THRESHOLDS['lower']
+    end
   end
 end

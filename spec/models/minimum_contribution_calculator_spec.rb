@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Wpcc::MinimumContributionCalculator, type: :model do
-  subject do 
+  subject do
     described_class.new(salary, contribution_preference).calculate
   end
 
@@ -21,14 +21,14 @@ describe Wpcc::MinimumContributionCalculator, type: :model do
 
   describe '#eligible_salary' do
     context 'salary greater than Upper Earnings Threshold' do
-      let (:salary) { 50_000 }
+      let(:salary) { 50_000 }
 
       it 'returns the upper threshold minus the lower threshold' do
         expect(subject.eligible_salary).to eq(39_124)
       end
     end
     context 'salary less than or equal to Upper Earnings Threshold' do
-      let (:salary) { 45_000 }
+      let(:salary) { 45_000 }
 
       it 'returns salary minus the lower threshold' do
         expect(subject.eligible_salary).to eq(39_124)

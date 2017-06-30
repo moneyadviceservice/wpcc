@@ -5,25 +5,20 @@ module Wpcc
     protect_from_forgery
 
     def new
-      @contributions = Wpcc::CalculatorDelegator.delegate(
-        session[:salary], session[:contribution_preference]
+      @contribution = Wpcc::CalculatorDelegator.delegate(
+        session[:salary].to_i, session[:contribution_preference]
       )
-      @your_contributions_form = Wpcc::YourContributionsForm.new
-    end
 
-    def create
-      @your_contributions_form = Wpcc::YourContributionsForm.new(your_contributions_params)
-      if @your_contributions_form.valid?
-        redirect_to your_results_path
-      else
-        redirect_to new_your_contributions_path
-      end
+      @your_contributions_form = Wpcc::YourContributionsForm.new(
+        employee_percent: @contribution.employee_percent,
+        employer_percent: @contribution.employer_percent
+      )
     end
 
     private
 
     def your_contributions_params
-      params.permit(:employee_contribution, :employer_contribution)
+      params.permit(:employee_percent, :employer_percent)
     end
   end
 end

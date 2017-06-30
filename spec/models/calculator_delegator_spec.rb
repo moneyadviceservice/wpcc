@@ -4,11 +4,10 @@ describe Wpcc::CalculatorDelegator, type: :model do
   subject { described_class.new(salary, contribution_preference) }
 
   describe '#delegate' do
-
     context 'minimum contribution' do
       let(:salary) { 45_000 }
       let(:contribution_preference) { 'minimum' }
-      let(:minimum_contribution_calculator) do 
+      let(:minimum_contribution_calculator) do
         double('MinimumContributionCalculator')
       end
 
@@ -32,7 +31,7 @@ describe Wpcc::CalculatorDelegator, type: :model do
     context 'full contribution' do
       let(:salary) { 25_000 }
       let(:contribution_preference) { 'full' }
-      let(:full_contribution_calculator) do 
+      let(:full_contribution_calculator) do
         double('FullContributionCalculator')
       end
 

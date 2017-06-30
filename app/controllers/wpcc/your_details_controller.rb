@@ -8,7 +8,6 @@ module Wpcc
 
     def create
       @your_details_form = YourDetailsForm.new(your_details_form_params)
-
       if @your_details_form.valid?
         create_session
         redirect_to new_your_contribution_path

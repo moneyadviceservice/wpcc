@@ -11,8 +11,8 @@ module Wpcc
     end
 
     def employer_percent
-      return 0 if salary < LOWER_EARNINGS_THRESHOLD
-      return 1 if salary >= LOWER_EARNINGS_THRESHOLD
+      return 0 if salary < lower_earnings_threshold
+      return 1 if salary >= lower_earnings_threshold
     end
   end
 end

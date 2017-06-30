@@ -3,8 +3,8 @@ require 'active_model'
 module Wpcc
   class MinimumContributionCalculator < ContributionCalculator
     def eligible_salary
-      return upper_less_lower_limit if salary > UPPER_EARNINGS_THRESHOLD
-      return salary_less_lower_limit if salary <= UPPER_EARNINGS_THRESHOLD
+      return upper_less_lower_limit if salary > upper_earnings_threshold
+      return salary_less_lower_limit if salary <= upper_earnings_threshold
     end
 
     def employee_percent
@@ -18,12 +18,11 @@ module Wpcc
     private
 
     def upper_less_lower_limit
-      UPPER_EARNINGS_THRESHOLD - LOWER_EARNINGS_THRESHOLD
+      upper_earnings_threshold - lower_earnings_threshold
     end
 
     def salary_less_lower_limit
-      salary - LOWER_EARNINGS_THRESHOLD
+      salary - lower_earnings_threshold
     end
-
   end
 end

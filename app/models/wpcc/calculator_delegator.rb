@@ -1,11 +1,6 @@
-require 'active_model'
-
 module Wpcc
   class CalculatorDelegator
     include ActiveModel::Model
-
-    UPPER_EARNINGS_THRESHOLD = 45_000
-    LOWER_EARNINGS_THRESHOLD = 5_876
 
     attr_accessor :salary, :contribution_preference
 
@@ -32,6 +27,6 @@ module Wpcc
     CONTRIBUTION_PREFERENCE_TO_CLASS = {
       'minimum' => MinimumContributionCalculator,
       'full' => FullContributionCalculator
-    }
+    }.freeze
   end
 end

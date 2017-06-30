@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Wpcc::FullContributionCalculator, type: :model do
-  subject do 
+  subject do
     described_class.new(salary, contribution_preference).calculate
   end
 
@@ -39,14 +39,13 @@ describe Wpcc::FullContributionCalculator, type: :model do
         expect(subject.employer_percent).to eq(0)
       end
     end
-    
+
     context 'salary greater than or equal to Lower Earnings Threshold' do
       let(:salary) { 5_876 }
 
       it 'returns 1' do
         expect(subject.employer_percent).to eq(1)
       end
-    end 
+    end
   end
-
 end
