@@ -43,23 +43,23 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     var age = this.$ageField.val();
     var gender = this.$genderSelect.val();
 
-    this.$callout_lt16.addClass('details__callout-inactive');
-    this.$callout_16to74.addClass('details__callout-inactive');
-    this.$callout_gt74.addClass('details__callout-inactive');
+    this.$callout_lt16.addClass('details__callout--inactive');
+    this.$callout_16to74.addClass('details__callout--inactive');
+    this.$callout_gt74.addClass('details__callout--inactive');
     this.$submit.attr('disabled', false);
 
     if (age && gender) {
       if (age < 16) {
-        this.$callout_lt16.removeClass('details__callout-inactive');
-        this.$callout_lt16.addClass('details__callout-active');
+        this.$callout_lt16.removeClass('details__callout--inactive');
+        this.$callout_lt16.addClass('details__callout--active');
         this.$submit.attr('disabled', true);
       } else if (age > 74) {
-        this.$callout_gt74.removeClass('details__callout-inactive');
-        this.$callout_gt74.addClass('details__callout-active');
+        this.$callout_gt74.removeClass('details__callout--inactive');
+        this.$callout_gt74.addClass('details__callout--active');
         this.$submit.attr('disabled', true);
       } else if (age > 15 && age < 22 || age > 64 && gender == 'm' || age > 63 && gender == 'f') {
-        this.$callout_16to74.removeClass('details__callout-inactive');
-        this.$callout_16to74.addClass('details__callout-active');
+        this.$callout_16to74.removeClass('details__callout--inactive');
+        this.$callout_16to74.addClass('details__callout--active');
       }
     }
   }
