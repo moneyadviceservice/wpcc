@@ -19,18 +19,19 @@ module Wpcc
     end
 
     def delegate
-      case contribution_preference
-      when 'minimum'
-        then MinimumContributionCalculator.new(
-          salary, contribution_preference
-        ).calculate
-      when 'full'
-        then FullContributionCalculator.new(
-          salary, contribution_preference
-        ).calculate
-      else
-        raise 'scream'
-      end
+      contribution_klass.new(salary,
+                             contribution_preference).calculate
     end
+
+    private
+
+    def contribution_klass
+      CONTRIBUTION_PREFERENCE_TO_CLASS[contribution_preference]
+    end
+
+    CONTRIBUTION_PREFERENCE_TO_CLASS = {
+      'minimum' => MinimumContributionCalculator,
+      'full' => FullContributionCalculator
+    }
   end
 end

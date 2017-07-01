@@ -4,6 +4,7 @@ describe Wpcc::CalculatorDelegator, type: :model do
   subject { described_class.new(salary, contribution_preference) }
 
   describe '#delegate' do
+
     context 'minimum contribution' do
       let(:salary) { 45_000 }
       let(:contribution_preference) { 'minimum' }
@@ -21,6 +22,10 @@ describe Wpcc::CalculatorDelegator, type: :model do
           .to receive(:calculate)
 
         subject.delegate
+      end
+
+      it 'returns a YourContribution object' do
+        expect(subject.delegate).to be_a Wpcc::YourContribution
       end
     end
 
@@ -41,6 +46,10 @@ describe Wpcc::CalculatorDelegator, type: :model do
           .to receive(:calculate)
 
         subject.delegate
+      end
+
+      it 'returns a YourContribution object' do
+        expect(subject.delegate).to be_a Wpcc::YourContribution
       end
     end
   end
