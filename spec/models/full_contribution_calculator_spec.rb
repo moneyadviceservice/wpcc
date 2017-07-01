@@ -48,4 +48,5 @@ describe Wpcc::FullContributionCalculator, type: :model do
       end
     end
   end
+
 end
