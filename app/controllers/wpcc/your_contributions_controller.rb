@@ -6,7 +6,7 @@ module Wpcc
 
     def new
       @contributions = Wpcc::CalculatorDelegator.delegate(
-        30_000, 'full'
+        session[:salary], session[:contribution_preference]
       )
       @your_contributions_form = Wpcc::YourContributionsForm.new
     end
