@@ -58,6 +58,10 @@ cy:
       input_of_label: o
       calculate_button: Cyfrifwch eich cyfraniadau
       employee_contribution_warning: Y cyfraniad uchaf gewch chi ei roi mewn pensiwn fesul blwyddyn yw 100% o’ch cyflog neu £40,000, pa bynnag un sydd leiaf.
+      employee:
+        label: Employee contribution
+      employer:
+        label: Employer contribution
 
     results:
       title: Eich canlyniadau
