@@ -4,7 +4,6 @@ describe Wpcc::CalculatorDelegator, type: :model do
   subject { described_class.new(salary, contribution_preference) }
 
   describe '#delegate' do
-
     context 'minimum contribution' do
       let(:salary) { 45_000 }
       let(:contribution_preference) { 'minimum' }
