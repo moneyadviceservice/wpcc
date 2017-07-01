@@ -3,7 +3,14 @@ module Wpcc
     routes { Wpcc::Engine.routes }
 
     describe '#new' do
-      it 'displays the form for entering contribution percentages' do
+      let(:salary) { 30_000 }
+      let(:employer_contribution) { 'full' }
+      
+      it 'instantiates the YourContributions form' do
+        expect(Wpcc::CalculatorDelegator)
+        .to receive(:delegate)
+        .with(salary, employer_contribution)
+        expect(Wpcc::YourContributionsForm).to receive(:new)
         get :new
 
         expect(response).to render_template(:new)

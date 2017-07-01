@@ -1,8 +1,7 @@
 require 'spec_helper'
 
 describe Wpcc::YourContributionsForm, type: :model do
-  subject { described_class.new(contributions) }
-  let(:contributions) { {} }
+  subject { described_class.new }
 
   describe 'validations' do
     it { should validate_inclusion_of(:employee_contribution).in_range (0..100) }

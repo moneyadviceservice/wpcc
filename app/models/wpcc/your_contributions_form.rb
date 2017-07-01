@@ -9,7 +9,7 @@ module Wpcc
     validates :employee_contribution, inclusion: { in: 0..100 }
     validates :employer_contribution, inclusion: { in: 0..100 }
 
-    def initialize(contributions)
+    def initialize
     end
 
   end
