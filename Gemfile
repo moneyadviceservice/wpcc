@@ -23,6 +23,7 @@ end
 group :test do
   gem 'capybara'
   gem 'cucumber-rails', require: false
+  gem 'simplecov', require: false
   gem 'site_prism'
 end
 
