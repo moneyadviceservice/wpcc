@@ -1,11 +1,5 @@
 en:
-  wpcc:
-    activemodel:
-      attributes:
-        wpcc/your_details_form/gender:
-          female: "Female"
-          male: "Male"
-
+  wpcc:   
     title: Workplace pension contribution calculator
     intro: It is now law that most employees must be enrolled into a workplace pension scheme by their employer. Both you and your employer are required to make contributions. This calculator will work out the amount of contributions.
 
@@ -27,16 +21,23 @@ en:
         validation: Please enter your salary
         frequency:
           label: Frequency
+
+      options:
+        salary_frequency:
           year: per Year
           month: per Month
           fourweeks: per 4 weeks
           week: per Week
+        gender:
+          female: Female
+          male: Male
+        employer_contribution:
+          full: My employer makes contributions on my full salary
+          minimum: My employer makes contributions on part of my salary (if you're not sure select this option)
 
       calculate:
         legend: Choose how your employer makes contributions
         details: Your employer chooses whether to make contribution on part of the salary or your full salary. To find this out, you will need to check with your employer.
-        minimum: My employer makes contributions on part of my salary (if you're not sure select this option)
-        full: My employer makes contributions on my full salary
 
       next: Next
       prompt: Please choose
