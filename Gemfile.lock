@@ -50,16 +50,43 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.5.1)
+      public_suffix (~> 2.0, >= 2.0.2)
     arel (6.0.4)
     builder (3.2.3)
+    capybara (2.14.3)
+      addressable
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
     coderay (1.1.1)
     concurrent-ruby (1.0.5)
+    cucumber (2.4.0)
+      builder (>= 2.1.2)
+      cucumber-core (~> 1.5.0)
+      cucumber-wire (~> 0.0.1)
+      diff-lcs (>= 1.1.3)
+      gherkin (~> 4.0)
+      multi_json (>= 1.7.5, < 2.0)
+      multi_test (>= 0.1.2)
+    cucumber-core (1.5.0)
+      gherkin (~> 4.0)
+    cucumber-rails (1.5.0)
+      capybara (>= 1.1.2, < 3)
+      cucumber (>= 1.3.8, < 4)
+      mime-types (>= 1.17, < 4)
+      nokogiri (~> 1.5)
+      railties (>= 4, < 5.2)
+    cucumber-wire (0.0.1)
     diff-lcs (1.3)
     dough-ruby (5.24.1.290)
       activesupport
       rails (>= 3.2, < 5)
       sass-rails
     erubis (2.7.0)
+    gherkin (4.1.3)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     i18n (0.8.4)
@@ -77,6 +104,8 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.2.0)
     minitest (5.10.2)
+    multi_json (1.12.1)
+    multi_test (0.1.2)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
     pry (0.10.4)
@@ -85,6 +114,7 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.6)
       pry (>= 0.10.4)
+    public_suffix (2.0.5)
     rack (1.6.8)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -139,6 +169,9 @@ GEM
       tilt (>= 1.1, < 3)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
+    site_prism (2.9)
+      addressable (>= 2.3.3, < 3.0)
+      capybara (>= 2.1, < 3.0)
     slop (3.6.0)
     sprockets (3.7.1)
       concurrent-ruby (~> 1.0)
@@ -155,18 +188,23 @@ GEM
     turbolinks-source (5.0.3)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
+    xpath (2.1.0)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   bowndler!
+  capybara
+  cucumber-rails
   jquery-rails
   pry-rails
   rails (~> 4.2.7)
   rspec-rails (~> 3.5)
   sass-rails
   shoulda-matchers (~> 3.1)
+  site_prism
   turbolinks
   wpcc!
 
