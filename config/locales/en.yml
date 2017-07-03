@@ -45,6 +45,18 @@ en:
       callout__16to74: Your employer will not automatically enrol you into a pension but you can choose to join. If you do so, your employer will make contributions.
       callout__gt74: You are not eligible to join a workplace pension because you are above the maximum age.
 
+    contributions:
+      title: Your contributions
+      description: Contributions will be made on your eligible salary of £££ per year. This is your salary minus the National Insurance threshold of £££.
+      description_tooltip: This is the part of your annual pay that will be used to calculate your pension contribution under automatic enrolment. It is your earnings before tax (up to a maximum limit of £45000 per year) – less the lower earnings threshold of £5,876.
+      your_contribution_title: Enter your contribution
+      your_contribution_tip: The legal minimum is 1%
+      employer_contribution_title: Enter your employer’s contribution
+      employer_contribution_tip: The legal minimum is 1%
+      input_of_label: of
+      calculate_button: Calculate your contributions
+      employee_contribution_warning: The maximum you can contribute to a pension per year is 100% of your salary or £40,000, whichever is lower.
+
     results:
       description: |
         Minimum pension contribution rates will increase in stages until April 2019.
