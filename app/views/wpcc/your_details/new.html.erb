@@ -1,6 +1,6 @@
 <section class="details" data-dough-component="ConditionalMessaging">
-  <%= form_for(:your_details_form, url: your_details_path) do |f| %>
-    <h2 class="wpcc__heading">1. <%= t('wpcc.details.title') %></h2>
+  <%= form_for(@your_details_form, url: your_details_path) do |f| %>
+    <h2 class="details__heading">1. <%= t('wpcc.details.title') %></h2>
     <div class="details__row">
       <div class="details__field">
         <div class="form__row">
@@ -22,7 +22,7 @@
       <div class="details__field">
         <div class="form__row">
           <%= f.label :gender, t('wpcc.details.gender.label'), class: 'form__label-heading' %>
-          <%= f.select :gender, options_for_select(Wpcc::YourDetailsForm::GENDERS), {prompt: t('wpcc.details.prompt')}, 'data-dough-gender-select': true %>
+          <%= f.select :gender, options_for_select(@your_details_form.gender_options), {prompt: t('wpcc.details.prompt')}, 'data-dough-gender-select': true %>
         </div>
       </div>
 
@@ -65,8 +65,8 @@
             <%= f.text_field :salary %>
           </div>
           <div class="details__salary-frequency">
-            <%= f.label :frequency, t('wpcc.details.salary.frequency.label'), class: 'form__label-heading' %>
-            <%= f.select(:frequency, options_for_select([[t('wpcc.details.salary.frequency.year')], [t('wpcc.details.salary.frequency.month')], [t('wpcc.details.salary.frequency.fourweeks')], [t('wpcc.details.salary.frequency.week')]])) %>
+            <%= f.label :salary_frequency, t('wpcc.details.salary.frequency.label'), class: 'form__label-heading' %>
+            <%= f.select(:salary_frequency, options_for_select(@your_details_form.salary_frequency_options)) %>
           </div>
         </div>
       </div>
@@ -88,13 +88,13 @@
           <p class="details__calculate-intro"><%= t('wpcc.details.calculate.details') %></p>
 
           <div class="form__group-item details__calculate-item">
-            <%= f.radio_button(:calculate, 'minimum') %>
-            <%= f.label(:calculate_minimum, t('wpcc.details.calculate.minimum')) %>
+            <%= f.radio_button(:employer_contribution, 'minimum') %>
+            <%= f.label(:employer_contribution_minimum, t('wpcc.details.options.employer_contribution.minimum')) %>
           </div>
 
           <div class="form__group-item details__calculate-item">
-            <%= f.radio_button(:calculate, 'full') %>
-            <%= f.label(:calculate_full, t('wpcc.details.calculate.full')) %>
+            <%= f.radio_button(:employer_contribution, 'full') %>
+            <%= f.label(:employer_contribution_full, t('wpcc.details.options.employer_contribution.full')) %>
           </div>
         </fieldset>
       </div>
