@@ -8,4 +8,5 @@ spec/dummy/tmp/
 
 /vendor/assets/bower_components
 /node_modules
+*.gem
 /bower.json
