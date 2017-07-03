@@ -22,7 +22,9 @@ module Wpcc
     def schedule
       periods.map do |period, period_percents|
         period_percents.symbolize_keys!
-        if period_percents[:employee_percent] && period_percents[:employer_percent]
+        if period_percents[:employee_percent] &&
+           period_percents[:employer_percent]
+
           calculate_contribution(period,
                                  period_percents[:employee_percent],
                                  period_percents[:employer_percent],
