@@ -25,3 +25,7 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'site_prism'
 end
+
+group :build do
+  gem 'rubocop'
+end
