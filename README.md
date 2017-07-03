@@ -45,7 +45,7 @@ implement internationalisation.
   end
 ```
 
-The main application.js requies the component loader to be present in order to 
+The main application.js requies the component loader to be present in order to
 load the dough components
 
 ```
@@ -56,7 +56,7 @@ require(['wpccConfig'], function() {
 });
 ```
 
-In order for the component loader to function correctly, the parent_template  
+In order for the component loader to function correctly, the parent_template
 is required to set up the responsibility of the main app to render the html,
 head and body tags:
 
@@ -68,7 +68,7 @@ end
 helper_method :parent_template
 ```
 
-The WPCC engine layout uses content_for tags for both the head 
+The WPCC engine layout uses content_for tags for both the head
 and main content, and also the and instruction to render the parent template.
 
 ``app/views/layouts/wpcc/engine.html.erb``
@@ -114,6 +114,11 @@ spec/dummy/app/views/layouts/application.html.erb
 </html>
 ```
 
+## Tests
+When running Rspec, SimpleCov will also measure the code coverage with a minimum requirement of 85% coverage.
+This value will be displayed at the end of your Rspec tests.
+
+To view the coverage output open `coverage/index.html` in your browser.
 
 ## License
 

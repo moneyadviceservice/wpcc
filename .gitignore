@@ -10,3 +10,4 @@ spec/dummy/tmp/
 /node_modules
 *.gem
 /bower.json
+coverage
