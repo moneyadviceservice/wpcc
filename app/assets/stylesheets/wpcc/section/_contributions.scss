@@ -3,7 +3,7 @@
   @extend %clearfix;
   clear: both;
 
-  @include respond-to($mq-m) {
+  @include respond-to($mq-l) {
     @include column(8);
   }
 }

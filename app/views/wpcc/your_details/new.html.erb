@@ -88,13 +88,13 @@
           <p class="details__calculate-intro"><%= t('wpcc.details.calculate.details') %></p>
 
           <div class="form__group-item details__calculate-item">
-            <%= f.radio_button(:employer_contribution, 'minimum') %>
-            <%= f.label(:employer_contribution_minimum, t('wpcc.details.options.employer_contribution.minimum')) %>
+            <%= f.radio_button(:employer_contribution, 'minimum', class: 'details__calculate-item-select') %>
+            <%= f.label(:employer_contribution_minimum, t('wpcc.details.options.employer_contribution.minimum'), class: 'details__calculate-item-label') %>
           </div>
 
           <div class="form__group-item details__calculate-item">
-            <%= f.radio_button(:employer_contribution, 'full') %>
-            <%= f.label(:employer_contribution_full, t('wpcc.details.options.employer_contribution.full')) %>
+            <%= f.radio_button(:employer_contribution, 'full', class: 'details__calculate-item-select') %>
+            <%= f.label(:employer_contribution_full, t('wpcc.details.options.employer_contribution.full'), class: 'details__calculate-item-label') %>
           </div>
         </fieldset>
       </div>

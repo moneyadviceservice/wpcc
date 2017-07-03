@@ -1,4 +1,10 @@
-.details {}
+.details {
+  @include column(12);
+
+  @include respond-to($mq-l) {
+    @include column(8);
+  }
+}
 
 .details__row {
   @include row(12);
@@ -58,12 +64,35 @@
 .details__calculate-heading,
 .details__calculate-intro {
   @include column(12);
+  color: $color-black;
 }
 
 .details__calculate-item {
   @include column(12);
-
+  position: relative;
+  
   @include respond-to($mq-m) {
     @include column(6);
   }
+
+  input[type="radio"]:checked + label {
+    background-color: $color-green-pale;
+    border: 1px solid $color-green-medium;
+  }
+}
+
+.details__calculate-item-select {
+  position: absolute;
+  left: 50%;
+  top: $baseline-unit*2;
+}
+
+.details__calculate-item-label {
+  border: 1px solid $color-grey-palest;
+  background-color: $color-white;
+  padding: $baseline-unit*6 $baseline-unit*2 $baseline-unit*2;
+  display: block;
+  text-align: center;
+
+  
 }
