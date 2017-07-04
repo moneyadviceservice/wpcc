@@ -20,21 +20,19 @@ module Wpcc
     end
 
     def schedule
-      periods.map do |period, period_percents|
-        period_percents.symbolize_keys!
-        if period_percents[:employee_percent] &&
-           period_percents[:employer_percent]
+      periods.map do |period, percents|
+        percents.symbolize_keys!
+        employee_percentage = percents[:employee_percent] || employee_percent
+        employer_percentage = percents[:employer_percent] || employer_percent
 
-          calculate_contribution(period,
-                                 period_percents[:employee_percent],
-                                 period_percents[:employer_percent],
-                                 period_percents[:tax_relief_percent])
-        else
-          calculate_contribution(period,
-                                 employee_percent,
-                                 employer_percent,
-                                 period_percents[:tax_relief_percent])
-        end
+        Wpcc::PeriodContributionCalculator.new(
+          name: period.to_s,
+          employee_percent: employee_percentage,
+          employer_percent: employer_percentage,
+          eligible_salary: eligible_salary,
+          salary_frequency: salary_frequency,
+          tax_relief_percent: percents[:tax_relief_percent]
+        ).contribution
       end
     end
 
@@ -42,21 +40,6 @@ module Wpcc
 
     def periods
       PERIODS
-    end
-
-    def calculate_contribution(period,
-                               employee_percent,
-                               employer_percent,
-                               tax_relief_percent)
-      period_args = {
-        name: period.to_s,
-        employee_percent: employee_percent,
-        employer_percent: employer_percent,
-        tax_relief_percent: tax_relief_percent
-      }
-      Wpcc::PeriodContributionCalculator.new(eligible_salary,
-                                             salary_frequency,
-                                             period_args).contribution
     end
   end
 end

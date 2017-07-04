@@ -1,19 +1,13 @@
 describe Wpcc::PeriodContributionCalculator, type: :model do
   let(:period_contribution_calculator) do
     described_class.new(
-      eligible_salary,
-      salary_frequency,
-      period_args
-    )
-  end
-
-  let(:period_args) do
-    {
       name: 'some period',
       employee_percent: employee_percent,
       employer_percent: employer_percent,
-      tax_relief_percent: 20
-    }
+      tax_relief_percent: 20,
+      eligible_salary: eligible_salary,
+      salary_frequency: salary_frequency
+    )
   end
 
   describe '#contribution' do
