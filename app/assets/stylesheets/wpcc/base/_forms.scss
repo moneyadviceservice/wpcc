@@ -1,0 +1,10 @@
+select {
+  height: 30px;
+  border: 1px solid $color-grey-primary;
+  padding: 0 $baseline-unit*5 0 $baseline-unit*2;
+  background: $color-grey-concrete image-url("wpcc/triangle.png") right 10px center no-repeat;
+  background-size: 15px 7px;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  cursor: pointer;
+}
