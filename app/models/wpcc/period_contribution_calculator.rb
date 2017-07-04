@@ -1,20 +1,13 @@
 module Wpcc
   class PeriodContributionCalculator
-    attr_reader :eligible_salary,
-                :salary_frequency,
-                :employee_percent,
-                :employer_percent,
-                :tax_relief_percent,
-                :name
+    include ActiveModel::Model
 
-    def initialize(eligible_salary, salary_frequency, period_args)
-      @name = period_args[:name]
-      @eligible_salary = eligible_salary
-      @salary_frequency = salary_frequency
-      @employee_percent = period_args[:employee_percent]
-      @employer_percent = period_args[:employer_percent]
-      @tax_relief_percent = period_args[:tax_relief_percent]
-    end
+    attr_accessor :eligible_salary,
+                  :salary_frequency,
+                  :employee_percent,
+                  :employer_percent,
+                  :tax_relief_percent,
+                  :name
 
     def contribution
       PeriodContribution.new(

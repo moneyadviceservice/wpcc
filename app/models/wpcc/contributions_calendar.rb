@@ -6,7 +6,7 @@ module Wpcc
                 :employer_percent
 
     PERIODS_FILE = Wpcc::Engine.root.join('config', 'contribution_periods.yml')
-    PERIODS = YAML.load_file(PERIODS_FILE)
+    PERIODS = HashWithIndifferentAccess.new(YAML.load_file(PERIODS_FILE))
 
     def initialize(eligible_salary:,
                    employee_percent:,
@@ -20,43 +20,41 @@ module Wpcc
     end
 
     def schedule
-      periods.map do |period, period_percents|
-        period_percents.symbolize_keys!
-        if period_percents[:employee_percent] &&
-           period_percents[:employer_percent]
+      periods_above_user_contributions.map do |period, percents|
+        employee_percentage = percents[:employee_percent] || employee_percent
+        employer_percentage = percents[:employer_percent] || employer_percent
 
-          calculate_contribution(period,
-                                 period_percents[:employee_percent],
-                                 period_percents[:employer_percent],
-                                 period_percents[:tax_relief_percent])
-        else
-          calculate_contribution(period,
-                                 employee_percent,
-                                 employer_percent,
-                                 period_percents[:tax_relief_percent])
-        end
+        Wpcc::PeriodContributionCalculator.new(
+          name: period.to_s,
+          employee_percent: employee_percentage,
+          employer_percent: employer_percentage,
+          eligible_salary: eligible_salary,
+          salary_frequency: salary_frequency,
+          tax_relief_percent: percents[:tax_relief_percent]
+        ).contribution
       end
     end
 
     private
 
-    def periods
-      PERIODS
+    def periods_above_user_contributions
+      periods.select do |_, percents|
+        current_period?(percents) ||
+          contribution_below_legal_minimum?(percents)
+      end
     end
 
-    def calculate_contribution(period,
-                               employee_percent,
-                               employer_percent,
-                               tax_relief_percent)
-      period_args = {
-        name: period.to_s,
-        employee_percent: employee_percent,
-        employer_percent: employer_percent,
-        tax_relief_percent: tax_relief_percent
-      }
-      Wpcc::PeriodContributionCalculator.new(eligible_salary,
-                                             salary_frequency,
-                                             period_args).contribution
+    def current_period?(percents)
+      percents[:employee_percent].blank?
+    end
+
+    def contribution_below_legal_minimum?(percents)
+      employee_percent < percents[:employee_percent] ||
+        employer_percent < percents[:employer_percent]
+    end
+
+    def periods
+      PERIODS
     end
   end
 end
