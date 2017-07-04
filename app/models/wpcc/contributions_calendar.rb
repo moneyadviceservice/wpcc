@@ -20,7 +20,7 @@ module Wpcc
     end
 
     def schedule
-      periods.map do |period, percents|
+      periods_above_user_contributions.map do |period, percents|
         percents.symbolize_keys!
         employee_percentage = percents[:employee_percent] || employee_percent
         employer_percentage = percents[:employer_percent] || employer_percent
@@ -37,6 +37,14 @@ module Wpcc
     end
 
     private
+
+    def periods_above_user_contributions
+      periods.select do |_, percents|
+        percents[:employee_percent].blank? ||
+        percents[:employee_percent] > employee_percent &&
+        percents[:employer_percent] > employer_percent
+      end
+    end
 
     def periods
       PERIODS
