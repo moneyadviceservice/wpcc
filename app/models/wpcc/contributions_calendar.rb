@@ -39,10 +39,18 @@ module Wpcc
 
     def periods_above_user_contributions
       periods.select do |_, percents|
-        percents[:employee_percent].blank? ||
-          percents[:employee_percent] > employee_percent &&
-            percents[:employer_percent] > employer_percent
+        current_period?(percents) ||
+          contribution_below_legal_minimum?(percents)
       end
+    end
+
+    def current_period?(percents)
+      percents[:employee_percent].blank?
+    end
+
+    def contribution_below_legal_minimum?(percents)
+      employee_percent < percents[:employee_percent] ||
+        employer_percent < percents[:employer_percent]
     end
 
     def periods

@@ -92,14 +92,37 @@ describe Wpcc::ContributionsCalendar, type: :model do
               tax_relief_percent: 20,
               employee_percent: 3,
               employer_percent: 4
+            },
+            period_onwards: {
+              tax_relief_percent: 20,
+              employee_percent: 5,
+              employer_percent: 4
             }
           }
         end
-        let(:employee_percent) { 3 }
-        let(:employer_percent) { 4 }
 
-        it 'excludes lower contribution periods' do
-          expect(schedule.size).to eq(1)
+        before do
+          allow(contributions_calendar)
+            .to receive(:periods)
+            .and_return(next_period)
+        end
+
+        context 'when one period is less than user percents' do
+          let(:employee_percent) { 3 }
+          let(:employer_percent) { 4 }
+
+          it 'excludes lower contribution period' do
+            expect(schedule.size).to eq(2)
+          end
+        end
+
+        context 'when two periods is less than user percents' do
+          let(:employee_percent) { 10 }
+          let(:employer_percent) { 10 }
+
+          it 'excludes lower contribution periods' do
+            expect(schedule.size).to eq(1)
+          end
         end
       end
     end
