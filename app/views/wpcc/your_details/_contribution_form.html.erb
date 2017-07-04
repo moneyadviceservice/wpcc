@@ -1,0 +1,31 @@
+<section class="contributions">
+  <h2 class="wpcc__heading">2. <%= t('wpcc.contributions.title') %></h2>
+  <div class="contributions__row">
+    <p><%= t('wpcc.contributions.description') %></p>
+    <p>
+      <p><%= t('wpcc.contributions.description_tooltip') %></p>
+    </p>
+  </div>
+  <div class="contributions__row">
+    <div class="contributions__source contributions__source--employer">
+      <h3 class="contributions__source-title"><%= t('wpcc.contributions.your_contribution_title') %></h3>
+      <p><%= t('wpcc.contributions.your_contribution_tip') %></p>
+      <input placeholder="1" type="number" class="contributions__source-input" />%
+      <%= t('wpcc.contributions.input_of_label') %>
+      <span>[[Entered Salary]]</span>
+    </div>
+    <div class="contributions__source contributions__source--employee">
+      <h3 class="contributions__source-title"><%= t('wpcc.contributions.employer_contribution_title') %></h3>
+      <p><%= t('wpcc.contributions.employer_contribution_tip') %></p>
+      <input placeholder="1" type="number" class="contributions__source-input" />%
+      <%= t('wpcc.contributions.input_of_label') %>
+      <span>[[Entered Salary]]</span>
+    </div>
+  </div>
+  <div class="contributions__row">
+    <div class="callout">
+      <p><%= t('wpcc.contributions.employee_contribution_warning') %></p>
+    </div>
+    <button class="button button--primary"><%= t('wpcc.contributions.calculate_button') %></button>
+  </div>
+</section>
