@@ -120,6 +120,19 @@ This value will be displayed at the end of your Rspec tests.
 
 To view the coverage output open `coverage/index.html` in your browser.
 
+## Code Quality
+### Rubocop
+The build script has been set up to fail if the code quality does not meet expectations as set out in the standard Rubocop file. The code quality standards have been set out in this file`.rubocop.yml`, which is within this project.
+
+#### Run Rubocop on all applicable files
+Run Rubopcop locally with this command, `$ bundle exec rubocop .`
+
+#### Run Rubocop on a single file
+`$ bundle exec rubocop app/models/wpcc/your_details_form.rb`
+
+#### Run Rubocop over a directory
+`$ bundle exec rubocop app/`
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).

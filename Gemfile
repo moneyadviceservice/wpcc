@@ -11,6 +11,7 @@ ruby '2.2.5'
 gem 'bowndler', git: 'https://github.com/moneyadviceservice/bowndler'
 gem 'jquery-rails'
 gem 'rails', '~> 4.2.7'
+gem 'rubocop', '~> 0.49.1', require: false
 gem 'sass-rails'
 gem 'turbolinks'
 
@@ -25,8 +26,4 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'simplecov', require: false
   gem 'site_prism'
-end
-
-group :build do
-  gem 'rubocop'
 end
