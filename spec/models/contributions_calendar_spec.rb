@@ -82,7 +82,7 @@ describe Wpcc::ContributionsCalendar, type: :model do
         end
       end
 
-      context 'when the user employee percent and employer percent is greatersor equal than the period percents' do
+      context 'when contribution periods less than user percents' do
         let(:next_period) do
           {
             current: {
@@ -98,7 +98,7 @@ describe Wpcc::ContributionsCalendar, type: :model do
         let(:employee_percent) { 3 }
         let(:employer_percent) { 4 }
 
-        it 'ignores period percents less than user percents' do
+        it 'excludes lower contribution periods' do
           expect(schedule.size).to eq(1)
         end
       end
