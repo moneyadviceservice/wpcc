@@ -18,6 +18,10 @@
   }
 }
 
+.details__field-label {
+  font-weight: 700;
+}
+
 .details__callouts {
   @include column(12);
 }
