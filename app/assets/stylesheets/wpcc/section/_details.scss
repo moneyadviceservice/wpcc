@@ -1,13 +1,15 @@
-.details {
-  @include column(12);
+.details__content {
 
-  @include respond-to($mq-l) {
-    @include column(8);
-  }
 }
 
 .details__row {
-  @include row(12);
+  @extend %clearfix;
+  clear: both;
+
+  @include respond-to($mq-l) {
+    @include column(8);
+    margin: 0;
+  }
 }
 
 .details__field {
