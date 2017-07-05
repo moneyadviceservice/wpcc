@@ -1,7 +1,7 @@
 module Wpcc
   class YourContributionsController < EngineController
-    def new
-      
-    end
+    protect_from_forgery
+
+    def new; end
   end
 end

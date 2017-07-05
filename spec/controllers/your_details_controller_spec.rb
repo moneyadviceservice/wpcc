@@ -33,11 +33,13 @@ module Wpcc
         it 'stores the form input in a session' do
           post :create,
                locale: 'en',
-               age: 34,
-               gender: 'female',
-               salary: 30_000,
-               salary_frequency: 'month',
-               contribution_preference: 'full'
+               your_details_form: {
+                 age: 34,
+                 gender: 'female',
+                 salary: 30_000,
+                 salary_frequency: 'month',
+                 contribution_preference: 'full'
+               }
 
           expect(session['age']).to eq('34')
           expect(session['gender']).to eq('female')
@@ -45,16 +47,18 @@ module Wpcc
           expect(session['salary_frequency']).to eq('month')
           expect(session['contribution_preference']).to eq('full')
         end
-        
+
         it 'redirects to step2 - your contributions section' do
           post :create,
                locale: 'en',
-               age: 34,
-               gender: 'female',
-               salary: 30_000,
-               salary_frequency: 'month',
-               contribution_preference: 'full'
-          expect(response).to redirect_to your_contributions_path
+               your_details_form: {
+                 age: 34,
+                 gender: 'female',
+                 salary: 30_000,
+                 salary_frequency: 'month',
+                 contribution_preference: 'full'
+               }
+          expect(response).to redirect_to new_your_contribution_path
         end
       end
 
@@ -62,11 +66,13 @@ module Wpcc
         it 'redirects to the start page' do
           post :create,
                locale: 'en',
-               age: 34,
-               gender: 'a',
-               salary: 30_000,
-               salary_frequency: 'month',
-               contribution_preference: 'full'
+               your_details_form: {
+                 age: 34,
+                 gender: 'a',
+                 salary: 30_000,
+                 salary_frequency: 'month',
+                 contribution_preference: 'full'
+               }
           expect(response).to redirect_to wpcc_root_path(locale: 'en')
         end
       end

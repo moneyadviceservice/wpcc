@@ -33,6 +33,5 @@ module Wpcc
         end
       end
     end
-  
   end
 end
