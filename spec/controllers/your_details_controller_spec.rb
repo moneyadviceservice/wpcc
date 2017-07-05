@@ -30,6 +30,22 @@ module Wpcc
 
     describe '#create' do
       context 'success' do
+        it 'stores the form input in a session' do
+          post :create,
+               locale: 'en',
+               age: 34,
+               gender: 'female',
+               salary: 30_000,
+               salary_frequency: 'month',
+               contribution_preference: 'full'
+
+          expect(session['age']).to eq('34')
+          expect(session['gender']).to eq('female')
+          expect(session['salary']).to eq('30000')
+          expect(session['salary_frequency']).to eq('month')
+          expect(session['contribution_preference']).to eq('full')
+        end
+        
         it 'redirects to step2 - your contributions section' do
           post :create,
                locale: 'en',
@@ -37,7 +53,7 @@ module Wpcc
                gender: 'female',
                salary: 30_000,
                salary_frequency: 'month',
-               employer_contribution: 'full'
+               contribution_preference: 'full'
           expect(response).to redirect_to your_contributions_path
         end
       end
@@ -50,7 +66,7 @@ module Wpcc
                gender: 'a',
                salary: 30_000,
                salary_frequency: 'month',
-               employer_contribution: 'full'
+               contribution_preference: 'full'
           expect(response).to redirect_to wpcc_root_path(locale: 'en')
         end
       end

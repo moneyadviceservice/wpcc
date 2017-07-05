@@ -8,6 +8,7 @@ module Wpcc
       @your_details_form = YourDetailsForm.new(your_details_form_params)
 
       if @your_details_form.valid?
+        create_session
         redirect_to your_contributions_path
       else
         redirect_to wpcc_root_path
@@ -28,7 +29,13 @@ module Wpcc
                     :salary,
                     :gender,
                     :salary_frequency,
-                    :employer_contribution)
+                    :contribution_preference)
+    end
+
+    def create_session
+      params[:your_details_form].keys.each do |key|
+        session[key] = params[:your_details_form][key]
+      end
     end
   end
 end

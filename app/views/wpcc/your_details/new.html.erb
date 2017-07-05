@@ -89,13 +89,13 @@
             <p class="details__calculate-intro"><%= t('wpcc.details.calculate.details') %></p>
 
             <div class="form__group-item details__calculate-item">
-              <%= f.radio_button(:employer_contribution, 'minimum', class: 'details__calculate-item-select') %>
-              <%= f.label(:employer_contribution_minimum, t('wpcc.details.options.employer_contribution.minimum'), class: 'details__calculate-item-label') %>
+              <%= f.radio_button(:contribution_preference, 'minimum', class: 'details__calculate-item-select') %>
+              <%= f.label(:contribution_preference_minimum, t('wpcc.details.options.contribution_preference.minimum'), class: 'details__calculate-item-label') %>
             </div>
 
             <div class="form__group-item details__calculate-item">
-              <%= f.radio_button(:employer_contribution, 'full', class: 'details__calculate-item-select') %>
-              <%= f.label(:employer_contribution_full, t('wpcc.details.options.employer_contribution.full'), class: 'details__calculate-item-label') %>
+              <%= f.radio_button(:contribution_preference, 'full', class: 'details__calculate-item-select') %>
+              <%= f.label(:contribution_preference_full, t('wpcc.details.options.contribution_preference.full'), class: 'details__calculate-item-label') %>
             </div>
           </fieldset>
         </div>
@@ -128,8 +128,8 @@
         <span>[[Entered Salary]]</span>
       </div>
       <div class="contributions__source contributions__source--employee">
-        <h3 class="contributions__source-title"><%= t('wpcc.contributions.employer_contribution_title') %></h3>
-        <p><%= t('wpcc.contributions.employer_contribution_tip') %></p>
+        <h3 class="contributions__source-title"><%= t('wpcc.contributions.contribution_preference_title') %></h3>
+        <p><%= t('wpcc.contributions.contribution_preference_tip') %></p>
         <input placeholder="1" type="number" class="contributions__source-input" />%
         <%= t('wpcc.contributions.input_of_label') %>
         <span>[[Entered Salary]]</span>

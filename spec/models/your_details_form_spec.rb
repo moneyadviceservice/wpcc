@@ -30,9 +30,9 @@ describe Wpcc::YourDetailsForm, type: :model do
     end
 
     context 'contribution' do
-      it { should allow_value('full').for(:employer_contribution) }
-      it { should allow_value('minimum').for(:employer_contribution) }
-      it { should_not allow_value('part').for(:employer_contribution) }
+      it { should allow_value('full').for(:contribution_preference) }
+      it { should allow_value('minimum').for(:contribution_preference) }
+      it { should_not allow_value('part').for(:contribution_preference) }
     end
   end
 end
