@@ -2,31 +2,37 @@
 <p>
   <%= t('wpcc.results.description', eligible_salary: session[:eligible_salary]) %>
 </p>
-<table>
-  <% @schedule.each do |period| %>
-    <thead>
-      <tr>
-        <td><%= period.name %></td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Your contribution
-          <div><%= period.employee_contribution %></div>
-          <div>(includes <%= period.tax_relief %> )</div>
+<table class="results">
+  <thead>
+    <tr>
+      <% @schedule.each do |period| %>
+        <td><h4><%= period.name %></h4></td>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @schedule.each do |period| %>
+        <td><b>Your contribution:
+          <span><%= period.employee_contribution %></span></b>
+          <div>(includes tax relief of <%= period.tax_relief %>)</div>
         </td>
-      </tr>
-      <tr>
-        <td>Employer's contribution
-          <div><%= period.employer_contribution %></div>
+      <% end %>
+    </tr>
+    <tr>
+      <% @schedule.each do |period| %>
+        <td><b>Employer's contribution: 
+          <span><%= period.employer_contribution %></span></b>
         </td>
-      </tr>
-      <tr>
-        <td>Total contributions
-          <div><%= period.total_contributions %></div>
-          <div>(includes <%= period.tax_relief %> )</div>
+      <% end %>
+    </tr>
+    <tr>
+      <% @schedule.each do |period| %>
+        <td><b>Total contributions: 
+          <span><%= period.total_contributions %></span></b>
+          <div>(includes tax relief of <%= period.tax_relief %>)</div>
         </td>
-      </tr>
-    </tbody>
-  <% end %>
+      <% end %>
+    </tr>
+  </tbody>
 </table>

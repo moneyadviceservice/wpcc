@@ -8,6 +8,8 @@ module Wpcc
       @contribution = Wpcc::CalculatorDelegator.delegate(
         session[:salary].to_i, session[:contribution_preference]
       )
+      
+      add_eligible_salary
 
       @your_contributions_form = Wpcc::YourContributionsForm.new(
         employee_percent: @contribution.employee_percent,
@@ -43,7 +45,11 @@ module Wpcc
     def amend_session
       your_contributions_params.keys.each do |key|
         session[key] = params[:your_contributions_form][key]
-      end    
+      end
+    end
+
+    def add_eligible_salary
+      session[:eligible_salary] = @contribution.eligible_salary
     end
   end
 end
