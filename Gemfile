@@ -27,6 +27,6 @@ group :test do
   gem 'site_prism'
 end
 
-group :build do
-  gem 'rubocop'
+group :build, :development do
+  gem 'rubocop', '~> 0.49.1', require: false
 end
