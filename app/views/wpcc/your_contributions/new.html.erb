@@ -1,10 +1,11 @@
 <section class="section section--details details">
   <div class="details__row">
-    <h2 class="section__heading details__heading">1. <%= t('wpcc.details.title') %></h2>
-    <p>(<%= session[:age] %> years, 
-      <%= session[:gender] %>,
-      £<%= session[:salary] %> <%= session[:salary_frequency] %>, 
-      <%= session[:contribution_preference] %> Contribution)
-    </p>
+    <h2 class="section__heading details__heading">1. <%= t('wpcc.details.title') %>
+      <span class="section__heading-summary">(<%= session[:age] %> years, 
+        <%= session[:gender] %>,
+        £<%= session[:salary] %> <%= session[:salary_frequency] %>, 
+        <%= session[:contribution_preference] %> Contribution)
+      </span>
+    </h2>
   </div>
 </section>
