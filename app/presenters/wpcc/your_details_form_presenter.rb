@@ -7,13 +7,13 @@ module Wpcc
 
     def gender_options
       Wpcc::YourDetailsForm::GENDERS.map do |gender|
-        text_for('gender', gender)
+        [text_for('gender', gender), gender.downcase]
       end
     end
 
     def salary_frequency_options
       Wpcc::YourDetailsForm::SALARY_FREQUENCIES.map do |frequency|
-        text_for('salary_frequency', frequency)
+        [text_for('salary_frequency', frequency), frequency]
       end
     end
 

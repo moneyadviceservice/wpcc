@@ -5,7 +5,7 @@ module Wpcc
     include ActiveModel::Model
 
     attr_accessor :age, :gender, :salary
-    attr_accessor :salary_frequency, :employer_contribution
+    attr_accessor :salary_frequency, :contribution_preference
 
     GENDERS = %w[male female].freeze
     SALARY_FREQUENCIES = %w[year month fourweeks week].freeze
@@ -15,6 +15,6 @@ module Wpcc
     validates :gender, inclusion: { in: GENDERS }
     validates :salary, numericality: { only_integer: true, greater_than: 0 }
     validates :salary_frequency, inclusion: { in: SALARY_FREQUENCIES }
-    validates :employer_contribution, inclusion: { in: CONTRIBUTIONS }
+    validates :contribution_preference, inclusion: { in: CONTRIBUTIONS }
   end
 end

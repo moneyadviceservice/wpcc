@@ -31,7 +31,7 @@ cy:
         gender:
           female: benywaidd
           male: gwrywaidd
-        contribution:
+        contribution_preference:
           full: Mae fy nghyflogwr yn cyfrannu ar fy nghyflog llawn
           part: Mae fy nghyflogwr yn cyfrannu ar ran o fy nghyflog (os nad ydych yn siŵr dewiswch yr opsiwn hwn)
 
@@ -53,8 +53,8 @@ cy:
       description_tooltip: Dyma’r rhan o’ch cyflog blynyddol a ddefnyddir i gyfrifo’ch cyfraniad pensiwn dan gofrestru awtomatig. Sef eich enillion cyn treth (hyd at derfyn uchafswm o £45000 y flwyddyn) – meinws trothwy enillion isaf o £5,876.
       your_contribution_title: Nodwch eich cyfraniad
       your_contribution_tip: Yr isafswm cyfreithiol yw 1%
-      employer_contribution_title: Nodwch gyfraniad eich cyflogwr
-      employer_contribution_tip: Yr isafswm cyfreithiol yw 1%
+      contribution_preference_title: Nodwch gyfraniad eich cyflogwr
+      contribution_preference_tip: Yr isafswm cyfreithiol yw 1%
       input_of_label: o
       calculate_button: Cyfrifwch eich cyfraniadau
       employee_contribution_warning: Y cyfraniad uchaf gewch chi ei roi mewn pensiwn fesul blwyddyn yw 100% o’ch cyflog neu £40,000, pa bynnag un sydd leiaf.
