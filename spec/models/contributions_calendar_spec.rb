@@ -31,7 +31,9 @@ describe Wpcc::ContributionsCalendar, type: :model do
 
     describe 'creates PeriodContribution objects for each period' do
       context 'when the employee/employer percents ARE in the yml file' do
-        let(:current_period) { { some_period: { tax_relief_percent: 20 } } }
+        let(:current_period) do
+          { some_period: { tax_relief_percent: 20 } }
+        end
 
         before do
           allow(contributions_calendar)
@@ -58,7 +60,7 @@ describe Wpcc::ContributionsCalendar, type: :model do
         let(:next_period) do
           { some_period: { tax_relief_percent: 20,
                            employee_percent: 3,
-                           employer_percent: 4 } }
+                           employer_percent: 4} }
         end
 
         before do

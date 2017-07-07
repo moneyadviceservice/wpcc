@@ -36,9 +36,7 @@ module Wpcc
     end
 
     def create_session
-      your_details_form_params.keys.each do |key|
-        session[key] = params[:your_details_form][key]
-      end
+      your_details_form_params.each{ |key, value| session[key] = value }
     end
 
     def session?
