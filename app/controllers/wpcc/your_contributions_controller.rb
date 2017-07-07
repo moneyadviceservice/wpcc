@@ -8,7 +8,7 @@ module Wpcc
       @contribution = Wpcc::CalculatorDelegator.delegate(
         session[:salary].to_i, session[:contribution_preference]
       )
-      
+
       add_eligible_salary
 
       @your_contributions_form = Wpcc::YourContributionsForm.new(
@@ -34,12 +34,12 @@ module Wpcc
 
     def your_contributions_params
       params.require(:your_contributions_form)
-        .permit(:employee_percent, :employer_percent)
+            .permit(:employee_percent, :employer_percent)
     end
 
     def convert_params
       hash = your_contributions_params
-      hash.merge(hash){|k, v| v.to_i}
+      hash.merge(hash) { |_, v| v.to_i }
     end
 
     def amend_session
