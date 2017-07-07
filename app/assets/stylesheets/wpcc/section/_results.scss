@@ -1,5 +1,20 @@
+.results{
+  margin-top: 45px;
+}
 .results-period {
-  margin: 15px;
+  margin: 0 15px;
   width: 30%;
   float: left;
+  border: 1px solid #c3c3c3;
+}
+
+.results-period-title h4{
+  margin-top: -16px;
+  padding: 20px 10px;
+  color: white;
+  background-color: $color-green-primary;
+}
+
+.results-period-details{
+  padding: 10px;
 }

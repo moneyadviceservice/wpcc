@@ -66,7 +66,6 @@ module Wpcc
 
         get_new('en')
       end
-
     end
 
     describe '#create' do
