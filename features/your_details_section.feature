@@ -8,8 +8,8 @@ Background:
   When I fill in the age, gender, salary and frequency fields
 
 Scenario: Display minimum contribution details
-  # And I click on "My employer makes contributions on part of my salary"
-  # And I click the Next button
+  And I click on "My employer makes contributions on part of my salary"
+  And I click the Next button
   Then I should see my age, gender, salary, frequency and contribution option
 
 Scenario: Display full pay contribution details

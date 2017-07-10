@@ -1,64 +1,55 @@
-<section class="section section--details details">
-  <div class="details__row">
-    <h2 class="section__heading details__heading">1. <%= t('wpcc.details.title') %>
-      <span class="section__heading-summary">(<%= session[:age] %> years,
-        <%= session[:gender] %>,
-        £<%= session[:salary] %> <%= session[:salary_frequency] %>,
-        <%= session[:contribution_preference] %> Contribution)
-      </span>
-    </h2>
-  </div>
+<section class="section section--details">
+  <h2 class="section__heading details__heading">1. <%= t('wpcc.details.title') %>
+    <span class="section__heading-summary">(<%= session[:age] %> years,
+      <%= session[:gender] %>,
+      £<%= session[:salary] %> <%= session[:salary_frequency] %>,
+      <%= session[:contribution_preference] %> Contribution)
+    </span>
+  </h2>
 </section>
 
-<section class="section section--details details">
-  <div class="details__row">
-    <h2 class="section__heading details__heading">2. <%= t('wpcc.contributions.title') %>
-      <span class="section__heading-summary">
-        (You: <%= session[:employee_percent] %>%, Your employer: <%= session[:employee_percent] %>%)
-      </span>
-    </h2>
-  </div>
+<section class="section section--contributions">
+  <h2 class="section__heading contributions__heading">2. <%= t('wpcc.contributions.title') %>
+    <span class="section__heading-summary">
+      (You: <%= session[:employee_percent] %>%, Your employer: <%= session[:employee_percent] %>%)
+    </span>
+  </h2>
 </section>
 
-<section class="section section--details details">
-  <h2>3. Your Results</h2>
-  <p>
-    <%= t('wpcc.results.description', eligible_salary: session[:eligible_salary]) %>
-  </p>
-  <div class="results">
-    <% @schedule.each do |period| %>
-      <div class="results-period">
-        <div class="results-period-title">
-          <h4><%= period.name %></h4>
+<section class="section section--results">
+  <h2 class="section__heading results__heading">3. <%= t('wpcc.results.title') %></h2>
+
+  <div class="results__content">
+    <p><%= t('wpcc.results.description', eligible_salary: session[:eligible_salary]) %></p>
+
+    <div class="results__row">
+      <% @schedule.each do |period| %>
+        <div class="results__period">
+          <h3 class="results__period__title"><%= period.name %></h3>
+
+          <p class="results__period__heading"><%= t('wpcc.results.period.contribution_heading.yours') %></p>
+          <p class="results__period__details">£<%= period.employee_contribution %></p>
+          <p class="results__period__parenthesis">(includes tax relief of £<%= period.tax_relief %>)</p>
+
+          <p class="results__period__heading"><%= t('wpcc.results.period.contribution_heading.employers') %></p>
+          <p class="results__period__details">£<%= period.employer_contribution %></p>
+
+          <p class="results__period__heading"><%= t('wpcc.results.period.contribution_heading.total') %></p>
+          <p class="results__period__details">£<%= period.total_contributions %></p>
+          <p class="results__period__parenthesis">(includes tax relief of £<%= period.tax_relief %>)</p>
         </div>
+      <% end %>
+    </div>
 
-        <div class="results-period-details">
-          <div class="results-period-contribution">
-            <b>Your contribution:
-              <span>£<%= period.employee_contribution %></span>
-            </b>
-            <div class="results-period-tax">
-              (includes tax relief of £<%= period.tax_relief %>)
-            </div>
-          </div>
+    <p><a href="#"><%= t('wpcc.results.contribution_table_link') %></a></p>
+  </div>
 
-          <div class="results-period-contribution">
-            <b>Employer's contribution:
-              <span>£<%= period.employer_contribution %></span>
-            </b>
-          </div>
-
-          <div class="results-period-contribution">
-            <b>Total contributions:
-              <span>£<%= period.total_contributions %></span>
-            </b>
-            <div>
-              (includes tax relief of £<%= period.tax_relief %>)
-            </div>
-          </div>
-        </div>
-
-      </div>
-    <% end %>
+  <div class="next-steps">
+    <h4 class="next-steps__heading"><%= t('wpcc.results.next_steps.heading') %></h4>
+    <ol class="next-steps__list">
+      <li><%= t('wpcc.results.next_steps.list.pension_calculator_html') %></li>
+      <li><%= t('wpcc.results.next_steps.list.workplace_pensions_html') %></li>
+      <li><%= t('wpcc.results.next_steps.list.budget_planner_html') %></li>
+    </ol>
   </div>
 </section>

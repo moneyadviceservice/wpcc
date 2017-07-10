@@ -11,8 +11,6 @@ module Wpcc
 
       add_eligible_salary
 
-      store_eligible_salary
-
       @your_contributions_form = Wpcc::YourContributionsForm.new(
         employee_percent: @contribution.employee_percent,
         employer_percent: @contribution.employer_percent
