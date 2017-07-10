@@ -9,7 +9,7 @@ module Wpcc
         session[:salary].to_i, session[:contribution_preference]
       )
 
-      add_eligible_salary
+      store_eligible_salary
 
       @your_contributions_form = Wpcc::YourContributionsForm.new(
         employee_percent: @contribution.employee_percent,
@@ -19,7 +19,7 @@ module Wpcc
 
     def create
       @your_contributions_form = Wpcc::YourContributionsForm.new(
-        convert_params
+        convert_params_to_integer
       )
 
       if @your_contributions_form.valid?
@@ -37,7 +37,7 @@ module Wpcc
             .permit(:employee_percent, :employer_percent)
     end
 
-    def convert_params
+    def convert_params_to_integer
       hash = your_contributions_params
       hash.merge(hash) { |_, v| v.to_i }
     end
@@ -48,7 +48,7 @@ module Wpcc
       end
     end
 
-    def add_eligible_salary
+    def store_eligible_salary
       session[:eligible_salary] = @contribution.eligible_salary
     end
   end
