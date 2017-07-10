@@ -1,32 +1,64 @@
-<h2>3. Your Results</h2>
-<p>
-  <%= t('wpcc.results.description', eligible_salary: session[:eligible_salary]) %>
-</p>
-<table>
-  <% @schedule.each do |period| %>
-    <thead>
-      <tr>
-        <td><%= period.name %></td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Your contribution
-          <div><%= period.employee_contribution %></div>
-          <div>(includes <%= period.tax_relief %> )</div>
-        </td>
-      </tr>
-      <tr>
-        <td>Employer's contribution
-          <div><%= period.employer_contribution %></div>
-        </td>
-      </tr>
-      <tr>
-        <td>Total contributions
-          <div><%= period.total_contributions %></div>
-          <div>(includes <%= period.tax_relief %> )</div>
-        </td>
-      </tr>
-    </tbody>
-  <% end %>
-</table>
+<section class="section section--details details">
+  <div class="details__row">
+    <h2 class="section__heading details__heading">1. <%= t('wpcc.details.title') %>
+      <span class="section__heading-summary">(<%= session[:age] %> years, 
+        <%= session[:gender] %>,
+        £<%= session[:salary] %> <%= session[:salary_frequency] %>, 
+        <%= session[:contribution_preference] %> Contribution)
+      </span>
+    </h2>
+  </div>
+</section>
+
+<section class="section section--details details">
+  <div class="details__row">
+    <h2 class="section__heading details__heading">2. <%= t('wpcc.contributions.title') %>
+      <span class="section__heading-summary">
+        (You: <%= session[:employee_percent] %>%, Your employer: <%= session[:employee_percent] %>%)
+      </span>
+    </h2>
+  </div>
+</section>
+
+<section class="section section--details details">
+  <h2>3. Your Results</h2>
+  <p>
+    <%= t('wpcc.results.description', eligible_salary: session[:eligible_salary]) %>
+  </p>
+  <div class="results">
+    <% @schedule.each do |period| %>
+      <div class="results-period">
+        <div class="results-period-title">
+          <h4><%= period.name %></h4>
+        </div>
+
+        <div class="results-period-details">
+          <div class="results-period-contribution">
+            <b>Your contribution:
+              <span>£<%= period.employee_contribution %></span>
+            </b>
+            <div class="results-period-tax">
+              (includes tax relief of £<%= period.tax_relief %>)
+            </div>
+          </div>
+
+          <div class="results-period-contribution">
+            <b>Employer's contribution:
+              <span>£<%= period.employer_contribution %></span>
+            </b>
+          </div>
+
+          <div class="results-period-contribution">
+            <b>Total contributions: 
+              <span>£<%= period.total_contributions %></span>
+            </b>
+            <div>
+              (includes tax relief of £<%= period.tax_relief %>)
+            </div>
+          </div>
+        </div>
+
+      </div>
+    <% end %>
+  </div>
+</section>

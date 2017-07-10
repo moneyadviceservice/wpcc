@@ -8,11 +8,15 @@ module Wpcc
 
     def contributions_params
       {
-        eligible_salary: session[:eligible_salary],
-        employee_percent: session[:employee_percent],
-        employer_percent: session[:employer_percent],
-        salary_frequency: session[:salary_frequency]
+        eligible_salary: session[:eligible_salary].to_i,
+        employee_percent: session[:employee_percent].to_i,
+        employer_percent: session[:employer_percent].to_i,
+        salary_frequency: convert_salary_frequency(session[:salary_frequency])
       }
+    end
+
+    def convert_salary_frequency(salary_frequency)
+      Wpcc::SalaryFrequencyConverter.convert(salary_frequency)
     end
   end
 end
