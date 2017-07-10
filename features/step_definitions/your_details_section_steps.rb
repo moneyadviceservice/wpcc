@@ -7,8 +7,6 @@ When(/^I fill in the age, gender, salary and frequency fields$/) do
   your_details_page.genders.select('Female')
   your_details_page.salary.set 35000
   your_details_page.salary_frequencies.select('per Year')
-
-  
 end
 
 And(/^I click on "My employer makes contributions on part of my salary"$/) do
