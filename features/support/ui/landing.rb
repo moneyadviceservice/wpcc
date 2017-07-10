@@ -1,7 +1,7 @@
 require_relative 'ui'
 
 module UI
-  class Landing < SitePrism::Page
+  class LandingPage < SitePrism::Page
     set_url '/'
     set_url_matcher(/wpcc\/\d+\/landing/)
 

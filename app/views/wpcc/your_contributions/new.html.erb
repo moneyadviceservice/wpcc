@@ -9,3 +9,41 @@
     </h2>
   </div>
 </section>
+
+<section class="contributions">
+  <h2 class="wpcc__heading">2. <%= t('wpcc.contributions.title') %></h2>
+  <div class="contributions__row">
+    <p class="t-contributions_description">
+      <%= t('wpcc.contributions.description', eligible_salary: @contribution.eligible_salary) %>
+    </p>
+    <p>
+      <p><%= t('wpcc.contributions.description_tooltip') %></p>
+    </p>
+  </div>
+  <%= form_for(@your_contributions_form, url: your_contributions_path ) do |f| %>
+    <div class="contributions__row">
+      <div class="contributions__source contributions__source--employee">
+        <h3 class="contributions__source-title"><%= t('wpcc.contributions.your_contribution_title') %></h3>
+        <p><%= t('wpcc.contributions.your_contribution_tip') %></p>
+        <%= f.number_field :employee_percent, class: "contributions__source-input" %>
+        <%= t('wpcc.contributions.input_of_label') %>
+        <span>£<%= @contribution.eligible_salary %></span>
+      </div>
+
+      <div class="contributions__source contributions__source--employer">
+        <h3 class="contributions__source-title"><%= t('wpcc.contributions.employer_contribution_title') %></h3>
+        <p><%= t('wpcc.contributions.employer_contribution_tip') %></p>
+        <%= f.number_field :employer_percent, class: "contributions__source-input" %>
+        <%= t('wpcc.contributions.input_of_label') %>
+        <span>£<%= @contribution.eligible_salary %></span>
+      </div>
+    </div>
+
+    <div class="contributions__row">
+      <div class="callout">
+        <p><%= t('wpcc.contributions.employee_contribution_warning') %></p>
+      </div>
+      <button class="button button--primary"><%= t('wpcc.contributions.calculate_button') %></button>
+    </div>
+  <% end %>
+</section>

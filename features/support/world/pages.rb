@@ -2,7 +2,8 @@ module World
   module Pages
     %w(landing your_details your_contributions).each do |page|
       define_method("#{page}_page") do |*args|
-        "UI::#{page.camelize}".constantize.new(*args)
+        page_name = "#{page}_page".capitalize.camelize
+        "UI::#{page_name}".constantize.new(*args)
       end
     end
   end
