@@ -6,6 +6,9 @@
         £<%= session[:salary] %> <%= session[:salary_frequency] %>, 
         <%= session[:contribution_preference] %> Contribution)
       </span>
+      <span>
+        <%= link_to("edit", new_your_detail_path) %>
+      </span>
     </h2>
   </div>
 </section>

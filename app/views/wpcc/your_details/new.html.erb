@@ -6,7 +6,7 @@
         <div class="details__field">
           <div class="form__row">
              <%= f.label :age, t('wpcc.details.age.label'), class: 'form__label-heading details__field-label' %>
-             <%= f.text_field :age, 'data-dough-age-field': true %>
+             <%= f.text_field :age, 'data-dough-age-field': true, value:@age %>
           </div>
         </div>
 
@@ -23,7 +23,7 @@
         <div class="details__field">
           <div class="form__row">
             <%= f.label :gender, t('wpcc.details.gender.label'), class: 'form__label-heading details__field-label' %>
-            <%= f.select :gender, options_for_select(@your_details_form.gender_options), {prompt: t('wpcc.details.prompt')}, 'data-dough-gender-select': true %>
+            <%= f.select :gender, options_for_select(@your_details_form.gender_options, selected: @gender), {prompt: t('wpcc.details.prompt')}, 'data-dough-gender-select': true%>
           </div>
         </div>
 
@@ -63,11 +63,11 @@
           <div class="form__row details__salary">
             <div class="details__salary-amount">
               <%= f.label :salary, t('wpcc.details.salary.label'), class: 'form__label-heading details__field-label' %>
-              <%= f.text_field :salary %>
+              <%= f.text_field :salary, value:@salary %>
             </div>
             <div class="details__salary-frequency">
               <%= f.label :salary_frequency, t('wpcc.details.salary.frequency.label'), class: 'form__label-heading details__field-label' %>
-              <%= f.select(:salary_frequency, options_for_select(@your_details_form.salary_frequency_options)) %>
+              <%= f.select(:salary_frequency, options_for_select(@your_details_form.salary_frequency_options, @salary_frequency)) %>
             </div>
           </div>
         </div>
@@ -89,12 +89,12 @@
             <p class="details__calculate-intro"><%= t('wpcc.details.calculate.details') %></p>
 
             <div class="form__group-item details__calculate-item">
-              <%= f.radio_button(:contribution_preference, 'minimum', class: 'details__calculate-item-select') %>
+              <%= f.radio_button(:contribution_preference, 'minimum', class: 'details__calculate-item-select', checked: @contribution_preference == 'minimum' ? true : false) %>
               <%= f.label(:contribution_preference_minimum, t('wpcc.details.options.contribution_preference.minimum'), class: 'details__calculate-item-label') %>
             </div>
 
             <div class="form__group-item details__calculate-item">
-              <%= f.radio_button(:contribution_preference, 'full', class: 'details__calculate-item-select') %>
+              <%= f.radio_button(:contribution_preference, 'full', class: 'details__calculate-item-select', checked: @contribution_preference == 'full' ? true : false) %>
               <%= f.label(:contribution_preference_full, t('wpcc.details.options.contribution_preference.full'), class: 'details__calculate-item-label') %>
             </div>
           </fieldset>
