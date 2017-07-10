@@ -9,7 +9,7 @@ module Wpcc
         session[:salary].to_i, session[:contribution_preference]
       )
 
-      add_eligible_salary
+      store_eligible_salary
 
       @your_contributions_form = Wpcc::YourContributionsForm.new(
         employee_percent: @contribution.employee_percent,
