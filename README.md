@@ -136,3 +136,25 @@ Run Rubocop locally with this command, `$ bundle exec rubocop .`
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+## TODO
+
+#### For the initial demo:
+
+- [ ] Views to incorporate correct data for salary_frequency.
+
+
+#### For launch
+
+- [ ] Ensure all copy is translated to Welsh
+- [ ] On Step 2, add the ability to return to Step 1 and edit information
+- [ ] On Step 3, add the ability to return to Step 3 and edit information
+- [ ] Cater for the non-happy path
+- [ ] Refactor session setting
+- [ ] Expire/delete session
+- [ ] Email results
+- [ ] Print results
+- [ ] Logging
+- [ ] Progressive enhancement: steps should be collapsable/expandable
+
+
