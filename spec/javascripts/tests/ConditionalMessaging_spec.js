@@ -1,4 +1,4 @@
-describe('ConditionalMessaging', function() {
+describe('Conditional Messaging', function() {
   'use strict';
 
   beforeEach(function(done) {
@@ -20,11 +20,209 @@ describe('ConditionalMessaging', function() {
     this.$html.remove();
   });
 
-  describe('First test', function() {
-    it('does nothing', function() {
-      this.obj.init();
+  describe('When age and/or gender fields are changed', function() {
+    beforeEach(function() {
+      this.triggerKeyUp = function(element, keyCode) {
+        var e = $.Event('keyup');
+        e.which = keyCode;
+        $(element).val(e.which);
+        element.trigger(e);
+      };
 
-      expect(2).to.be.equal(2);
+      this.triggerChange = function(element, value) {
+        var e = $.Event('change');
+        $(element).val(value);
+        element.trigger(e);
+      };
+
+      this.ageField = this.component.find('[data-dough-age-field]');
+      this.genderField = this.component.find('[data-dough-gender-select]');
+      this.callout_lt16 = this.component.find('[data-dough-callout-lt16]');
+      this.callout_optIn = this.component.find('[data-dough-callout-optIn]');
+      this.callout_gt74 = this.component.find('[data-dough-callout-gt74]');
+      this.submit = this.component.find('[data-dough-submit]');
+
+      this.obj.init();
+    });
+
+    describe('Only one field has a value', function() {
+      it('Displays the correct message', function() {
+        this.genderField.val(null);
+        this.triggerKeyUp(this.ageField, 15);
+
+        expect(this.callout_lt16.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_lt16.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_optIn.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_optIn.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_gt74.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_gt74.hasClass('details__callout--active')).to.be.false;
+
+        this.ageField.val(null);
+        this.triggerChange(this.genderField, 'male');
+
+        expect(this.callout_lt16.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_lt16.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_optIn.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_optIn.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_gt74.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_gt74.hasClass('details__callout--active')).to.be.false;
+      });
+    });
+
+    describe('Both fields have values', function() {
+      it('Displays the correct message', function() {
+        // age: <16
+        this.ageField.val(15);
+        this.triggerChange(this.genderField, 'male');
+
+        expect(this.callout_lt16.hasClass('details__callout--active')).to.be.true;
+        expect(this.callout_lt16.hasClass('details__callout--inactive')).to.be.false;
+        expect(this.callout_optIn.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_optIn.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_gt74.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_gt74.hasClass('details__callout--inactive')).to.be.true;
+
+        this.triggerChange(this.genderField, 'female');
+
+        expect(this.callout_lt16.hasClass('details__callout--active')).to.be.true;
+        expect(this.callout_lt16.hasClass('details__callout--inactive')).to.be.false;
+        expect(this.callout_optIn.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_optIn.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_gt74.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_gt74.hasClass('details__callout--inactive')).to.be.true;
+
+        // age: 16-21
+        this.triggerKeyUp(this.ageField, 16);
+
+        expect(this.callout_lt16.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_lt16.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_optIn.hasClass('details__callout--active')).to.be.true;
+        expect(this.callout_optIn.hasClass('details__callout--inactive')).to.be.false;
+        expect(this.callout_gt74.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_gt74.hasClass('details__callout--inactive')).to.be.true;
+
+        this.triggerChange(this.genderField, 'male');
+
+        expect(this.callout_lt16.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_lt16.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_optIn.hasClass('details__callout--active')).to.be.true;
+        expect(this.callout_optIn.hasClass('details__callout--inactive')).to.be.false;
+        expect(this.callout_gt74.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_gt74.hasClass('details__callout--inactive')).to.be.true;
+
+        this.triggerKeyUp(this.ageField, 21);
+
+        expect(this.callout_lt16.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_lt16.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_optIn.hasClass('details__callout--active')).to.be.true;
+        expect(this.callout_optIn.hasClass('details__callout--inactive')).to.be.false;
+        expect(this.callout_gt74.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_gt74.hasClass('details__callout--inactive')).to.be.true;
+
+        this.triggerChange(this.genderField, 'female');
+
+        expect(this.callout_lt16.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_lt16.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_optIn.hasClass('details__callout--active')).to.be.true;
+        expect(this.callout_optIn.hasClass('details__callout--inactive')).to.be.false;
+        expect(this.callout_gt74.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_gt74.hasClass('details__callout--inactive')).to.be.true;
+
+        // age: 22-63; gender: female
+        this.triggerKeyUp(this.ageField, 63);
+
+        expect(this.callout_lt16.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_lt16.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_optIn.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_optIn.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_gt74.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_gt74.hasClass('details__callout--inactive')).to.be.true;
+
+        this.triggerKeyUp(this.ageField, 22);
+
+        expect(this.callout_lt16.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_lt16.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_optIn.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_optIn.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_gt74.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_gt74.hasClass('details__callout--inactive')).to.be.true;
+
+        // age: 22-64; gender: male
+        this.triggerChange(this.genderField, 'male');
+
+        expect(this.callout_lt16.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_lt16.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_optIn.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_optIn.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_gt74.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_gt74.hasClass('details__callout--inactive')).to.be.true;
+
+        this.triggerKeyUp(this.ageField, 64);
+
+        expect(this.callout_lt16.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_lt16.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_optIn.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_optIn.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_gt74.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_gt74.hasClass('details__callout--inactive')).to.be.true;
+
+        // age: 65-74; gender: male
+        this.triggerKeyUp(this.ageField, 65);
+
+        expect(this.callout_lt16.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_lt16.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_optIn.hasClass('details__callout--active')).to.be.true;
+        expect(this.callout_optIn.hasClass('details__callout--inactive')).to.be.false;
+        expect(this.callout_gt74.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_gt74.hasClass('details__callout--inactive')).to.be.true;
+
+        this.triggerKeyUp(this.ageField, 74);
+
+        expect(this.callout_lt16.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_lt16.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_optIn.hasClass('details__callout--active')).to.be.true;
+        expect(this.callout_optIn.hasClass('details__callout--inactive')).to.be.false;
+        expect(this.callout_gt74.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_gt74.hasClass('details__callout--inactive')).to.be.true;
+
+        // age: 64-74; gender: female
+        this.triggerChange(this.genderField, 'female');
+
+        expect(this.callout_lt16.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_lt16.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_optIn.hasClass('details__callout--active')).to.be.true;
+        expect(this.callout_optIn.hasClass('details__callout--inactive')).to.be.false;
+        expect(this.callout_gt74.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_gt74.hasClass('details__callout--inactive')).to.be.true;
+
+        this.triggerKeyUp(this.ageField, 64);
+
+        expect(this.callout_lt16.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_lt16.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_optIn.hasClass('details__callout--active')).to.be.true;
+        expect(this.callout_optIn.hasClass('details__callout--inactive')).to.be.false;
+        expect(this.callout_gt74.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_gt74.hasClass('details__callout--inactive')).to.be.true;
+
+        // age: 75+
+        this.triggerKeyUp(this.ageField, 75);
+
+        expect(this.callout_lt16.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_lt16.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_optIn.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_optIn.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_gt74.hasClass('details__callout--active')).to.be.true;
+        expect(this.callout_gt74.hasClass('details__callout--inactive')).to.be.false;
+
+        this.triggerChange(this.genderField, 'male');
+
+        expect(this.callout_lt16.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_lt16.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_optIn.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_optIn.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_gt74.hasClass('details__callout--active')).to.be.true;
+        expect(this.callout_gt74.hasClass('details__callout--inactive')).to.be.false;
+      });
     });
   });
 });
