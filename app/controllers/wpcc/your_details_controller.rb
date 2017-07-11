@@ -7,9 +7,9 @@ module Wpcc
     end
 
     def create
-      @your_details_form = YourDetailsForm.new(your_details_form_params)
+      @your_details_form = Wpcc::YourDetailsForm.new(your_details_form_params)
       if @your_details_form.valid?
-        create_session
+        amend_session
         redirect_to new_your_contribution_path
       else
         redirect_to wpcc_root_path
@@ -43,7 +43,7 @@ module Wpcc
       )
     end
 
-    def create_session
+    def amend_session
       your_details_form_params.each { |key, value| session[key] = value }
     end
   end

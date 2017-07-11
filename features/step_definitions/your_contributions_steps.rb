@@ -2,23 +2,39 @@ Given(/^I am on the WPCC homepage$/) do
   step 'I am on step 1 of the WPCC homepage'
 end
 
-Given(/^I complete the first step and move on to second step$/) do
+Given(/^I complete the your details form and move to your contributions page$/) do
   step 'I fill in the age, gender, salary and frequency fields'
   step 'I click on "My employer makes contributions on part of my salary"'
   step 'I click the Next button'
 end
 
-When(/^I click edit on the first step section$/) do
+Given(/^I complete the your details and your contributions forms and move to your results page$/) do
+  step 'I fill in the age, gender, salary and frequency fields'
+  step 'I click on "My employer makes contributions on part of my salary"'
+  step 'I click the Next button'
+end
+
+Given(/^I complete the your contributions form$/) do
+  # using default values for employee and employer percents
+end
+
+Given(/^I move to your results page$/) do
+  your_contributions_page.next_button.click
+end
+
+When(/^I click edit on the your details summary$/) do
   your_contributions_page.edit_link.click
 end
 
-Then(/^I should return to the first step$/) do
+Then(/^I should return to the your details page$/) do
   expect(page).to have_css('#new_your_details_form')
 end
 
 Then(/^I should see my details in the form fields$/) do
   expect(page).to have_css("input[value='35']")
+  expect( find(:css, 'select#your_details_form_gender').value ).to eq('female')
   expect(page).to have_css("input[value='35000']")
+  expect( find(:css, 'select#your_details_form_salary_frequency').value ).to eq('year')
   expect(page).to have_css("input[value='minimum']")
 end
 

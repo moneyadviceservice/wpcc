@@ -13,5 +13,6 @@ module UI
     element :percent_input, '.contributions__source-input'
     element :calculate_your_contributions_button, 'input[type="submit"]'
     element :edit_link, '.details__heading a'
+    element :next_button, "input[type='submit']"
   end
 end

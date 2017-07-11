@@ -27,10 +27,3 @@ Then(/^I should see my age, gender, salary, frequency and contribution option$/)
   expect(page).to have_content('£35000 year')
   expect(page).to have_content('minimum Contribution')
 end
-
-Then(/^I should see in English\/Welsh my age, gender, salary, frequency and full pay$/) do
-  expect(page).to have_content('35 years')
-  expect(page).to have_content('female')
-  expect(page).to have_content('£35000 year')
-  expect(page).to have_content('full Contribution')
-end
