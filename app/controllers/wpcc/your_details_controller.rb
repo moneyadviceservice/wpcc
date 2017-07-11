@@ -1,8 +1,10 @@
+require 'active_model'
 module Wpcc
   class YourDetailsController < EngineController
     protect_from_forgery
 
     def new
+      session_details if session?
       @your_details_form = present(Wpcc::YourDetailsForm.new)
     end
 
@@ -37,6 +39,19 @@ module Wpcc
       your_details_form_params.keys.each do |key|
         session[key] = params[:your_details_form][key]
       end
+    end
+
+    def session?
+      session[:age] && session[:gender] && session[:salary] &&
+        session[:salary_frequency] && session[:contribution_preference]
+    end
+
+    def session_details
+      @age = session[:age]
+      @gender = session[:gender].downcase
+      @salary = session[:salary]
+      @salary_frequency = session[:salary_frequency]
+      @contribution_preference = session[:contribution_preference]
     end
   end
 end

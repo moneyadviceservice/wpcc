@@ -26,6 +26,26 @@ module Wpcc
           end.to raise_error ActionController::UrlGenerationError
         end
       end
+
+      context 'when editing details which have previously been submitted' do
+        let(:session) do
+          {
+            age: 34,
+            gender: 'female',
+            salary: 34_125,
+            salary_frequency: 'year',
+            contribution_preference: 'minimum'
+          }
+        end
+        it 'assigns the details for use in the view' do
+          get :new, nil, session
+          expect(assigns(:age)).to eq(34)
+          expect(assigns(:gender)).to eq('female')
+          expect(assigns(:salary)).to eq(34_125)
+          expect(assigns(:salary_frequency)).to eq('year')
+          expect(assigns(:contribution_preference)).to eq('minimum')
+        end
+      end
     end
 
     describe '#create' do
