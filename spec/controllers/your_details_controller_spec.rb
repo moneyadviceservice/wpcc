@@ -78,6 +78,7 @@ module Wpcc
                  salary_frequency: 'month',
                  contribution_preference: 'full'
                }
+
           expect(response).to redirect_to new_your_contribution_path
         end
       end
@@ -93,6 +94,7 @@ module Wpcc
                  salary_frequency: 'month',
                  contribution_preference: 'full'
                }
+
           expect(response).to redirect_to wpcc_root_path(locale: 'en')
         end
       end

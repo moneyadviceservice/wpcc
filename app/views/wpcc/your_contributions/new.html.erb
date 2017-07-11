@@ -1,9 +1,9 @@
 <section class="section section--details details">
   <div class="details__row">
     <h2 class="section__heading details__heading">1. <%= t('wpcc.details.title') %>
-      <span class="section__heading-summary">(<%= session[:age] %> years, 
+      <span class="section__heading-summary">(<%= session[:age] %> years,
         <%= session[:gender] %>,
-        £<%= session[:salary] %> <%= session[:salary_frequency] %>, 
+        £<%= session[:salary] %> <%= session[:salary_frequency] %>,
         <%= session[:contribution_preference] %> Contribution)
       </span>
       <span>
@@ -23,6 +23,7 @@
       <p><%= t('wpcc.contributions.description_tooltip') %></p>
     </p>
   </div>
+
   <%= form_for(@your_contributions_form, url: your_contributions_path ) do |f| %>
     <div class="contributions__row">
       <div class="contributions__source contributions__source--employee">
@@ -41,7 +42,6 @@
         <span>£<%= @contribution.eligible_salary %></span>
       </div>
     </div>
-
     <div class="contributions__row">
       <div class="callout">
         <p><%= t('wpcc.contributions.employee_contribution_warning') %></p>

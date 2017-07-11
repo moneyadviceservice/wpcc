@@ -64,7 +64,20 @@ cy:
         label: Employer contribution
 
     results:
+      title: Eich canlyniadau
       description: |
         WELSH: Minimum pension contribution rates will increase in stages until April 2019.
         These figures show how this will affect your contributions. Contributions will be
         based on your eligible salary of £%{eligible_salary} per year.
+      period:
+        contribution_heading:
+          yours: Eich cyfraniad chi
+          employers: Cyfraniad cyflogwr
+          total: Cyfanswm cyfraniadau
+      contribution_table_link: Darllen tabl sy’n dangos sut mae isafswm cyfraniadau cyfreithlon yn newid
+      next_steps:
+        heading: Next steps
+        list:
+          pension_calculator_html: Defnyddiwch ein <a href="#">Cyfrifiannell Pensiwn</a> i weld faint o bensiwn y bydd eich cronfa yn ei chronni dros amser.
+          workplace_pensions_html: Dysgwch ragor am <a href="#">bensiynau gweithle</a>.
+          budget_planner_html: Defnyddiwch ein <a href="#">cynllunydd cyllideb</a> i weld pa effaith y bydd eich cyfraniadau yn eu cael ar eich incwm.
