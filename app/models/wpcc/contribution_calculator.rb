@@ -14,14 +14,6 @@ module Wpcc
       @contribution_preference = contribution_preference
     end
 
-    def calculate
-      Wpcc::YourContribution.new(
-        eligible_salary: eligible_salary,
-        employee_percent: employee_percent,
-        employer_percent: employer_percent
-      )
-    end
-
     def eligible_salary
       raise NotImplementedError
     end
