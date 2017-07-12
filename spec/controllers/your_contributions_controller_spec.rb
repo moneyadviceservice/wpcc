@@ -49,14 +49,14 @@ module Wpcc
       end
 
       it 'calculates the eligible_salary and stores it in a session' do
-        expect(Wpcc::CalculatorDelegator)
-          .to receive(:delegate)
+        expect(Wpcc::YourContribution)
+          .to receive(:generate)
           .with(salary, contribution_preference)
           .and_return(your_contribution)
 
-        expect(your_contribution).to receive(:eligible_salary)
-
         get_new('en')
+
+        expect(session[:eligible_salary]).to eq(eligible_salary)
       end
 
       it 'instantiates the YourContributions form' do

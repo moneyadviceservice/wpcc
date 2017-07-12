@@ -1,9 +1,9 @@
 <section class="section section--details details">
   <div class="details__row">
     <h2 class="section__heading details__heading">1. <%= t('wpcc.details.title') %>
-      <span class="section__heading-summary">(<%= session[:age] %> years, 
+      <span class="section__heading-summary">(<%= session[:age] %> years,
         <%= session[:gender] %>,
-        £<%= session[:salary] %> <%= session[:salary_frequency] %>, 
+        £<%= session[:salary] %> <%= session[:salary_frequency] %>,
         <%= session[:contribution_preference] %> Contribution)
       </span>
       <span>
@@ -17,7 +17,7 @@
   <h2 class="wpcc__heading">2. <%= t('wpcc.contributions.title') %></h2>
   <div class="contributions__row">
     <p class="t-contributions_description">
-      <%= t('wpcc.contributions.description', eligible_salary: @contribution.eligible_salary) %>
+      <%= t('wpcc.contributions.description', eligible_salary: @your_contribution.eligible_salary) %>
     </p>
     <p>
       <p><%= t('wpcc.contributions.description_tooltip') %></p>
@@ -30,7 +30,7 @@
         <p><%= t('wpcc.contributions.your_contribution_tip') %></p>
         <%= f.number_field :employee_percent, class: "contributions__source-input" %>
         <%= t('wpcc.contributions.input_of_label') %>
-        <span>£<%= @contribution.eligible_salary %></span>
+        <span>£<%= @your_contribution.eligible_salary %></span>
       </div>
 
       <div class="contributions__source contributions__source--employer">
@@ -38,7 +38,7 @@
         <p><%= t('wpcc.contributions.employer_contribution_tip') %></p>
         <%= f.number_field :employer_percent, class: "contributions__source-input" %>
         <%= t('wpcc.contributions.input_of_label') %>
-        <span>£<%= @contribution.eligible_salary %></span>
+        <span>£<%= @your_contribution.eligible_salary %></span>
       </div>
     </div>
 
