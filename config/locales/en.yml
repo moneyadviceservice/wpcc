@@ -68,7 +68,6 @@ en:
         These figures show how this will affect your contributions. Contributions will be
         based on your eligible salary of £%{eligible_salary} per year.
       period_title:
-        april_2017_march_2018: 'Today - March 2018'
-        april_2018_march_2019: 'April 2018 - March 2019'
-        after_april_2019: 'April 2019 onwards'
-
+        april_2017_march_2018: Today - March 2018
+        april_2018_march_2019: April 2018 - March 2019
+        after_april_2019: April 2019 onwards

@@ -2,7 +2,7 @@ module Wpcc
   class YourResultsController < EngineController
     def index
       @schedule = present(
-        ContributionsCalendar.new(contributions_params).schedule
+        Wpcc::ContributionsCalendar.new(contributions_params).schedule
       )
     end
 
@@ -22,16 +22,12 @@ module Wpcc
     end
 
     def present(your_results)
-      your_results.each do |period| 
-        present_period_contribution(period) 
+      your_results.map do |period|
+        Wpcc::PeriodContributionPresenter.new(
+          period,
+          view_context: view_context
+        )
       end
-    end
-
-    def present_period_contribution(period_contribution)
-      Wpcc::PeriodContributionPresenter.new(
-        period_contribution: period_contribution,
-        translator: method(:translate)
-      )
     end
   end
 end

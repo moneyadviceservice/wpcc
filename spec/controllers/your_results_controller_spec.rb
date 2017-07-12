@@ -31,7 +31,8 @@ RSpec.describe Wpcc::YourResultsController do
     it 'converts salary_frequency from a string to an integer' do
       expect(Wpcc::SalaryFrequencyConverter)
         .to receive(:convert).with('week')
-        .and_return(52)
+                             .and_return(52)
+
       get :index, {}, session
     end
 

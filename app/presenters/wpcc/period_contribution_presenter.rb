@@ -1,20 +1,16 @@
 module Wpcc
   class PeriodContributionPresenter < SimpleDelegator
-    def initialize(args = {})
-      super(args[:period_contribution])
-      @translator = args[:translator]
+    delegate :t, to: :view_context
+
+    attr_reader :object, :view_context
+
+    def initialize(object, args = {})
+      super(object)
+      @view_context = args[:view_context]
     end
 
     def title
-      text_for("wppc.results.period_title.#{name}")
-    end
-    
-    private
-
-    attr_reader :translator
-    
-    def text_for(period_title)
-      translator.call("wpcc.results.period_title.#{period_title}")
+      t("wpcc.results.period_title.#{name}")
     end
   end
 end
