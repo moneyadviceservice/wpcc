@@ -1,7 +1,9 @@
 module Wpcc
   class YourResultsController < EngineController
     def index
-      @schedule = ContributionsCalendar.new(contributions_params).schedule
+      @schedule = present(
+        Wpcc::ContributionsCalendar.new(contributions_params).schedule
+      )
     end
 
     private
@@ -17,6 +19,15 @@ module Wpcc
 
     def convert_salary_frequency(salary_frequency)
       Wpcc::SalaryFrequencyConverter.convert(salary_frequency)
+    end
+
+    def present(your_results)
+      your_results.map do |period|
+        Wpcc::PeriodContributionPresenter.new(
+          period,
+          view_context: view_context
+        )
+      end
     end
   end
 end

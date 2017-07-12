@@ -7,14 +7,14 @@ RSpec.describe Wpcc::YourDetailsFormPresenter do
   end
   let(:your_details_form) { Wpcc::YourDetailsForm.new }
   let(:translator) do
-    ->(value) { value.sub(/wpcc.details.options.frequency./, '').capitalize }
+    ->(value) { value.sub(/wpcc.details.options.frequency./, '') }
   end
 
   describe '#gender_options' do
     it 'returns an array of translation keys and values for genders' do
       translation_keys = [
-        'Wpcc.details.options.gender.male',
-        'Wpcc.details.options.gender.female'
+        'wpcc.details.options.gender.male',
+        'wpcc.details.options.gender.female'
       ]
       gender_values = %w[male female]
       expected_result = Hash[translation_keys.zip(gender_values)].to_a
@@ -26,7 +26,7 @@ RSpec.describe Wpcc::YourDetailsFormPresenter do
   describe '#salary_frequency_options' do
     it 'returns an array of translation keys for salary_frequencies' do
       translation_keys = %w[year month fourweeks week].map do |frequency|
-        "Wpcc.details.options.salary_frequency.#{frequency}"
+        "wpcc.details.options.salary_frequency.#{frequency}"
       end
       frequency_values = %w[year month fourweeks week]
       expected_result = Hash[translation_keys.zip(frequency_values)].to_a
