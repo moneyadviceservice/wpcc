@@ -97,6 +97,8 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (2.1.0)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.6)
@@ -222,6 +224,7 @@ DEPENDENCIES
   capybara
   cucumber-rails
   jquery-rails
+  launchy
   pry-rails
   rails (~> 4.2.7)
   rspec-rails (~> 3.5)
