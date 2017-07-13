@@ -1,14 +1,15 @@
-.details__content {
-
-}
-
 .details__row {
   @extend %clearfix;
+  position: relative;
   clear: both;
 
   @include respond-to($mq-l) {
     @include column(8);
     margin: 0;
+  }
+  
+  .form__label-heading {
+    display: inline;
   }
 }
 
@@ -40,9 +41,13 @@
 
 .details__helper {
   @include column(12);
-
+  
   @include respond-to($mq-m) {
     @include column(8);
+    
+    .js & {
+      margin-top: $baseline-unit*6;
+    }
   }
 }
 
