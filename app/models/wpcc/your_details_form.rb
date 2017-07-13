@@ -1,5 +1,3 @@
-require 'active_model'
-
 module Wpcc
   class YourDetailsForm
     include ActiveModel::Model
