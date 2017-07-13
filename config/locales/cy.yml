@@ -58,12 +58,9 @@ cy:
       input_of_label: o
       calculate_button: Cyfrifwch eich cyfraniadau
       employee_contribution_warning: Y cyfraniad uchaf gewch chi ei roi mewn pensiwn fesul blwyddyn yw 100% o’ch cyflog neu £40,000, pa bynnag un sydd leiaf.
-      employee:
-        label: Employee contribution
-      employer:
-        label: Employer contribution
 
     results:
+      title: Eich canlyniadau
       description: |
         WELSH: Minimum pension contribution rates will increase in stages until April 2019.
         These figures show how this will affect your contributions. Contributions will be
@@ -72,3 +69,15 @@ cy:
         april_2017_march_2018: 'Welsh for Today - March 2018'
         april_2018_march_2019: 'Welsh for April 2018 - March 2019'
         after_april_2019: 'Welsh for April 2019 onwards'
+      period:
+        contribution_heading:
+          yours: Eich cyfraniad chi
+          employers: Cyfraniad cyflogwr
+          total: Cyfanswm cyfraniadau
+      contribution_table_link: Darllen tabl sy’n dangos sut mae isafswm cyfraniadau cyfreithlon yn newid
+      next_steps:
+        heading: Next steps
+        list:
+          pension_calculator_html: Defnyddiwch ein <a href="#">Cyfrifiannell Pensiwn</a> i weld faint o bensiwn y bydd eich cronfa yn ei chronni dros amser.
+          workplace_pensions_html: Dysgwch ragor am <a href="#">bensiynau gweithle</a>.
+          budget_planner_html: Defnyddiwch ein <a href="#">cynllunydd cyllideb</a> i weld pa effaith y bydd eich cyfraniadau yn eu cael ar eich incwm.

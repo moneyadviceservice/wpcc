@@ -1,5 +1,5 @@
 en:
-  wpcc:   
+  wpcc:
     title: Workplace pension contribution calculator
     intro: It is now law that most employees must be enrolled into a workplace pension scheme by their employer. Both you and your employer are required to make contributions. This calculator will work out the amount of contributions.
 
@@ -57,12 +57,9 @@ en:
       input_of_label: of
       calculate_button: Calculate your contributions
       employee_contribution_warning: The maximum you can contribute to a pension per year is 100% of your salary or £40,000, whichever is lower.
-      employee:
-        label: Employee contribution
-      employer:
-        label: Employer contribution
 
     results:
+      title: Your Results
       description: |
         Minimum pension contribution rates will increase in stages until April 2019.
         These figures show how this will affect your contributions. Contributions will be
@@ -71,3 +68,15 @@ en:
         april_2017_march_2018: Today - March 2018
         april_2018_march_2019: April 2018 - March 2019
         after_april_2019: April 2019 onwards
+      period:
+        contribution_heading:
+          yours: Your contribution
+          employers: Employer's contribution
+          total: Total contributions
+      contribution_table_link: View a table of how legal minimum contributions change
+      next_steps:
+        heading: Next steps
+        list:
+          pension_calculator_html: Use our <a href="#">Pension Calculator</a> to see how much pension pot you will build over time.
+          workplace_pensions_html: Find out more about <a href="#">workplace pensions</a>.
+          budget_planner_html: Use our <a href="#">budget planner</a> to see what effect your contributions will have on your income.

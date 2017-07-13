@@ -15,4 +15,4 @@ Scenario: Display minimum contribution details
 Scenario: Display full pay contribution details
   And I click on "My employer makes contributions on all of my salary"
   And I click the Next button
-  Then I should see in English/Welsh my age, gender, salary, frequency and full pay
+  Then I should see in English my age, gender, salary, frequency and full pay
