@@ -37,13 +37,33 @@ module Wpcc
             contribution_preference: 'minimum'
           }
         end
-        it 'assigns the details for use in the view' do
+
+        let(:your_details_form) do
+          assigns(:your_details_form)
+        end
+
+        before do
           get :new, nil, session
-          expect(assigns(:age)).to eq(34)
-          expect(assigns(:gender)).to eq('female')
-          expect(assigns(:salary)).to eq(34_125)
-          expect(assigns(:salary_frequency)).to eq('year')
-          expect(assigns(:contribution_preference)).to eq('minimum')
+        end
+
+        it 'sets age previously added' do
+          expect(your_details_form.age).to eq(34)
+        end
+
+        it 'sets gender added' do
+          expect(your_details_form.gender).to eq('female')
+        end
+
+        it 'sets salary previously added' do
+          expect(your_details_form.salary).to eq(34_125)
+        end
+
+        it 'sets salary frequency previously added' do
+          expect(your_details_form.salary_frequency).to eq('year')
+        end
+
+        it 'sets contribution preference previously added' do
+          expect(your_details_form.contribution_preference).to eq('minimum')
         end
       end
     end
