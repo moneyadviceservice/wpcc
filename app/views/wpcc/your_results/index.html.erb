@@ -13,6 +13,9 @@
     <span class="section__heading-summary">
       (You: <%= session[:employee_percent] %>%, Your employer: <%= session[:employee_percent] %>%)
     </span>
+      <span>
+        <%= link_to(t('wpcc.edit'), new_your_contribution_path) %>
+      </span>
   </h2>
 </section>
 
