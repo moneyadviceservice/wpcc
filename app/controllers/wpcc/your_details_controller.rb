@@ -1,4 +1,3 @@
-require 'active_model'
 module Wpcc
   class YourDetailsController < EngineController
     protect_from_forgery

@@ -1,5 +1,3 @@
-require 'active_model'
-
 module Wpcc
   class FullContributionCalculator < ContributionCalculator
     def eligible_salary

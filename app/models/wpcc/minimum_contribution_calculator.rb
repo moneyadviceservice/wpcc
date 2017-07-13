@@ -1,5 +1,3 @@
-require 'active_model'
-
 class Wpcc::MinimumContributionCalculator < Wpcc::ContributionCalculator
   def eligible_salary
     return upper_less_lower_limit if salary > upper_earnings_threshold
