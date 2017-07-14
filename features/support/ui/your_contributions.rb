@@ -12,5 +12,6 @@ module UI
     element :contributions_description, '.t-contributions_description'
     element :percent_input, '.contributions__source-input'
     element :calculate_your_contributions_button, 'input[type="submit"]'
+    element :edit_link, '.details__heading a'
   end
 end

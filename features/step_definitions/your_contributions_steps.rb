@@ -9,7 +9,7 @@ Given(/^I complete the first step and move on to second step$/) do
 end
 
 When(/^I click edit on the first step section$/) do
-  find_link('edit').click
+  your_contributions_page.edit_link.click
 end
 
 Then(/^I should return to the first step$/) do
