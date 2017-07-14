@@ -53,18 +53,27 @@ module Wpcc
           .to receive(:delegate)
           .with(salary, contribution_preference)
           .and_return(your_contribution)
-
-        expect(your_contribution).to receive(:eligible_salary)
-
         get_new('en')
+
+        expect(session[:eligible_salary]).to eq(eligible_salary)
       end
 
-      it 'instantiates the YourContributions form' do
-        expect(Wpcc::YourContributionsForm)
-          .to receive(:new)
-          .with(employee_percent: 1, employer_percent: 1)
+      context 'when returning to your contributions path' do
+        let(:your_contributions_form) do
+          assigns(:your_contributions_form)
+        end
 
-        get_new('en')
+        it 'sets employee & employer percent previously added' do
+          get :new,
+              nil,
+              employee_percent: 10,
+              employer_percent: 40,
+              salary: salary,
+              contribution_preference: contribution_preference
+
+          expect(your_contributions_form.employee_percent).to eq(10)
+          expect(your_contributions_form.employer_percent).to eq(40)
+        end
       end
     end
 

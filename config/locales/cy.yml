@@ -2,6 +2,7 @@ cy:
   wpcc:
     title: Cyfrifiannell cyfraniadau pensiwn gweithle
     intro: Mae’n gyfraith erbyn hyn y dylai’r rhan fwyaf o gyflogeion gael eu cofrestru ar gynllun pensiwn gweithle gan eu cyflogwr. Mae’n ofynnol i chi a’ch cyflogwr gyfrannu. Bydd y gyfrifiannell hon yn cyfrifo swm y cyfraniadau.
+    edit: Golygu
 
     details:
       title: Eich manylion

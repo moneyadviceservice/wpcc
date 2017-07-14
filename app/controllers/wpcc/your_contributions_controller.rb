@@ -3,17 +3,15 @@ require_dependency 'wpcc/engine_controller'
 module Wpcc
   class YourContributionsController < EngineController
     protect_from_forgery
+    after_action :store_eligible_salary, :store_percentages, only: :new
 
     def new
       @contribution = Wpcc::CalculatorDelegator.delegate(
         session[:salary].to_i, session[:contribution_preference]
       )
 
-      store_eligible_salary
-
       @your_contributions_form = Wpcc::YourContributionsForm.new(
-        employee_percent: @contribution.employee_percent,
-        employer_percent: @contribution.employer_percent
+        contribution_percentages
       )
     end
 
@@ -50,6 +48,23 @@ module Wpcc
 
     def store_eligible_salary
       session[:eligible_salary] = @contribution.eligible_salary
+    end
+
+    def store_percentages
+      session[:employee_percent] = @your_contributions_form.employee_percent
+      session[:employer_percent] = @your_contributions_form.employer_percent
+    end
+
+    def contribution_percentages
+      employee_percent = session[:employee_percent] ||
+                         @contribution.employee_percent
+      employer_percent = session[:employer_percent] ||
+                         @contribution.employer_percent
+
+      {
+        employee_percent: employee_percent,
+        employer_percent: employer_percent
+      }
     end
   end
 end

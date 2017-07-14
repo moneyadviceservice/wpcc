@@ -15,6 +15,7 @@ gem 'sass-rails'
 gem 'turbolinks'
 
 group :development, :test do
+  gem 'launchy'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda-matchers', '~> 3.1'

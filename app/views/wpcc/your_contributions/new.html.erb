@@ -47,7 +47,7 @@
       <div class="callout">
         <p><%= t('wpcc.contributions.employee_contribution_warning') %></p>
       </div>
-      <button class="button button--primary"><%= t('wpcc.contributions.calculate_button') %></button>
+      <%= f.submit t('wpcc.contributions.calculate_button'), class: 'button button--primary' %>
     </div>
   <% end %>
 </section>
