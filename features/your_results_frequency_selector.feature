@@ -12,20 +12,10 @@ Feature:
     And   I press next and move to your result step
 
   Scenario Outline:
-    When  I select "<salary_frequency>"
+    When  I select "<salary_frequency>" salary frequency
     And   I press recalculate
-    Then  I should see the results page update with "<employee_contributions_now>"
-    And   I should see the results page update with "<employer_contributions_next>"
-    And   I should see the results page update with "<employee_contributions_future>"
-    And   I should see the results page update with "<employer_contributions_now>"
-    And   I should see the results page update with "<employer_contributions_next>"
-    And   I should see the results page update with "<employer_contributions_future>"
-    And   I should see the results page update with "<total_contributions_now>"
-    And   I should see the results page update with "<total_contributions_next>"
-    And   I should see the results page update with "<total_contributions_future>"
-    And   I should see the results page update with "<tax_relief_now>"
-    And   I should see the results page update with "<tax_relief_next>"
-    And   I should see the results page update with "<tax_relief_future>"
+    # Then  I should see contributions and tax_relief figures recalculated by <salary_frequency> frequency on the results page
+
 
   Examples:
     | salary_frequency |

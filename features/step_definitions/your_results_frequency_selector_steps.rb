@@ -18,14 +18,10 @@ When(/^I press next and move to your result step$/) do
   step 'I move to your results page'
 end
 
-When(/^I select "([^"]*)"$/) do |salary_frequency|
+When(/^I select "([^"]*)" salary frequency$/) do |salary_frequency|
   your_results_page.salary_frequencies.select(salary_frequency)
 end
 
 When(/^I press recalculate$/) do
   your_results_page.recalculate_button.click
-end
-
-Then(/^I should see the results page update with "([^"]*)"$/) do |arg1|
-  pending #expect(your_results_page).to have_content(arg1)
 end

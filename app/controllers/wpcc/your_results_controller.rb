@@ -1,20 +1,31 @@
 module Wpcc
   class YourResultsController < EngineController
+    attr_accessor :schedule, :salary_frequency
+
     def index
-      @schedule = present(
+      @schedule = schedule
+      @options = Wpcc::YourDetailsForm::SALARY_FREQUENCIES
+    end
+    
+    private
+
+    def schedule
+      present(
         Wpcc::ContributionsCalendar.new(contributions_params).schedule
       )
     end
-
-    private
 
     def contributions_params
       {
         eligible_salary: session[:eligible_salary].to_i,
         employee_percent: session[:employee_percent].to_i,
         employer_percent: session[:employer_percent].to_i,
-        salary_frequency: convert_salary_frequency(session[:salary_frequency])
+        salary_frequency: convert_salary_frequency(salary_frequency)
       }
+    end
+
+    def salary_frequency
+      @salary_frequency = params[:salary_frequency] || session[:salary_frequency]
     end
 
     def convert_salary_frequency(salary_frequency)

@@ -17,7 +17,7 @@ module UI
     element :your_contributions_edit, '.contributions__heading a'
     element :your_contributions_information, '.section--contributions .section__heading-summary'
 
-    element :salary_frequencies, "select[name='salary_frequency']"
+    element :salary_frequencies, "select[id='salary_frequency']"
     element :recalculate_button, "input[type='submit']"
 
     section :current_period, PeriodSection, '.results__period-april_2017_march_2018'
