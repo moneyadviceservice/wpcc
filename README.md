@@ -19,6 +19,20 @@ $ bundle
 $ bowndler install
 ```
 
+## Versioning
+When a new version of the gem is ready to be published:
+- Create your feature branch
+- Make a commit updating the following:
+  - version number in `lib/wpcc/version.rb` - for reference see the [semver documentation](semver.org)
+  - Add what changes have been made between current and the new version in `history.md`
+- Create a PR for review
+- Once approved, merge the PR into master
+- On `master` branch, tag the repo with the latest version number
+  - `git tag 'v1.2.0'`
+- Push the tag to github
+  - `git push origin master --tags`
+- check the [wpcc](https://go.dev.mas.local/go/tab/pipeline/history/wpcc) Go build completes
+
 ## Mounting the engine
 
 The application that mounts this engine requires a controller to be the parent
@@ -142,7 +156,7 @@ The gem is available as open source under the terms of the [MIT License](http://
 #### For the initial demo - 11th July, 2017:
 
 - [x] Happy path journey through all the steps
-- [x] Display conditional messages for salary 
+- [x] Display conditional messages for salary
 - [x] Ability to edit Step 1, Your Details
 
 #### For stakeholder demo - 20th July, 2017:
