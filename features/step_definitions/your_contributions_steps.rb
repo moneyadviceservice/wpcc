@@ -27,7 +27,7 @@ When(/^I click edit on the your details summary$/) do
 end
 
 Then(/^I should return to the your details page$/) do
-  expect(page).to have_css('#new_your_details_form')
+  expect(your_details_page.form).to be_visible
 end
 
 Then(/^I should see my details in the form fields$/) do

@@ -4,6 +4,7 @@ module UI
   class YourDetailsPage < SitePrism::Page
     set_url '/'
 
+    element :form, "#new_your_details_form"
     element :age, "input[name='your_details_form[age]']"
     element :genders, "select[name='your_details_form[gender]']"
     element :salary, "input[name='your_details_form[salary]']"
