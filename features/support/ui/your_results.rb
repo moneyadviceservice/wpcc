@@ -8,5 +8,6 @@ module UI
     element :contributions_summary, '.details__heading'
     element :percent_input, '.contributions__source-input'
     element :your_contributions_edit, '.contributions__heading a'
+    element :your_contributions_information, '.section--contributions .section__heading-summary'
   end
 end
