@@ -8,7 +8,7 @@ GIT
 PATH
   remote: .
   specs:
-    wpcc (1.2.0)
+    wpcc (1.3.0)
       dough-ruby
       rails (>= 4, < 5)
 
