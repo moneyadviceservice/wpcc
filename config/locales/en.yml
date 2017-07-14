@@ -33,6 +33,7 @@ en:
           female: Female
           male: Male
         contribution_preference:
+          descriptor: Contribution
           full: My employer makes contributions on my full salary
           minimum: My employer makes contributions on part of my salary (if you're not sure select this option)
 

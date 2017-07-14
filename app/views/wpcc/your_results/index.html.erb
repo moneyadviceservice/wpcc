@@ -1,21 +1,13 @@
-<section class="section section--details">
-  <h2 class="section__heading details__heading">1. <%= t('wpcc.details.title') %>
-    <span class="section__heading-summary">(<%= session[:age] %> years,
-      <%= session[:gender] %>,
-      £<%= session[:salary] %> <%= session[:salary_frequency] %>,
-      <%= session[:contribution_preference] %> Contribution)
-    </span>
-  </h2>
-</section>
+<%= render 'wpcc/shared/your_details' %>
 
 <section class="section section--contributions">
   <h2 class="section__heading contributions__heading">2. <%= t('wpcc.contributions.title') %>
     <span class="section__heading-summary">
       (You: <%= session[:employee_percent] %>%, Your employer: <%= session[:employer_percent] %>%)
     </span>
-      <span>
-        <%= link_to(t('wpcc.edit'), new_your_contribution_path) %>
-      </span>
+    <span>
+      <%= link_to(t('wpcc.edit'), new_your_contribution_path) %>
+    </span>
   </h2>
 </section>
 

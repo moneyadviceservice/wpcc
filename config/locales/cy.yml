@@ -33,6 +33,7 @@ cy:
           female: benywaidd
           male: gwrywaidd
         contribution_preference:
+          descriptor: Cyfraniad
           full: Mae fy nghyflogwr yn cyfrannu ar fy nghyflog llawn
           minimum: Mae fy nghyflogwr yn cyfrannu ar ran o fy nghyflog (os nad ydych yn siŵr dewiswch yr opsiwn hwn)
 
