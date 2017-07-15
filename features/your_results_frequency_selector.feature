@@ -14,15 +14,17 @@ Feature:
   Scenario Outline:
     When  I select "<salary_frequency>" salary frequency
     And   I press recalculate
-    # Then  I should see contributions and tax_relief figures recalculated by <salary_frequency> frequency on the results page
+    Then  I should see an updated "<employee_contributions_now>" on the results page
+    And   I should see an updated "<employee_contributions_next>" on the results page
+    And   I should see an updated "<employee_contributions_future>" on the results page
 
 
   Examples:
     | salary_frequency |
-    | year             |
-    | month            |
-    | fourweeks        |
-    | week             |
+    | per Year         |
+    | per Month        |
+    | per 4 weeks      |
+    | per Week         |
 
   Examples:
     | employee_contributions_now | employee_contributions_next | employee_contributions_future |

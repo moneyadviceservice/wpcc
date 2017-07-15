@@ -3,10 +3,9 @@ module Wpcc
     attr_accessor :schedule, :salary_frequency
 
     def index
-      @schedule = schedule
-      @options = Wpcc::YourDetailsForm::SALARY_FREQUENCIES
+      @schedule = Wpcc::Presenter.new(schedule, view_context: view_context)
     end
-    
+
     private
 
     def schedule
@@ -25,7 +24,8 @@ module Wpcc
     end
 
     def salary_frequency
-      @salary_frequency = params[:salary_frequency] || session[:salary_frequency]
+      @salary_frequency =
+        params[:salary_frequency] || session[:salary_frequency]
     end
 
     def convert_salary_frequency(salary_frequency)

@@ -17,7 +17,7 @@
   <div class="results__content">
     <p><%= t('wpcc.results.description', eligible_salary: session[:eligible_salary]) %></p>
 
-    <%= render 'frequency_selector_form', salary_frequency: @salary_frequency, options: @options %>
+    <%= render 'frequency_selector_form', salary_frequency: @salary_frequency %>
 
     <div class="results__row">
       <% @schedule.each do |period| %>

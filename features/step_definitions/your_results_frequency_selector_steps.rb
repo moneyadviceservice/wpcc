@@ -25,3 +25,7 @@ end
 When(/^I press recalculate$/) do
   your_results_page.recalculate_button.click
 end
+
+Then(/^I should see an updated "([^"]*)" on the results page$/) do |arg1|
+  expect(your_results_page).to have_content(arg1)
+end

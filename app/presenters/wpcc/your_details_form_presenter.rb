@@ -1,10 +1,5 @@
 module Wpcc
-  class YourDetailsFormPresenter < SimpleDelegator
-    def initialize(args = {})
-      super(args[:your_details_form])
-      @translator = args[:translator]
-    end
-
+  class YourDetailsFormPresenter < Presenter
     def gender_options
       Wpcc::YourDetailsForm::GENDERS.map do |gender|
         [text_for('gender', gender), gender.downcase]
