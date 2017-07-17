@@ -52,7 +52,7 @@ describe Wpcc::YourDetailsForm, type: :model do
         let(:contribution_preference) { 'minimum' }
 
         it 'should not allow low salary to be calculated on min contribution' do
-          expect(subject.valid?).to be_falsey
+          expect(subject).to_not be_valid
           expect(subject.errors.keys).to include(:contribution_preference)
         end
       end
@@ -63,7 +63,18 @@ describe Wpcc::YourDetailsForm, type: :model do
         let(:contribution_preference) { 'full' }
 
         it 'should allow low salary to be calculated on full contribution' do
-          expect(subject.valid?).to be_truthy
+          expect(subject).to be_valid
+        end
+      end
+
+      context 'when salary frequency does not exist' do
+        let(:salary)                  { 5000 }
+        let(:salary_frequency)        { 'does_not_exist' }
+        let(:contribution_preference) { 'minimum' }
+
+        it 'should not validate' do
+          subject.valid?
+          expect(subject.errors.keys).to_not include(:contribution_preference)
         end
       end
     end
