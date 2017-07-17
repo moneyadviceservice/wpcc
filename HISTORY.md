@@ -1,3 +1,11 @@
+## 1.4.0
+
+* TP-8284: Add Test for full pay contribution scenario
+
+Refactors:
+* Editing yourDetails
+* Move some of YourContributions view into partial
+
 ## 1.3.0
 
 * TP-8411: Add Karma to WPCC
