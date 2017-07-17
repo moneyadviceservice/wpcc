@@ -11,3 +11,4 @@ spec/dummy/tmp/
 *.gem
 /bower.json
 coverage
+Gemfile.lock
