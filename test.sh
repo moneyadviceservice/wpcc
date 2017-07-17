@@ -12,4 +12,4 @@ bundle exec bowndler install
 bundle exec rspec
 bundle exec cucumber
 
-karma start spec/javascripts/karma.conf.js --single-run
+# karma start spec/javascripts/karma.conf.js --single-run
