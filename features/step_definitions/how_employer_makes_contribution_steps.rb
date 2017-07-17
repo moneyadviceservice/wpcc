@@ -20,7 +20,7 @@ When(/^I select a valid "([^"]*)"$/) do |salary_frequency|
 end
 
 When(/^I choose to make minimum contributions$/) do
-  your_details_page.minimum_contribution_button.set true
+  your_details_page.minimum_contribution_button.set(true)
 end
 
 When(/^I submit my details$/) do
@@ -34,7 +34,7 @@ Then(/^I should not be able to choose to make minimum employer contributions$/) 
 end
 
 When(/^I choose to make full contributions$/) do
-  your_details_page.full_contribution_button.set true
+  your_details_page.full_contribution_button.set(true)
 end
 
 Then(/^I should be able to proceed to the next page$/) do
