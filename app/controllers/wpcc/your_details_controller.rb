@@ -1,5 +1,7 @@
 module Wpcc
   class YourDetailsController < EngineController
+    helper Wpcc::YourDetailsFormHelper
+
     protect_from_forgery
 
     def new
@@ -8,11 +10,13 @@ module Wpcc
 
     def create
       @your_details_form = Wpcc::YourDetailsForm.new(your_details_form_params)
+      @your_details_form = present(@your_details_form)
+
       if @your_details_form.valid?
         amend_session
         redirect_to new_your_contribution_path
       else
-        redirect_to wpcc_root_path
+        render 'new'
       end
     end
 

@@ -1,7 +1,17 @@
 require 'spec_helper'
 
 describe Wpcc::YourDetailsForm, type: :model do
-  subject { described_class.new(age: 32, gender: 'female', salary: 35_000) }
+  let(:salary)                  { 35_000 }
+  let(:salary_frequency)        { 'year' }
+  let(:contribution_preference) { 'full' }
+
+  subject do
+    described_class.new(age: 32,
+                        gender: 'female',
+                        salary: salary,
+                        salary_frequency: salary_frequency,
+                        contribution_preference: contribution_preference)
+  end
 
   describe 'validations' do
     context 'age' do
@@ -33,6 +43,29 @@ describe Wpcc::YourDetailsForm, type: :model do
       it { should allow_value('full').for(:contribution_preference) }
       it { should allow_value('minimum').for(:contribution_preference) }
       it { should_not allow_value('part').for(:contribution_preference) }
+    end
+
+    context 'low salary threshold' do
+      context 'minimum contribution' do
+        let(:salary)                  { 5000      }
+        let(:salary_frequency)        { 'year'    }
+        let(:contribution_preference) { 'minimum' }
+
+        it 'should not allow low salary to be calculated on min contribution' do
+          expect(subject.valid?).to be_falsey
+          expect(subject.errors.keys).to include(:contribution_preference)
+        end
+      end
+
+      context 'full contribution' do
+        let(:salary)                  { 5000   }
+        let(:salary_frequency)        { 'year' }
+        let(:contribution_preference) { 'full' }
+
+        it 'should allow low salary to be calculated on full contribution' do
+          expect(subject.valid?).to be_truthy
+        end
+      end
     end
   end
 end
