@@ -14,6 +14,11 @@ gem 'rails', '~> 4.2.7'
 gem 'sass-rails'
 gem 'turbolinks'
 
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
 group :development, :test do
   gem 'launchy'
   gem 'pry-rails'
