@@ -28,9 +28,7 @@ When(/^I submit my details$/) do
 end
 
 Then(/^I should not be able to choose to make minimum employer contributions$/) do
-  minimum_option_radio= 'your_details_form_contribution_preference_minimum'
-
-  expect(page.find_by_id(minimum_option_radio).disabled?).to be_truthy
+  expect(your_details_page.minimum_contribution_button).to be_disabled
 end
 
 When(/^I choose to make full contributions$/) do
