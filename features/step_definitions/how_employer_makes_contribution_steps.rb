@@ -3,13 +3,20 @@ Given(/^that I am on the WPCC homepage$/) do
 end
 
 When(/^I enter my details$/) do
-  your_details_page.age.set 35
-  your_details_page.genders.select 'Female'
-  your_details_page.salary_frequencies.select 'per Year'
+  your_details_page.age.set(35)
+  your_details_page.genders.select('Female')
+end
+
+When(/^I enter a "([^"]*)" below the minimum threshold$/) do |salary|
+  your_details_page.salary.set(salary)
 end
 
 When(/^I enter a salary below the minimum threshold$/) do
-  your_details_page.salary.set 5000
+  your_details_page.salary.set(5000)
+end
+
+When(/^I select a valid "([^"]*)"$/) do |salary_frequency|
+  your_details_page.salary_frequencies.select(salary_frequency)
 end
 
 When(/^I choose to make minimum contributions$/) do
