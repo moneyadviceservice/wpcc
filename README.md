@@ -19,6 +19,12 @@ $ bundle
 $ bowndler install
 ```
 
+Install npm modules:
+
+```sh
+npm install
+```
+
 ## Versioning
 When a new version of the gem is ready to be published:
 - Create your feature branch
@@ -129,6 +135,13 @@ spec/dummy/app/views/layouts/application.html.erb
 ```
 
 ## Tests
+
+To run the tests (rspec, cucumber and karma), just run:
+
+```
+./test.sh
+```
+
 When running Rspec, SimpleCov will also measure the code coverage with a minimum requirement of 85% coverage.
 This value will be displayed at the end of your Rspec tests.
 
