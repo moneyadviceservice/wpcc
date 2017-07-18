@@ -30,7 +30,7 @@
             </button>
           </div>
           <div class="form__row">
-            <%= f.select :gender, options_for_select(@your_details_form.gender_options, selected: @gender), {prompt: t('wpcc.details.prompt')}, 'data-dough-gender-select': true%>
+            <%= f.select :gender, options_for_select(@your_details_form.gender_options, @your_details_form.gender), {prompt: t('wpcc.details.prompt')}, 'data-dough-gender-select': true%>
           </div>
         </div>
         <div data-dough-popup-content class="popup-tip__content details__helper">
