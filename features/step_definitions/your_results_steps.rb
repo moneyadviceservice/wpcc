@@ -7,7 +7,7 @@ Then(/^I should see my employee contributions for current period as "([^"]*)"$/)
 end
 
 Then(/^I should see my tax relief for current period as "([^"]*)"$/) do |tax_relief|
-  expect(your_results_page.current_period.tax_relief.text).to eq(tax_relief)
+  expect(your_results_page.current_period.tax_relief.text).to eq("(includes tax relief of #{tax_relief})")
 end
 
 Then(/^I should see my employer contributions for current period as "([^"]*)"$/) do |employer_contribution|

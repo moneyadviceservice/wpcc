@@ -24,16 +24,24 @@
 
           <p class="results__period-heading"><%= t('wpcc.results.period.contribution_heading.yours') %></p>
           <p class="results__period-details results__period-employee-contribution">
-            £<%= period.employee_contribution %>
+            <%= period.employee_contribution %>
           </p>
-          <p class="results__period-parenthesis results__period-tax-relief">(includes tax relief of £<%= period.tax_relief %>)</p>
+          <p class="results__period-parenthesis results__period-tax-relief">
+            <%= period.tax_relief %>
+          </p>
 
           <p class="results__period-heading"><%= t('wpcc.results.period.contribution_heading.employers') %></p>
-          <p class="results__period-details results__period-employer-contribution">£<%= period.employer_contribution %></p>
+          <p class="results__period-details results__period-employer-contribution">
+            <%= period.employer_contribution %>
+          </p>
 
           <p class="results__period-heading"><%= t('wpcc.results.period.contribution_heading.total') %></p>
-          <p class="results__period-details results__period-total-contributions">£<%= period.total_contributions %></p>
-          <p class="results__period-parenthesis">(includes tax relief of £<%= period.tax_relief %>)</p>
+          <p class="results__period-details results__period-total-contributions">
+            <%= period.total_contributions %>
+          </p>
+          <p class="results__period-parenthesis">
+            <%= period.tax_relief %>
+          </p>
         </div>
       <% end %>
     </div>

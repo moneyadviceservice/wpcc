@@ -2,22 +2,11 @@ require 'spec_helper'
 
 describe Wpcc::FullContributionCalculator, type: :model do
   subject do
-    described_class.new(salary, contribution_preference).calculate
+    described_class.new(salary, contribution_preference)
   end
 
   let(:contribution_preference) { 'full' }
   let(:salary) { 10_000 }
-
-  describe '#calculate' do
-    it 'creates a YourContribution object' do
-      expect(Wpcc::YourContribution).to receive(:new)
-      subject
-    end
-
-    it 'returns a YourContribution object' do
-      expect(subject).to be_a Wpcc::YourContribution
-    end
-  end
 
   describe '#eligible_salary' do
     it 'returns salary' do
