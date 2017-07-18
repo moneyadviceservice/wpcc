@@ -45,6 +45,9 @@ cy:
       next: Next
       prompt: os gwelwch yn dda dewiswch
 
+      tooltip_show: sioe help
+      tooltip_hide: cuddio cymorth
+
       callout__lt16: Rydych yn rhy ifanc i ymuno â phensiwn gweithle. Pan gyrhaeddwch 16 oed gallwch ofyn i’ch cyflogwr eich cofrestru. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau.
       callout__optIn: Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am bensiwn, ond gallwch ddewis ymuno. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau.
       callout__gt74: Nid ydych yn gymwys i ymuno â phensiwn gweithle gan eich bod yn hŷn na’r uchafswm oed.

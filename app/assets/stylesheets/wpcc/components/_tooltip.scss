@@ -1,6 +1,0 @@
-.tooltip__content-container {
-  
-  @include respond-to($mq-m) {
-    padding: $baseline-unit*2;
-  }
-}

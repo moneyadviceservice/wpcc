@@ -44,6 +44,9 @@ en:
       next: Next
       prompt: Please choose
 
+      tooltip_show: show help
+      tooltip_hide: hide help
+
       callout__lt16: You are too young to join a workplace pension. When you reach the age of 16 you may ask your employer to enrol you. If you do so, your employer will make contributions.
       callout__optIn: Your employer will not automatically enrol you into a pension but you can choose to join. If you do so, your employer will make contributions.
       callout__gt74: You are not eligible to join a workplace pension because you are above the maximum age.

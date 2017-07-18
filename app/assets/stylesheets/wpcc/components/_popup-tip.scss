@@ -1,0 +1,16 @@
+.popup-tip__content {
+  @include respond-to($mq-m) {
+    padding: $baseline-unit;
+  }
+}
+
+.popup-tip__close {
+  .icon,
+  .svg-icon {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: $baseline-unit;
+    left: $baseline-unit;
+  }
+}
