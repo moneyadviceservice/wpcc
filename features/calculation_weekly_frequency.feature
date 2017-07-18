@@ -22,4 +22,5 @@ Feature:
     Examples:
       | age | gender | salary | salary_frequency | contribution_preference | employee_percent | employer_percent | employee_current_period | tax_relied_current_period | employer_current_period | total_current_period |
       | 24  | male   | 380    | per Week         | Minimum                 | 1                | 2                | £2.67                   | £0.53                     | £5.34                   | £8.01                |
-      | 32  | female | 400    | per Week         | Full                    | 3                | 2                | £8.61                   | £1.72                     | £5.74                   | £14.35               |
+      | 32  | female | 400    | per Week         | Minimum                 | 3                | 2                | £8.61                   | £1.72                     | £5.74                   | £14.35               |
+      | 24  | male   | 300    | per Week         | Full                    | 2                | 2                | £6.00                   | £1.20                     | £6.00                   | £12.00               |
