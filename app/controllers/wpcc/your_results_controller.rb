@@ -1,7 +1,5 @@
 module Wpcc
   class YourResultsController < EngineController
-    attr_accessor :schedule, :salary_frequency
-
     def index
       @schedule = Wpcc::Presenter.new(schedule, view_context: view_context)
     end

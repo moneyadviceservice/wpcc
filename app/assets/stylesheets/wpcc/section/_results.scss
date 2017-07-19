@@ -70,3 +70,24 @@
     color: $color-white;
   }
 }
+
+.results__salary-frequency {
+  padding: $baseline-unit*2;
+  background-color: $color-green-pale;
+  margin-bottom: $baseline-unit*2;
+
+  .results__salary-label {
+    @include respond-to($mq-m) {
+      display: inline;
+      margin-right: $baseline-unit;
+    }
+  }
+
+  .results__salary-frequency-submit {
+    @extend .button;
+    @extend .button--primary;
+    @include body(16, 22);
+    padding: $baseline-unit/2 $baseline-unit*2;
+    border: none;
+  }
+}

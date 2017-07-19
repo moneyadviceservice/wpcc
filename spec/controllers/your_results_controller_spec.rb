@@ -54,15 +54,4 @@ RSpec.describe Wpcc::YourResultsController do
       get :index, {}, session
     end
   end
-
-  describe 'POST /' do
-    it 'schedules the contribution calendar with the form salary_frequency' do
-      expect(Wpcc::SalaryFrequencyConverter)
-        .to receive(:convert)
-        .with('month')
-        .and_return(12)
-
-      post :index, { salary_frequency: 'month' }, session
-    end
-  end
 end
