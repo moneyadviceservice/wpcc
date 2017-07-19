@@ -2,18 +2,14 @@ module Wpcc
   class YourContributionGenerator
     include ActiveModel::Model
 
-    attr_accessor :salary, :contribution_preference, :salary_frequency
+    attr_accessor :contribution_preference, :salary_per_year
     delegate :employee_percent,
              :employer_percent,
              :eligible_salary,
              to: :contribution_calculator
 
     def contribution_calculator
-      contribution_klass.new(salary_per_year, contribution_preference)
-    end
-
-    def salary_per_year
-      @salary.to_i * SalaryFrequencyConverter.convert(salary_frequency)
+      @contribution_calculator ||= contribution_klass.new(salary_per_year, contribution_preference)
     end
 
     private
