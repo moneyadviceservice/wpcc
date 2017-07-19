@@ -32,7 +32,7 @@ require.config({
     // Dough components
     utilities: 'vendor/assets/bower_components/dough/assets/js/lib/utilities',
 
-    // Routes to Components to Test
-    BlankTest: 'app/assets/javascripts/wpcc/BlankTest'
+    // WPCC components
+    ConditionalMessaging: 'app/assets/javascripts/wpcc/components/ConditionalMessaging'
   }
 })
