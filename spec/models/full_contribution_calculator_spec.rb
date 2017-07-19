@@ -2,25 +2,14 @@ require 'spec_helper'
 
 describe Wpcc::FullContributionCalculator, type: :model do
   subject do
-    described_class.new(salary, contribution_preference).calculate
+    described_class.new(salary_per_year, contribution_preference)
   end
 
   let(:contribution_preference) { 'full' }
-  let(:salary) { 10_000 }
-
-  describe '#calculate' do
-    it 'creates a YourContribution object' do
-      expect(Wpcc::YourContribution).to receive(:new)
-      subject
-    end
-
-    it 'returns a YourContribution object' do
-      expect(subject).to be_a Wpcc::YourContribution
-    end
-  end
+  let(:salary_per_year) { 10_000 }
 
   describe '#eligible_salary' do
-    it 'returns salary' do
+    it 'returns salary per year' do
       expect(subject.eligible_salary).to eq(10_000)
     end
   end
@@ -32,16 +21,16 @@ describe Wpcc::FullContributionCalculator, type: :model do
   end
 
   describe '#employer_percent' do
-    context 'salary less than Lower Earnings Threshold' do
-      let(:salary) { 5_000 }
+    context 'yearly salary less than Lower Earnings Threshold' do
+      let(:salary_per_year) { 5_000 }
 
       it 'returns 0' do
         expect(subject.employer_percent).to eq(0)
       end
     end
 
-    context 'salary greater than or equal to Lower Earnings Threshold' do
-      let(:salary) { 5_876 }
+    context 'yearly salary greater than or equal to Lower Earnings Threshold' do
+      let(:salary_per_year) { 5_876 }
 
       it 'returns 1' do
         expect(subject.employer_percent).to eq(1)

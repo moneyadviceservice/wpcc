@@ -1,11 +1,16 @@
 require 'spec_helper'
 
-describe Wpcc::CalculatorDelegator, type: :model do
-  subject { described_class.new(salary, contribution_preference) }
+describe Wpcc::YourContributionGenerator, type: :model do
+  subject do
+    described_class.new(
+      salary_per_year: salary_per_year,
+      contribution_preference: contribution_preference
+    )
+  end
 
-  describe '#delegate' do
+  describe '#contribution_calculator' do
     context 'minimum contribution' do
-      let(:salary) { 45_000 }
+      let(:salary_per_year) { 45_000 }
       let(:contribution_preference) { 'minimum' }
       let(:minimum_contribution_calculator) do
         double('MinimumContributionCalculator')
@@ -14,22 +19,15 @@ describe Wpcc::CalculatorDelegator, type: :model do
       it 'creates a MinimumContributionCalculator' do
         expect(Wpcc::MinimumContributionCalculator)
           .to receive(:new)
-          .with(salary, contribution_preference)
+          .with(salary_per_year, contribution_preference)
           .and_return(minimum_contribution_calculator)
 
-        expect(minimum_contribution_calculator)
-          .to receive(:calculate)
-
-        subject.delegate
-      end
-
-      it 'returns a YourContribution object' do
-        expect(subject.delegate).to be_a Wpcc::YourContribution
+        subject.contribution_calculator
       end
     end
 
     context 'full contribution' do
-      let(:salary) { 25_000 }
+      let(:salary_per_year) { 25_000 }
       let(:contribution_preference) { 'full' }
       let(:full_contribution_calculator) do
         double('FullContributionCalculator')
@@ -38,17 +36,10 @@ describe Wpcc::CalculatorDelegator, type: :model do
       it 'creates a FullContributionCalculator' do
         expect(Wpcc::FullContributionCalculator)
           .to receive(:new)
-          .with(salary, contribution_preference)
+          .with(salary_per_year, contribution_preference)
           .and_return(full_contribution_calculator)
 
-        expect(full_contribution_calculator)
-          .to receive(:calculate)
-
-        subject.delegate
-      end
-
-      it 'returns a YourContribution object' do
-        expect(subject.delegate).to be_a Wpcc::YourContribution
+        subject.contribution_calculator
       end
     end
   end

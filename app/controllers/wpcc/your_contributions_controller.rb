@@ -1,13 +1,19 @@
 require_dependency 'wpcc/engine_controller'
 
 module Wpcc
-  class YourContributionsController < EngineController
+  class YourContributionsController < Wpcc::EngineController
     protect_from_forgery
     after_action :store_eligible_salary, :store_percentages, only: :new
 
     def new
-      @contribution = Wpcc::CalculatorDelegator.delegate(
-        session[:salary].to_i, session[:contribution_preference]
+      salary_per_year = SalaryPerYear.new(
+        salary: session[:salary],
+        salary_frequency: session[:salary_frequency]
+      ).convert
+
+      @your_contribution = Wpcc::YourContributionGenerator.new(
+        contribution_preference: session[:contribution_preference],
+        salary_per_year: salary_per_year
       )
 
       @your_contributions_form = Wpcc::YourContributionsForm.new(
@@ -17,7 +23,7 @@ module Wpcc
 
     def create
       @your_contributions_form = Wpcc::YourContributionsForm.new(
-        convert_params_to_integer
+        your_contributions_params
       )
 
       if @your_contributions_form.valid?
@@ -35,11 +41,6 @@ module Wpcc
             .permit(:employee_percent, :employer_percent)
     end
 
-    def convert_params_to_integer
-      hash = your_contributions_params
-      hash.merge(hash) { |_, v| v.to_i }
-    end
-
     def amend_session
       your_contributions_params.keys.each do |key|
         session[key] = params[:your_contributions_form][key]
@@ -47,7 +48,7 @@ module Wpcc
     end
 
     def store_eligible_salary
-      session[:eligible_salary] = @contribution.eligible_salary
+      session[:eligible_salary] = @your_contribution.eligible_salary
     end
 
     def store_percentages
@@ -57,9 +58,9 @@ module Wpcc
 
     def contribution_percentages
       employee_percent = session[:employee_percent] ||
-                         @contribution.employee_percent
+                         @your_contribution.employee_percent
       employer_percent = session[:employer_percent] ||
-                         @contribution.employer_percent
+                         @your_contribution.employer_percent
 
       {
         employee_percent: employee_percent,

@@ -6,16 +6,20 @@ module Wpcc
       let(:salary) { 30_000 }
       let(:contribution_preference) { 'minimum' }
       let(:eligible_salary) { 24_124 }
+      let(:salary_frequency) { 'year' }
       let(:your_contribution) do
-        double(Wpcc::YourContribution,
-               eligible_salary: eligible_salary,
-               employee_percent: 1,
-               employer_percent: 1)
+        double(
+          eligible_salary: eligible_salary,
+          employee_percent: 1,
+          employer_percent: 1
+        )
       end
       let(:your_contributions_form) do
-        double(Wpcc::YourContributionsForm,
-               employee_percent: 1,
-               employer_percent: 1)
+        double(
+          Wpcc::YourContributionsForm,
+          employee_percent: 1,
+          employer_percent: 1
+        )
       end
 
       context 'english' do
@@ -49,10 +53,6 @@ module Wpcc
       end
 
       it 'calculates the eligible_salary and stores it in a session' do
-        expect(Wpcc::CalculatorDelegator)
-          .to receive(:delegate)
-          .with(salary, contribution_preference)
-          .and_return(your_contribution)
         get_new('en')
 
         expect(session[:eligible_salary]).to eq(eligible_salary)
@@ -69,7 +69,8 @@ module Wpcc
               employee_percent: 10,
               employer_percent: 40,
               salary: salary,
-              contribution_preference: contribution_preference
+              contribution_preference: contribution_preference,
+              salary_frequency: 'year'
 
           expect(your_contributions_form.employee_percent).to eq(10)
           expect(your_contributions_form.employer_percent).to eq(40)
@@ -107,7 +108,8 @@ module Wpcc
           nil,
           locale: locale,
           salary: salary,
-          contribution_preference: contribution_preference
+          contribution_preference: contribution_preference,
+          salary_frequency: salary_frequency
     end
 
     def post_create(locale = 'en', employee_percent = 1)

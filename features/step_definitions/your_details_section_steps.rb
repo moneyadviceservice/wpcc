@@ -2,6 +2,26 @@ Given(/^I am on step 1 of the WPCC homepage$/) do
   your_details_page.load
 end
 
+Given(/^I enter my age as "([^"]*)"$/) do |age|
+  your_details_page.age.set(age)
+end
+
+Given(/^I select my gender as "([^"]*)"$/) do |gender|
+  your_details_page.genders.select(gender.capitalize)
+end
+
+Given(/^I enter my salary as "([^"]*)"$/) do |salary|
+  your_details_page.salary.set(salary)
+end
+
+Given(/^I select my salary frequency as "([^"]*)"$/) do |salary_frequency|
+  your_details_page.salary_frequencies.select(salary_frequency)
+end
+
+Given(/^I choose my contribution preference as "([^"]*)"$/) do |contribution_preference|
+  your_details_page.send("#{contribution_preference.downcase}_contribution_button").set(true)
+end
+
 When(/^I fill in the age, gender, salary and frequency fields$/) do
   your_details_page.age.set(35)
   your_details_page.genders.select('Female')
