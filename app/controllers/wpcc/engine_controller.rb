@@ -1,9 +1,15 @@
 module Wpcc
   class EngineController < Wpcc.parent_controller.constantize
+    WPCC_SESSION_EXPIRY_LIMIT = 30.minutes
+
     protect_from_forgery
 
     layout 'wpcc/engine'
-    before_action :log_session, :check_session
+
+    before_action :log_session
+    before_action :expire_wpcc_session, if: :wpcc_session_expired?
+    before_action :update_wpcc_session_expiry, unless: :wpcc_session_expired?
+
     after_action :log_session
 
     private
@@ -23,16 +29,31 @@ module Wpcc
       )
     end
 
-    def check_session
-      session_expired? ? reset_session : update_session_expiry
+    def wpcc_session_expired?
+      session[:wpcc_expires_at] && session[:wpcc_expires_at] <= Time.current
     end
 
-    def session_expired?
-      session[:expires_at] && session[:expires_at] <= Time.current
+    def update_wpcc_session_expiry
+      session[:wpcc_expires_at] = Time.current + WPCC_SESSION_EXPIRY_LIMIT
     end
 
-    def update_session_expiry
-      session[:expires_at] = Time.current + 30.minutes
+    def expire_wpcc_session
+      wpcc_session_keys.each do |key|
+        session[key] = nil
+      end
+    end
+
+    def wpcc_session_keys
+      %i[
+        age
+        gender
+        salary
+        salary_frequency
+        contribution_preference
+        eligible_salary
+        employee_percent
+        employer_percent
+      ]
     end
   end
 end
