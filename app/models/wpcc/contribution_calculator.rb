@@ -1,14 +1,12 @@
 module Wpcc
   class ContributionCalculator
-    include ActiveModel::Model
-
     THRESHOLDS_FILE = Wpcc::Engine.root.join('config', 'earning_thresholds.yml')
     THRESHOLDS = YAML.load_file(THRESHOLDS_FILE)
 
-    attr_accessor :salary, :contribution_preference
+    attr_accessor :salary_per_year, :contribution_preference
 
-    def initialize(salary, contribution_preference)
-      @salary = salary
+    def initialize(salary_per_year, contribution_preference)
+      @salary_per_year = salary_per_year
       @contribution_preference = contribution_preference
     end
 

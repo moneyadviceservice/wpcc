@@ -9,7 +9,10 @@ module Wpcc
              to: :contribution_calculator
 
     def contribution_calculator
-      @contribution_calculator ||= contribution_klass.new(salary_per_year, contribution_preference)
+      @contribution_calculator ||= contribution_klass.new(
+        salary_per_year,
+        contribution_preference
+      )
     end
 
     private

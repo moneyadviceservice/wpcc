@@ -6,12 +6,14 @@ module Wpcc
     after_action :store_eligible_salary, :store_percentages, only: :new
 
     def new
+      salary_per_year = SalaryPerYear.new(
+        salary: session[:salary],
+        salary_frequency: session[:salary_frequency]
+      ).convert
+
       @your_contribution = Wpcc::YourContributionGenerator.new(
-        session.to_hash.slice(
-          'salary',
-          'contribution_preference',
-          'salary_frequency'
-        )
+        contribution_preference: session[:contribution_preference],
+        salary_per_year: salary_per_year
       )
 
       @your_contributions_form = Wpcc::YourContributionsForm.new(

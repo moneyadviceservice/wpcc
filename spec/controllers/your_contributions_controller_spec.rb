@@ -6,7 +6,7 @@ module Wpcc
       let(:salary) { 30_000 }
       let(:contribution_preference) { 'minimum' }
       let(:eligible_salary) { 24_124 }
-      let(:salary_frequency) { 'week' }
+      let(:salary_frequency) { 'year' }
       let(:your_contribution) do
         double(
           eligible_salary: eligible_salary,
@@ -53,14 +53,6 @@ module Wpcc
       end
 
       it 'calculates the eligible_salary and stores it in a session' do
-        expect(Wpcc::YourContributionGenerator)
-          .to receive(:new)
-          .with(
-            'salary' => salary,
-            'contribution_preference' => contribution_preference,
-            'salary_frequency' => salary_frequency
-          )
-          .and_return(your_contribution)
         get_new('en')
 
         expect(session[:eligible_salary]).to eq(eligible_salary)
