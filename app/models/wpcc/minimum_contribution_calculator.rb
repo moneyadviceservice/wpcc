@@ -1,7 +1,9 @@
 class Wpcc::MinimumContributionCalculator < Wpcc::ContributionCalculator
   def eligible_salary
     return upper_less_lower_limit if salary_per_year > upper_earnings_threshold
-    return salary_per_year_less_lower_limit if salary_per_year <= upper_earnings_threshold
+
+    return salary_per_year_less_lower_limit if
+      salary_per_year <= upper_earnings_threshold
   end
 
   def employee_percent
