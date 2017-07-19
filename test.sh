@@ -7,6 +7,7 @@ export BUNDLE_WITHOUT=development
 
 npm install
 bundle install
+bundle exec brakeman -z
 bundle exec rubocop .
 bundle exec bowndler install
 
