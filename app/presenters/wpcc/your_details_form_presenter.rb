@@ -17,12 +17,20 @@ module Wpcc
       end
     end
 
+    def disabled_class
+      disable_minimum_contribution_option? ? 'disabled' : nil
+    end
+
     private
 
     attr_reader :translator
 
     def text_for(option, value)
       translator.call("wpcc.details.options.#{option}.#{value}")
+    end
+
+    def disable_minimum_contribution_option?
+      errors.keys.include?(:contribution_preference)
     end
   end
 end

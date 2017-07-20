@@ -103,7 +103,7 @@ module Wpcc
       end
 
       context 'failure' do
-        it 'redirects to the start page' do
+        it 'render new page for your details' do
           post :create,
                locale: 'en',
                your_details_form: {
@@ -113,7 +113,7 @@ module Wpcc
                  salary_frequency: 'month',
                  contribution_preference: 'full'
                }
-          expect(response).to redirect_to wpcc_root_path(locale: 'en')
+          expect(response).to render_template(:new)
         end
       end
     end

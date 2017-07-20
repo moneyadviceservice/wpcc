@@ -34,4 +34,41 @@ RSpec.describe Wpcc::YourDetailsFormPresenter do
       expect(subject.salary_frequency_options).to eq(expected_result)
     end
   end
+
+  describe '#disabled_class' do
+    context 'salary lower than threshold' do
+      let(:age) { 35 }
+      let(:gender) { 'female' }
+      let(:salary) { 4000 }
+      let(:salary_frequency) { 'year' }
+
+      let(:your_details_form) do
+        Wpcc::YourDetailsForm.new(age: age,
+                                  gender: gender,
+                                  salary: salary,
+                                  salary_frequency: salary_frequency,
+                                  contribution_preference: pref)
+      end
+
+      before do
+        your_details_form.valid?
+      end
+
+      context 'make minimum contribution' do
+        let(:pref) { 'minimum' }
+
+        it 'disabled minimum contribution option' do
+          expect(subject.disabled_class).to eq('disabled')
+        end
+      end
+
+      context 'make minimum contribution' do
+        let(:pref) { 'full' }
+
+        it 'disabled minimum contribution option' do
+          expect(subject.disabled_class).to be_nil
+        end
+      end
+    end
+  end
 end

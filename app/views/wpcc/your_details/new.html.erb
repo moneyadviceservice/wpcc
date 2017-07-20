@@ -1,5 +1,11 @@
 <section class="section section--details details" data-dough-component="ConditionalMessaging">
   <%= form_for(@your_details_form, url: your_details_path) do |f| %>
+    <% if @your_details_form.errors.any? %>
+      <% @your_details_form.errors.full_messages.each do |msg| %>
+        <p><%= msg %></p>
+      <% end %>
+    <% end %>
+
     <h2 class="section__heading details__heading">1. <%= t('wpcc.details.title') %></h2>
     <div class="details__content">
       <div class="details__row" data-dough-component="PopupTip">
@@ -87,7 +93,7 @@
             <legend class="details__calculate-heading"><%= t('wpcc.details.calculate.legend') %></legend>
             <p class="details__calculate-intro"><%= t('wpcc.details.calculate.details') %></p>
             <div class="form__group-item details__calculate-item">
-              <%= f.radio_button(:contribution_preference, 'minimum', class: 'details__calculate-item-select') %>
+              <%= f.radio_button(:contribution_preference, 'minimum', disabled: @your_details_form.disabled_class, class: 'details__calculate-item-select') %>
               <%= f.label(:contribution_preference_minimum, t('wpcc.details.options.contribution_preference.minimum'), class: 'details__calculate-item-label') %>
             </div>
             <div class="form__group-item details__calculate-item">
