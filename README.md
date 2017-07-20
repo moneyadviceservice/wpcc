@@ -65,8 +65,20 @@ implement internationalisation.
   end
 ```
 
-The main application.js requies the component loader to be present in order to
-load the dough components
+The main app require_config.js should have the wpccConfig on the path.
+An example:
+
+```
+  requirejs_config = {
+    paths: {
+      wpccConfig: requirejs_path('wpcc/require_config')
+    }
+  }
+```
+
+Obs.: This "wpccConfig" name should be required using the "require" clause of
+the require js. The main application also requires the component loader to
+be present in order to load the dough components and the wpcc components:
 
 ```
 require(['wpccConfig'], function() {
