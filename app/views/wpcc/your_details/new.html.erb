@@ -1,11 +1,17 @@
 <section class="section section--details details" data-dough-component="ConditionalMessaging">
-  <%= form_for(@your_details_form, url: your_details_path) do |f| %>
+  <%= form_for(
+    @your_details_form,
+    url: your_details_path,
+    html: {
+      'data-dough-component': "Validation",
+      'data-dough-validation-config': '{"showValidationSummary": false}',
+      'novalidate': true
+    }) do |f| %>
     <% if @your_details_form.errors.any? %>
       <% @your_details_form.errors.full_messages.each do |msg| %>
         <p><%= msg %></p>
       <% end %>
     <% end %>
-
     <h2 class="section__heading details__heading">1. <%= t('wpcc.details.title') %></h2>
     <div class="details__content">
       <div class="details__row" data-dough-component="PopupTip">
@@ -18,7 +24,11 @@
             </button>
           </div>
           <div class="form__row">
-             <%= f.text_field :age, 'data-dough-age-field': true %>
+            <%= f.text_field :age,
+              'data-dough-age-field': true,
+              required: true,
+              'data-dough-validation-empty': t('wpcc.details.age.validation')
+            %>
           </div>
         </div>
         <div data-dough-popup-content class="popup-tip__content details__helper">
@@ -36,7 +46,13 @@
             </button>
           </div>
           <div class="form__row">
-            <%= f.select :gender, options_for_select(@your_details_form.gender_options, @your_details_form.gender), {prompt: t('wpcc.details.prompt')}, 'data-dough-gender-select': true%>
+            <%= f.select :gender,
+              options_for_select(@your_details_form.gender_options, @your_details_form.gender),
+              {prompt: t('wpcc.details.prompt')},
+              'data-dough-gender-select': true,
+              required: true,
+              'data-dough-validation-empty': t('wpcc.details.gender.validation')
+            %>
           </div>
         </div>
         <div data-dough-popup-content class="popup-tip__content details__helper">
@@ -74,7 +90,10 @@
               </button>
             </div>
             <div class="details__salary-amount">
-              <%= f.text_field :salary %>
+              <%= f.text_field :salary,
+                required: true,
+                'data-dough-validation-empty': t('wpcc.details.salary.validation')
+              %>
             </div>
             <div class="details__salary-frequency">
               <%= f.label :salary_frequency, t('wpcc.details.salary.frequency.label'), class: 'form__label-heading details__field-label visually-hidden' %>
