@@ -25,16 +25,25 @@ RSpec.describe Wpcc::SalaryPerYear do
       end
     end
 
-    context 'when inexistent frequency' do
+    context 'when monthly frequency' do
       let(:salary) { 1000 }
-      let(:salary_frequency) { 'inexistent' }
+      let(:salary_frequency) { 'month' }
+
+      it 'returns salary multiplied by 12' do
+        expect(convert).to eq(12_000)
+      end
+    end
+
+    context 'when non-existent frequency' do
+      let(:salary) { 1000 }
+      let(:salary_frequency) { 'non-existent' }
 
       it 'raises an exception' do
         expect do
           convert
         end.to raise_exception(
           RuntimeError,
-          "Salary frequency 'inexistent' is not supported."
+          "Salary frequency 'non-existent' is not supported."
         )
       end
     end
