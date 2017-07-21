@@ -14,7 +14,7 @@ en:
       gender:
         label: Your gender
         tooltip: We need to know your gender because the contribution rules vary slightly due to current differences in State Pension retirement dates for men and women.
-        validation: Please enter your gender
+        validation: Please select your gender
 
       salary:
         label: Your basic salary
