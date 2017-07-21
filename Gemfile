@@ -32,6 +32,7 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'simplecov', require: false
   gem 'site_prism'
+  gem 'timecop'
 end
 
 group :build, :development do

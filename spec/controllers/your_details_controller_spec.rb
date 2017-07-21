@@ -28,94 +28,88 @@ module Wpcc
       end
 
       context 'when editing details which have previously been submitted' do
+        let(:your_details_form) { Wpcc::YourDetailsForm.new(session) }
         let(:session) do
           {
-            age: 34,
-            gender: 'female',
-            salary: 34_125,
-            salary_frequency: 'year',
-            contribution_preference: 'minimum'
+            'age' => 34,
+            'gender' => 'female',
+            'salary' => 34_125,
+            'salary_frequency' => 'year',
+            'contribution_preference' => 'minimum'
           }
         end
 
-        let(:your_details_form) do
-          assigns(:your_details_form)
-        end
+        it 'instantiates a YourDetailsForm object with the session details' do
+          expect(Wpcc::YourDetailsForm)
+            .to receive(:new)
+            .with(session)
+            .and_return(your_details_form)
 
-        before do
           get :new, nil, session
-        end
-
-        it 'sets age previously added' do
-          expect(your_details_form.age).to eq(34)
-        end
-
-        it 'sets gender added' do
-          expect(your_details_form.gender).to eq('female')
-        end
-
-        it 'sets salary previously added' do
-          expect(your_details_form.salary).to eq(34_125)
-        end
-
-        it 'sets salary frequency previously added' do
-          expect(your_details_form.salary_frequency).to eq('year')
-        end
-
-        it 'sets contribution preference previously added' do
-          expect(your_details_form.contribution_preference).to eq('minimum')
         end
       end
     end
 
     describe '#create' do
       context 'success' do
-        it 'stores the form input in a session' do
-          post :create,
-               locale: 'en',
-               your_details_form: {
-                 age: 34,
-                 gender: 'female',
-                 salary: 30_000,
-                 salary_frequency: 'month',
-                 contribution_preference: 'full'
-               }
+        after { Timecop.return }
+
+        let(:your_details_form) { Wpcc::YourDetailsForm.new(nil_session) }
+        let(:nil_session) do
+          {
+            'age' => nil,
+            'gender' => nil,
+            'salary' => nil,
+            'salary_frequency' => nil,
+            'contribution_preference' => nil
+          }
+        end
+
+        it 'stores the form input in a session for 30 minutes' do
+          post_create
 
           expect(session['age']).to eq('34')
           expect(session['gender']).to eq('female')
           expect(session['salary']).to eq('30000')
           expect(session['salary_frequency']).to eq('month')
           expect(session['contribution_preference']).to eq('full')
+
+          Timecop.travel(30.minutes.from_now) do
+            expect(Wpcc::YourDetailsForm)
+              .to receive(:new)
+              .with(nil_session)
+              .and_return(your_details_form)
+
+            get :new, nil, nil_session
+          end
         end
 
         it 'redirects to step2 - your contributions section' do
-          post :create,
-               locale: 'en',
-               your_details_form: {
-                 age: 34,
-                 gender: 'female',
-                 salary: 30_000,
-                 salary_frequency: 'month',
-                 contribution_preference: 'full'
-               }
+          post_create
+
           expect(response).to redirect_to new_your_contribution_path
         end
       end
 
       context 'failure' do
-        it 'render new page for your details' do
-          post :create,
-               locale: 'en',
-               your_details_form: {
-                 age: 34,
-                 gender: 'a',
-                 salary: 30_000,
-                 salary_frequency: 'month',
-                 contribution_preference: 'full'
-               }
+        it 'renders the new page for your details' do
+          post_create('error')
+
           expect(response).to render_template(:new)
         end
       end
+    end
+
+    def post_create(gender = 'female')
+      post :create,
+           locale: 'en',
+           your_details_form: {
+             age: 34,
+             gender: gender,
+             salary: 30_000,
+             salary_frequency: 'month',
+             contribution_preference: 'full'
+           }
     end
   end
 end
