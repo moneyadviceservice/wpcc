@@ -8,7 +8,7 @@ module Wpcc
 
     before_action :log_session
     before_action :expire_wpcc_session, if: :wpcc_session_expired?
-    before_action :update_wpcc_session_expiry, unless: :wpcc_session_expired?
+    before_action :update_wpcc_session_expiry
 
     after_action :log_session
 
@@ -30,7 +30,7 @@ module Wpcc
     end
 
     def wpcc_session_expired?
-      session[:wpcc_expires_at] && session[:wpcc_expires_at] <= Time.current
+      session[:wpcc_expires_at] && (session[:wpcc_expires_at] <= Time.current)
     end
 
     def update_wpcc_session_expiry

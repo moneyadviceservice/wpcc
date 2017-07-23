@@ -2,6 +2,26 @@ module Wpcc
   describe YourDetailsController do
     routes { Wpcc::Engine.routes }
 
+    let(:session) do
+      {
+        'age' => 34,
+        'gender' => 'female',
+        'salary' => 34_125,
+        'salary_frequency' => 'year',
+        'contribution_preference' => 'minimum'
+      }
+    end
+
+    let(:nil_session) do
+      {
+        'age' => nil,
+        'gender' => nil,
+        'salary' => nil,
+        'salary_frequency' => nil,
+        'contribution_preference' => nil
+      }
+    end
+
     describe '#new' do
       context 'english' do
         it 'renders the start view for english' do
@@ -29,15 +49,6 @@ module Wpcc
 
       context 'when editing details which have previously been submitted' do
         let(:your_details_form) { Wpcc::YourDetailsForm.new(session) }
-        let(:session) do
-          {
-            'age' => 34,
-            'gender' => 'female',
-            'salary' => 34_125,
-            'salary_frequency' => 'year',
-            'contribution_preference' => 'minimum'
-          }
-        end
 
         it 'instantiates a YourDetailsForm object with the session details' do
           expect(Wpcc::YourDetailsForm)
@@ -55,24 +66,15 @@ module Wpcc
         after { Timecop.return }
 
         let(:your_details_form) { Wpcc::YourDetailsForm.new(nil_session) }
-        let(:nil_session) do
-          {
-            'age' => nil,
-            'gender' => nil,
-            'salary' => nil,
-            'salary_frequency' => nil,
-            'contribution_preference' => nil
-          }
-        end
 
         it 'stores the form input in a session for 30 minutes' do
           post_create
 
-          expect(session['age']).to eq('34')
+          expect(session['age']).to eq(34)
           expect(session['gender']).to eq('female')
-          expect(session['salary']).to eq('30000')
-          expect(session['salary_frequency']).to eq('month')
-          expect(session['contribution_preference']).to eq('full')
+          expect(session['salary']).to eq(34_125)
+          expect(session['salary_frequency']).to eq('year')
+          expect(session['contribution_preference']).to eq('minimum')
 
           Timecop.travel(30.minutes.from_now) do
             expect(Wpcc::YourDetailsForm)
@@ -96,6 +98,44 @@ module Wpcc
           post_create('error')
 
           expect(response).to render_template(:new)
+        end
+      end
+    end
+
+    describe 'sessions' do
+      after { Timecop.return }
+
+      it "'wpcc_expires_at' key should always be updated" do
+        session[:wpcc_expires_at] = 5.minutes.ago
+        get :new, nil, session
+
+        expect(session[:wpcc_expires_at]).to be > 5.minutes.ago
+      end
+
+      context 'session has expired' do
+        it 'should reset the wpcc specific session data to nil' do
+          session[:wpcc_expires_at] = Time.current
+          Timecop.travel(Time.current + 30.minutes)
+          get :new, nil, session
+
+          expect(session[:age]).to eq nil
+          expect(session[:gender]).to eq nil
+          expect(session[:salary]).to eq nil
+          expect(session[:salary_frequency]).to eq nil
+          expect(session[:contribution_preference]).to eq nil
+        end
+      end
+
+      context 'session has NOT expired' do
+        it 'should NOT reset the wpcc specific data to nil' do
+          session[:wpcc_expires_at] = Time.current - 5.minutes
+          get :new, nil, session
+
+          expect(session['age']).to eq 34
+          expect(session['gender']).to eq 'female'
+          expect(session['salary']).to eq 34_125
+          expect(session['salary_frequency']).to eq 'year'
+          expect(session['contribution_preference']).to eq 'minimum'
         end
       end
     end
