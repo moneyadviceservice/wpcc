@@ -11,4 +11,11 @@
       <%= link_to(t('wpcc.edit'), new_your_detail_path, class: 'section__heading-edit') %>
     </span>
   </h2>
+  <% if session[:manually_opt_in] %>
+    <div class="contributions__row">
+      <div class="callout">
+        <%= t('wpcc.contributions.manually_optIn') %>
+      </div>
+    </div>
+  <% end %>
 </section>

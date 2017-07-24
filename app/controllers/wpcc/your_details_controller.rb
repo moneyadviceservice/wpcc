@@ -1,5 +1,8 @@
 module Wpcc
   class YourDetailsController < EngineController
+    OPT_IN_SALARY_LOWER_LIMIT = 5_876
+    OPT_IN_SALARY_UPPER_LIMIT = 10_000
+
     protect_from_forgery
 
     def new
@@ -48,6 +51,12 @@ module Wpcc
 
     def amend_session
       your_details_form_params.each { |key, value| session[key] = value }
+      session[:manually_opt_in] = manually_opt_in?
+    end
+
+    def manually_opt_in?
+      salary = your_details_form_params[:salary].to_i
+      salary >= OPT_IN_SALARY_LOWER_LIMIT && salary <= OPT_IN_SALARY_UPPER_LIMIT
     end
   end
 end

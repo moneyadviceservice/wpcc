@@ -1,5 +1,7 @@
 Given(/^I am on step 1 of the WPCC homepage$/) do
-  your_details_page.load
+  locale = language_to_locale(language = 'English')
+
+  your_details_page.load(locale: locale)
 end
 
 Given(/^I enter my age as "([^"]*)"$/) do |age|
@@ -53,10 +55,6 @@ Then(/^I should see in English my age, gender, salary, frequency and full pay$/)
   expect(page).to have_content('female')
   expect(page).to have_content('£35000 year')
   expect(page).to have_content('full Contribution')
-end
-
-Given(/^that I am on the WPCC homepage$/) do
-  your_details_page.load
 end
 
 When(/^I enter my details$/) do

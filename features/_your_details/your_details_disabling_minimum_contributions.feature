@@ -6,7 +6,7 @@ Feature: Employment contribution
 
   @no-javascript
   Scenario Outline: Annual salary rate below £5,876 with minimum employer contributions
-    Given that I am on the WPCC homepage
+    Given I am on step 1 of the WPCC homepage
     When  I enter my details
     And   I enter a "<salary>" below the minimum threshold
     And   I select a valid "<salary_frequency>"
@@ -23,7 +23,7 @@ Feature: Employment contribution
 
   @no-javascript
   Scenario: Annual salary rate below £5,876 with full employer contributions
-    Given that I am on the WPCC homepage
+    Given I am on step 1 of the WPCC homepage
     When  I enter my details
     And   I enter a salary below the minimum threshold
     And   I choose to make full contributions
