@@ -10,7 +10,11 @@
 <section class="section section--results">
   <h2 class="section__heading results__heading">3. <%= t('wpcc.results.title') %></h2>
 
-  <div class="results__content">
+  <div
+    class="results__content"
+    data-dough-component="UpdateResults"
+    data-dough-update-results-config='{"i18nStrings": {"parentheses": "<%= t('wpcc.results.period.tax_relief_parentheses') %>"}}'
+  >
     <p><%= t('wpcc.results.description', eligible_salary: session[:eligible_salary]) %></p>
 
     <% if message_presenter.tax_relief_warning? %>
@@ -22,7 +26,7 @@
     <%= render 'frequency_selector_form' %>
     <%= render 'contributions_table'%>
     <%= render 'period_percents_table' %>
-    
+
     <p><a href="#" data-dough-component="Print"><%= t('wpcc.results.print_link') %></a></p>
   </div>
 

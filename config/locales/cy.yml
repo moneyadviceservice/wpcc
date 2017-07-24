@@ -94,8 +94,8 @@ cy:
     results:
       title: Eich canlyniadau
       description: |
-        Bydd cyfraddau cyfraniadau pensiwn isaf yn cynyddu yn Ebrill 2018 ac eto yn Ebrill 2019. 
-        Bydd y ffigyrau hyn yn dangos sut y bydd hyn yn effeithio ar eich cyfraniadau. 
+        Bydd cyfraddau cyfraniadau pensiwn isaf yn cynyddu yn Ebrill 2018 ac eto yn Ebrill 2019.
+        Bydd y ffigyrau hyn yn dangos sut y bydd hyn yn effeithio ar eich cyfraniadau.
         Bydd cyfraniadau yn seiliedig ar eich enillion o £%{eligible_salary} y flwyddyn.
       period_title:
         april_2017_march_2018: Nawr
@@ -110,6 +110,7 @@ cy:
           yours: Eich cyfraniad chi
           employers: Cyfraniad cyflogwr
           total: Cyfanswm cyfraniadau
+        tax_relief_parentheses: yn cynnwys gostyngiad treth o £
       tax_relief_warning_html: Os nad ydych chi'n talu treth incwm ar eich enillion, fyddwch chi ddim ond yn cael gostyngiad treth ar eich cyfraniadau os bydd eich cynllun pensiwn yn casglu cyfraniadau yn defnyddio'r gostyngiad treth yn y ffynhonnell. Rydym wedi tybio bod eich cynllun yn gwneud hyn. Darllenwch ragor yn ein canllaw am <a href="https://www.moneyadviceservice.org.uk/cy/articles/gostyngiad-treth-ar-gyfraniadau-pensiwn">ostyngiadau treth ar gyfraniadau pensiwn</a>.
       tax_relief_warning: Os nad ydych chi'n talu treth incwm ar eich enillion, fyddwch chi ddim ond yn cael gostyngiad treth ar eich cyfraniadau os bydd eich cynllun pensiwn yn casglu cyfraniadau yn defnyddio'r gostyngiad treth yn y ffynhonnell. Rydym wedi tybio bod eich cynllun yn gwneud hyn. Darllenwch ragor yn ein canllaw am ostyngiadau treth ar gyfraniadau pensiwn.
       tax_relief_tooltip_html: Byddwch yn cael gostyngiad treth ar eich cyfraniadau pensiwn sy'n golygu y rhoddir peth o’r arian o'ch cyflog a fyddai wedi mynd i’r llywodraeth fel treth tuag at eich pensiwn yn hytrach. <a href="https://www.moneyadviceservice.org.uk/cy/articles/gostyngiad-treth-ar-gyfraniadau-pensiwn">Darllenwch fwy am sut i gael gostyngiad treth</a>.
