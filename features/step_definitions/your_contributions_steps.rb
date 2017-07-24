@@ -8,12 +8,6 @@ Given(/^I complete the your details form and move to your contributions page$/) 
   step 'I click the Next button'
 end
 
-Given(/^I complete the your details and your contributions forms and move to your results page$/) do
-  step 'I fill in the age, gender, salary and frequency fields'
-  step 'I click on "My employer makes contributions on part of my salary"'
-  step 'I click the Next button'
-end
-
 Given(/^I complete the your contributions form$/) do
   # using default values for employee and employer percents
 end
