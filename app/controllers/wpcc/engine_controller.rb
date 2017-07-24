@@ -25,7 +25,8 @@ module Wpcc
         'contribution_preference',
         'employee_percent',
         'employer_percent',
-        'eligible_salary'
+        'eligible_salary',
+        'wpcc_expires_at'
       )
     end
 
