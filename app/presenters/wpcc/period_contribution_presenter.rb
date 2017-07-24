@@ -8,12 +8,24 @@ module Wpcc
       formatted_contribution(object.employee_contribution)
     end
 
+    def employee_contribution_data
+      object.employee_contribution
+    end
+
     def employer_contribution
       formatted_contribution(object.employer_contribution)
     end
 
+    def employer_contribution_data
+      object.employer_contribution
+    end
+
     def tax_relief
       "(includes tax relief of #{formatted_contribution(object.tax_relief)})"
+    end
+
+    def tax_relief_data
+      object.tax_relief
     end
 
     def total_contributions
