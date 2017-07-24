@@ -34,6 +34,15 @@ RSpec.describe Wpcc::SalaryPerYear do
       end
     end
 
+    context 'when per four weeks frequency' do
+      let(:salary) { 1000 }
+      let(:salary_frequency) { 'fourweeks' }
+
+      it 'returns salary multiplied by 13' do
+        expect(convert).to eq(13_000)
+      end
+    end
+
     context 'when non-existent frequency' do
       let(:salary) { 1000 }
       let(:salary_frequency) { 'non-existent' }
