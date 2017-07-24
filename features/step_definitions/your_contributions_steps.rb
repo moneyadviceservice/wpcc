@@ -51,3 +51,7 @@ end
 Then(/^the employer percent input should be "([^"]*)"$/) do |employer_percent|
   expect(your_contributions_page.employer_percent.value).to eq(employer_percent)
 end
+
+Then(/^I should see my contributions as "([^"]*)"$/) do |message|
+  expect(your_results_page.your_contributions_information.text).to eq(message)
+end
