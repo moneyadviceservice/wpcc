@@ -48,6 +48,12 @@ module Wpcc
 
     def amend_session
       your_details_form_params.each { |key, value| session[key] = value }
+      session[:manually_opt_in] = manually_opt_in?
+    end
+
+    def manually_opt_in?
+      salary = your_details_form_params[:salary].to_i
+      salary >= 5_876 && salary <= 10_000
     end
   end
 end
