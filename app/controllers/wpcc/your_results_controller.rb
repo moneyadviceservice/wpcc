@@ -1,5 +1,7 @@
 module Wpcc
   class YourResultsController < EngineController
+    helper Wpcc::YourResultsPageHelper
+
     def index
       @schedule = present(
         Wpcc::ContributionsCalendar.new(contributions_params).schedule

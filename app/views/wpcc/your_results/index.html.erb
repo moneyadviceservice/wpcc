@@ -46,6 +46,14 @@
       <% end %>
     </div>
 
+    <% if earning_below_tax_relief_threshold?(session[:salary]) %>
+      <div class="contributions__row">
+        <div class="callout">
+          <p><%= t('wpcc.results.tax_relief_warning') %></p>
+        </div>
+      </div>
+    <% end %>
+
     <p><a href="#"><%= t('wpcc.results.contribution_table_link') %></a></p>
   </div>
 
