@@ -30,19 +30,25 @@ describe Wpcc::ContributionsCalendar, type: :model do
     end
 
     describe 'creates PeriodContribution objects for each period' do
-      context 'when the employee/employer percents ARE in the yml file' do
-        let(:current_period) { { some_period: { tax_relief_percent: 20 } } }
+      context 'when the period does NOT have employee/employer percents' do
+        let(:period) do
+          {
+            some_period: {
+              tax_relief_percent: 20
+            }
+          }
+        end
 
         before do
           allow(contributions_calendar)
-            .to receive(:periods)
-            .and_return(current_period)
+            .to receive(:periods_above_user_contributions)
+            .and_return(period)
         end
 
         it 'calls the PeriodContribution with the user provided percents' do
           expect(Wpcc::PeriodContributionCalculator)
             .to receive(:new)
-            .with(name: current_period.keys.first.to_s,
+            .with(name: period.keys.first.to_s,
                   employee_percent: employee_percent,
                   employer_percent: employer_percent,
                   eligible_salary: eligible_salary,
@@ -54,16 +60,20 @@ describe Wpcc::ContributionsCalendar, type: :model do
         end
       end
 
-      context 'when NO employee/employer percents are in the yml file' do
+      context 'when the period has employee/employer percents' do
         let(:next_period) do
-          { some_period: { tax_relief_percent: 20,
-                           employee_percent: 3,
-                           employer_percent: 4 } }
+          {
+            some_period: {
+              tax_relief_percent: 20,
+              employee_percent: 3,
+              employer_percent: 4
+            }
+          }
         end
 
         before do
           allow(contributions_calendar)
-            .to receive(:periods)
+            .to receive(:periods_above_user_contributions)
             .and_return(next_period)
         end
 
@@ -79,50 +89,6 @@ describe Wpcc::ContributionsCalendar, type: :model do
             .and_return(period_contribution_calculator)
           expect(period_contribution_calculator).to receive(:contribution)
           schedule
-        end
-      end
-
-      context 'when contribution periods less than user percents' do
-        let(:next_period) do
-          {
-            current: {
-              tax_relief_percent: 20
-            },
-            some_period: {
-              tax_relief_percent: 20,
-              employee_percent: 3,
-              employer_percent: 4
-            },
-            period_onwards: {
-              tax_relief_percent: 20,
-              employee_percent: 5,
-              employer_percent: 4
-            }
-          }
-        end
-
-        before do
-          allow(contributions_calendar)
-            .to receive(:periods)
-            .and_return(next_period)
-        end
-
-        context 'when one period is less than user percents' do
-          let(:employee_percent) { 3 }
-          let(:employer_percent) { 4 }
-
-          it 'excludes lower contribution period' do
-            expect(schedule.size).to eq(2)
-          end
-        end
-
-        context 'when two periods is less than user percents' do
-          let(:employee_percent) { 10 }
-          let(:employer_percent) { 10 }
-
-          it 'excludes lower contribution periods' do
-            expect(schedule.size).to eq(1)
-          end
         end
       end
     end
