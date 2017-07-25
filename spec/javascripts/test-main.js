@@ -33,6 +33,7 @@ require.config({
     utilities: 'vendor/assets/bower_components/dough/assets/js/lib/utilities',
 
     // WPCC components
-    ConditionalMessaging: 'app/assets/javascripts/wpcc/components/ConditionalMessaging'
+    ConditionalMessaging: 'app/assets/javascripts/wpcc/components/ConditionalMessaging',
+    SalaryConditions: 'app/assets/javascripts/wpcc/components/SalaryConditions'
   }
 })
