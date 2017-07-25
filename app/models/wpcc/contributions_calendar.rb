@@ -21,8 +21,17 @@ module Wpcc
 
     def schedule
       periods_above_user_contributions.map do |period, percents|
-        employee_percentage = percents[:employee_percent] || employee_percent
-        employer_percentage = percents[:employer_percent] || employer_percent
+        if percents[:employee_percent] && employee_percent > percents[:employee_percent]
+          employee_percentage = employee_percent
+        else
+          employee_percentage = percents[:employee_percent] || employee_percent
+        end
+
+        if percents[:employer_percent] && employer_percent > percents[:employer_percent]
+          employer_percentage = employer_percent
+        else
+          employer_percentage = percents[:employer_percent] || employer_percent
+        end
 
         Wpcc::PeriodContributionCalculator.new(
           name: period.to_s,
