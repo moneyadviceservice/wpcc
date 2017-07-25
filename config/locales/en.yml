@@ -88,6 +88,8 @@ en:
           yours: Your contribution
           employers: Employer's contribution
           total: Total contributions
+      tax_relief_warning_html: If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions if your pension scheme collects contributions using the tax relief at source method. We have assumed your scheme does. Read more in our guide about <a href="https://www.moneyadviceservice.org.uk/en/articles/tax-relief-on-pension-contributions">tax relief on pension contributions</a>.
+      tax_relief_warning: If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions if your pension scheme collects contributions using the tax relief at source method.  We have assumed your scheme does. Read more in our guide about tax relief on pension contributions.
       contribution_table_link: View a table of how legal minimum contributions change
       next_steps:
         heading: Next steps
