@@ -8,12 +8,6 @@ Given(/^I complete the your details form and move to your contributions page$/) 
   step 'I click the Next button'
 end
 
-Given(/^I complete the your details and your contributions forms and move to your results page$/) do
-  step 'I fill in the age, gender, salary and frequency fields'
-  step 'I click on "My employer makes contributions on part of my salary"'
-  step 'I click the Next button'
-end
-
 Given(/^I complete the your contributions form$/) do
   # using default values for employee and employer percents
 end
@@ -56,4 +50,8 @@ end
 
 Then(/^the employer percent input should be "([^"]*)"$/) do |employer_percent|
   expect(your_contributions_page.employer_percent.value).to eq(employer_percent)
+end
+
+Then(/^I should see my contributions as "([^"]*)"$/) do |message|
+  expect(your_results_page.your_contributions_information.text).to eq(message)
 end
