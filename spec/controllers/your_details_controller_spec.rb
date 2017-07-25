@@ -22,6 +22,8 @@ module Wpcc
       }
     end
 
+    let(:your_details_form) { Wpcc::YourDetailsForm.new(some_session) }
+
     describe '#new' do
       context 'english' do
         it 'renders the start view for english' do
@@ -48,8 +50,6 @@ module Wpcc
       end
 
       context 'when editing details which have previously been submitted' do
-        let(:your_details_form) { Wpcc::YourDetailsForm.new(some_session) }
-
         it 'instantiates a YourDetailsForm object with the session details' do
           expect(Wpcc::YourDetailsForm)
             .to receive(:new)
@@ -67,23 +67,14 @@ module Wpcc
 
         let(:your_details_form) { Wpcc::YourDetailsForm.new(some_nil_session) }
 
-        it 'stores the form input in a session for 30 minutes' do
+        it 'stores the form input in a session' do
           post_create
 
           expect(session[:age]).to eq('34')
           expect(session[:gender]).to eq('female')
-          expect(session[:salary]).to eq("30000")
+          expect(session[:salary]).to eq('30000')
           expect(session[:salary_frequency]).to eq('month')
           expect(session[:contribution_preference]).to eq('full')
-
-          Timecop.travel(30.minutes.from_now) do
-            expect(Wpcc::YourDetailsForm)
-              .to receive(:new)
-              .with(some_nil_session)
-              .and_return(your_details_form)
-
-            get :new, nil, some_nil_session
-          end
         end
 
         it 'redirects to step2 - your contributions section' do
@@ -112,37 +103,31 @@ module Wpcc
         expect(session[:wpcc_expires_at]).to be > 5.minutes.ago
       end
 
-      context 'session has expired' do
+      context 'when it has expired' do
         it 'should reset the wpcc specific session data to nil' do
-          #set up real session
-          session = 
-            { 
-              age: 34,
-              gender: 'male',
-              salary: 9000,
-              salary_frequency: 'yearly',
-              contribution_preference: 'full',
-              wpcc_expires_at: 5.minutes.ago
-            }
+          post_create
 
-          Timecop.travel(Time.current + 30.minutes)
-          #get new with fake session
-          get :new, nil, some_session
+          Timecop.travel(30.minutes.from_now) do
+            expect(Wpcc::YourDetailsForm)
+              .to receive(:new)
+              .with(some_nil_session)
+              .and_return(your_details_form)
 
-          #real session details should be updated to nil
-          expect(session[:age]).to eq nil
-          expect(session[:gender]).to eq nil
-          expect(session[:salary]).to eq nil
-          expect(session[:salary_frequency]).to eq nil
-          expect(session[:contribution_preference]).to eq nil
+            get :new,
+                nil,
+                age: nil,
+                gender: nil,
+                salary: nil,
+                salary_frequency: nil,
+                contribution_preference: nil
+          end
         end
       end
 
-      context 'session has NOT expired' do
-        it 'should NOT reset the wpcc specific data to nil' do
-          #set up real session
-          session = 
-            { 
+      context 'when it has NOT expired' do
+        it 'should NOT reset the wpcc specific session data to nil' do
+          session =
+            {
               age: 34,
               gender: 'male',
               salary: 9000,
@@ -151,10 +136,8 @@ module Wpcc
               wpcc_expires_at: 5.minutes.ago
             }
 
-          #get new with fake session
           get :new, nil, some_session
 
-          #real session details should NOT be changed
           expect(session[:age]).to eq 34
           expect(session[:gender]).to eq 'male'
           expect(session[:salary]).to eq 9_000
