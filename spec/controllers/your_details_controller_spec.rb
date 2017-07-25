@@ -1,82 +1,53 @@
 module Wpcc
   describe YourDetailsController do
     routes { Wpcc::Engine.routes }
-
-    let(:some_session) do
+    let(:data_for_form) do
       {
         'age' => 34,
+        'salary' => 30_000,
         'gender' => 'female',
-        'salary' => 34_125,
-        'salary_frequency' => 'year',
-        'contribution_preference' => 'minimum'
+        'salary_frequency' => 'month',
+        'contribution_preference' => 'full'
       }
     end
-
-    let(:some_nil_session) do
-      {
-        'age' => nil,
-        'gender' => nil,
-        'salary' => nil,
-        'salary_frequency' => nil,
-        'contribution_preference' => nil
-      }
-    end
-
-    let(:your_details_form) { Wpcc::YourDetailsForm.new(some_session) }
 
     describe '#new' do
-      context 'english' do
+      subject { response }
+
+      context 'supported translations' do
         it 'renders the start view for english' do
           get :new, locale: 'en'
-
-          expect(response).to be_success
+          is_expected.to be_success
         end
-      end
 
-      context 'welsh' do
         it 'renders the start view for welsh' do
           get :new, locale: 'cy'
-
-          expect(response).to be_success
+          is_expected.to be_success
         end
       end
 
-      context 'translation not supported' do
-        it 'throws an error for an unsupported locale' do
+      context 'unsupported translation' do
+        it 'throws an error for french' do
           expect do
             get :new, locale: 'fr'
           end.to raise_error ActionController::UrlGenerationError
         end
       end
 
-      context 'when editing details which have previously been submitted' do
+      context 'editing previously submitted form' do
         it 'instantiates a YourDetailsForm object with the session details' do
+          get :new, nil, data_for_form
           expect(Wpcc::YourDetailsForm)
             .to receive(:new)
-            .with(some_session)
-            .and_return(your_details_form)
+            .with(data_for_form)
 
-          get :new, nil, some_session
+          get :new
         end
       end
     end
 
     describe '#create' do
       context 'success' do
-        after { Timecop.return }
-
-        let(:your_details_form) { Wpcc::YourDetailsForm.new(some_nil_session) }
-
-        it 'stores the form input in a session' do
-          post_create
-
-          expect(session[:age]).to eq('34')
-          expect(session[:gender]).to eq('female')
-          expect(session[:salary]).to eq('30000')
-          expect(session[:salary_frequency]).to eq('month')
-          expect(session[:contribution_preference]).to eq('full')
-        end
-
         it 'redirects to step2 - your contributions section' do
           post_create
 
@@ -85,8 +56,8 @@ module Wpcc
       end
 
       context 'failure' do
-        it 'renders the new page for your details' do
-          post_create('error')
+        it 'rerenders your details page' do
+          post_create('age' => 'error')
 
           expect(response).to render_template(:new)
         end
@@ -94,69 +65,92 @@ module Wpcc
     end
 
     describe 'sessions' do
-      after { Timecop.return }
+      before(:each) { post_create }
+      after(:each) { Timecop.return }
 
-      it "'wpcc_expires_at' key should always be updated" do
-        session[:wpcc_expires_at] = 5.minutes.ago
-        get :new, nil, some_session
-
-        expect(session[:wpcc_expires_at]).to be > 5.minutes.ago
+      let(:data_for_form) do
+        {
+          'age' => '34',
+          'salary' => '30000',
+          'gender' => 'female',
+          'salary_frequency' => 'month',
+          'contribution_preference' => 'full'
+        }
       end
 
-      context 'when it has expired' do
-        it 'should reset the wpcc specific session data to nil' do
-          post_create
-
-          Timecop.travel(30.minutes.from_now) do
-            expect(Wpcc::YourDetailsForm)
-              .to receive(:new)
-              .with(some_nil_session)
-              .and_return(your_details_form)
-
-            get :new,
-                nil,
-                age: nil,
-                gender: nil,
-                salary: nil,
-                salary_frequency: nil,
-                contribution_preference: nil
-          end
+      context 'storing the session' do
+        it 'stores the form data' do
+          expect(session[:age]).to eq('34')
+          expect(session[:gender]).to eq('female')
+          expect(session[:salary]).to eq('30000')
+          expect(session[:salary_frequency]).to eq('month')
+          expect(session[:contribution_preference]).to eq('full')
         end
       end
 
-      context 'when it has NOT expired' do
-        it 'should NOT reset the wpcc specific session data to nil' do
-          session =
-            {
-              age: 34,
-              gender: 'male',
-              salary: 9000,
-              salary_frequency: 'yearly',
-              contribution_preference: 'full',
-              wpcc_expires_at: 5.minutes.ago
-            }
+      context 'updating the session' do
+        it 'expiration time updates after any action' do
+          old_timestamp = session[:wpcc_expires_at]
+          Timecop.travel(1.minute.from_now)
+          get :new
 
-          get :new, nil, some_session
+          expect(session[:wpcc_expires_at]).to be > old_timestamp
+        end
+      end
 
-          expect(session[:age]).to eq 34
-          expect(session[:gender]).to eq 'male'
-          expect(session[:salary]).to eq 9_000
-          expect(session[:salary_frequency]).to eq 'yearly'
-          expect(session[:contribution_preference]).to eq 'full'
+      context 'session NOT expired' do
+        it 'session data still exists' do
+          Timecop.travel(10.minutes.from_now)
+
+          expect(Wpcc::YourDetailsForm).to receive(:new).with(data_for_form)
+
+          get :new
+        end
+      end
+
+      context 'session expired' do
+        let(:empty_data_for_form) do
+          {
+            'age' => nil,
+            'gender' => nil,
+            'salary' => nil,
+            'salary_frequency' => nil,
+            'contribution_preference' => nil
+          }
+        end
+
+        it 'session data is reset' do
+          Timecop.travel(30.minutes.from_now)
+
+          expect(Wpcc::YourDetailsForm)
+            .to receive(:new)
+            .with(empty_data_for_form)
+
+          get :new
+        end
+      end
+
+      context 'recreating sessions' do
+        it 'new session can be created after expiry of old' do
+          Timecop.travel(35.minutes.from_now)
+          get :new
+
+          expect(session[:age]).to eq(nil)
+          post_create
+
+          expect(session[:age]).to eq('34')
+          expect(session[:gender]).to eq('female')
+          expect(session[:salary]).to eq('30000')
+          expect(session[:salary_frequency]).to eq('month')
+          expect(session[:contribution_preference]).to eq('full')
         end
       end
     end
 
-    def post_create(gender = 'female')
+    def post_create(form_data = data_for_form)
       post :create,
            locale: 'en',
-           your_details_form: {
-             age: 34,
-             gender: gender,
-             salary: 30_000,
-             salary_frequency: 'month',
-             contribution_preference: 'full'
-           }
+           your_details_form: form_data
     end
   end
 end
