@@ -7,7 +7,7 @@ Feature: Display Tax Relief Warning
   Scenario Outline: Earnings below £11,500 per year
     Given that I am on the WPCC homepage in my own "<language>"
     When  I enter my personal details
-    And   I enter a "<salary>" below the salary band
+    And   I enter my salary as "<salary>"
     And   I submit my details
     And   I progress to the results page
     Then  I should see tax relief "<warning_message>"

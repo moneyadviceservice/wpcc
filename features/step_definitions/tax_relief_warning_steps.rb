@@ -15,10 +15,6 @@ When(/^I enter my personal details$/) do
   your_details_page.minimum_contribution_button.set(true)
 end
 
-When(/^I enter a "([^"]*)" below the salary band$/) do |salary|
-  your_details_page.salary.set(salary)
-end
-
 When(/^I progress to the results page$/) do
   step 'I move to your results page'
 end
