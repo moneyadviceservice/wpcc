@@ -89,7 +89,7 @@ cy:
           yours: Eich cyfraniad chi
           employers: Cyfraniad cyflogwr
           total: Cyfanswm cyfraniadau
-      tax_relief_warning: Os nad ydych chi'n talu treth incwm ar eich enillion, fyddwch chi ddim ond yn cael gostyngiad treth ar eich cyfraniadau os bydd eich cynllun pensiwn yn casglu cyfraniadau yn defnyddio'r gostyngiad treth yn y ffynhonnell. Rydym wedi tybio bod eich cynllun yn gwneud hyn. Darllenwch ragor yn ein canllaw am ostyngiadau treth ar gyfraniadau pensiwn.
+      tax_relief_warning_html: Os nad ydych chi'n talu treth incwm ar eich enillion, fyddwch chi ddim ond yn cael gostyngiad treth ar eich cyfraniadau os bydd eich cynllun pensiwn yn casglu cyfraniadau yn defnyddio'r gostyngiad treth yn y ffynhonnell. Rydym wedi tybio bod eich cynllun yn gwneud hyn. Darllenwch ragor yn ein canllaw am <a href="https://www.moneyadviceservice.org.uk/cy/articles/gostyngiad-treth-ar-gyfraniadau-pensiwn">ostyngiadau treth ar gyfraniadau pensiwn</a>.
       contribution_table_link: Darllen tabl sy’n dangos sut mae isafswm cyfraniadau cyfreithlon yn newid
       next_steps:
         heading: Next steps
