@@ -62,6 +62,12 @@ en:
       input_of_label: of
       calculate_button: Calculate your contributions
       employee_contribution_warning: The maximum you can contribute to a pension per year is 100% of your salary or £40,000, whichever is lower.
+      employee_validation:
+        blank: Please enter your contribution
+        out_of_range: Your contribution must be in the range 0% - 100%
+      employer_validation:
+        blank: Please enter your employer’s contribution
+        out_of_range: Your employer’s contribution must be in the range 0% - 100%
 
     results:
       title: Your Results
