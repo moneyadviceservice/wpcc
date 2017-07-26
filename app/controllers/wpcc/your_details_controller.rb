@@ -23,8 +23,8 @@ module Wpcc
 
     def present(your_details_form)
       Wpcc::YourDetailsFormPresenter.new(
-        your_details_form: your_details_form,
-        translator: method(:translate)
+        your_details_form,
+        view_context: view_context
       )
     end
 

@@ -6,7 +6,7 @@
       (You: <%= session[:employee_percent] %>%, Your employer: <%= session[:employer_percent] %>%)
     </span>
     <span>
-      <%= link_to(t('wpcc.edit'), new_your_contribution_path) %>
+      <%= link_to(t('wpcc.edit'), new_your_contribution_path, class: 'section__heading-edit') %>
     </span>
   </h2>
 </section>
@@ -16,6 +16,8 @@
 
   <div class="results__content">
     <p><%= t('wpcc.results.description', eligible_salary: session[:eligible_salary]) %></p>
+
+    <%= render 'frequency_selector_form', salary_frequency: @salary_frequency %>
 
     <div class="results__row">
       <% @schedule.each do |period| %>

@@ -92,3 +92,6 @@ cy:
           pension_calculator_html: Defnyddiwch ein <a href="#">Cyfrifiannell Pensiwn</a> i weld faint o bensiwn y bydd eich cronfa yn ei chronni dros amser.
           workplace_pensions_html: Dysgwch ragor am <a href="#">bensiynau gweithle</a>.
           budget_planner_html: Defnyddiwch ein <a href="#">cynllunydd cyllideb</a> i weld pa effaith y bydd eich cyfraniadau yn eu cael ar eich incwm.
+      edit_frequency:
+        label: Dangos fy nghyfraniadau [y Flwyddy/y Mis/fesul 4 wythnos/y Wythnos ]
+        button: Al-gyfrifo
