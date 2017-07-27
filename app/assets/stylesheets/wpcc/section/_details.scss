@@ -90,6 +90,11 @@
     background-color: $color-green-pale;
     border: 1px solid $color-green-medium;
   }
+
+  input[type="radio"]:disabled + label {
+    color: $color-grey-light;
+    border-color: $color-grey-pale;
+  }
 }
 
 .details__calculate-item-select {

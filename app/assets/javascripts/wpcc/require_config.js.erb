@@ -7,6 +7,7 @@
 //= depend_on_asset dough/assets/js/components/DoughBaseComponent
 //= depend_on_asset dough/assets/js/components/PopupTip
 //= depend_on_asset wpcc/components/ConditionalMessaging
+//= depend_on_asset wpcc/components/SalaryConditions
 
 <%
   def requirejs_path(asset)
@@ -24,7 +25,8 @@
       Validation: requirejs_path('dough/assets/js/components/Validation'),
 
       # Non Dough Component
-      ConditionalMessaging: requirejs_path('wpcc/components/ConditionalMessaging')
+      ConditionalMessaging: requirejs_path('wpcc/components/ConditionalMessaging'),
+      SalaryConditions: requirejs_path('wpcc/components/SalaryConditions')
     }
   }
 %>

@@ -51,6 +51,9 @@ cy:
       callout__lt16: Rydych yn rhy ifanc i ymuno â phensiwn gweithle. Pan gyrhaeddwch 16 oed gallwch ofyn i’ch cyflogwr eich cofrestru. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau.
       callout__optIn: Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am bensiwn, ond gallwch ddewis ymuno. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau.
       callout__gt74: Nid ydych yn gymwys i ymuno â phensiwn gweithle gan eich bod yn hŷn na’r uchafswm oed.
+      callout__lt5876: Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno. Os felly, ni fydd yn ofynnol i'ch cyflogwr wneud cyfraniadau.
+      callout__radiodisabled: Your earnings level is below the minimum contribution level so you will have to make contributions based on your full salary
+      callout__gt5876_lt10000: Your employer will not automatically enroll you into a workplace pension scheme but you can choose to join. If you do so, your employer will make contributions.
 
     contributions:
       title: Eich cyfraniadau
@@ -58,7 +61,8 @@ cy:
       description_tooltip: Dyma’r rhan o’ch cyflog blynyddol a ddefnyddir i gyfrifo’ch cyfraniad pensiwn dan gofrestru awtomatig. Sef eich enillion cyn treth (hyd at derfyn uchafswm o £45000 y flwyddyn) – meinws trothwy enillion isaf o £5,876.
       your_contribution_title: Nodwch eich cyfraniad
       your_contribution_tip: Yr isafswm cyfreithiol yw 1%
-      contribution_preference_title: Nodwch gyfraniad eich cyflogwr
+      your_contribution_tip_lt5876: Ar eich lefel cyflog, nid oes isafswm cyfreithiol o gyfraniad ond efallai y bydd eich cynllun pensiwn gweithlu wedi gosod isafswm. Holwch eich cyflogwr.
+      employer_contribution_title: Nodwch gyfraniad eich cyflogwr
       employer_contribution_tip: Yr isafswm cyfreithiol yw 1%
       input_of_label: o
       calculate_button: Cyfrifwch eich cyfraniadau

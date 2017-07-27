@@ -10,7 +10,6 @@
       <p><%= t('wpcc.contributions.description_tooltip') %></p>
     </p>
   </div>
-
   <%= form_for(
     @your_contributions_form,
     url: your_contributions_path,
@@ -19,43 +18,46 @@
       'data-dough-validation-config': '{"showValidationSummary": false}',
       'novalidate': true
     }) do |f| %>
-    <div class="contributions__row">
-      <div class="contributions__source contributions__source--employee form__row">
-        <h3 class="contributions__source-title"><%= t('wpcc.contributions.your_contribution_title') %></h3>
-        <p><%= t('wpcc.contributions.your_contribution_tip') %></p>
-        <%= f.number_field :employee_percent,
-          class: "contributions__source-input",
-          required: true,
-          min: 0,
-          max: 100,
-          'data-dough-validation-empty': t('wpcc.contributions.employee_validation.blank'),
-          'data-dough-validation-invalid': t('wpcc.contributions.employee_validation.out_of_range')
-        %>
-        <%= t('wpcc.contributions.input_of_label') %>
-        <span>£<%= @your_contribution.eligible_salary %></span>
+    <div data-dough-component="SalaryConditions">
+      <div class="contributions__row">
+        <div class="contributions__source contributions__source--employee form__row">
+          <h3 class="contributions__source-title"><%= t('wpcc.contributions.your_contribution_title') %></h3>
+          <p data-dough-employee-tip><%= t('wpcc.contributions.your_contribution_tip') %></p>
+          <p data-dough-employee-tip-lt5876 class="is-hidden"><%= t('wpcc.contributions.your_contribution_tip_lt5876') %></p>
+          <%= f.number_field :employee_percent,
+            class: "contributions__source-input",
+            required: true,
+            min: 0,
+            max: 100,
+            'data-dough-employee-contributions': true,
+            'data-dough-validation-empty': t('wpcc.contributions.employee_validation.blank'),
+            'data-dough-validation-invalid': t('wpcc.contributions.employee_validation.out_of_range')
+          %>
+          <%= t('wpcc.contributions.input_of_label') %>
+          <span>£<%= @your_contribution.eligible_salary %></span>
+        </div>
+        <div class="contributions__source contributions__source--employer form__row">
+          <h3 class="contributions__source-title"><%= t('wpcc.contributions.employer_contribution_title') %></h3>
+          <p data-dough-employer-tip><%= t('wpcc.contributions.employer_contribution_tip') %></p>
+          <%= f.number_field :employer_percent,
+            class: "contributions__source-input",
+            required: true,
+            min: 0,
+            max: 100,
+            'data-dough-employer-contributions': true,
+            'data-dough-validation-empty': t('wpcc.contributions.employer_validation.blank'),
+            'data-dough-validation-invalid': t('wpcc.contributions.employee_validation.out_of_range')
+          %>
+          <%= t('wpcc.contributions.input_of_label') %>
+          <span>£<%= @your_contribution.eligible_salary %></span>
+        </div>
       </div>
-
-      <div class="contributions__source contributions__source--employer form__row">
-        <h3 class="contributions__source-title"><%= t('wpcc.contributions.employer_contribution_title') %></h3>
-        <p><%= t('wpcc.contributions.employer_contribution_tip') %></p>
-        <%= f.number_field :employer_percent,
-          class: "contributions__source-input",
-          required: true,
-          min: 0,
-          max: 100,
-          'data-dough-validation-empty': t('wpcc.contributions.employer_validation.blank'),
-          'data-dough-validation-invalid': t('wpcc.contributions.employee_validation.out_of_range')
-        %>
-        <%= t('wpcc.contributions.input_of_label') %>
-        <span>£<%= @your_contribution.eligible_salary %></span>
+      <div class="contributions__row">
+        <div class="callout">
+          <p><%= t('wpcc.contributions.employee_contribution_warning') %></p>
+        </div>
+        <%= f.submit t('wpcc.contributions.calculate_button'), class: 'button button--primary' %>
       </div>
-    </div>
-
-    <div class="contributions__row">
-      <div class="callout">
-        <p><%= t('wpcc.contributions.employee_contribution_warning') %></p>
-      </div>
-      <%= f.submit t('wpcc.contributions.calculate_button'), class: 'button button--primary' %>
     </div>
   <% end %>
 </section>
