@@ -79,7 +79,3 @@ end
 Then(/^I should see tax relief "([^"]*)"$/) do |warning_message|
   expect(page).to have_content(warning_message)
 end
-
-def language_to_locale(language)
-  { 'English' => :en, 'Welsh' => :cy }[language]
-end
