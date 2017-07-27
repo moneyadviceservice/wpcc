@@ -75,7 +75,7 @@ describe('Salary Conditions', function() {
         clock.tick(this.delay);
         expect(this.employerPartRadio.prop('disabled')).to.be.true;
         done();
-      })
+      });
 
       it('Displays disabled radio callout', function(done) {
         this.salaryField.val('3000');
@@ -93,7 +93,7 @@ describe('Salary Conditions', function() {
         clock.tick(this.delay);
         expect(this.employerFullRadio.prop('checked')).to.be.true;
         done();
-      })
+      });
 
       it('Saves this state to local storage', function(done) {
         this.salaryField.val('3000');
@@ -101,16 +101,16 @@ describe('Salary Conditions', function() {
         clock.tick(this.delay);
         expect(localStorage.getItem('lt5876')).to.equal('true');
         done();
-      })
+      });
 
-      it('Clears state from localStorage if salary is changed to above £5867', 
+      it('Clears state from localStorage if salary is changed to £5876 or above', 
         function(done) {
-        this.salaryField.val('5879');
+        this.salaryField.val('5876');
         this.salaryField.trigger('keyup');
         clock.tick(this.delay);
         expect(localStorage.getItem('lt5876')).to.be.equal(null);
         done();
-      })
+      });
     });
 
     describe('When salary is between £5876 and £10000', function() {
@@ -133,7 +133,59 @@ describe('Salary Conditions', function() {
         expect(this.callout_gt5876_lt10000.hasClass('details__callout--inactive')).to.be.true;
         expect(this.callout_gt5876_lt10000.hasClass('details__callout--inactive')).to.be.true;
         done();
-      })
+      });
+    });
+
+  });
+
+  describe('When frequency field is changed', function() {
+    var clock;
+
+    beforeEach(function() {
+      this.salaryField = this.component.find('[data-dough-salary-input]');
+      this.salaryFrequency = this.component.find('[data-dough-frequency-select]');
+      this.callout_lt5876 = this.component.find('[data-dough-callout-lt5876]');
+      this.callout_gt5876_lt10000 = this.component.find('[data-dough-callout-gt5876_lt10000]');
+      this.radioDisabled = this.component.find('[data-dough-callout-radio-disabled]');
+      clock = sinon.useFakeTimers();
+      this.obj.init();
+    });
+
+    afterEach(function() {
+      clock.restore();
+    });
+
+    it('Displays correct callout based on monthly frequency', function(done) {
+      this.salaryField.val('300');
+      this.salaryFrequency.val('month');
+      this.salaryField.trigger('keyup');
+      clock.tick(this.delay);
+      expect(
+        this.callout_lt5876.hasClass('details__callout--active')
+      ).to.be.true;
+      done();
+    });
+
+    it('Displays correct callout based on fourweeks frequency', function(done) {
+      this.salaryField.val('300');
+      this.salaryFrequency.val('fourweeks');
+      this.salaryField.trigger('keyup');
+      clock.tick(this.delay);
+      expect(
+        this.callout_lt5876.hasClass('details__callout--active')
+      ).to.be.true;
+      done();
+    });
+
+    it('Displays correct callout based on weekly frequency', function(done) {
+      this.salaryField.val('30');
+      this.salaryFrequency.val('week');
+      this.salaryField.trigger('keyup');
+      clock.tick(this.delay);
+      expect(
+        this.callout_lt5876.hasClass('details__callout--active')
+      ).to.be.true;
+      done();
     });
 
   });
@@ -175,7 +227,7 @@ describe('Salary Conditions', function() {
       }
 
       done();
-    })
+    });
 
     it('Updates the employee contribution tip', function(done) {
       this.salaryField.val('3000');
@@ -183,7 +235,7 @@ describe('Salary Conditions', function() {
       clock.tick(this.delay);
       expect(this.employeeTip_lt5876.hasClass('is-hidden')).to.be.false;
       done(); 
-    })
+    });
 
     it('Hides the employer contribution tip', function(done) {
       this.salaryField.val('3000');
@@ -191,10 +243,10 @@ describe('Salary Conditions', function() {
       clock.tick(this.delay);
       expect(this.employerTip.text()).to.equal('');
       done(); 
-    })
+    });
   });
 
-  describe('When user proceeds to step 2 with salary above £5876', function() {
+  describe('When user proceeds to step 2 with salary of £5876 or above', function() {
     var clock;
 
     beforeEach(function() {
