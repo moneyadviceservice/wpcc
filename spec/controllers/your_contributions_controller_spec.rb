@@ -7,6 +7,8 @@ module Wpcc
       let(:contribution_preference) { 'minimum' }
       let(:eligible_salary) { 24_124 }
       let(:salary_frequency) { 'year' }
+      let(:salary_message) { double(Wpcc::SalaryMessage) }
+
       let(:your_contribution) do
         double(
           eligible_salary: eligible_salary,
@@ -74,6 +76,25 @@ module Wpcc
 
           expect(your_contributions_form.employee_percent).to eq(10)
           expect(your_contributions_form.employer_percent).to eq(40)
+        end
+
+        it 'arranges for the conditional message to display' do
+          expect(Wpcc::SalaryMessage)
+            .to receive(:new)
+            .with(
+              salary: salary,
+              salary_frequency: salary_frequency,
+              message: :manually_opt_in
+            )
+            .and_return(salary_message)
+
+          get :new,
+              nil,
+              employee_percent: 10,
+              employer_percent: 40,
+              salary: salary,
+              contribution_preference: contribution_preference,
+              salary_frequency: 'year'
         end
       end
     end

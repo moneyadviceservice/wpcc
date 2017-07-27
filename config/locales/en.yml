@@ -72,7 +72,7 @@ en:
       employer_validation:
         blank: Please enter your employer’s contribution
         out_of_range: Your employer’s contribution must be in the range 0% - 100%
-      manually_optIn: |
+      manually_opt_in: |
         Your employer will not automatically enrol you into a workplace pension 
         scheme but you can choose to join. If you do so, your employer will make
          contributions.
