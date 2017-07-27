@@ -23,33 +23,35 @@ module Wpcc
       end
     end
 
-    def self.filter(employee_percent, employer_percent)
+    def self.filter(user_input_employee_percent, user_input_employer_percent)
       periods = periods_above_user_contribution(
-        employee_percent, employer_percent
+        user_input_employee_percent, user_input_employer_percent
       )
       periods.each do |legal_period_percents|
         legal_period_percents.employee_percent = Percent.choose_highest(
-          legal_period_percents.employee_percent, employee_percent
+          legal_period_percents.employee_percent, user_input_employee_percent
         )
         legal_period_percents.employer_percent = Percent.choose_highest(
-          legal_period_percents.employer_percent, employer_percent
+          legal_period_percents.employer_percent, user_input_employer_percent
         )
       end
     end
 
-    def self.periods_above_user_contribution(employee_percent, employer_percent)
+    def self.periods_above_user_contribution(user_input_employee_percent,
+                                             user_input_employer_percent)
       all.reject do |legal_period_percents|
         legal_period_percents.below_user_contributions?(
-          employee_percent,
-          employer_percent
+          user_input_employee_percent,
+          user_input_employer_percent
         )
       end
     end
 
-    def below_user_contributions?(employee_percentage, employer_percentage)
+    def below_user_contributions?(user_input_employee_percent,
+                                  user_input_employer_percent)
       period_has_legal_minimum? &&
-        @employee_percent <= employee_percentage &&
-        @employer_percent <= employer_percentage
+        @employee_percent <= user_input_employee_percent &&
+        @employer_percent <= user_input_employer_percent
     end
 
     private
