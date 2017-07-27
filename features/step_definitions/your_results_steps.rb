@@ -69,9 +69,6 @@ When(/^I enter my personal details$/) do
   your_details_page.genders.select(
     I18n.translate('wpcc.details.options.gender.female')
   )
-  your_details_page.salary_frequencies.select(
-    I18n.translate('wpcc.details.options.salary_frequency.year')
-  )
   your_details_page.minimum_contribution_button.set(true)
 end
 

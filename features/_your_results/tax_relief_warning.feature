@@ -8,12 +8,12 @@ Feature: Display Tax Relief Warning
     Given that I am on the WPCC homepage in my own "<language>"
     When  I enter my personal details
     And   I enter my salary as "<salary>"
-    And   I enter my salary frequency as "<salary_frequency>"
+    And   I select my salary frequency as "<salary_frequency>"
     And   I submit my details
     And   I progress to the results page
     Then  I should see tax relief "<warning_message>"
 
     Examples:
-      | language | salary | warning_message |
-      | Welsh    | 11000  | Os nad ydych chi'n talu treth incwm ar eich enillion, fyddwch chi ddim ond yn cael gostyngiad treth ar eich cyfraniadau |
-      | English  | 11000  | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions |
+      | language | salary | salary_frequency | warning_message |
+      | Welsh    | 11000  | y Flwyddyn       | Os nad ydych chi'n talu treth incwm ar eich enillion, fyddwch chi ddim ond yn cael gostyngiad treth ar eich cyfraniadau |
+      | English  | 11000  | per Year         |If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions             |
