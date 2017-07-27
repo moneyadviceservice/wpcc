@@ -10,7 +10,6 @@
       <p><%= t('wpcc.contributions.description_tooltip') %></p>
     </p>
   </div>
-
   <%= form_for(
     @your_contributions_form,
     url: your_contributions_path,
@@ -19,9 +18,7 @@
       'data-dough-validation-config': '{"showValidationSummary": false}',
       'novalidate': true
     }) do |f| %>
-
     <div data-dough-component="SalaryConditions">
-
       <div class="contributions__row">
         <div class="contributions__source contributions__source--employee form__row">
           <h3 class="contributions__source-title"><%= t('wpcc.contributions.your_contribution_title') %></h3>
@@ -39,8 +36,6 @@
           <%= t('wpcc.contributions.input_of_label') %>
           <span>£<%= @your_contribution.eligible_salary %></span>
         </div>
-
-
         <div class="contributions__source contributions__source--employer form__row">
           <h3 class="contributions__source-title"><%= t('wpcc.contributions.employer_contribution_title') %></h3>
           <p data-dough-employer-tip><%= t('wpcc.contributions.employer_contribution_tip') %></p>
