@@ -10,6 +10,7 @@ module Wpcc
                   :name
 
     def contribution
+      log_calculation
       PeriodContribution.new(
         name: name,
         employee_contribution: employee_contribution,
@@ -20,6 +21,18 @@ module Wpcc
     end
 
     private
+
+    def log_calculation
+      Rails.logger.info(
+        <<-MESSAGE.strip_heredoc
+          Calculating period #{name} with:
+          Eligible Salary: #{eligible_salary}
+          Employee percent: #{employee_percent}
+          Employer percent: #{employer_percent}
+          Tax relief percent: #{tax_relief_percent}
+        MESSAGE
+      )
+    end
 
     def employee_contribution
       contribution_for_percent(employee_percent)
