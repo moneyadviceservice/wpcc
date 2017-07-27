@@ -93,7 +93,6 @@ When(/^I choose to make full contributions$/) do
 end
 
 Then(/^I should be able to proceed to the next page$/) do
-  save_and_open_page
   expect(page.current_url).to have_content('/your_contributions/new')
 end
 

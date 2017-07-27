@@ -2,8 +2,7 @@ require_relative 'ui'
 
 module UI
   class YourDetailsPage < SitePrism::Page
-    set_url '{/language}/tools/workplace-pension-contribution-calculator'
-    # set_url_matcher "(en|cy)/tools/workplace-pension-contribution-calculator"
+    set_url '/{locale}/tools/workplace-pension-contribution-calculator'
 
     element :form, "#new_your_details_form"
     element :age, "input[name='your_details_form[age]']"

@@ -69,7 +69,7 @@ cy:
       employer_validation:
         blank: Rhowch gyfraniad eich cyflogwr
         out_of_range: Rhaid i gyfraniad eich cyflogwr fod yn yr ystod 0 - 100%
-      not_auto_enrolled: |
+      manually_optIn: |
         Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn 
         gweithle, ond gallwch ddewis ymuno. Os felly, bydd eich cyflogwr yn 
         gwneud cyfraniadau.

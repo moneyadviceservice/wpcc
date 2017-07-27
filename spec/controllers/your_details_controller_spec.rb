@@ -4,14 +4,12 @@ module Wpcc
     let(:data_for_form) do
       {
         'age' => 34,
-        'salary' => salary,
+        'salary' => 30_000,
         'gender' => 'female',
         'salary_frequency' => 'month',
         'contribution_preference' => 'full'
       }
     end
-
-    let(:salary){ 30_000 }
 
     describe '#new' do
       subject { response }
@@ -57,21 +55,33 @@ module Wpcc
         end
 
         context 'salary requires manually opting in to enrolment' do
-          before(:each) { post_create }
+          let(:data_for_form) do
+            {
+              'age' => 34,
+              'salary' => @salary,
+              'gender' => 'female',
+              'salary_frequency' => 'month',
+              'contribution_preference' => 'full'
+            }
+          end
+
           it 'stores true if salary outside auto enrolment range' do
-            salary = 5_876
+            @salary = 5_876
+            post_create
 
             expect(session[:manually_opt_in]).to eq(true)
           end
 
           it 'stores true if salary is above auto enrolment range' do
-            salary = 10_001
+            @salary = 10_001
+            post_create
 
             expect(session[:manually_opt_in]).to eq(false)
           end
 
           it 'stores true if salary is below auto enrolment range' do
-            salary = 5_875
+            @salary = 5_875
+            post_create
 
             expect(session[:manually_opt_in]).to eq(false)
           end
