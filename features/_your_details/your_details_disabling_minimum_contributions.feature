@@ -1,8 +1,7 @@
-Feature: Employment contribution
-  As a Workplace Pensions Contribution Calculator user
-  In order to ensure the accuracy of my contribution calculation.
-  I should not be able to proceed to the next step
-  And I should be notified why I am unable to proceed.
+Feature: Contributions - employer contributions for low salary
+  In order to ensure the accuracy of my contribution calculation,
+  As a user of the WPCC tool, and my salary is below £5,876.00pa,
+  I should only be allowed to proceed with full employer contributions.
 
   @no-javascript
   Scenario Outline: Annual salary rate below £5,876 with minimum employer contributions

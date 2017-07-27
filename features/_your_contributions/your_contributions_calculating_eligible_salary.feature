@@ -1,8 +1,8 @@
-Feature:
-  As a user of the WPCC tool,
+Feature: Eligible Salary - displaying eligible salary with contribution percentages
   In order to gain a better understanding of how my workplace pension is being calculated,
+  As a user of the WPCC tool,
   I want to see the eligible salary on which my contributions are based,
-  Additionally, I want to see the default contribution percentages.
+  And I want to see the default contribution percentages.
 
 Background:
   Given I am on the YourDetailsPage

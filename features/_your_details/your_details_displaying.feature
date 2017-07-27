@@ -1,7 +1,7 @@
-Feature:
+Feature: Details - displayed in future steps
+  In order to confirm my inputs are correct as I progress through the tool,
   As a user of the WPCC tool,
-  In order to confirm the accuracy of my inputs,
-  I want to see my supplied information as I progress through the tool.
+  I want to see my details that I filled in on the step one.
 
 Background:
   Given I am on step 1 of the WPCC homepage

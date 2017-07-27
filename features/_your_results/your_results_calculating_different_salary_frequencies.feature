@@ -1,7 +1,7 @@
-Feature:
-  As an enrolee into a Workplace Pension,
-  I would like to calculate pension contribution changing my frequency salary.
-  So I can see my monthly, weekly, per 4 weeks contribution.
+Feature: Salary Frequency - displaying salary at different frequencies
+  In order to see my contributions in format I understand,
+  As a user of the WPCC tool,
+  I want to be able to choose the frequency my salary is broken into.
 
   Background:
     Given I am on the YourDetailsPage

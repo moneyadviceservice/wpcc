@@ -1,7 +1,7 @@
-Feature:
-  As a user
-  I want to see my information that I filled on the step two
-  So I can confirm my inputs are correct as I progress through the tool
+Feature: Contributions - editing
+  In order to change my contributions,
+  As a user of the WPCC tool,
+  I want to be able to return to edit my choices.
 
   Background:
     Given I am on the YourDetailsPage

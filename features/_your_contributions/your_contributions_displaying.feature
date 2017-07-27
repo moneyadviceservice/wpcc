@@ -1,7 +1,7 @@
-Feature:
-  As a user
-  I want to see my information that I filled on the step two
-  So I can confirm my inputs are correct as I progress through the tool
+Feature: Contributions - displayed in future steps
+  In order to confirm my inputs are correct as I progress through the tool,
+  As a user of the WPCC tool,
+  I want to see the contributions that I filled in on the step two.
 
   Background:
     Given I am on the YourDetailsPage
