@@ -8,6 +8,7 @@ Feature: Display Tax Relief Warning
     Given that I am on the WPCC homepage in my own "<language>"
     When  I enter my personal details
     And   I enter my salary as "<salary>"
+    And   I enter my salary frequency as "<salary_frequency>"
     And   I submit my details
     And   I progress to the results page
     Then  I should see tax relief "<warning_message>"
