@@ -2,6 +2,7 @@ module Wpcc
   class YourResultsController < EngineController
     def index
       @schedule = Wpcc::Presenter.new(schedule, view_context: view_context)
+      @message_presenter = message_presenter
     end
 
     private
@@ -37,6 +38,20 @@ module Wpcc
           view_context: view_context
         )
       end
+    end
+
+    def message_presenter
+      Wpcc::MessagePresenter.new(
+        salary_message,
+        view_context: view_context
+      )
+    end
+
+    def salary_message
+      Wpcc::SalaryMessage.new(
+        salary: session[:salary].to_f.round(2), 
+        salary_frequency: session[:salary_frequency]
+      )
     end
   end
 end
