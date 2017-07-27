@@ -1,6 +1,6 @@
 module World
   module Language
-    def language_to_locale(language = 'English')
+    def language_to_locale(language)
       { 'English' => :en, 'Welsh' => :cy }[language]
     end
   end
