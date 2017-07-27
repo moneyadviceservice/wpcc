@@ -57,13 +57,6 @@ Then(/^I should see in English my age, gender, salary, frequency and full pay$/)
   expect(page).to have_content('full Contribution')
 end
 
-<<<<<<< HEAD
-=======
-Given(/^that I am on the WPCC homepage$/) do
-  your_details_page.load(locale: :en)
-end
-
->>>>>>> 31af272... Adds tax relief warning for low earners and tax guide links
 When(/^I enter my details$/) do
   your_details_page.age.set(35)
   your_details_page.genders.select('Female')

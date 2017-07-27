@@ -14,6 +14,7 @@ RSpec.describe Wpcc::YourResultsController do
     let(:schedule) { [period_contribution, period_contribution] }
     let(:period_contribution) { double(Wpcc::PeriodContribution) }
     let(:presenter) { double(Wpcc::PeriodContributionPresenter) }
+    let(:salary_message) { double(Wpcc::SalaryMessage) }
 
     it 'schedules a contribution calendar with the session salary_frequency' do
       args = session.merge(salary_frequency: 52)
@@ -50,6 +51,18 @@ RSpec.describe Wpcc::YourResultsController do
 
     it 'assigns the results to a schedule variable' do
       expect(assigns(:schedule))
+
+      get :index, {}, session
+    end
+
+    it 'arranges for the conditional message to display' do
+      expect(Wpcc::SalaryMessage)
+        .to receive(:new)
+        .with(
+          salary: session[:salary].to_f.round(2),
+          salary_frequency: session[:salary_frequency]
+        )
+        .and_return(salary_message)
 
       get :index, {}, session
     end

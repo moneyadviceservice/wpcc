@@ -1,7 +1,5 @@
 module Wpcc
   class YourResultsController < EngineController
-    helper Wpcc::YourResultsHelper
-
     def index
       @schedule = Wpcc::Presenter.new(schedule, view_context: view_context)
       @message_presenter = message_presenter
