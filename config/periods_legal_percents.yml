@@ -1,0 +1,10 @@
+april_2017_march_2018:
+  tax_relief: 20
+april_2018_march_2019:
+  employee: 3
+  employer: 2
+  tax_relief: 20
+after_april_2019:
+  employee: 5
+  employer: 3
+  tax_relief: 20

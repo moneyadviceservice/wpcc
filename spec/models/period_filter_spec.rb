@@ -1,34 +1,37 @@
-RSpec.describe Wpcc::LegalPeriodPercents do
+RSpec.describe Wpcc::PeriodFilter do
   before do
-    stub_const('Wpcc::LegalPeriodPercents::PERIODS', periods)
+    stub_const('Wpcc::PeriodFilter::PERIODS', periods)
   end
 
   let(:periods) do
     {
       current: {
-        tax_relief_percent: 20
+        tax_relief: 20
       },
       some_period: {
-        tax_relief_percent: 20,
-        employee_percent: 3,
-        employer_percent: 4
+        tax_relief: 20,
+        employee: 3,
+        employer: 4
       },
       period_onwards: {
-        tax_relief_percent: 20,
-        employee_percent: 5,
-        employer_percent: 5
+        tax_relief: 20,
+        employee: 5,
+        employer: 5
       }
     }
   end
 
   describe '#filter' do
     subject(:filter) do
-      described_class.filter(employee_percent, employer_percent)
+      described_class.new(
+        user_input_employee_percent: user_input_employee_percent,
+        user_input_employer_percent: user_input_employer_percent
+      ).filter
     end
 
     context 'when only employee contribution is higher than the period' do
-      let(:employee_percent) { 4 }
-      let(:employer_percent) { 1 }
+      let(:user_input_employee_percent) { 4 }
+      let(:user_input_employer_percent) { 1 }
 
       it 'does not exclude the period' do
         expect(filter.size).to eq(3)
@@ -44,8 +47,8 @@ RSpec.describe Wpcc::LegalPeriodPercents do
     end
 
     context 'when only employer contribution is higher than the period' do
-      let(:employee_percent) { 1 }
-      let(:employer_percent) { 4.5 }
+      let(:user_input_employee_percent) { 1 }
+      let(:user_input_employer_percent) { 4.5 }
 
       it 'does not exclude the period' do
         expect(filter.size).to eq(3)
@@ -61,8 +64,8 @@ RSpec.describe Wpcc::LegalPeriodPercents do
     end
 
     context 'when period percent is equal to user percent' do
-      let(:employee_percent) { 3 }
-      let(:employer_percent) { 4 }
+      let(:user_input_employee_percent) { 3 }
+      let(:user_input_employer_percent) { 4 }
 
       it 'excludes contribution period which is equal to the contributions' do
         expect(filter.size).to eq(2)
@@ -71,8 +74,8 @@ RSpec.describe Wpcc::LegalPeriodPercents do
 
     context 'when contribution periods are less than user percents' do
       context 'when one period is less than user percents' do
-        let(:employee_percent) { 4 }
-        let(:employer_percent) { 5 }
+        let(:user_input_employee_percent) { 4 }
+        let(:user_input_employer_percent) { 5 }
 
         it 'excludes lower contribution period' do
           expect(filter.size).to eq(2)
@@ -80,8 +83,8 @@ RSpec.describe Wpcc::LegalPeriodPercents do
       end
 
       context 'when two periods is less than user percents' do
-        let(:employee_percent) { 10 }
-        let(:employer_percent) { 10 }
+        let(:user_input_employee_percent) { 10 }
+        let(:user_input_employer_percent) { 10 }
 
         it 'excludes lower contribution periods' do
           expect(filter.size).to eq(1)

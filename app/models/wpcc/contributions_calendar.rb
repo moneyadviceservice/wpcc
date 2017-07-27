@@ -7,7 +7,7 @@ module Wpcc
                   :employer_percent
 
     def schedule
-      legal_periods_percents.map do |period|
+      periods.map do |period|
         Wpcc::PeriodContributionCalculator.new(
           name: period.name,
           employee_percent: period.employee_percent,
@@ -21,8 +21,11 @@ module Wpcc
 
     private
 
-    def legal_periods_percents
-      LegalPeriodPercents.filter(employee_percent, employer_percent)
+    def periods
+      PeriodFilter.new(
+        user_input_employee_percent: employee_percent,
+        user_input_employer_percent: employer_percent
+      ).filter
     end
   end
 end

@@ -41,7 +41,7 @@ describe Wpcc::ContributionsCalendar, type: :model do
 
       before do
         allow(contributions_calendar)
-          .to receive(:legal_periods_percents)
+          .to receive(:periods)
           .and_return([next_period])
       end
 
