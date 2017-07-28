@@ -1,6 +1,5 @@
 module Wpcc
   class YourDetailsController < EngineController
-
     protect_from_forgery
 
     def new

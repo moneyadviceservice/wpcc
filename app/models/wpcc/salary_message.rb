@@ -11,9 +11,9 @@ module Wpcc
     end
 
     private
+
     def manually_opt_in?
       salary >= OPT_IN_SALARY_LOWER_LIMIT && salary <= OPT_IN_SALARY_UPPER_LIMIT
     end
-
   end
 end

@@ -30,10 +30,23 @@ When(/^I enter a "([^"]*)" below the low salary threshold$/) do |salary|
   your_details_page.salary.set(salary)
 end
 
-Then(/^I should see the auto\-enrolment "([^"]*)" in my own language$/) do |conditional_message|
-  expect(page).to have_content(conditional_message)
+When(/^I enter my details with a salary within manually_opt_in range and submit the form$/) do
+  your_details_page.age.set(35)
+  your_details_page.genders.select('Male')
+  your_details_page.salary.set(8_500)
+  your_details_page.salary_frequencies.select('per Year')
+  your_details_page.minimum_contribution_button.set(true)
+  your_details_page.next_button.click
 end
 
-Then(/^I should not see the auto\-enrolment "([^"]*)"$/) do |conditional_message|
-  expect(page).to_not have_content(conditional_message)
+When(/^I submit the Your Contributiions form and proceed to Your Results$/) do
+  your_contributions_page.next_button.click
+end
+
+Then(/^I should see the manually_opt_in "([^"]*)" in my own language$/) do |message|
+  expect(page).to have_content(message)
+end
+
+Then(/^I should not see the manually_opt_in "([^"]*)"$/) do |message|
+  expect(page).to_not have_content(message)
 end
