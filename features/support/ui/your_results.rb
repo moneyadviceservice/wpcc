@@ -9,7 +9,7 @@ module UI
   end
 
   class YourResultsPage < SitePrism::Page
-    set_url '{/locale}/tools/wpcc/your_results'
+    set_url '/{locale}/tools/workplace-pension-contribution-calculator/your_results'
 
     element :details, '.details__row'
     element :contributions_summary, '.details__heading'
