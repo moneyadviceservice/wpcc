@@ -96,10 +96,14 @@ cy:
         WELSH: Minimum pension contribution rates will increase in stages until April 2019.
         These figures show how this will affect your contributions. Contributions will be
         based on your eligible salary of £%{eligible_salary} per year.
-      period_title:
-        april_2017_march_2018: 'Welsh for Today - March 2018'
-        april_2018_march_2019: 'Welsh for April 2018 - March 2019'
-        after_april_2019: 'Welsh for April 2019 onwards'
+      period_titles:
+        april_2017_march_2018: Nawr
+        april_2018_march_2019: Ebrill 2018 – Mawrth 2019
+        after_april_2019: O Ebrill 2019 ymlaen
+      period_percents_title:
+        april_2017_march_2018: Nawr
+        april_2018_march_2019: Ebrill 2018 – Mawrth 2019
+        after_april_2019: O Ebrill 2019 ymlaen
       period:
         contribution_heading:
           yours: Eich cyfraniad chi
@@ -119,3 +123,6 @@ cy:
       edit_frequency:
         label: Dangos fy nghyfraniadau [y Flwyddy/y Mis/fesul 4 wythnos/y Wythnos ]
         button: Al-gyfrifo
+      contribution_changes:
+        you: Chi
+        employer: Eich cyflogwr

@@ -21,7 +21,7 @@ RSpec.describe Wpcc::PeriodContributionPresenter do
   describe '#employee_contribution' do
     let(:period_contribution) { double(employee_contribution: 1.0) }
 
-    it 'formats values with two decimal values' do
+    it 'formats values with two decimal values and a "£" sign' do
       expect(subject.employee_contribution).to eq('£1.00')
     end
   end
@@ -29,7 +29,7 @@ RSpec.describe Wpcc::PeriodContributionPresenter do
   describe '#employer_contribution' do
     let(:period_contribution) { double(employer_contribution: 2.5) }
 
-    it 'formats values with two decimal values' do
+    it 'formats values with two decimal values and a "£" sign' do
       expect(subject.employer_contribution).to eq('£2.50')
     end
   end
@@ -37,7 +37,7 @@ RSpec.describe Wpcc::PeriodContributionPresenter do
   describe '#tax_relief' do
     let(:period_contribution) { double(tax_relief: 1.99) }
 
-    it 'returns a message with the formatted value' do
+    it 'returns a message with the formatted value and a "£" sign' do
       expect(subject.tax_relief).to eq('(includes tax relief of £1.99)')
     end
   end

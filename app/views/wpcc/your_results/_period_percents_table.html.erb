@@ -1,0 +1,36 @@
+<div class="contribution-changes">
+  <p class="contribution-changes__trigger" data-dough-component="Collapsable" data-dough-collapsable-trigger="contribution-table">
+    <a data-dough-collapsable-trigger>
+      <%= t('wpcc.results.contribution_table_link') %>
+    </a>
+  </p>
+  <div class="table-wrapper contribution-changes__content" data-dough-collapsable-target="contribution-table">
+    <h4 class="contribution-changes__heading">How legal minimum contributions change</h4>
+    
+    <table class="table--full-width contribution-changes__table">
+      <thead>
+        <tr>
+          <th>&nbsp;</th>
+          <% period_percents.each do |period| %>
+            <th><%= period.title %></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= t('wpcc.results.contribution_changes.you') %></td>
+          <% period_percents.each do |period| %>
+            <td><%= period.employee_percent %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td><%= t('wpcc.results.contribution_changes.employer') %></td>
+          <% period_percents.each do |period| %>
+            <td><%= period.employer_percent %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
