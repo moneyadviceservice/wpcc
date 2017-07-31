@@ -1,10 +1,25 @@
-Feature: Salary Frequency - displaying salary at different frequencies
-  In order to see my contributions in format I understand,
-  As a user of the WPCC tool,
-  I want to be able to choose the frequency my salary is broken into.
+Feature:
+  As an enrolee into a Workplace Pension,
+  I would like to calculate pension contribution changing my frequency salary.
+  So I can see my monthly, weekly, per 4 weeks contribution.
 
   Background:
     Given I am on the YourDetailsPage
+
+    Scenario: Salary Per Month calculation
+      Given that I am on your details step I fill:
+        | age | gender | salary | salary_frequency | contribution |
+        | 25  | male   | 1500   | per Month        | Minimum      |
+      And I click the Next button
+      And that on your contributions step I fill:
+        | your_contribution | employer_contribution |
+        | 1                 | 1                     |
+      When I move on to the results page
+      Then I should see on the results page:
+        | £10.10 | £30.31 | £50.52 |
+        | £2.02  | £6.06  | £10.10 |
+        | £10.10 | £20.21 | £30.31 |
+        | £20.20 | £50.52 | £80.83 |
 
     Scenario Outline:
       Given I enter my age as "<age>"
