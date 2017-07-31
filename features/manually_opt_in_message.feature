@@ -11,7 +11,7 @@ Feature: Conditional messaging for users earning £5876 - £10,000 (inclusive)
     And   I choose to make the minimum contribution
     And   I enter a "<salary>" between the salary band
     And   I submit my details
-	  Then  I should be able to proceed to the next page
+    Then  I should be able to proceed to the next page
     And   I should see the manually_opt_in "<message>" in my own language
 
     Examples:
@@ -26,7 +26,7 @@ Feature: Conditional messaging for users earning £5876 - £10,000 (inclusive)
     And   I enter a "<salary>" above the upper salary threshold
     And   I choose to make the minimum contribution
     And   I submit my details
-	  Then  I should be able to proceed to the next page
+    Then  I should be able to proceed to the next page
     And   I should not see the manually_opt_in "<message>"
 
     Examples:

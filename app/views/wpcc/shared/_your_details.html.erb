@@ -14,7 +14,7 @@
   <% if message_presenter.manually_opt_in_message? %>
     <div class="contributions__row">
       <div class="callout">
-        <p><%= t('wpcc.contributions.manually_opt_in') %></p>
+        <p><%= message_presenter.manually_opt_in_message %></p>
       </div>
     </div>
   <% end %>

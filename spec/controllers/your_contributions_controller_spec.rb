@@ -84,7 +84,7 @@ module Wpcc
             .with(
               salary: salary,
               salary_frequency: salary_frequency,
-              message: :manually_opt_in
+              text: :manually_opt_in
             )
             .and_return(salary_message)
 
