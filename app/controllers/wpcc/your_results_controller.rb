@@ -3,6 +3,7 @@ module Wpcc
     def index
       @schedule = Wpcc::Presenter.new(schedule, view_context: view_context)
       @message_presenter = message_presenter
+      # @period_percents = period_percents
     end
 
     private
@@ -52,6 +53,13 @@ module Wpcc
         salary: session[:salary].to_f.round(2),
         salary_frequency: session[:salary_frequency]
       )
+    end
+
+    def period_percents
+      periods = Wpcc::ContributionsCalendar.new(contributions_params).periods
+      periods.map do |period|
+        Wpcc::ContributionsCalendar.new(contributions_params).percents_for(period)
+      end
     end
   end
 end

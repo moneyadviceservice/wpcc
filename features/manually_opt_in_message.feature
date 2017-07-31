@@ -53,7 +53,7 @@ Feature: Conditional messaging for users earning £5876 - £10,000 (inclusive)
   Scenario Outline: Viewing my details on step 3
     Given I am on step 1 of the WPCC homepage
     When  I enter my details with a salary within manually_opt_in range and submit the form
-    And   I submit the Your Contributiions form and proceed to Your Results
+    And   I submit the Your Contributions form and proceed to Your Results
     Then  I should not see the manually_opt_in "<message>"
 
     Examples:

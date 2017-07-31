@@ -33,7 +33,7 @@ When(/^I enter my details with a salary within manually_opt_in range and submit 
   your_details_page.next_button.click
 end
 
-When(/^I submit the Your Contributiions form and proceed to Your Results$/) do
+When(/^I submit the Your Contributions form and proceed to Your Results$/) do
   your_contributions_page.next_button.click
 end
 

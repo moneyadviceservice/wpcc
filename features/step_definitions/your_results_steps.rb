@@ -64,14 +64,6 @@ Then(/^I should see my total contributions for third period as "([^"]*)"$/) do |
   expect(your_results_page.third_period.total_contributions.text).to eq(total_contributions)
 end
 
-When(/^I enter my personal details$/) do
-  your_details_page.age.set(35)
-  your_details_page.genders.select(
-    I18n.translate('wpcc.details.options.gender.female')
-  )
-  your_details_page.minimum_contribution_button.set(true)
-end
-
 When(/^I progress to the results page$/) do
   step 'I move to your results page'
 end
@@ -82,4 +74,8 @@ end
 
 Then(/^I should NOT see tax relief "([^"]*)"$/) do |warning_message|
   expect(page).to_not have_content(warning_message)
+end
+
+Then(/^I should see a table of percents for each periods$/) do
+  expect(your_results_page).results_heading
 end

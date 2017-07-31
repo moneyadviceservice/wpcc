@@ -23,5 +23,7 @@ module UI
     section :current_period, PeriodSection, '.results__period-april_2017_march_2018'
     section :second_period, PeriodSection, '.results__period-april_2018_march_2019'
     section :third_period, PeriodSection, '.results__period-after_april_2019'
+
+    element :results_heading , 'results__period-heading'
   end
 end

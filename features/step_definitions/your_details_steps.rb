@@ -24,6 +24,11 @@ Given(/^I choose my contribution preference as "([^"]*)"$/) do |contribution_pre
   your_details_page.send("#{contribution_preference.downcase}_contribution_button").set(true)
 end
 
+When(/^I fill in my details$/) do
+  step 'I fill in the age, gender, salary and frequency fields'
+  step 'I click on "My employer makes contributions on part of my salary"'
+end
+
 When(/^I fill in the age, gender, salary and frequency fields$/) do
   your_details_page.age.set(35)
   your_details_page.genders.select('Female')

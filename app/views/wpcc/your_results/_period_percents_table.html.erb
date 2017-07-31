@@ -1,0 +1,17 @@
+<div class="results__row">
+  <% period_percents.each do |period| %>
+    <div class="results__period results__period-<%= period.name %>">
+      <h3 class="results__period-title"><%= period.name %></h3>
+
+      <p class="results__period-heading">You</p>
+      <p class="results__period-details results__period-employee-contribution">
+        <%= period.employee_percent %>%
+      </p>
+
+      <p class="results__period-heading">Employer</p>
+      <p class="results__period-details results__period-employer-contribution">
+        <%= period.employer_percent %>%
+      </p>
+    </div>
+  <% end %>
+</div>
