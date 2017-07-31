@@ -51,7 +51,7 @@
     <% if @message_presenter.tax_relief_warning? %>
       <div class="contributions__row">
         <div class="callout">
-          <p><%= t('wpcc.results.tax_relief_warning_html') %></p>
+          <p><%= @message_presenter.tax_relief_warning %></p>
         </div>
       </div>
     <% end %>

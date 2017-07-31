@@ -60,8 +60,7 @@ RSpec.describe Wpcc::YourResultsController do
         .to receive(:new)
         .with(
           salary: session[:salary].to_f.round(2),
-          salary_frequency: session[:salary_frequency],
-          message: :tax_relief_warning
+          salary_frequency: session[:salary_frequency]
         )
         .and_return(salary_message)
 

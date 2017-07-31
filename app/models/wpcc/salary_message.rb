@@ -1,7 +1,8 @@
 module Wpcc
   class SalaryMessage
     include ActiveModel::Model
-    attr_accessor :salary, :salary_frequency, :message
+
+    attr_accessor :salary, :salary_frequency
 
     TAX_RELIEF_THRESHOLD_RATE = {
       year: 11_500,
@@ -10,13 +11,17 @@ module Wpcc
       week: 221.15
     }.freeze
 
-    def tax_relief_warning?
-      message == :tax_relief_warning && salary_below_tax_relief_threshold?
+    def salary_below_tax_relief_threshold?
+      valid_salary_frequency? && salary_below_frequency_threshold?
     end
 
     private
 
-    def salary_below_tax_relief_threshold?
+    def valid_salary_frequency?
+      TAX_RELIEF_THRESHOLD_RATE.keys.include?(salary_frequency.to_sym)
+    end
+
+    def salary_below_frequency_threshold?
       salary < TAX_RELIEF_THRESHOLD_RATE[salary_frequency.to_sym]
     end
   end
