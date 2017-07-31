@@ -1,7 +1,49 @@
-Given(/^I am on step 1 of the WPCC homepage$/) do
-  locale = language_to_locale(language = 'English')
+Given(/^I am on the Your Details step$/) do
+  your_details_page.load(locale: :en)
+end
 
-  your_details_page.load(locale: locale)
+When(/^I fill in my details$/) do
+  your_details_page.age.set(35)
+  your_details_page.genders.select('Female')
+  your_details_page.salary.set(35000)
+  your_details_page.salary_frequencies.select('per Year')
+  your_details_page.minimum_contribution_button.set(true)
+end
+
+When(/^I proceed to the next step$/) do
+  your_details_page.next_button.click
+end
+
+Then(/^I should see my details summarised$/) do
+  expect(page).to have_content('35 years')
+  expect(page).to have_content('female')
+  expect(page).to have_content('£35000 year')
+  expect(page).to have_content('minimum Contribution')
+end
+
+Given(/^I have valid details$/) do
+  steps %{
+    Given I am on the Your Details step
+    When I fill in my details
+    And I proceed to the next step
+  }
+end
+
+Given(/^I am on the Your Contributions step$/) do
+  your_contributions_page.load(locale: :en)
+end
+
+Given(/^I am on the Your Results step$/) do
+  your_results_page.load(locale: :en)
+end
+
+Given(/^I fill in my details:$/) do |table|
+  data = table.hashes.first
+  step %{I enter my age as "#{data[:age]}"}
+  step %{I select my gender as "#{data[:gender]}"}
+  step %{I enter my salary as "#{data[:salary]}"}
+  step %{I select my salary frequency as "#{data[:salary_frequency]}"}
+  step %{I choose my contribution preference as "#{data[:contribution]}"}
 end
 
 Given(/^I enter my age as "([^"]*)"$/) do |age|
@@ -43,20 +85,6 @@ And(/^I click the Next button$/) do
   your_details_page.next_button.click
 end
 
-Then(/^I should see my age, gender, salary, frequency and contribution option$/) do
-  expect(page).to have_content('35 years')
-  expect(page).to have_content('female')
-  expect(page).to have_content('£35000 year')
-  expect(page).to have_content('minimum Contribution')
-end
-
-Then(/^I should see in English my age, gender, salary, frequency and full pay$/) do
-  expect(page).to have_content('35 years')
-  expect(page).to have_content('female')
-  expect(page).to have_content('£35000 year')
-  expect(page).to have_content('full Contribution')
-end
-
 When(/^I enter my details$/) do
   your_details_page.age.set(35)
   your_details_page.genders.select('Female')
@@ -92,10 +120,6 @@ end
 
 Then(/^I should be able to proceed to the next page$/) do
   expect(page.current_url).to have_content('/your_contributions/new')
-end
-
-Given(/^I am on the YourDetailsPage$/) do
-  step 'I am on step 1 of the WPCC homepage'
 end
 
 When(/^I enter my age as 35$/) do

@@ -1,4 +1,4 @@
-When(/^I enter my age "([^"]*)" and "([^"]*)"$/) do |gender, salary_frequency|
+When(/^I enter my age, "([^"]*)" and "([^"]*)"$/) do |gender, salary_frequency|
   your_details_page.age.set(35)
   your_details_page.genders.select(gender)
   your_details_page.salary_frequencies.select(salary_frequency)

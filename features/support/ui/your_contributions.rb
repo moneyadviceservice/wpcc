@@ -2,9 +2,9 @@ require_relative 'ui'
 
 module UI
   class YourContributionsPage < SitePrism::Page
-    set_url '/{locale}/tools/workplace-pension-contribution-calculator/your_contributions'
-    set_url_matcher(/wpcc\/\d+\/your_contributions/)
+    set_url '/{locale}/tools/workplace-pension-contribution-calculator/your_contributions/new'
 
+    element :form, "#new_your_contributions_form"
     element :employee_percent, 'input[name="your_contributions_form[employee_percent]"]'
     element :employer_percent, 'input[name="your_contributions_form[employer_percent]"]'
 

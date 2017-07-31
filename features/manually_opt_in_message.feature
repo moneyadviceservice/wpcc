@@ -7,12 +7,12 @@ Feature: Conditional messaging for users earning £5876 - £10,000 (inclusive)
   @no-javascript
   Scenario Outline: Viewing my details on step 2 and my salary is between £5,876 and £10,000
     Given that I am on the WPCC homepage in my own "<language>"
-    When  I enter my age "<gender>" and "<salary_frequency>" 
-    And   I choose to make the minimum contribution
-    And   I enter a "<salary>" between the salary band
-    And   I submit my details
-    Then  I should be able to proceed to the next page
-    And   I should see the manually_opt_in "<message>" in my own language
+    When I enter my age, "<gender>" and "<salary_frequency>"
+    And I choose to make the minimum contribution
+    And I enter a "<salary>" between the salary band
+    And I submit my details
+    Then I should be able to proceed to the next page
+    And I should see the manually_opt_in "<message>" in my own language
 
     Examples:
       | language | gender    | salary_frequency | salary | message                                                                                                                                                         |
@@ -22,12 +22,12 @@ Feature: Conditional messaging for users earning £5876 - £10,000 (inclusive)
   @no-javascript
   Scenario Outline: Viewing my details on step 2 and my salary is above £10,000
     Given that I am on the WPCC homepage in my own "<language>"
-    When  I enter my age "<gender>" and "<salary_frequency>" 
-    And   I enter a "<salary>" above the upper salary threshold
-    And   I choose to make the minimum contribution
-    And   I submit my details
-    Then  I should be able to proceed to the next page
-    And   I should not see the manually_opt_in "<message>"
+    When I enter my age, "<gender>" and "<salary_frequency>"
+    And I enter a "<salary>" above the upper salary threshold
+    And I choose to make the minimum contribution
+    And I submit my details
+    Then I should be able to proceed to the next page
+    And I should not see the manually_opt_in "<message>"
 
     Examples:
       | language | gender    | salary_frequency | salary  | message                                                                                                                                                         |
@@ -37,12 +37,12 @@ Feature: Conditional messaging for users earning £5876 - £10,000 (inclusive)
   @no-javascript
   Scenario Outline: Viewing my details on step 2 and my salary is below £5,876
     Given that I am on the WPCC homepage in my own "<language>"
-    When  I enter my age "<gender>" and "<salary_frequency>"
-    And   I enter a "<salary>" below the low salary threshold
-    And   I choose to make the full contribution
-    And   I submit my details
-    Then  I should be able to proceed to the next page
-    And   I should not see the manually_opt_in "<message>"
+    When I enter my age, "<gender>" and "<salary_frequency>"
+    And I enter a "<salary>" below the low salary threshold
+    And I choose to make the full contribution
+    And I submit my details
+    Then I should be able to proceed to the next page
+    And I should not see the manually_opt_in "<message>"
 
     Examples:
       | language | gender    | salary_frequency | salary | message                                                                                                                                                         |
@@ -51,10 +51,10 @@ Feature: Conditional messaging for users earning £5876 - £10,000 (inclusive)
 
   @no-javascript
   Scenario Outline: Viewing my details on step 3
-    Given I am on step 1 of the WPCC homepage
-    When  I enter my details with a salary within manually_opt_in range and submit the form
-    And   I submit the Your Contributiions form and proceed to Your Results
-    Then  I should not see the manually_opt_in "<message>"
+    Given I am on the Your Details step
+    When I enter my details with a salary within manually_opt_in range and submit the form
+    And I submit the Your Contributiions form and proceed to Your Results
+    Then I should not see the manually_opt_in "<message>"
 
     Examples:
       | language | message                                                                                                                                                         |

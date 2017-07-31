@@ -4,7 +4,7 @@ Feature:
   So that I can see where my contributions will or won't rise.
 
   Background:
-    Given I am on the YourDetailsPage
+    Given I am on the Your Details step
 
     Scenario Outline:
       Given I enter my age as "<age>"

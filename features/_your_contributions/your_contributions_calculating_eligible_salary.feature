@@ -1,11 +1,11 @@
-Feature: Eligible Salary - displaying eligible salary with contribution percentages
+Feature: calculating eligible salary
   In order to gain a better understanding of how my workplace pension is being calculated,
   As a user of the WPCC tool,
   I want to see the eligible salary on which my contributions are based,
   And I want to see the default contribution percentages.
 
 Background:
-  Given I am on the YourDetailsPage
+  Given I am on the Your Details step
 
 Scenario: Calculate on minimum contribution for salary greater than the Upper Earnings Threshold
   When I enter my age as 35

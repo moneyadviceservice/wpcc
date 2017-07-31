@@ -20,6 +20,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'byebug'
   gem 'launchy'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.5'
