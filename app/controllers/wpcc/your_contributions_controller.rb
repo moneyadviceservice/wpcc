@@ -19,6 +19,8 @@ module Wpcc
       @your_contributions_form = Wpcc::YourContributionsForm.new(
         contribution_percentages
       )
+
+      @message_presenter = message_presenter
     end
 
     def create
@@ -66,6 +68,21 @@ module Wpcc
         employee_percent: employee_percent,
         employer_percent: employer_percent
       }
+    end
+
+    def message_presenter
+      Wpcc::MessagePresenter.new(
+        salary_message,
+        view_context: view_context
+      )
+    end
+
+    def salary_message
+      Wpcc::SalaryMessage.new(
+        salary: session[:salary].to_f.round(2),
+        salary_frequency: session[:salary_frequency],
+        text: :manually_opt_in
+      )
     end
   end
 end

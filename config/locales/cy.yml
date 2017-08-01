@@ -30,8 +30,8 @@ cy:
           fourweeks: fesul 4 wythnos
           week: y Wythnos
         gender:
-          female: benywaidd
-          male: gwrywaidd
+          female: Benywaidd
+          male: Gwrywaidd
         contribution_preference:
           descriptor: Cyfraniad
           full: Mae fy nghyflogwr yn cyfrannu ar fy nghyflog llawn
@@ -73,6 +73,10 @@ cy:
       employer_validation:
         blank: Rhowch gyfraniad eich cyflogwr
         out_of_range: Rhaid i gyfraniad eich cyflogwr fod yn yr ystod 0 - 100%
+      manually_opt_in: |
+        Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn 
+        gweithle, ond gallwch ddewis ymuno. Os felly, bydd eich cyflogwr yn 
+        gwneud cyfraniadau.
 
     results:
       title: Eich canlyniadau
