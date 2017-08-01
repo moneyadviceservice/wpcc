@@ -1,9 +1,3 @@
-Given(/^that I am on the WPCC homepage in my own "([^"]*)"$/) do |language|
-  locale = language_to_locale(language)
-
-  your_details_page.load(locale: locale)
-end
-
 When(/^I enter my age "([^"]*)" and "([^"]*)"$/) do |gender, salary_frequency|
   your_details_page.age.set(35)
   your_details_page.genders.select(gender)

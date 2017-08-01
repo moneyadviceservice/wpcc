@@ -48,6 +48,12 @@
       <% end %>
     </div>
 
+    <% if @message_presenter.tax_relief_warning? %>
+      <div class="callout">
+        <p><%= @message_presenter.tax_relief_warning %></p>
+      </div>
+    <% end %>
+
     <p><a href="#"><%= t('wpcc.results.contribution_table_link') %></a></p>
   </div>
 
