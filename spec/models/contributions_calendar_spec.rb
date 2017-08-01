@@ -14,7 +14,7 @@ describe Wpcc::ContributionsCalendar, type: :model do
     let(:eligible_salary) { 0 }
     let(:employee_percent) { 0 }
     let(:employer_percent) { 0 }
-    let(:salary_frequency) { 0 }
+    let(:salary_frequency) { 1 }
     let(:period_contribution_calculator) do
       double('PeriodContributionCalculator')
     end
