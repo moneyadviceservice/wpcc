@@ -49,12 +49,10 @@
     </div>
 
     <% if earning_below_tax_relief_threshold?(session[:salary], session[:salary_frequency]) %>
-      <div class="contributions__row">
-        <div class="callout">
-          <p>
-            <%= t('wpcc.results.tax_relief_warning_html') %>
-          </p>
-        </div>
+      <div class="callout">
+        <p>
+          <%= t('wpcc.results.tax_relief_warning_html') %>
+        </p>
       </div>
     <% end %>
 
