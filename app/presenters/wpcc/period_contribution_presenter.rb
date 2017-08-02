@@ -5,25 +5,19 @@ module Wpcc
     end
 
     def employee_contribution
-      formatted_contribution(object.employee_contribution)
+      formatted_number(object.employee_contribution, '£')
     end
 
     def employer_contribution
-      formatted_contribution(object.employer_contribution)
+      formatted_number(object.employer_contribution, '£')
     end
 
     def tax_relief
-      "(includes tax relief of #{formatted_contribution(object.tax_relief)})"
+      "(includes tax relief of #{formatted_number(object.tax_relief, '£')})"
     end
 
     def total_contributions
-      formatted_contribution(object.total_contributions)
-    end
-
-    private
-
-    def formatted_contribution(contribution_value)
-      number_to_currency(contribution_value, unit: '£', precision: 2)
+      formatted_number(object.total_contributions, '£')
     end
   end
 end

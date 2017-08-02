@@ -3,7 +3,9 @@ module Wpcc
     def index
       @schedule = Wpcc::Presenter.new(schedule, view_context: view_context)
       @message_presenter = message_presenter
-      @period_percents = period_percents
+      @period_percents = present_period_contribution_calculations(
+        period_percents
+      )
     end
 
     private
@@ -39,9 +41,18 @@ module Wpcc
     end
 
     def present_period_contributions(your_results)
-      your_results.map do |period|
+      your_results.map do |period_contribution|
         Wpcc::PeriodContributionPresenter.new(
-          period,
+          period_contribution,
+          view_context: view_context
+        )
+      end
+    end
+
+    def present_period_contribution_calculations(period_percents)
+      period_percents.map do |period_percent|
+        Wpcc::PeriodContributionCalculatorPresenter.new(
+          period_percent,
           view_context: view_context
         )
       end

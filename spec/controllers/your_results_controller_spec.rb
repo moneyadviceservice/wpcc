@@ -44,13 +44,13 @@ RSpec.describe Wpcc::YourResultsController do
       get :index, {}, session
     end
 
-    it 'wraps each PeriodContribution in a presenter' do
-      expect(Wpcc::PeriodContributionPresenter)
+    it 'creates an array of percents for each period' do
+      expect(Wpcc::PeriodContributionCalculatorPresenter)
         .to receive(:new)
         .exactly(3)
         .times
         .and_return(presenter)
-      expect(assigns(:schedule))
+      expect(assigns(:period_percents))
 
       get :index, {}, session
     end
