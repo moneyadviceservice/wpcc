@@ -52,8 +52,8 @@ cy:
       callout__optIn: Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am bensiwn, ond gallwch ddewis ymuno. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau.
       callout__gt74: Nid ydych yn gymwys i ymuno â phensiwn gweithle gan eich bod yn hŷn na’r uchafswm oed.
       callout__lt5876: Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno. Os felly, ni fydd yn ofynnol i'ch cyflogwr wneud cyfraniadau.
-      callout__radiodisabled: Your earnings level is below the minimum contribution level so you will have to make contributions based on your full salary
-      callout__gt5876_lt10000: Your employer will not automatically enroll you into a workplace pension scheme but you can choose to join. If you do so, your employer will make contributions.
+      callout__radiodisabled: Mae eich lefel enillion yn is na'r lefel isafswm cyfrannu felly bydd rhaid i chi wneud cyfraniadau yn seiliedig ar eich cyflog llawn
+      callout__gt5876_lt10000: Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau.
 
     contributions:
       title: Eich cyfraniadau
