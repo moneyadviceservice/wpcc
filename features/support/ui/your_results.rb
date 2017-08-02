@@ -24,6 +24,6 @@ module UI
     section :second_period, PeriodSection, '.results__period-april_2018_march_2019'
     section :third_period, PeriodSection, '.results__period-after_april_2019'
 
-    element :results_heading , 'results__period-heading'
+    # element :results_heading , 'results__period-heading'
   end
 end

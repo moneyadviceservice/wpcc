@@ -3,15 +3,21 @@ module Wpcc
     def index
       @schedule = Wpcc::Presenter.new(schedule, view_context: view_context)
       @message_presenter = message_presenter
-      # @period_percents = period_percents
+      @period_percents = period_percents
     end
 
     private
 
     def schedule
-      present(
-        Wpcc::ContributionsCalendar.new(contributions_params).schedule
-      )
+      present_period_contributions(calendar.schedule)
+    end
+
+    def period_percents
+      calendar.period_percents
+    end
+
+    def calendar
+      @calendar ||= Wpcc::ContributionsCalendar.new(contributions_params)
     end
 
     def contributions_params
@@ -32,7 +38,7 @@ module Wpcc
       Wpcc::SalaryFrequencyConverter.convert(salary_frequency)
     end
 
-    def present(your_results)
+    def present_period_contributions(your_results)
       your_results.map do |period|
         Wpcc::PeriodContributionPresenter.new(
           period,
@@ -53,13 +59,6 @@ module Wpcc
         salary: session[:salary].to_f.round(2),
         salary_frequency: session[:salary_frequency]
       )
-    end
-
-    def period_percents
-      periods = Wpcc::ContributionsCalendar.new(contributions_params).periods
-      periods.map do |period|
-        Wpcc::ContributionsCalendar.new(contributions_params).percents_for(period)
-      end
     end
   end
 end

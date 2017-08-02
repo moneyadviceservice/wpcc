@@ -18,10 +18,16 @@ RSpec.describe Wpcc::YourResultsController do
 
     it 'schedules a contribution calendar with the session salary_frequency' do
       args = session.merge(salary_frequency: 52)
+
       expect(Wpcc::ContributionsCalendar)
         .to receive(:new)
         .with(args)
         .and_return(contributions_calendar)
+
+      expect(contributions_calendar)
+        .to receive(:period_percents)
+        .once
+
       expect(contributions_calendar)
         .to receive(:schedule)
         .and_return(schedule)
