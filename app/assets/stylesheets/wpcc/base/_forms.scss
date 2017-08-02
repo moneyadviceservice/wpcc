@@ -8,3 +8,19 @@ select {
   -moz-appearance:none;
   cursor: pointer;
 }
+
+.form,
+.form--active {
+  -moz-transition: max-height 1s;
+  -ms-transition: max-height 1s;
+  -o-transition: max-height 1s;
+  -webkit-transition: max-height 1s;
+  transition: max-height 1s;
+  max-height: 700px;
+}
+
+.form--inactive {
+  overflow: hidden;
+  max-height: 0px;
+  margin: 0;
+}

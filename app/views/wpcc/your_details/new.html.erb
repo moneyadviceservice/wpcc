@@ -1,18 +1,22 @@
+<div data-dough-component="StepTransition">
+
 <section class="section section--details details" data-dough-component="ConditionalMessaging">
+  <h2 class="section__heading details__heading">1. <%= t('wpcc.details.title') %></h2>
   <%= form_for(
     @your_details_form,
     url: your_details_path,
     html: {
       'data-dough-component': "Validation",
       'data-dough-validation-config': '{"showValidationSummary": false}',
-      'novalidate': true
+      'novalidate': true,
+      'data-dough-details-form': "true",
+      'class': 'form form--active'
     }) do |f| %>
     <% if @your_details_form.errors.any? %>
       <% @your_details_form.errors.full_messages.each do |msg| %>
         <p><%= msg %></p>
       <% end %>
     <% end %>
-    <h2 class="section__heading details__heading">1. <%= t('wpcc.details.title') %></h2>
     <div class="details__content">
       <div class="details__row" data-dough-component="PopupTip">
         <div class="details__field">
@@ -155,3 +159,5 @@
     </div>
   <% end %>
 </section>
+
+</div>
