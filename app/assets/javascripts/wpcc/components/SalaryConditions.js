@@ -51,6 +51,10 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
       clearTimeout(typingTimer);
     })
 
+    this.$salaryFrequency.change(function() {
+      $this._calculateAnnual();
+    })
+
   }
 
   // Function to calculate the annual salary based on different frequencies

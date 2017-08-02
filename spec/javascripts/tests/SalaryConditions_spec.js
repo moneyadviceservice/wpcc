@@ -142,6 +142,13 @@ describe('Salary Conditions', function() {
     var clock;
 
     beforeEach(function() {
+
+      this.triggerChange = function(element, value) {
+        var e = $.Event('change');
+        $(element).val(value);
+        element.trigger(e);
+      };
+
       this.salaryField = this.component.find('[data-dough-salary-input]');
       this.salaryFrequency = this.component.find('[data-dough-frequency-select]');
       this.callout_lt5876 = this.component.find('[data-dough-callout-lt5876]');
@@ -186,6 +193,21 @@ describe('Salary Conditions', function() {
         this.callout_lt5876.hasClass('details__callout--active')
       ).to.be.true;
       done();
+    });
+
+    it('Hides the callout if frequency is changed equalling a salary over £5876', function() {
+      this.salaryField.val('5000');
+      this.salaryFrequency.val('year');
+      this.salaryField.trigger('keyup');
+      clock.tick(this.delay);
+      expect(
+        this.callout_lt5876.hasClass('details__callout--active')
+      ).to.be.true;
+
+      this.triggerChange(this.salaryFrequency, 'month');
+      expect(
+        this.callout_lt5876.hasClass('details__callout--inactive')
+      ).to.be.true;
     });
 
   });
