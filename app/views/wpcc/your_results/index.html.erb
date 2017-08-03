@@ -1,4 +1,4 @@
-<%= render 'wpcc/shared/your_details', message_presenter: @message_presenter %>
+<%= render 'wpcc/shared/your_details' %>
 
 <section class="section section--contributions">
   <h2 class="section__heading contributions__heading">2. <%= t('wpcc.contributions.title') %>
@@ -13,15 +13,15 @@
   <div class="results__content">
     <p><%= t('wpcc.results.description', eligible_salary: session[:eligible_salary]) %></p>
 
-    <% if @message_presenter.tax_relief_warning? %>
+    <% if message_presenter.tax_relief_warning? %>
       <div class="callout">
-        <p><%= @message_presenter.tax_relief_warning %></p>
+        <p><%= message_presenter.tax_relief_warning %></p>
       </div>
     <% end %>
 
-    <%= render 'frequency_selector_form', salary_frequency: @salary_frequency %>
-    <%= render 'contributions_table', schedule: @schedule %>
-    <%= render 'period_percents_table', period_percents: @period_percents %>
+    <%= render 'frequency_selector_form' %>
+    <%= render 'contributions_table'%>
+    <%= render 'period_percents_table' %>
     
     <p><a href="#" data-dough-component="Print"><%= t('wpcc.results.print_link') %></a></p>
   </div>

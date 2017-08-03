@@ -20,11 +20,4 @@ RSpec.describe Wpcc::Presenter do
       expect(subject.salary_frequency_options).to eq(expected_result)
     end
   end
-
-  describe '#formatted_number' do
-    it 'formats a value with 2 decimals and the supplied unit' do
-      expect(subject.formatted_number(545.6, '£')).to eq('£545.60')
-      expect(subject.formatted_number(1, '%')).to eq('%1.00')
-    end
-  end
 end
