@@ -37,6 +37,12 @@ In order to use the hooks just run this commands:
   chmod u+x .git/hooks/pre-push
 ```
 
+Note: *It is not recommended but if you want to ignore the hook, you can run*:
+
+```
+git push --no-verify origin <your_branch>
+```
+
 ## Versioning
 When a new version of the gem is ready to be published:
 - Create your feature branch
