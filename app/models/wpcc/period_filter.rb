@@ -9,6 +9,8 @@ module Wpcc
     )
     PERIODS = HashWithIndifferentAccess.new(YAML.load_file(PERIODS_FILE))
 
+    LEGAL_DEFAULT = 1.freeze
+
     def filter
       filtered_periods = PERIODS.reject do |_, percents|
         period_has_legal_minimum?(percents) &&
@@ -27,6 +29,24 @@ module Wpcc
       end
     end
 
+    def legal_periods
+      period_percents = PERIODS.map do |period, percents|
+
+        employee_percent = substitute_legal_default(percents, percents[:employee])
+        employer_percent = substitute_legal_default(percents, percents[:employer])
+
+        ::Wpcc::LegalPeriod.new(
+          name: period.to_s,
+          employee_percent: employee_percent,
+          employer_percent: employer_percent,
+          tax_relief_percent: percents[:tax_relief]
+        )
+      end
+      period_percents
+    end
+
+    private
+
     def period_below_user_contributions?(percents)
       percents[:employee] <= user_input_employee_percent &&
         percents[:employer] <= user_input_employer_percent
@@ -35,5 +55,10 @@ module Wpcc
     def period_has_legal_minimum?(percents)
       percents[:employee].present?
     end
+
+    def substitute_legal_default(percents, value)
+      period_has_legal_minimum?(percents) ? value : LEGAL_DEFAULT
+    end
+
   end
 end

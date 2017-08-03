@@ -11,7 +11,7 @@
       <thead>
         <tr>
           <th>&nbsp;</th>
-          <% period_percents.each do |period| %>
+          <% period_legal_percents.each do |period| %>
             <th><%= period.title %></th>
           <% end %>
         </tr>
@@ -19,13 +19,13 @@
       <tbody>
         <tr>
           <td><%= t('wpcc.results.contribution_changes.you') %></td>
-          <% period_percents.each do |period| %>
+          <% period_legal_percents.each do |period| %>
             <td><%= period.employee_percent %></td>
           <% end %>
         </tr>
         <tr>
           <td><%= t('wpcc.results.contribution_changes.employer') %></td>
-          <% period_percents.each do |period| %>
+          <% period_legal_percents.each do |period| %>
             <td><%= period.employer_percent %></td>
           <% end %>
         </tr>

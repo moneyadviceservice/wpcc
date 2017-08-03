@@ -1,16 +1,22 @@
-Feature:
-  As a user who has just completed the WPCC tool, I should be able to see helpful information on how the yearly increments is done.
+Feature: Period Percents Information Table
+  In order to understand the legal minimum contributions requirements
+  As a user who has just completed the WPCC tool
+  I want to the minimum contribution percentages
 
-  Scenario: Display the minimum contribution percents information table
+  Scenario Outline:
     Given I am on the Your Details step
     And I complete the your details form and move to your contributions page
-    And I fill in my contributions:
-        | your_contribution | employer_contribution |
-        | 1                 | 1                     |
-
-    And I move on to the results page
+    And my employee contribution is "<my_contribution>"
+    And my employer contribution is "<employer_contribution>"
+    When I move on to the results page
     Then I should see a link to the legal minimum contributions table
-    And I should see a table with a column heading for each period
-    And I should see in the percents information table:
-        | %1.00 | %3.00 | %5.00 |
-        | %1.00 | %2.00 | %3.00 |
+    And I should see the percents information:
+        | You           | %1.00 | %3.00 | %5.00 |
+        | Your employer | %1.00 | %2.00 | %3.00 |
+
+    Examples:
+        | my_contribution | employer_contribution |
+        | 1               | 1                     |
+        | 5               | 5                     |
+        | 1               | 0                     |
+        | 2               | 1                     |

@@ -92,4 +92,25 @@ RSpec.describe Wpcc::PeriodFilter do
       end
     end
   end
+
+  describe '#legal_periods' do
+    subject(:legal_periods) do
+      described_class.new.legal_periods
+    end
+
+    context 'when NO percents exist for employee and employer' do
+      it 'returns the periods with the defaults added in' do
+        expect(legal_periods.first.employee_percent).to eq(1)
+        expect(legal_periods.first.employer_percent).to eq(1)
+      end
+    end
+
+    context 'when percents exist for employee and employer' do
+      it 'returns the periods with the defaults added in' do
+        expect(legal_periods[1].employee_percent).to eq(3)
+        expect(legal_periods[1].employer_percent).to eq(4)
+      end
+    end
+  end
+
 end
