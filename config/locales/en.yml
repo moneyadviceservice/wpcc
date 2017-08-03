@@ -87,6 +87,10 @@ en:
         april_2017_march_2018: Today - March 2018
         april_2018_march_2019: April 2018 - March 2019
         after_april_2019: April 2019 onwards
+      period_percents_title:
+        april_2017_march_2018: Now
+        april_2018_march_2019: April 2018 - March 2019
+        after_april_2019: April 2019 onwards
       period:
         contribution_heading:
           yours: Your contribution

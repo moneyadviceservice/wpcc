@@ -6,4 +6,4 @@ Feature:
     When I fill in my details
     And I click the Next button
     And I move on to the results page
-    Then I should see a table of percents for each periods
+    Then I should see a table with a column heading for each period

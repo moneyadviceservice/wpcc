@@ -18,10 +18,16 @@ RSpec.describe Wpcc::YourResultsController do
 
     it 'schedules a contribution calendar with the session salary_frequency' do
       args = session.merge(salary_frequency: 52)
+
       expect(Wpcc::ContributionsCalendar)
         .to receive(:new)
         .with(args)
         .and_return(contributions_calendar)
+
+      expect(contributions_calendar)
+        .to receive(:period_percents)
+        .once
+
       expect(contributions_calendar)
         .to receive(:schedule)
         .and_return(schedule)
@@ -38,13 +44,13 @@ RSpec.describe Wpcc::YourResultsController do
       get :index, {}, session
     end
 
-    it 'wraps each PeriodContribution in a presenter' do
-      expect(Wpcc::PeriodContributionPresenter)
+    it 'creates an array of percents for each period' do
+      expect(Wpcc::PeriodContributionCalculatorPresenter)
         .to receive(:new)
         .exactly(3)
         .times
         .and_return(presenter)
-      expect(assigns(:schedule))
+      expect(assigns(:period_percents))
 
       get :index, {}, session
     end

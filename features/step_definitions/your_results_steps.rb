@@ -76,6 +76,8 @@ Then(/^I should NOT see tax relief "([^"]*)"$/) do |warning_message|
   expect(page).to_not have_content(warning_message)
 end
 
-Then(/^I should see a table of percents for each periods$/) do
-  expect(your_results_page).results_heading
+Then(/^I should see a table with a column heading for each period$/) do
+  expect(your_results_page.percent_table_head).to have_content('Now')
+  expect(your_results_page.percent_table_head).to have_content('April 2018 - March 2019')
+  expect(your_results_page.percent_table_head).to have_content('April 2019 onwards')
 end
