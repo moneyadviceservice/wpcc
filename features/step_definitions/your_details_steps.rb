@@ -17,8 +17,8 @@ end
 Then(/^I should see my details summarised$/) do
   expect(page).to have_content('35 years')
   expect(page).to have_content('female')
-  expect(page).to have_content('£35000 year')
-  expect(page).to have_content('minimum Contribution')
+  expect(page).to have_content('£35000 per year')
+  expect(page).to have_content('part salary')
 end
 
 Given(/^I have valid details$/) do

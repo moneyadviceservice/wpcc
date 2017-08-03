@@ -55,6 +55,17 @@ cy:
       callout__radiodisabled: Mae eich lefel enillion yn is na'r lefel isafswm cyfrannu felly bydd rhaid i chi wneud cyfraniadau yn seiliedig ar eich cyflog llawn
       callout__gt5876_lt10000: Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau.
 
+      section__heading:
+        age: '%{age} blynyddoedd'
+        gender_male: gwrywaidd
+        gender_female: benywaidd
+        salary_year: £%{salary} y flwyddyn
+        salary_month: £%{salary} y mis
+        salary_fourweeks: £%{salary} fesul 4 wythnos
+        salary_week: £%{salary} y wythnos
+        contribution_minimum: nghyflog rhan
+        contribution_full: nghyflog llawn
+
     contributions:
       title: Eich cyfraniadau
       description: Gwneir cyfraniadau ar eich cyflog cymwys o £%{eligible_salary} y flwyddyn. Dyma eich cyflog meinws y trothwy Yswiriant Gwladol o £££.
