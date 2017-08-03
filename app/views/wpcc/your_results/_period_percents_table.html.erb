@@ -21,7 +21,7 @@
 
       <tbody>
         <tr>
-          <td>You</td>
+          <td><%= t('wpcc.results.contribution_changes.you') %></td>
 
           <% period_percents.each do |period| %>
             <td><%= period.employee_percent %></td>
@@ -29,7 +29,7 @@
         </tr>
 
         <tr>
-          <td>Your employer</td>
+          <td><%= t('wpcc.results.contribution_changes.employer') %></td>
 
           <% period_percents.each do |period| %>
             <td><%= period.employer_percent %></td>
