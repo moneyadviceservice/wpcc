@@ -17,7 +17,7 @@ module Wpcc
           age: '34', 
           gender: 'male', 
           frequency: 'year', 
-          contribution: 'minimum', 
+          contribution_preference: 'minimum', 
           eligible_salary: '35000'
           }
         }

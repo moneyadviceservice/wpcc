@@ -88,7 +88,7 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
         $salaryFrequency = responseData.frequency,
         $gender = responseData.gender,
         $age = responseData.age,
-        $contribution = responseData.contribution;
+        $contributionPreference = responseData.contribution_preference;
 
     // Hide the your details section
     $this._toggleDetailsSection($this);
@@ -102,7 +102,7 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
       + $age + ' years, '
       + $gender + ', ' + '£'
       + $eligibleSalary + ' ' + $salaryFrequency + ', ' 
-      + $contribution + ' Contribution)</span> '
+      + $contributionPreference + ' Contribution)</span> '
       + '<button class="section__heading-edit js-edit-details">Edit</button>' 
       );
 
