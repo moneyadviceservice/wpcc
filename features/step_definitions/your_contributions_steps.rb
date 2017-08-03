@@ -14,7 +14,7 @@ When(/^I fill in my employer and employee contributions$/) do
 end
 
 Then(/^I should see my contributions summarised$/) do
-  expect(your_results_page.your_contributions_information.text).to eq('(You: 14%, Your employer: 15%)')
+  expect(your_results_page.your_contributions_information.text).to eq('You: 14%, Your employer: 15%')
 end
 
 Given(/^I have valid contributions$/) do
