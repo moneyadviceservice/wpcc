@@ -76,7 +76,8 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
         $this._receiveAJAXresponse(responseData);
       },
       error: function(jqXHR, textStatus, errorThrown) {
-        console.log(errorThrown);
+        console.log('Response Error: ' + errorThrown);
+        $this.$detailsForm.unbind('submit').submit();
       }
     })
   };
