@@ -2,12 +2,8 @@
 
 <section class="section section--contributions">
   <h2 class="section__heading contributions__heading">2. <%= t('wpcc.contributions.title') %>
-    <span class="section__heading-summary">
-      (You: <%= session[:employee_percent] %>%, Your employer: <%= session[:employer_percent] %>%)
-    </span>
-    <span>
-      <%= link_to(t('wpcc.edit'), new_your_contribution_path, class: 'section__heading-edit') %>
-    </span>
+    <span class="section__heading-summary">You: <%= session[:employee_percent] %>%, Your employer: <%= session[:employer_percent] %>%</span>
+    <span><%= link_to(t('wpcc.edit'), new_your_contribution_path, class: 'section__heading-edit') %></span>
   </h2>
 </section>
 
@@ -54,6 +50,7 @@
       </div>
     <% end %>
 
+    <p><a href="#" data-dough-component="Print"><%= t('wpcc.results.print_link') %></a></p>
     <p><a href="#"><%= t('wpcc.results.contribution_table_link') %></a></p>
   </div>
 

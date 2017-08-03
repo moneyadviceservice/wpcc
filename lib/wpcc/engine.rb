@@ -9,6 +9,7 @@ module Wpcc
       app.config.assets.precompile += %w[
         wpcc/require_config.js
         wpcc/components/*.js
+        wpcc/print.css
       ]
     end
 

@@ -18,6 +18,14 @@
   @include respond-to($mq-m) {
     display: inline;
   }
+
+  &:before {
+    content: '(';
+  }
+
+  &:after {
+    content: ')';
+  }
 }
 
 .section__heading-edit {
@@ -30,9 +38,9 @@
 }
 
 .section--contributions {
-  
+
 }
 
 .section--results {
-  
+
 }
