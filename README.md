@@ -25,6 +25,18 @@ Install npm modules:
 npm install
 ```
 
+## Hooks
+
+This project uses git hooks to make sure every change is following the best
+practices like running the code lints and the tests.
+
+In order to use the hooks just run this commands:
+
+```sh
+  cp hooks/pre-push .git/hooks/pre-push
+  chmod u+x .git/hooks/pre-push
+```
+
 ## Versioning
 When a new version of the gem is ready to be published:
 - Create your feature branch

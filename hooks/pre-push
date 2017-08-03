@@ -1,0 +1,8 @@
+#/usr/bin/env sh
+
+./test.sh
+
+# A $? from the command-line gives the exit status of the script, that is, the
+# last command executed in the script, which is, by convention, 0 on success or
+# an integer in the range 1 - 255 on error.
+exit $?
