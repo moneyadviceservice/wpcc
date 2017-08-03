@@ -12,3 +12,4 @@ spec/dummy/tmp/
 /bower.json
 coverage
 Gemfile.lock
+.byebug_history
