@@ -14,13 +14,6 @@ When(/^I proceed to the next step$/) do
   your_details_page.next_button.click
 end
 
-Then(/^I should see my details summarised$/) do
-  expect(page).to have_content('35 years')
-  expect(page).to have_content('female')
-  expect(page).to have_content('£35000 per year')
-  expect(page).to have_content('part salary')
-end
-
 Given(/^I have valid details$/) do
   steps %{
     Given I am on the Your Details step
@@ -168,4 +161,8 @@ Then(/^the employer_percent input intro paragraph should display the correct per
   within('.contributions__source--employer') do
     expect(your_contributions_page).to have_content('The legal minimum is 1%')
   end
+end
+
+Then(/^I should see "([^"]*)" summarised$/) do |my_details|
+  expect(page).to have_content(my_details)
 end

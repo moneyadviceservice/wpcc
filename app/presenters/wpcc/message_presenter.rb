@@ -15,5 +15,17 @@ module Wpcc
     def tax_relief_warning
       t('wpcc.results.tax_relief_warning_html')
     end
+
+    def your_details_summary(hash)
+      salary = view_context.number_with_delimiter(hash[:salary], delimiter: ',')
+      preference = hash[:contribution_preference].downcase
+      [
+        t('wpcc.details.section__heading.age', age: hash[:age]),
+        t("wpcc.details.section__heading.gender_#{hash[:gender].downcase}"),
+        t("wpcc.details.section__heading.salary_#{hash[:salary_frequency]}",
+          salary: salary),
+        t("wpcc.details.section__heading.contribution_#{preference}")
+      ].join(', ')
+    end
   end
 end
