@@ -67,6 +67,7 @@ cy:
       input_of_label: o
       calculate_button: Cyfrifwch eich cyfraniadau
       employee_contribution_warning: Y cyfraniad uchaf gewch chi ei roi mewn pensiwn fesul blwyddyn yw 100% o’ch cyflog neu £40,000, pa bynnag un sydd leiaf.
+      contribution_gt40000_warning: Rhoddir gostyngiad treth ar gyfraniadau hyd at £40,000 y flwyddyn yn unig, neu 100% o’ch enillion, pa bynnag un sydd leiaf.
       employee_validation:
         blank: Rhowch eich cyfraniad
         out_of_range: Rhaid i'ch cyfraniad fod yn yr ystod 0 - 100%

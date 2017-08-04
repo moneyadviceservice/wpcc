@@ -10,6 +10,7 @@
 //= depend_on_asset dough/assets/js/components/Print
 //= depend_on_asset wpcc/components/ConditionalMessaging
 //= depend_on_asset wpcc/components/SalaryConditions
+//= depend_on_asset wpcc/components/ContributionConditions
 
 <%
   def requirejs_path(asset)
@@ -29,7 +30,8 @@
 
       # Non Dough Component
       ConditionalMessaging: requirejs_path('wpcc/components/ConditionalMessaging'),
-      SalaryConditions: requirejs_path('wpcc/components/SalaryConditions')
+      SalaryConditions: requirejs_path('wpcc/components/SalaryConditions'),
+      ContributionConditions: requirejs_path('wpcc/components/ContributionConditions')
     }
   }
 %>
