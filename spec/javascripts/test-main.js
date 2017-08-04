@@ -34,6 +34,7 @@ require.config({
 
     // WPCC components
     ConditionalMessaging: 'app/assets/javascripts/wpcc/components/ConditionalMessaging',
-    SalaryConditions: 'app/assets/javascripts/wpcc/components/SalaryConditions'
+    SalaryConditions: 'app/assets/javascripts/wpcc/components/SalaryConditions',
+    ContributionConditions: 'app/assets/javascripts/wpcc/components/ContributionConditions'
   }
 })
