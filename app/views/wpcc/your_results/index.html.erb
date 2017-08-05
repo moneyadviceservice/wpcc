@@ -12,6 +12,12 @@
 
   <div class="results__content">
     <p><%= t('wpcc.results.description', eligible_salary: session[:eligible_salary]) %></p>
+    
+    <% if @message_presenter.tax_relief_warning? %>
+      <div class="callout">
+        <p><%= @message_presenter.tax_relief_warning %></p>
+      </div>
+    <% end %>
 
     <%= render 'frequency_selector_form', salary_frequency: @salary_frequency %>
 
@@ -43,12 +49,6 @@
         </div>
       <% end %>
     </div>
-
-    <% if @message_presenter.tax_relief_warning? %>
-      <div class="callout">
-        <p><%= @message_presenter.tax_relief_warning %></p>
-      </div>
-    <% end %>
 
     <p><a href="#" data-dough-component="Print"><%= t('wpcc.results.print_link') %></a></p>
     <p><a href="#"><%= t('wpcc.results.contribution_table_link') %></a></p>

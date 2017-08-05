@@ -12,7 +12,7 @@ module Wpcc
 
     validates :age, presence: true
     validates :gender, inclusion: { in: GENDERS }
-    validates :salary, numericality: { only_integer: true, greater_than: 0 }
+    validates :salary, numericality: { greater_than: 0 }
     validates :salary_frequency, inclusion: { in: SALARY_FREQUENCIES }
     validates :contribution_preference, inclusion: { in: CONTRIBUTIONS }
     validates_with Wpcc::SalaryThresholdValidator

@@ -44,7 +44,7 @@ describe Wpcc::YourDetailsForm, type: :model do
       it { should_not allow_value('foo').for(:salary) }
       it { should_not allow_value(0).for(:salary) }
       it { should_not allow_value(-1).for(:salary) }
-      it { should_not allow_value(12.4).for(:salary) }
+      it { should allow_value(12.4).for(:salary) }
     end
 
     context 'salary_frequency' do
