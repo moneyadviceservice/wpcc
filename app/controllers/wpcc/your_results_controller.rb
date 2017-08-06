@@ -23,8 +23,11 @@ module Wpcc
     end
 
     def salary_frequency
-      @salary_frequency =
-        params[:salary_frequency] || session[:salary_frequency]
+      if params[:salary_frequency]
+        @salary_frequency = params[:salary_frequency]
+      else
+        @salary_frequency = default_salary_frequency[session[:salary_frequency]]
+      end
     end
 
     def convert_salary_frequency(salary_frequency)
@@ -52,6 +55,14 @@ module Wpcc
         salary: session[:salary].to_f.round(2),
         salary_frequency: session[:salary_frequency]
       )
+    end
+
+    def default_salary_frequency
+      Hash[
+        Wpcc::YourDetailsForm::SALARY_FREQUENCIES.map do |elem|
+          [elem, elem == 'year' ? 'month' : elem]
+        end
+      ]
     end
   end
 end

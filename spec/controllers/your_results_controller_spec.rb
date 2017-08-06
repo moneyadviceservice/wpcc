@@ -8,9 +8,10 @@ RSpec.describe Wpcc::YourResultsController do
         eligible_salary: 12_124,
         employee_percent: 1,
         employer_percent: 1,
-        salary_frequency: 'week'
+        salary_frequency: salary_frequency
       }
     end
+    let(:salary_frequency) { 'week' }
     let(:schedule) { [period_contribution, period_contribution] }
     let(:period_contribution) { double(Wpcc::PeriodContribution) }
     let(:presenter) { double(Wpcc::PeriodContributionPresenter) }
@@ -65,6 +66,32 @@ RSpec.describe Wpcc::YourResultsController do
         .and_return(salary_message)
 
       get :index, {}, session
+    end
+
+    describe 'when salary_frequency is per Year' do
+      let(:salary_frequency) { 'year' }
+
+      context 'for initial calculation' do
+        it 'calculates results by month' do
+          expect(Wpcc::SalaryFrequencyConverter)
+            .to receive(:convert)
+            .with('month')
+            .and_return(12)
+
+          get :index, {}, session
+        end
+      end
+
+      context 'for additional salary_frequency recalculations' do
+        it 'calculates results by year' do
+          expect(Wpcc::SalaryFrequencyConverter)
+            .to receive(:convert)
+            .with('year')
+            .and_return(1)
+
+          get :index, { salary_frequency: 'year' }, session
+        end
+      end
     end
   end
 end
