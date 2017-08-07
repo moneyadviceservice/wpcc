@@ -1,3 +1,9 @@
+Given(/^I am on the Your Details step in my "([^"]*)"$/) do |language|
+  locale = language_to_locale(language)
+
+  your_details_page.load(locale: locale)
+end
+
 Given(/^I am on the Your Details step$/) do
   your_details_page.load(locale: :en)
 end
@@ -176,4 +182,12 @@ end
 
 Then(/^I should see "([^"]*)" summarised$/) do |my_details|
   expect(page).to have_content(my_details)
+end
+
+Then(/^I should see that the minimum contribution option should be selected by default$/) do
+  expect(your_details_page.minimum_contribution_button).to be_checked
+end
+
+Then(/^I should see that the full contribution option should not be selected$/) do
+  expect(your_details_page.full_contribution_button).not_to be_checked
 end
