@@ -2,18 +2,6 @@ Given(/^I am on the Your Details step$/) do
   your_details_page.load(locale: :en)
 end
 
-When(/^I fill in my details$/) do
-  your_details_page.age.set(35)
-  your_details_page.genders.select('Female')
-  your_details_page.salary.set(35000)
-  your_details_page.salary_frequencies.select('per Year')
-  your_details_page.minimum_contribution_button.set(true)
-end
-
-When(/^I proceed to the next step$/) do
-  your_details_page.next_button.click
-end
-
 Given(/^I have valid details$/) do
   steps %{
     Given I am on the Your Details step
@@ -28,6 +16,17 @@ end
 
 Given(/^I am on the Your Results step$/) do
   your_results_page.load(locale: :en)
+end
+
+Given(/^I am a "([^"]*)" year old "([^"]*)"$/) do |age, gender|
+  step %{I enter my age as "#{age}"}
+  step %{I select my gender as "#{gender}"}
+end
+
+Given(/^my salary is "([^"]*)" "([^"]*)" with "([^"]*)" contribution$/) do |salary, salary_frequency, contribution|
+  step %{I enter my salary as "#{salary}"}
+  step %{I select my salary frequency as "#{salary_frequency}"}
+  step %{I choose my contribution preference as "#{contribution}"}
 end
 
 Given(/^I fill in my details:$/) do |table|
@@ -103,16 +102,20 @@ When(/^I submit my details$/) do
   your_details_page.next_button.click
 end
 
-Then(/^I should not be able to choose to make minimum employer contributions$/) do
-  expect(your_details_page.minimum_contribution_button).to be_disabled
-end
-
 When(/^I choose to make full contributions$/) do
   your_details_page.full_contribution_button.set(true)
 end
 
-Then(/^I should be able to proceed to the next page$/) do
-  expect(page.current_url).to have_content('/your_contributions/new')
+When(/^I fill in my details$/) do
+  your_details_page.age.set(35)
+  your_details_page.genders.select('Female')
+  your_details_page.salary.set(35000)
+  your_details_page.salary_frequencies.select('per Year')
+  your_details_page.minimum_contribution_button.set(true)
+end
+
+When(/^I proceed to the next step$/) do
+  your_details_page.next_button.click
 end
 
 When(/^I enter my age as 35$/) do
@@ -141,6 +144,14 @@ end
 
 When(/^I press next$/) do
   your_details_page.next_button.click
+end
+
+Then(/^I should be able to proceed to the next page$/) do
+  expect(page.current_url).to have_content('/your_contributions/new')
+end
+
+Then(/^I should not be able to choose to make minimum employer contributions$/) do
+  expect(your_details_page.minimum_contribution_button).to be_disabled
 end
 
 Then(/^the Step 2 intro paragraph should display my eligible salary$/) do

@@ -9,6 +9,12 @@ module Wpcc
                   :tax_relief_percent,
                   :name
 
+    SALARY_FREQUENCY_CONVERSIONS = YAML.load_file(
+      Wpcc::Engine.root.join('config', 'salary_frequency_conversions.yml')
+    )
+    TAX_RELIEF_LIMIT_BY_FREQUENCY =
+      SALARY_FREQUENCY_CONVERSIONS['tax_relief_limit_by_frequency']
+
     def contribution
       log_calculation
       PeriodContribution.new(
@@ -43,7 +49,9 @@ module Wpcc
     end
 
     def tax_relief
-      (employee_contribution * (tax_relief_percent / 100.00)).round(2)
+      result = (employee_contribution * (tax_relief_percent / 100.00)).round(2)
+
+      [TAX_RELIEF_LIMIT_BY_FREQUENCY[salary_frequency], result].min
     end
 
     def total_contributions
