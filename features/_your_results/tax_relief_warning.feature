@@ -3,6 +3,10 @@ Feature: Display Tax Relief Warning
   I need to understand that my contributions will only result in tax relief under certain circumstances
   So that I can make an informed decision about the impact of contributions on my take-home pay
 
+  Background:
+    Given I am on the Your Details step
+    When I enter my personal details
+
   @no-javascript
   Scenario Outline: Earning below £11,500 per year
     Given that I am on the WPCC homepage in my own "<language>"
@@ -38,7 +42,7 @@ Feature: Display Tax Relief Warning
       | English  | 958.33 | per Month        | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
       | English  | 884.61 | per 4 weeks      | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
       | English  | 221.15 | per Week         | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
-  
+
   @no-javascript
   Scenario Outline: Earning above £11,500 per year
     Given that I am on the WPCC homepage in my own "<language>"

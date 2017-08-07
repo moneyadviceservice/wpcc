@@ -1,9 +1,3 @@
-Given(/^I am on the Your Details step in my "([^"]*)"$/) do |language|
-  locale = language_to_locale(language)
-
-  your_details_page.load(locale: locale)
-end
-
 Given(/^I am on the Your Details step$/) do
   your_details_page.load(locale: :en)
 end
@@ -137,7 +131,7 @@ When(/^my salary per year is equal to or less than the upper earnings threshold 
 end
 
 When(/^my salary per year is greater than the upper earnings threshold of £45,000$/) do
-  your_details_page.salary.set(50000)
+  your_details_page.salary.set(70000)
 end
 
 When(/^I select per Year salary frequency$/) do
@@ -160,12 +154,16 @@ Then(/^I should not be able to choose to make minimum employer contributions$/) 
   expect(your_details_page.minimum_contribution_button).to be_disabled
 end
 
-Then(/^the Step 2 intro paragraph should display my eligible salary$/) do
-  expect(your_contributions_page.contributions_description).to have_content(29124)
+Then(/^the Your Contributions step should tell me my qualifying earnings$/) do
+  expect(your_contributions_page.contributions_description).to have_content('£29,124')
 end
 
-Then(/^the Step 2 intro paragraph should calc my eligible salary$/) do
-  expect(your_contributions_page.contributions_description).to have_content(39124)
+Then(/^I should see that my qualifying earnings is the limit of "([^"]*)"$/) do |limit|
+  expect(your_contributions_page.contributions_description).to have_content(limit)
+end
+
+Then(/^the Your Contributions step should tell me my qualifying earnings are my salary$/) do
+  expect(your_contributions_page.contributions_description).to have_content("35,000")
 end
 
 Then(/^the employee_percent input intro paragraph should display the correct percentage$/) do

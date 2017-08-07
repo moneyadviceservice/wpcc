@@ -15,11 +15,16 @@ Feature: displaying different salary frequencies
         | your_contribution | employer_contribution |
         | 1                 | 1                     |
       When I move on to the results page
-      Then I should see on the results page:
-        | £10.10 | £30.31 | £50.52 |
-        | £2.02  | £6.06  | £10.10 |
-        | £10.10 | £20.21 | £30.31 |
-        | £20.20 | £50.52 | £80.83 |
+      Then I should see the values on the results page as:
+      |                         | Now    | April 2018 - March 2019 | Apr 2019 onwards |
+      | Employee Contributions  | £10.10 | £30.31                  | £50.52           |
+      | Including tax relief of | £2.02  | £6.06                   | £10.10           |
+      | Employer Contributions  | £10.10 | £20.21                  | £30.31           |
+      | TOTAL Contributions     | £20.20 | £50.52                  | £80.83           |
+
+
+
+
 
     Scenario Outline:
       Given I enter my age as "<age>"

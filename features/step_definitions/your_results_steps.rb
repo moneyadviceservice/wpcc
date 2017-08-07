@@ -99,24 +99,24 @@ Given(/^that on your contributions step I fill:$/) do |table|
   step %{my employer contribution is "#{data[:employer_contribution]}"}
 end
 
-Then(/^I should see on the results page:$/) do |table|
+Then(/^I should see the values on the results page as:$/) do |table|
   data = table.transpose.raw
-  current_period = data[0]
-  second_period = data[1]
-  third_period = data[2]
+  current_period = data[1]
+  second_period = data[2]
+  third_period = data[3]
 
-  step %{I should see my employee contributions for current period as "#{current_period[0]}"}
-  step %{I should see my tax relief for current period as "#{current_period[1]}"}
-  step %{I should see my employer contributions for current period as "#{current_period[2]}"}
-  step %{I should see my total contributions for current period as "#{current_period[3]}"}
+  step %{I should see my employee contributions for current period as "#{current_period[1]}"}
+  step %{I should see my tax relief for current period as "#{current_period[2]}"}
+  step %{I should see my employer contributions for current period as "#{current_period[3]}"}
+  step %{I should see my total contributions for current period as "#{current_period[4]}"}
 
-  step %{I should see my employee contributions for second period as "#{second_period[0]}"}
-  step %{I should see my tax relief for second period as "#{second_period[1]}"}
-  step %{I should see my employer contributions for second period as "#{second_period[2]}"}
-  step %{I should see my total contributions for second period as "#{second_period[3]}"}
+  step %{I should see my employee contributions for second period as "#{second_period[1]}"}
+  step %{I should see my tax relief for second period as "#{second_period[2]}"}
+  step %{I should see my employer contributions for second period as "#{second_period[3]}"}
+  step %{I should see my total contributions for second period as "#{second_period[4]}"}
 
-  step %{I should see my employee contributions for third period as "#{third_period[0]}"}
-  step %{I should see my tax relief for third period as "#{third_period[1]}"}
-  step %{I should see my employer contributions for third period as "#{third_period[2]}"}
-  step %{I should see my total contributions for third period as "#{third_period[3]}"}
+  step %{I should see my employee contributions for third period as "#{third_period[1]}"}
+  step %{I should see my tax relief for third period as "#{third_period[2]}"}
+  step %{I should see my employer contributions for third period as "#{third_period[3]}"}
+  step %{I should see my total contributions for third period as "#{third_period[4]}"}
 end
