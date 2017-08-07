@@ -99,7 +99,7 @@
               </div>
               <div class="details__salary-frequency">
                 <%= f.label :salary_frequency, t('wpcc.details.salary.frequency.label'), class: 'form__label-heading details__field-label visually-hidden' %>
-                
+
                 <%= f.select(:salary_frequency, options_for_select(@your_details_form.salary_frequency_options, @salary_frequency), {}, {'data-dough-frequency-select': true}) %>
               </div>
               <div data-dough-popup-content class="popup-tip__content details__helper">
@@ -134,7 +134,7 @@
                 </div>
               </div>
               <div class="form__group-item details__calculate-item">
-                <%= f.radio_button(:contribution_preference, 'minimum', disabled: @your_details_form.disabled_class, class: 'details__calculate-item-select', 'data-dough-employer-part-radio': true) %>
+                <%= f.radio_button(:contribution_preference, 'minimum', disabled: @your_details_form.disabled_class, class: 'details__calculate-item-select', 'data-dough-employer-part-radio': true, checked: 'checked') %>
                 <%= f.label(:contribution_preference_minimum, t('wpcc.details.options.contribution_preference.minimum'), class: 'details__calculate-item-label') %>
               </div>
               <div class="form__group-item details__calculate-item">

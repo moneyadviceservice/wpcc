@@ -9,6 +9,7 @@ RSpec.describe Wpcc::MessagePresenter do
       salary_below_tax_relief_threshold?: salary_below_tax_relief_threshold?
     )
   end
+  let(:text) { nil }
   let(:salary_below_tax_relief_threshold?) { true }
 
   describe '#manually_opt_in_message?' do
@@ -37,8 +38,6 @@ RSpec.describe Wpcc::MessagePresenter do
     end
 
     context 'when the text is nil' do
-      let(:text) { nil }
-
       it 'returns false' do
         expect(subject).to_not be_manually_opt_in_message
       end
@@ -83,10 +82,44 @@ RSpec.describe Wpcc::MessagePresenter do
   end
 
   describe '#tax_relief_warning' do
-    let(:text) { nil }
     it 'returns the tax relief warning message' do
       warning = 'If you don’t pay income tax on your earnings, you will only'
       expect(subject.tax_relief_warning.include?(warning)).to be_truthy
+    end
+  end
+
+  describe '#your_details_summary' do
+    context 'for minimum contribution_preference' do
+      let(:hash) do
+        {
+          age: 23,
+          gender: 'Male',
+          salary: 6_000,
+          salary_frequency: 'year',
+          contribution_preference: 'Minimum'
+        }
+      end
+
+      it 'formats the session details to a string' do
+        string = '23 years, male, £6,000 per year, part salary'
+        expect(subject.your_details_summary(hash)).to eq(string)
+      end
+    end
+
+    context 'for full contribution_preference' do
+      let(:hash) do
+        {
+          age: 43,
+          gender: 'Female',
+          salary: 26_000,
+          salary_frequency: 'week',
+          contribution_preference: 'Full'
+        }
+      end
+      it 'formats the session details to a string' do
+        string = '43 years, female, £26,000 per week, full salary'
+        expect(subject.your_details_summary(hash)).to eq(string)
+      end
     end
   end
 end
