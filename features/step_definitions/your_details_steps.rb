@@ -1,5 +1,13 @@
 Given(/^I am on the Your Details step$/) do
-  your_details_page.load(locale: :en)
+  your_details_page.load(locale: language)
+end
+
+Given(/^I am on the Your Contributions step$/) do
+  your_contributions_page.load(locale: language)
+end
+
+Given(/^I am on the Your Results step$/) do
+  your_results_page.load(locale: language)
 end
 
 Given(/^I have valid details$/) do
@@ -10,13 +18,6 @@ Given(/^I have valid details$/) do
   }
 end
 
-Given(/^I am on the Your Contributions step$/) do
-  your_contributions_page.load(locale: :en)
-end
-
-Given(/^I am on the Your Results step$/) do
-  your_results_page.load(locale: :en)
-end
 
 Given(/^I am a "([^"]*)" year old "([^"]*)"$/) do |age, gender|
   step %{I enter my age as "#{age}"}
@@ -54,8 +55,14 @@ Given(/^I select my salary frequency as "([^"]*)"$/) do |salary_frequency|
   your_details_page.salary_frequencies.select(salary_frequency)
 end
 
+
 Given(/^I choose my contribution preference as "([^"]*)"$/) do |contribution_preference|
   your_details_page.send("#{contribution_preference.downcase}_contribution_button").set(true)
+end
+
+When(/^my salary is "([^"]*)" "([^"]*)"$/) do |salary, salary_frequency|
+  step %{I enter my salary as "#{salary}"}
+  step %{I select my salary frequency as "#{salary_frequency}"}
 end
 
 When(/^I fill in the age, gender, salary and frequency fields$/) do
@@ -108,9 +115,9 @@ end
 
 When(/^I fill in my details$/) do
   your_details_page.age.set(35)
-  your_details_page.genders.select('Female')
+  your_details_page.genders.select(@example_gender)
   your_details_page.salary.set(35000)
-  your_details_page.salary_frequencies.select('per Year')
+  your_details_page.salary_frequencies.select(@example_frequency)
   your_details_page.minimum_contribution_button.set(true)
 end
 

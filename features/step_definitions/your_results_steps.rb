@@ -1,9 +1,3 @@
-Given(/^that I am on the WPCC homepage in my own "([^"]*)"$/) do |language|
-  locale = language_to_locale(language)
-
-  your_details_page.load(locale: locale)
-end
-
 When(/^I move on to the results page$/) do
   click_button
 end
@@ -73,7 +67,8 @@ When(/^I enter my personal details$/) do
 end
 
 When(/^I progress to the results page$/) do
-  step 'I move to your results page'
+  your_details_page.next_button.click
+  your_results_page.load(locale: language)
 end
 
 Then(/^I should see tax relief "([^"]*)"$/) do |warning_message|

@@ -37,7 +37,7 @@ When(/^I submit the Your Contributiions form and proceed to Your Results$/) do
   your_contributions_page.next_button.click
 end
 
-Then(/^I should see the manually_opt_in "([^"]*)" in my own language$/) do |message|
+Then(/^I should see the manually_opt_in "([^"]*)"$/) do |message|
   expect(page).to have_content(message)
 end
 
