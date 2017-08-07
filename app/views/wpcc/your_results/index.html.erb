@@ -27,12 +27,12 @@
           <h3 class="results__period-title"><%= period.title %></h3>
 
           <p class="results__period-heading"><%= t('wpcc.results.period.contribution_heading.yours') %></p>
-          <p class="results__period-details results__period-employee-contribution" data-dough-employee-contribution data-value="<%= period.employee_contribution_data %>">
-            <%= period.employee_contribution %>
+          <p class="results__period-details results__period-employee-contribution" data-dough-employee-contribution data-value="<%= period.employee_contribution %>">
+            <%= period.formatted_employee_contribution %>
           </p>
-          <p class="results__period-parenthesis">
-            <span class="results__period-tax-relief">
-              <%= period.tax_relief %>
+          <p class="results__period-parenthesis results__period-tax-relief" >
+            <span class="results__period-tax-relief" data-dough-tax-relief data-value="<%= period.tax_relief %>">
+              <%= period.formatted_tax_relief %>
             </span>
             <%= render 'wpcc/tooltips/trigger' %>
           </p>
@@ -44,15 +44,15 @@
           </div>
 
           <p class="results__period-heading"><%= t('wpcc.results.period.contribution_heading.employers') %></p>
-          <p class="results__period-details results__period-employer-contribution" data-dough-employer-contribution data-value="<%= period.employer_contribution_data %>">
-            <%= period.employer_contribution %>
+          <p class="results__period-details results__period-employer-contribution" data-dough-employer-contribution data-value="<%= period.employer_contribution %>">
+            <%= period.formatted_employer_contribution %>
           </p>
 
           <p class="results__period-heading"><%= t('wpcc.results.period.contribution_heading.total') %></p>
           <p class="results__period-details results__period-total-contributions" data-dough-total>
-            <%= period.total_contributions %>
+            <%= period.formatted_total_contributions %>
           </p>
-          <p class="results__period-parenthesis" data-dough-tax-relief data-value="<%= period.tax_relief_data %>">
+          <p class="results__period-parenthesis" data-dough-tax-relief data-value="<%= period.tax_relief %>">
             <%= period.tax_relief %>
           </p>
         </div>
