@@ -2,6 +2,12 @@ Given(/^I am on the Your Details step$/) do
   your_details_page.load(locale: :en)
 end
 
+Given(/^I am on the Your Details step in my "([^"]*)"$/) do |language|
+  locale = language_to_locale(language)
+
+  your_details_page.load(locale: locale)
+end
+
 When(/^I fill in my details$/) do
   your_details_page.age.set(35)
   your_details_page.genders.select('Female')
@@ -168,4 +174,12 @@ Then(/^the employer_percent input intro paragraph should display the correct per
   within('.contributions__source--employer') do
     expect(your_contributions_page).to have_content('The legal minimum is 1%')
   end
+end
+
+Then(/^I should see that the minimum contribution option should be selected by default$/) do
+  expect(your_details_page.minimum_contribution_button).to be_checked
+end
+
+Then(/^I should see that the full contribution option should not be selected$/) do
+  expect(your_details_page.full_contribution_button).not_to be_checked
 end
