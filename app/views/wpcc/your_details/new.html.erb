@@ -31,8 +31,10 @@
             %>
           </div>
         </div>
-        <div data-dough-popup-content class="popup-tip__content details__helper">
-          <p><%= t('wpcc.details.age.tooltip') %></p>
+        <div data-dough-popup-container class="popup-tip__container details__helper">
+          <p data-dough-popup-content class="popup-tip__content">
+            <%= t('wpcc.details.age.tooltip') %>
+          </p>
           <%= render 'wpcc/shared/popup_tip_close' %>
         </div>
       </div>
@@ -55,8 +57,8 @@
             %>
           </div>
         </div>
-        <div data-dough-popup-content class="popup-tip__content details__helper">
-          <p><%= t('wpcc.details.gender.tooltip') %></p>
+        <div data-dough-popup-container class="popup-tip__container details__helper">
+          <p data-dough-popup-content class="popup-tip__content"><%= t('wpcc.details.gender.tooltip') %></p>
           <%= render 'wpcc/shared/popup_tip_close' %>
         </div>
       </div>
@@ -102,11 +104,11 @@
 
                 <%= f.select(:salary_frequency, options_for_select(@your_details_form.salary_frequency_options, @salary_frequency), {}, {'data-dough-frequency-select': true}) %>
               </div>
-              <div data-dough-popup-content class="popup-tip__content details__helper">
-                <p><%= t('wpcc.details.salary.tooltip') %></p>
-                <%= render 'wpcc/shared/popup_tip_close' %>
-              </div>
             </div>
+          </div>
+          <div data-dough-popup-container class="popup-tip__container details__helper">
+            <p data-dough-popup-content class="popup-tip__content"><%= t('wpcc.details.salary.tooltip') %></p>
+            <%= render 'wpcc/shared/popup_tip_close' %>
           </div>
           <div class="details__callouts">
             <div class="form__row details__callout details__callout--inactive" data-dough-callout-lt5876>
