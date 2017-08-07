@@ -12,7 +12,7 @@
 
   <div class="results__content">
     <p><%= t('wpcc.results.description', eligible_salary: session[:eligible_salary]) %></p>
-    
+
     <% if @message_presenter.tax_relief_warning? %>
       <div class="callout">
         <p><%= @message_presenter.tax_relief_warning %></p>
@@ -42,9 +42,6 @@
           <p class="results__period-heading"><%= t('wpcc.results.period.contribution_heading.total') %></p>
           <p class="results__period-details results__period-total-contributions">
             <%= period.total_contributions %>
-          </p>
-          <p class="results__period-parenthesis">
-            <%= period.tax_relief %>
           </p>
         </div>
       <% end %>
