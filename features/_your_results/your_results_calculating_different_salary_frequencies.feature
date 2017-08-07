@@ -7,11 +7,6 @@ Feature: displaying different salary frequencies
     Given I am on the Your Details step
 
     Scenario: Salary Per Month calculation
-
-    # Given I fill in my details
-    # And my salary_frequency is 'per Month'
-    # When I reach the Results Page
-    # Then I should see results broken down by month
       Given I fill in my details:
         | age | gender | salary | salary_frequency | contribution |
         | 25  | male   | 1500   | per Month        | Minimum      |

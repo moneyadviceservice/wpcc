@@ -3,6 +3,12 @@ module Wpcc
     include ActiveModel::Model
     attr_accessor :params_salary_frequency, :session_salary_frequency
 
+    DEFAULT_SALARY_FREQUENCIES = Hash[
+      Wpcc::YourDetailsForm::SALARY_FREQUENCIES.map { |e| [e, e] }
+    ].tap do |hash|
+      hash['year'] = 'month'
+    end
+
     def initialize(attributes)
       @converter = SalaryFrequencyConverter
       super(attributes)
@@ -15,17 +21,7 @@ module Wpcc
     def to_s
       return params_salary_frequency if params_salary_frequency.present?
 
-      default_salary_frequency[session_salary_frequency]
-    end
-
-    private
-
-    def default_salary_frequency
-      Hash[
-        Wpcc::YourDetailsForm::SALARY_FREQUENCIES.map do |elem|
-          [elem, elem == 'year' ? 'month' : elem]
-        end
-      ]
+      DEFAULT_SALARY_FREQUENCIES[session_salary_frequency]
     end
   end
 end
