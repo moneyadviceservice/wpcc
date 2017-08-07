@@ -5,6 +5,14 @@ module Wpcc
       @message_presenter = message_presenter
     end
 
+    def salary_frequency
+      @salary_frequency ||= SalaryFrequency.new(
+        params_salary_frequency: params[:salary_frequency],
+        session_salary_frequency: session[:salary_frequency]
+      )
+    end
+    helper_method :salary_frequency
+
     private
 
     def schedule
@@ -18,20 +26,8 @@ module Wpcc
         eligible_salary: session[:eligible_salary].to_i,
         employee_percent: session[:employee_percent].to_i,
         employer_percent: session[:employer_percent].to_i,
-        salary_frequency: convert_salary_frequency(salary_frequency)
+        salary_frequency: salary_frequency.to_i
       }
-    end
-
-    def salary_frequency
-      if params[:salary_frequency]
-        @salary_frequency = params[:salary_frequency]
-      else
-        @salary_frequency = default_salary_frequency[session[:salary_frequency]]
-      end
-    end
-
-    def convert_salary_frequency(salary_frequency)
-      Wpcc::SalaryFrequencyConverter.convert(salary_frequency)
     end
 
     def present(your_results)
@@ -55,14 +51,6 @@ module Wpcc
         salary: session[:salary].to_f.round(2),
         salary_frequency: session[:salary_frequency]
       )
-    end
-
-    def default_salary_frequency
-      Hash[
-        Wpcc::YourDetailsForm::SALARY_FREQUENCIES.map do |elem|
-          [elem, elem == 'year' ? 'month' : elem]
-        end
-      ]
     end
   end
 end

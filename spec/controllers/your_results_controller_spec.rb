@@ -8,14 +8,14 @@ RSpec.describe Wpcc::YourResultsController do
         eligible_salary: 12_124,
         employee_percent: 1,
         employer_percent: 1,
-        salary_frequency: salary_frequency
+        salary_frequency: 'week'
       }
     end
-    let(:salary_frequency) { 'week' }
     let(:schedule) { [period_contribution, period_contribution] }
     let(:period_contribution) { double(Wpcc::PeriodContribution) }
     let(:presenter) { double(Wpcc::PeriodContributionPresenter) }
     let(:salary_message) { double(Wpcc::SalaryMessage) }
+    let(:salary_frequency) { double(Wpcc::SalaryFrequency) }
 
     it 'schedules a contribution calendar with the session salary_frequency' do
       args = session.merge(salary_frequency: 52)
@@ -31,9 +31,13 @@ RSpec.describe Wpcc::YourResultsController do
     end
 
     it 'converts salary_frequency from a string to an integer' do
-      expect(Wpcc::SalaryFrequencyConverter)
-        .to receive(:convert)
-        .with('week')
+      expect(Wpcc::SalaryFrequency)
+        .to receive(:new)
+        .with(params_salary_frequency: nil, session_salary_frequency: 'week')
+        .and_return(salary_frequency)
+
+      expect(salary_frequency)
+        .to receive(:to_i)
         .and_return(52)
 
       get :index, {}, session
@@ -66,32 +70,6 @@ RSpec.describe Wpcc::YourResultsController do
         .and_return(salary_message)
 
       get :index, {}, session
-    end
-
-    describe 'when salary_frequency is per Year' do
-      let(:salary_frequency) { 'year' }
-
-      context 'for initial calculation' do
-        it 'calculates results by month' do
-          expect(Wpcc::SalaryFrequencyConverter)
-            .to receive(:convert)
-            .with('month')
-            .and_return(12)
-
-          get :index, {}, session
-        end
-      end
-
-      context 'for additional salary_frequency recalculations' do
-        it 'calculates results by year' do
-          expect(Wpcc::SalaryFrequencyConverter)
-            .to receive(:convert)
-            .with('year')
-            .and_return(1)
-
-          get :index, { salary_frequency: 'year' }, session
-        end
-      end
     end
   end
 end

@@ -59,7 +59,7 @@ module Wpcc
     end
 
     def contribution_for_percent(percent)
-      ((eligible_salary / salary_frequency.to_f) * (percent / 100.00)).round(2)
+      ((eligible_salary.to_f / salary_frequency) * (percent / 100.00)).round(2)
     end
   end
 end
