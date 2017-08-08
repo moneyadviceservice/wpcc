@@ -29,7 +29,7 @@ Feature: Display Tax Relief Warning
   Scenario Outline: Earning £11,500 per year
     And my salary is "<salary>" "<salary_frequency>"
     And I progress to the results page
-    Then  I should NOT see tax relief "<warning_message>"
+    Then I should NOT see tax relief "<warning_message>"
 
     Examples:
       | salary | salary_frequency | warning_message |
@@ -47,7 +47,7 @@ Feature: Display Tax Relief Warning
   Scenario Outline: Earning above £11,500 per year
     And my salary is "<salary>" "<salary_frequency>"
     And I progress to the results page
-    Then  I should NOT see tax relief "<warning_message>"
+    Then I should NOT see tax relief "<warning_message>"
 
     Examples:
       | salary | salary_frequency | warning_message |
