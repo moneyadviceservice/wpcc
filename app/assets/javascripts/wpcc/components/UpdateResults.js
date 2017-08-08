@@ -69,17 +69,23 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
   // Get modifier from frequency
   // Used to convert amounts from/to annual
   UpdateResults.prototype._getModifier = function(frequency) {
-    switch(frequency) {
-      case 'month':
+    var modifiers = {
+      'year': function() {
+        return 1;
+      },
+      'month': function() {
         return 12;
-      case 'fourweeks':
+      },
+      'fourweeks': function() {
         return 13;
-      case 'week':
+      },
+      'week': function() {
         return 52;
-    }
+      }
+    };
 
-    return 1;
-  }
+    return modifiers[frequency]();
+  };
 
   // formats number to currency
   UpdateResults.prototype._formatNumber = function(num, modifier) {
