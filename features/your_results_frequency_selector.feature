@@ -18,7 +18,7 @@ Feature:
       | £666.67 | £666.67 | £666.67 |
       | £133.33 | £133.33 | £133.33 |
       | £66.67  | £133.33 | £200.00 |
-      | £733.33 | £800.00 | £866.67 |
+      | £733.34 | £800.00 | £866.67 |
 
   @no-javascript
   Scenario: Recalculate results changing to monthly frequency
@@ -36,7 +36,7 @@ Feature:
     Then I should see on the results page:
       | £153.85 | £153.85 | £153.85 |
       | £30.77  | £30.77  | £30.77  |
-      | £15.38  | £30.77  | £46.15  |
+      | £15.39  | £30.77  | £46.15  |
       | £169.23 | £184.62 | £200.00 |
 
   @no-javascript
@@ -53,10 +53,10 @@ Feature:
   Scenario: Recalculate results changing to weekly frequency
     When I select "per 4 weeks" to change the calculations
     Then I should see on the results page:
-      | £615.38 | £615.38 | £615.38 |
-      | £123.08 | £123.08 | £123.08 |
-      | £61.54  | £123.08 | £184.62 |
-      | £676.92 | £738.46 | £800.00 |
+      | £615.39 | £615.39 | £615.39 |
+      | £123.07 | £123.07 | £123.07 |
+      | £61.54  | £123.07 | £184.62 |
+      | £676.93 | £738.46 | £800.00 |
 
   @no-javascript
   Scenario: Recalculate results changing to weekly frequency
