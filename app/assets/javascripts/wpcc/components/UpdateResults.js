@@ -43,7 +43,7 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
   UpdateResults.prototype._getValues = function() {
     var _this = this;
     var frequency = this.frequencySelector.val();
-    var modifier = this._getModifier(frequency);
+    var modifier = this._convertUnits(frequency);
 
     this.resultsTables.each(function() {
       _this.values.employeeContributions.push($(this).find('[data-dough-employee-contribution]').attr('data-value') * modifier);
@@ -55,7 +55,7 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
   // Display recalculated values in tables
   UpdateResults.prototype._displayValues = function(frequency) {
     var _this = this;
-    var modifier = this._getModifier(frequency);
+    var modifier = this._convertUnits(frequency);
 
     // calculate & display new values
     for (var i = 0, max = this.resultsTables.length; i < max; i++) {
@@ -68,7 +68,7 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
 
   // Get modifier from frequency
   // Used to convert amounts from/to annual
-  UpdateResults.prototype._getModifier = function(frequency) {
+  UpdateResults.prototype._convertUnits = function(frequency) {
     var modifiers = {
       'year': function() {
         return 1;
