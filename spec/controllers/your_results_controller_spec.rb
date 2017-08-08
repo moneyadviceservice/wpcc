@@ -15,6 +15,7 @@ RSpec.describe Wpcc::YourResultsController do
     let(:period_contribution) { double(Wpcc::PeriodContribution) }
     let(:presenter) { double(Wpcc::PeriodContributionPresenter) }
     let(:salary_message) { double(Wpcc::SalaryMessage) }
+    let(:salary_frequency) { double(Wpcc::SalaryFrequency) }
 
     it 'schedules a contribution calendar with the session salary_frequency' do
       args = session.merge(salary_frequency: 52)
@@ -30,9 +31,13 @@ RSpec.describe Wpcc::YourResultsController do
     end
 
     it 'converts salary_frequency from a string to an integer' do
-      expect(Wpcc::SalaryFrequencyConverter)
-        .to receive(:convert)
-        .with('week')
+      expect(Wpcc::SalaryFrequency)
+        .to receive(:new)
+        .with(params_salary_frequency: nil, session_salary_frequency: 'week')
+        .and_return(salary_frequency)
+
+      expect(salary_frequency)
+        .to receive(:to_i)
         .and_return(52)
 
       get :index, {}, session

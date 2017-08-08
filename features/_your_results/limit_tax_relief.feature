@@ -14,10 +14,10 @@ Feature: Limit Tax Relief
       And my contribution is "60" percent
       When I move on to the results page
       Then I should see on the results page:
-        | £48,000.00 | £48,000.00 | £48,000.00 |
-        | £8,000.00  | £8,000.00  | £8,000.00  |
-        | £800.00    | £1,600.00  | £2,400.00  |
-        | £48,800.00 | £49,600.00 | £50,400.00 |
+        | £4,000.00  | £4,000.00  | £4,000.00  |
+        | £666.67    | £666.67    | £666.67    |
+        | £66.67     | £133.33    | £200.00    |
+        | £4,066.67  | £4,133.33  | £4,200.00  |
 
     Scenario: Employee contributing more than £769.23 per week to pension
       Given my salary is "1200" "per Week" with "Full" contribution
