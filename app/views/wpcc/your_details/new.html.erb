@@ -18,10 +18,7 @@
         <div class="details__field">
           <div class="details__field-label">
             <%= f.label :age, t('wpcc.details.age.label'), class: 'form__label-heading' %>
-            <button type="button" class="popup-tip__button" data-dough-popup-trigger>
-              <span aria-hidden="true">i</span>
-              <span class="visually-hidden"><%= t('wpcc.details.tooltip_show') %></span>
-            </button>
+            <%= render 'wpcc/tooltips/trigger' %>
           </div>
           <div class="form__row">
             <%= f.text_field :age,
@@ -35,17 +32,14 @@
           <p data-dough-popup-content class="popup-tip__content">
             <%= t('wpcc.details.age.tooltip') %>
           </p>
-          <%= render 'wpcc/shared/popup_tip_close' %>
+          <%= render 'wpcc/tooltips/close' %>
         </div>
       </div>
       <div class="details__row" data-dough-component="PopupTip">
         <div class="details__field">
           <div class="details__field-label">
             <%= f.label :gender, t('wpcc.details.gender.label'), class: 'form__label-heading' %>
-            <button type="button" class="popup-tip__button" data-dough-popup-trigger>
-              <span aria-hidden="true">i</span>
-              <span class="visually-hidden"><%= t('wpcc.details.tooltip_show') %></span>
-            </button>
+            <%= render 'wpcc/tooltips/trigger' %>
           </div>
           <div class="form__row">
             <%= f.select :gender,
@@ -59,7 +53,7 @@
         </div>
         <div data-dough-popup-container class="popup-tip__container details__helper">
           <p data-dough-popup-content class="popup-tip__content"><%= t('wpcc.details.gender.tooltip') %></p>
-          <%= render 'wpcc/shared/popup_tip_close' %>
+          <%= render 'wpcc/tooltips/close' %>
         </div>
       </div>
       <div class="details__row">
@@ -87,10 +81,7 @@
             <div class="form__row details__salary">
               <div class="details__field-label">
                 <%= f.label :salary, t('wpcc.details.salary.label'), class: 'form__label-heading' %>
-                <button type="button" class="popup-tip__button" data-dough-popup-trigger>
-                  <span aria-hidden="true">i</span>
-                  <span class="visually-hidden"><%= t('wpcc.details.tooltip_show') %></span>
-                </button>
+                <%= render 'wpcc/tooltips/trigger' %>
               </div>
               <div class="details__salary-amount">
               <%= f.text_field :salary,
@@ -108,7 +99,7 @@
           </div>
           <div data-dough-popup-container class="popup-tip__container details__helper">
             <p data-dough-popup-content class="popup-tip__content"><%= t('wpcc.details.salary.tooltip') %></p>
-            <%= render 'wpcc/shared/popup_tip_close' %>
+            <%= render 'wpcc/tooltips/close' %>
           </div>
           <div class="details__callouts">
             <div class="form__row details__callout details__callout--inactive" data-dough-callout-lt5876>

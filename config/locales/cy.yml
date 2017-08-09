@@ -1,5 +1,8 @@
 cy:
   wpcc:
+    tooltip_show: sioe help
+    tooltip_hide: cuddio cymorth
+
     title: Cyfrifiannell cyfraniadau pensiwn gweithle
     intro: Mae’n gyfraith erbyn hyn y dylai’r rhan fwyaf o gyflogeion gael eu cofrestru ar gynllun pensiwn gweithle gan eu cyflogwr. Mae’n ofynnol i chi a’ch cyflogwr gyfrannu. Bydd y gyfrifiannell hon yn cyfrifo swm y cyfraniadau.
     edit: Golygu
@@ -44,9 +47,6 @@ cy:
 
       next: Next
       prompt: os gwelwch yn dda dewiswch
-
-      tooltip_show: sioe help
-      tooltip_hide: cuddio cymorth
 
       callout__lt16: Rydych yn rhy ifanc i ymuno â phensiwn gweithle. Pan gyrhaeddwch 16 oed gallwch ofyn i’ch cyflogwr eich cofrestru. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau.
       callout__optIn: Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am bensiwn, ond gallwch ddewis ymuno. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau.
@@ -107,6 +107,7 @@ cy:
           total: Cyfanswm cyfraniadau
       tax_relief_warning_html: Os nad ydych chi'n talu treth incwm ar eich enillion, fyddwch chi ddim ond yn cael gostyngiad treth ar eich cyfraniadau os bydd eich cynllun pensiwn yn casglu cyfraniadau yn defnyddio'r gostyngiad treth yn y ffynhonnell. Rydym wedi tybio bod eich cynllun yn gwneud hyn. Darllenwch ragor yn ein canllaw am <a href="https://www.moneyadviceservice.org.uk/cy/articles/gostyngiad-treth-ar-gyfraniadau-pensiwn">ostyngiadau treth ar gyfraniadau pensiwn</a>.
       tax_relief_warning: Os nad ydych chi'n talu treth incwm ar eich enillion, fyddwch chi ddim ond yn cael gostyngiad treth ar eich cyfraniadau os bydd eich cynllun pensiwn yn casglu cyfraniadau yn defnyddio'r gostyngiad treth yn y ffynhonnell. Rydym wedi tybio bod eich cynllun yn gwneud hyn. Darllenwch ragor yn ein canllaw am ostyngiadau treth ar gyfraniadau pensiwn.
+      tax_relief_tooltip_html: Byddwch yn cael gostyngiad treth ar eich cyfraniadau pensiwn sy'n golygu y rhoddir peth o’r arian o'ch cyflog a fyddai wedi mynd i’r llywodraeth fel treth tuag at eich pensiwn yn hytrach. <a href="https://www.moneyadviceservice.org.uk/cy/articles/gostyngiad-treth-ar-gyfraniadau-pensiwn">Darllenwch fwy am sut i gael gostyngiad treth</a>.
       contribution_table_link: Darllen tabl sy’n dangos sut mae isafswm cyfraniadau cyfreithlon yn newid
       print_link: Argraffu eich canlyniadau
       next_steps:

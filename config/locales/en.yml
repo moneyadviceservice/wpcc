@@ -1,5 +1,8 @@
 en:
   wpcc:
+    tooltip_show: show help
+    tooltip_hide: hide help
+
     title: Workplace pension contribution calculator
     intro: It is now law that most employees must be enrolled into a workplace pension scheme by their employer. Both you and your employer are required to make contributions. This calculator will work out the amount of contributions.
     edit: Edit
@@ -43,9 +46,6 @@ en:
 
       next: Next
       prompt: Please choose
-
-      tooltip_show: show help
-      tooltip_hide: hide help
 
       callout__lt16: You are too young to join a workplace pension. When you reach the age of 16 you may ask your employer to enrol you. If you do so, your employer will make contributions.
       callout__optIn: Your employer will not automatically enrol you into a pension but you can choose to join. If you do so, your employer will make contributions.
@@ -106,6 +106,7 @@ en:
           total: Total contributions
       tax_relief_warning_html: If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions if your pension scheme collects contributions using the tax relief at source method. We have assumed your scheme does. Read more in our guide about <a href="https://www.moneyadviceservice.org.uk/en/articles/tax-relief-on-pension-contributions">tax relief on pension contributions</a>.
       tax_relief_warning: If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions if your pension scheme collects contributions using the tax relief at source method.  We have assumed your scheme does. Read more in our guide about tax relief on pension contributions.
+      tax_relief_tooltip_html: You get tax relief on pension contributions which means some of the money from your pay that would have gone to the government as tax goes towards your pension instead. <a href="https://www.moneyadviceservice.org.uk/en/articles/tax-relief-on-pension-contributions">Read more about how you get tax relief</a>.
       contribution_table_link: View a table of how legal minimum contributions change
       print_link: Print your results
       next_steps:
