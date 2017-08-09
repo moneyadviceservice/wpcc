@@ -7,10 +7,6 @@ module Wpcc
                   :employer_percent
 
     def schedule
-      period_percents.map(&:contribution)
-    end
-
-    def period_percents
       periods.map do |period|
         Wpcc::PeriodContributionCalculator.new(
           name: period.name,
@@ -19,7 +15,7 @@ module Wpcc
           eligible_salary: eligible_salary,
           salary_frequency: salary_frequency,
           tax_relief_percent: period.tax_relief_percent
-        )
+        ).contribution
       end
     end
 

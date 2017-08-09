@@ -62,6 +62,9 @@ module Dummy
     config.assets.paths << Rails.root.join('..', '..', 'vendor', 'assets', 'bower_components')
 
     config.time_zone = 'London'
+
+    # Missing translations should raise exceptions
+    config.action_view.raise_on_missing_translations = true
   end
 end
 

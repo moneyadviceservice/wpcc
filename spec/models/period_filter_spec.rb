@@ -112,5 +112,4 @@ RSpec.describe Wpcc::PeriodFilter do
       end
     end
   end
-
 end

@@ -5,14 +5,14 @@ Feature: Period Percents Information Table
 
   Scenario Outline:
     Given I am on the Your Details step
-    And I complete the your details form and move to your contributions page
+    And I have valid details
     And my employee contribution is "<my_contribution>"
     And my employer contribution is "<employer_contribution>"
     When I move on to the results page
     Then I should see a link to the legal minimum contributions table
     And I should see the percents information:
-        | You           | %1.00 | %3.00 | %5.00 |
-        | Your employer | %1.00 | %2.00 | %3.00 |
+        | You           | 1% | 3% | 5% |
+        | Your employer | 1% | 2% | 3% |
 
     Examples:
         | my_contribution | employer_contribution |
