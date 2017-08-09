@@ -21,6 +21,9 @@ module Wpcc
       )
 
       @message_presenter = message_presenter
+
+      @presenter = Wpcc::Presenter.new(@your_contribution,
+                                       view_context: view_context)
     end
 
     def create

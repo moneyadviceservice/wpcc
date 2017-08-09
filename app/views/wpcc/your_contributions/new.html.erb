@@ -4,7 +4,7 @@
   <h2 class="wpcc__heading">2. <%= t('wpcc.contributions.title') %></h2>
   <div class="contributions__row">
     <p class="t-contributions_description">
-      <%= t('wpcc.contributions.description', eligible_salary: number_with_delimiter(@your_contribution.eligible_salary, :delimiter => ',')) %>
+      <%= t('wpcc.contributions.description', eligible_salary: @presenter.formatted_currency(@your_contribution.eligible_salary)) %>
     </p>
     <p>
       <p><%= t('wpcc.contributions.description_tooltip') %></p>
