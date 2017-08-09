@@ -1,5 +1,5 @@
 Given(/^I am on the Your Details step$/) do
-  your_details_page.load(locale: language)
+  your_details_page.load(language_code: language_code)
 end
 
 Given(/^I have valid details$/) do
@@ -148,9 +148,9 @@ end
 
 Then(/^I should see my current details in the form fields$/) do
   expect(page).to have_css("input[value='35']")
-  expect( find(:css, 'select#your_details_form_gender').value ).to eq('female')
+  expect(find(:css, 'select#your_details_form_gender').value).to eq('female')
   expect(page).to have_css("input[value='35000']")
-  expect( find(:css, 'select#your_details_form_salary_frequency').value ).to eq('year')
+  expect(find(:css, 'select#your_details_form_salary_frequency').value).to eq('year')
   expect(page).to have_css("input[value='minimum']")
 end
 

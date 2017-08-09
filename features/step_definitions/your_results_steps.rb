@@ -1,5 +1,5 @@
 Given(/^I am on the Your Results step$/) do
-  your_results_page.load(locale: language)
+  your_results_page.load(language_code: language_code)
 end
 
 When(/^I progress to the results page$/) do

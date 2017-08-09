@@ -1,6 +1,6 @@
 module World
   module Language
-    def language
+    def language_code
       @language
     end
 

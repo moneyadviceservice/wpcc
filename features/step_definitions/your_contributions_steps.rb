@@ -1,5 +1,5 @@
 Given(/^I am on the Your Contributions step$/) do
-  your_contributions_page.load(locale: language)
+  your_contributions_page.load(language_code: language_code)
 end
 
 Given(/^I have valid contributions$/) do
