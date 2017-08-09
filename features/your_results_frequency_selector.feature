@@ -9,7 +9,7 @@ Feature:
     And I select my gender as "<gender>"
     And I enter my salary as "<salary>"
     And I select my salary frequency as "<salary_frequency>"
-    And I select the minimum contribution
+    And I choose to make minimum contributions
     And I press next and move to your contributions step
     And I press next and move to your result step
     When I select "<salary_frequency>" to change the calculations
