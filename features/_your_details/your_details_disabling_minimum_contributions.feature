@@ -6,12 +6,12 @@ Feature: Your Details disabling minimum contribution
   @no-javascript
   Scenario Outline: Annual salary rate below £5,876 with minimum employer contributions
     Given I am on the Your Details step
-    When I enter my details
+    And I enter my details
     And I enter a "<salary>" below the minimum threshold
     And I select a valid "<salary_frequency>"
     And I choose to make minimum contributions
-    And I submit my details
-    Then I should not be able to choose to make minimum employer contributions
+    When I submit my details
+    And I should see that the full contribution option should be selected
 
     Examples:
       | salary | salary_frequency |
