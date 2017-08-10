@@ -15,7 +15,7 @@ RSpec.describe Wpcc::YourDetailsFormPresenter do
     end
   end
 
-  describe '#disabled_class' do
+  describe '#activate_disabled_callout' do
     context 'salary lower than threshold' do
       let(:age) { 35 }
       let(:gender) { 'female' }
@@ -34,19 +34,21 @@ RSpec.describe Wpcc::YourDetailsFormPresenter do
         your_details_form.valid?
       end
 
-      context 'make minimum contribution' do
+      context 'when minimum contribution is selected' do
         let(:pref) { 'minimum' }
 
-        it 'disabled minimum contribution option' do
-          expect(subject.disabled_class).to eq('disabled')
+        it 'returns an active class name' do
+          class_name = 'details__callout--active'
+          expect(subject.activate_disabled_callout).to eq(class_name)
         end
       end
 
-      context 'make minimum contribution' do
+      context 'when full contribution is selected' do
         let(:pref) { 'full' }
 
-        it 'disabled minimum contribution option' do
-          expect(subject.disabled_class).to be_nil
+        it 'returns an inactive class name' do
+          class_name = 'details__callout--inactive'
+          expect(subject.activate_disabled_callout).to eq(class_name)
         end
       end
     end
