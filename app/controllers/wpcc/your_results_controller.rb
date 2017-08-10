@@ -19,9 +19,9 @@ module Wpcc
     helper_method :salary_frequency
 
     def period_legal_percents
-      Wpcc::PeriodFilter.new.legal_periods.map do |legal_period|
-        Wpcc::LegalPeriodPresenter.new(
-          legal_period,
+      calendar.periods.map do |period|
+        Wpcc::PeriodPresenter.new(
+          period,
           view_context: view_context
         )
       end

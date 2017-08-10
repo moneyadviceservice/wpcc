@@ -21,12 +21,29 @@ RSpec.describe Wpcc::PeriodFilter do
     }
   end
 
-  describe '#filter' do
-    subject(:filter) do
+  describe '#periods' do
+    let(:user_input_employee_percent) { 1 }
+    let(:user_input_employer_percent) { 1 }
+
+    subject do
       described_class.new(
         user_input_employee_percent: user_input_employee_percent,
         user_input_employer_percent: user_input_employer_percent
-      ).filter
+      )
+    end
+
+    it 'returns a Period object for each period in the config file' do
+      expect(Wpcc::Period).to receive(:new).exactly(3).times
+      subject.periods
+    end
+  end
+
+  describe '#filter' do
+    subject(:filtered_periods) do
+      described_class.new(
+        user_input_employee_percent: user_input_employee_percent,
+        user_input_employer_percent: user_input_employer_percent
+      ).filtered_periods
     end
 
     context 'when only employee contribution is higher than the period' do
@@ -34,15 +51,7 @@ RSpec.describe Wpcc::PeriodFilter do
       let(:user_input_employer_percent) { 1 }
 
       it 'does not exclude the period' do
-        expect(filter.size).to eq(3)
-      end
-
-      it 'changes employee percentage for the low periods' do
-        expect(filter[1].employee_percent).to eq(4)
-      end
-
-      it 'keeps the same employee percent for the higher period' do
-        expect(filter.last.employee_percent).to eq(5)
+        expect(filtered_periods.size).to eq(3)
       end
     end
 
@@ -51,15 +60,7 @@ RSpec.describe Wpcc::PeriodFilter do
       let(:user_input_employer_percent) { 4.5 }
 
       it 'does not exclude the period' do
-        expect(filter.size).to eq(3)
-      end
-
-      it 'changes employer percentage for the low periods' do
-        expect(filter[1].employer_percent).to eq(4.5)
-      end
-
-      it 'keeps the same employer percent for the higher period' do
-        expect(filter.last.employer_percent).to eq(5)
+        expect(filtered_periods.size).to eq(3)
       end
     end
 
@@ -68,47 +69,27 @@ RSpec.describe Wpcc::PeriodFilter do
       let(:user_input_employer_percent) { 4 }
 
       it 'excludes contribution period which is equal to the contributions' do
-        expect(filter.size).to eq(2)
+        expect(filtered_periods.size).to eq(2)
       end
     end
 
-    context 'when contribution periods are less than user percents' do
+    context 'when contribution period is less than user percents' do
       context 'when one period is less than user percents' do
         let(:user_input_employee_percent) { 4 }
         let(:user_input_employer_percent) { 5 }
 
-        it 'excludes lower contribution period' do
-          expect(filter.size).to eq(2)
+        it 'excludes the lower contribution period' do
+          expect(filtered_periods.size).to eq(2)
         end
       end
 
-      context 'when two periods is less than user percents' do
+      context 'when two periods have percents lower than the user percents' do
         let(:user_input_employee_percent) { 10 }
         let(:user_input_employer_percent) { 10 }
 
-        it 'excludes lower contribution periods' do
-          expect(filter.size).to eq(1)
+        it 'excludes all lower contribution periods' do
+          expect(filtered_periods.size).to eq(1)
         end
-      end
-    end
-  end
-
-  describe '#legal_periods' do
-    subject(:legal_periods) do
-      described_class.new.legal_periods
-    end
-
-    context 'when NO percents exist for employee and employer' do
-      it 'returns the periods with the defaults added in' do
-        expect(legal_periods.first.employee_percent).to eq(1)
-        expect(legal_periods.first.employer_percent).to eq(1)
-      end
-    end
-
-    context 'when percents exist for employee and employer' do
-      it 'returns the periods with the defaults added in' do
-        expect(legal_periods[1].employee_percent).to eq(3)
-        expect(legal_periods[1].employer_percent).to eq(4)
       end
     end
   end
