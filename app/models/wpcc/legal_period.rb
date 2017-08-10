@@ -5,5 +5,6 @@ module Wpcc
                   :employee_percent,
                   :employer_percent,
                   :tax_relief_percent
+
   end
 end

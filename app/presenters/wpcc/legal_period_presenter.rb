@@ -15,6 +15,7 @@ module Wpcc
     private
 
     def format_percentage(number)
+      number = number ? number : 1
       view_context.number_to_percentage(number, precision: 0).to_s
     end
   end
