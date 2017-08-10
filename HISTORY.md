@@ -1,3 +1,7 @@
+## 1.5.1
+
+* Fix welsh translation missing errors.
+
 ## 1.5.0
 
 * TP-8447: Calculate yearly contributions results by monthly salary equivalent
