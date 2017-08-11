@@ -126,10 +126,6 @@ Then(/^I should see "([^"]*)" summarised$/) do |my_details|
   expect(page).to have_content(my_details)
 end
 
-Then(/^I should not be able to choose to make minimum employer contributions$/) do
-  expect(your_details_page.minimum_contribution_button).to be_disabled
-end
-
 Then(/^the Your Contributions step should tell me my qualifying earnings$/) do
   expect(your_contributions_page.contributions_description).to have_content('£29,124')
 end
@@ -170,6 +166,10 @@ Then(/^I should see that the minimum contribution option should be selected by d
   expect(your_details_page.minimum_contribution_button).to be_checked
 end
 
-Then(/^I should see that the full contribution option should not be selected$/) do
-  expect(your_details_page.full_contribution_button).not_to be_checked
+Then(/^I should see that the full contribution option should( not| NOT)? be selected$/) do |should_not|
+  if should_not
+    expect(your_details_page.full_contribution_button).not_to be_checked
+  else
+    expect(your_details_page.full_contribution_button).to be_checked
+  end
 end
