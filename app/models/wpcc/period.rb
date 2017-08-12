@@ -1,5 +1,7 @@
 module Wpcc
   class Period
+    LEGAL_MINIMUM_CONTRIBUTION_PERCENT = 1
+
     include ActiveModel::Model
     attr_accessor :name,
                   :employee_percent,
@@ -17,15 +19,18 @@ module Wpcc
     end
 
     def below_user_contributions?(period_filter)
-      has_legal_minimum? &&
-        employee_percent <= period_filter.user_input_employee_percent &&
-          employer_percent <= period_filter.user_input_employer_percent
+      legal_minimum? && percents_below_user_input_percents?(period_filter)
     end
 
     private
 
-    def has_legal_minimum?
+    def legal_minimum?
       employee_percent.present?
+    end
+
+    def percents_below_user_input_percents?(period_filter)
+      employee_percent <= period_filter.user_input_employee_percent &&
+        employer_percent <= period_filter.user_input_employer_percent
     end
   end
 end

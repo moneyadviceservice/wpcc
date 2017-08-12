@@ -10,12 +10,10 @@ RSpec.describe Wpcc::YourResultsController do
   let(:message_presenter) { double(Wpcc::MessagePresenter) }
   let(:salary_message) { double(Wpcc::SalaryMessage) }
   let(:salary_frequency) { double(Wpcc::SalaryFrequency) }
-  let(:legal_periods) { [legal_period, legal_period] }
-  let(:legal_period) { double(Wpcc::LegalPeriod) }
-  let(:legal_period_presenters) do
-    [legal_period_presenter, legal_period_presenter]
-  end
-  let(:legal_period_presenter) { double(Wpcc::LegalPeriodPresenter) }
+  let(:periods) { [period, period] }
+  let(:period) { double(Wpcc::Period) }
+  let(:period_presenters) { [period_presenter, period_presenter] }
+  let(:period_presenter) { double(Wpcc::PeriodPresenter) }
 
   describe '#schedule' do
     it 'returns an array of formatted PeriodContributions' do
@@ -56,16 +54,16 @@ RSpec.describe Wpcc::YourResultsController do
 
     let(:view_context) { double(:view_context) }
 
-    it 'returns an array of formatted LegalPeriodPresenters' do
+    it 'returns an array of formatted PeriodPresenters' do
       expect(Wpcc::PeriodFilter)
-        .to receive_message_chain(:new, :legal_periods)
-        .and_return(legal_periods)
+        .to receive_message_chain(:new, :periods)
+        .and_return(periods)
 
-      legal_periods.each do |period|
-        expect(Wpcc::LegalPeriodPresenter)
+      periods.each do |period|
+        expect(Wpcc::PeriodPresenter)
           .to receive(:new)
           .with(period, view_context: view_context)
-          .and_return(legal_period_presenters)
+          .and_return(period_presenters)
       end
 
       @controller.send(:period_legal_percents)
