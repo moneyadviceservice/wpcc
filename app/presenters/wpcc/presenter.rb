@@ -16,6 +16,10 @@ module Wpcc
       end
     end
 
+    def formatted_currency(currency_value, precision: 2)
+      number_to_currency(currency_value, unit: '£', precision: precision)
+    end
+
     private
 
     def text_for(option, value)

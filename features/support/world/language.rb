@@ -1,8 +1,13 @@
 module World
   module Language
-    def language_to_locale(language)
-      { 'English' => :en, 'Welsh' => :cy }[language]
+    def language_code
+      @language
+    end
+
+    def set_language(code)
+      @language = code
     end
   end
 end
+
 World(World::Language)

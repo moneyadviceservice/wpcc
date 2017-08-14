@@ -1,9 +1,14 @@
 module Wpcc
   class YourResultsController < EngineController
-    def index
-      @schedule = Wpcc::Presenter.new(schedule, view_context: view_context)
-      @message_presenter = message_presenter
+    def schedule
+      calendar.schedule.map do |period_contribution|
+        Wpcc::PeriodContributionPresenter.new(
+          period_contribution,
+          view_context: view_context
+        )
+      end
     end
+    helper_method :schedule
 
     def salary_frequency
       @salary_frequency ||= SalaryFrequency.new(
@@ -13,12 +18,28 @@ module Wpcc
     end
     helper_method :salary_frequency
 
+    def period_legal_percents
+      calendar.periods.map do |period|
+        Wpcc::PeriodPresenter.new(
+          period,
+          view_context: view_context
+        )
+      end
+    end
+    helper_method :period_legal_percents
+
+    def message_presenter
+      Wpcc::MessagePresenter.new(
+        salary_message,
+        view_context: view_context
+      )
+    end
+    helper_method :message_presenter
+
     private
 
-    def schedule
-      present(
-        Wpcc::ContributionsCalendar.new(contributions_params).schedule
-      )
+    def calendar
+      @calendar ||= Wpcc::ContributionsCalendar.new(contributions_params)
     end
 
     def contributions_params
@@ -28,22 +49,6 @@ module Wpcc
         employer_percent: session[:employer_percent].to_i,
         salary_frequency: salary_frequency.to_i
       }
-    end
-
-    def present(your_results)
-      your_results.map do |period|
-        Wpcc::PeriodContributionPresenter.new(
-          period,
-          view_context: view_context
-        )
-      end
-    end
-
-    def message_presenter
-      Wpcc::MessagePresenter.new(
-        salary_message,
-        view_context: view_context
-      )
     end
 
     def salary_message

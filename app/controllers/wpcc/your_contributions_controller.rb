@@ -11,9 +11,12 @@ module Wpcc
         salary_frequency: session[:salary_frequency]
       ).convert
 
-      @your_contribution = Wpcc::YourContributionGenerator.new(
-        contribution_preference: session[:contribution_preference],
-        salary_per_year: salary_per_year
+      @your_contribution = Wpcc::YourContributionPresenter.new(
+        Wpcc::YourContributionGenerator.new(
+          contribution_preference: session[:contribution_preference],
+          salary_per_year: salary_per_year
+        ),
+        view_context: view_context
       )
 
       @your_contributions_form = Wpcc::YourContributionsForm.new(

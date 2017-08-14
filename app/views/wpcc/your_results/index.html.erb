@@ -1,4 +1,4 @@
-<%= render 'wpcc/shared/your_details', message_presenter: @message_presenter %>
+<%= render 'wpcc/shared/your_details' %>
 
 <section class="section section--contributions">
   <h2 class="section__heading contributions__heading">2. <%= t('wpcc.contributions.title') %>
@@ -13,51 +13,17 @@
   <div class="results__content">
     <p><%= t('wpcc.results.description', eligible_salary: session[:eligible_salary]) %></p>
 
-    <% if @message_presenter.tax_relief_warning? %>
+    <% if message_presenter.tax_relief_warning? %>
       <div class="callout">
-        <p><%= @message_presenter.tax_relief_warning %></p>
+        <p><%= message_presenter.tax_relief_warning %></p>
       </div>
     <% end %>
 
-    <%= render 'frequency_selector_form', salary_frequency: salary_frequency %>
-
-    <div class="results__row">
-      <% @schedule.each do |period| %>
-        <div class="results__period results__period-<%= period.name %>" data-dough-component="PopupTip">
-          <h3 class="results__period-title"><%= period.title %></h3>
-
-          <p class="results__period-heading"><%= t('wpcc.results.period.contribution_heading.yours') %></p>
-          <p class="results__period-details results__period-employee-contribution">
-            <%= period.employee_contribution %>
-          </p>
-          <p class="results__period-parenthesis">
-            <span class="results__period-tax-relief">
-              <%= period.tax_relief %>
-            </span>
-            <%= render 'wpcc/tooltips/trigger' %>
-          </p>
-          <div data-dough-popup-container class="popup-tip__container">
-            <p data-dough-popup-content class="popup-tip__content results__helper">
-              <%= t('wpcc.results.tax_relief_tooltip_html') %>
-            </p>
-            <%= render 'wpcc/tooltips/close' %>
-          </div>
-
-          <p class="results__period-heading"><%= t('wpcc.results.period.contribution_heading.employers') %></p>
-          <p class="results__period-details results__period-employer-contribution">
-            <%= period.employer_contribution %>
-          </p>
-
-          <p class="results__period-heading"><%= t('wpcc.results.period.contribution_heading.total') %></p>
-          <p class="results__period-details results__period-total-contributions">
-            <%= period.total_contributions %>
-          </p>
-        </div>
-      <% end %>
-    </div>
-
+    <%= render 'frequency_selector_form' %>
+    <%= render 'contributions_table'%>
+    <%= render 'period_percents_table' %>
+    
     <p><a href="#" data-dough-component="Print"><%= t('wpcc.results.print_link') %></a></p>
-    <p><a href="#"><%= t('wpcc.results.contribution_table_link') %></a></p>
   </div>
 
   <div class="next-steps">

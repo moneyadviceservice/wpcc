@@ -8,4 +8,5 @@ module World
     end
   end
 end
+
 World(World::Pages)

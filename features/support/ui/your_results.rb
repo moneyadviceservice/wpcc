@@ -9,7 +9,7 @@ module UI
   end
 
   class YourResultsPage < SitePrism::Page
-    set_url '/{locale}/tools/workplace-pension-contribution-calculator/your_results'
+    set_url '/{language_code}/tools/workplace-pension-contribution-calculator/your_results'
 
     element :details, '.details__row'
     element :contributions_summary, '.details__heading'
@@ -19,6 +19,10 @@ module UI
 
     element :salary_frequencies, "select[name='salary_frequency']"
     element :recalculate_button, "input[type='submit']"
+
+    element :legal_contributions_table_link, 'p.contribution-changes__trigger'
+    elements :percent_table_headings, 'table.contribution-changes__table th'
+    elements :table_cells, 'table.contribution-changes__table tbody tr td'
 
     section :current_period, PeriodSection, '.results__period-april_2017_march_2018'
     section :second_period, PeriodSection, '.results__period-april_2018_march_2019'

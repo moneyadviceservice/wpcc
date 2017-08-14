@@ -16,5 +16,21 @@ module Wpcc
     validates :salary_frequency, inclusion: { in: SALARY_FREQUENCIES }
     validates :contribution_preference, inclusion: { in: CONTRIBUTIONS }
     validates_with Wpcc::SalaryThresholdValidator
+
+    def contribution_preference
+      return 'full' if minimum_contribution? && contribution_errors?
+
+      @contribution_preference.blank? ? 'minimum' : @contribution_preference
+    end
+
+    private
+
+    def minimum_contribution?
+      @contribution_preference == 'minimum'
+    end
+
+    def contribution_errors?
+      errors.key?(:contribution_preference)
+    end
   end
 end

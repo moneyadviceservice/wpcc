@@ -43,7 +43,8 @@ cy:
       calculate:
         legend: Dewiswch sut mae eich cyflogwr yn cyfrannu
         qualifying_earnings_title: Enillion cymhwyso
-        details_html: Gall eich cyflogwr ddewis os yw am wneud cyfraniadau ar ran o'ch cyflog (a elwir yn enillion cymhwyso<button type="button" class="popup-tip__button" data-dough-popup-trigger><span aria-hidden="true">i</span><span class="visually-hidden">sioe help</span></button>) neu ar eich cyflog llawn. I gael gwybod pa un, bydd angen i chi wirio gyda’ch cyflogwr.
+        details_html_1: Gall eich cyflogwr ddewis os yw am wneud cyfraniadau ar ran o'ch cyflog (a elwir yn enillion cymhwyso
+        details_html_2:) neu ar eich cyflog llawn. I gael gwybod pa un, bydd angen i chi wirio gyda’ch cyflogwr.
         qualifying_earnings: Dyma’r rhan o’ch cyflog blynyddol fydd yn cael ei defnyddio i gyfrifo eich cyfraniad pensiwn dan gofrestru awtomatig. Sef eich enillion cyn treth (hyd at derfyn uchafswm o £45000 y flwyddyn) - tynnu’r trothwy enillion isaf o £5,876.
 
       next: Next
@@ -68,9 +69,9 @@ cy:
         contribution_full: nghyflog llawn
 
     contributions:
-      title: Eich cyfraniadau
-      description: Gwneir cyfraniadau ar eich cyflog cymwys o £%{eligible_salary} y flwyddyn. Dyma eich cyflog meinws y trothwy Yswiriant Gwladol o £££.
-      description_tooltip: Dyma’r rhan o’ch cyflog blynyddol a ddefnyddir i gyfrifo’ch cyfraniad pensiwn dan gofrestru awtomatig. Sef eich enillion cyn treth (hyd at derfyn uchafswm o £45000 y flwyddyn) – meinws trothwy enillion isaf o £5,876.
+      title: Eich cyfraniadaulower
+      description: Gwneir cyfraniadau ar eich cyflog cymwys o %{eligible_salary} y flwyddyn. Dyma eich cyflog meinws y trothwy Yswiriant Gwladol o %{lower_earnings_threshold}.
+      description_tooltip: Dyma’r rhan o’ch cyflog blynyddol a ddefnyddir i gyfrifo’ch cyfraniad pensiwn dan gofrestru awtomatig. Sef eich enillion cyn treth (hyd at derfyn uchafswm o %{upper_earnings_threshold} y flwyddyn) – meinws trothwy enillion isaf o %{lower_earnings_threshold}.
       your_contribution_title: Nodwch eich cyfraniad
       your_contribution_tip: Yr isafswm cyfreithiol yw 1%
       your_contribution_tip_lt5876: Ar eich lefel cyflog, nid oes isafswm cyfreithiol o gyfraniad ond efallai y bydd eich cynllun pensiwn gweithlu wedi gosod isafswm. Holwch eich cyflogwr.
@@ -78,8 +79,7 @@ cy:
       employer_contribution_tip: Yr isafswm cyfreithiol yw 1%
       input_of_label: o
       calculate_button: Cyfrifwch eich cyfraniadau
-      employee_contribution_warning: Y cyfraniad uchaf gewch chi ei roi mewn pensiwn fesul blwyddyn yw 100% o’ch cyflog neu £40,000, pa bynnag un sydd leiaf.
-      contribution_gt40000_warning: Rhoddir gostyngiad treth ar gyfraniadau hyd at £40,000 y flwyddyn yn unig, neu 100% o’ch enillion, pa bynnag un sydd leiaf.
+      contribution_gt40000_warning: Rhoddir gostyngiad treth ar gyfraniadau hyd at %{upper_earnings_threshold} y flwyddyn yn unig, neu 100% o’ch enillion, pa bynnag un sydd leiaf.
       employee_validation:
         blank: Rhowch eich cyfraniad
         out_of_range: Rhaid i'ch cyfraniad fod yn yr ystod 0 - 100%
@@ -97,10 +97,14 @@ cy:
         WELSH: Minimum pension contribution rates will increase in stages until April 2019.
         These figures show how this will affect your contributions. Contributions will be
         based on your eligible salary of £%{eligible_salary} per year.
-      period_titles:
-        april_2017_march_2018: 'Welsh for Today - March 2018'
-        april_2018_march_2019: 'Welsh for April 2018 - March 2019'
-        after_april_2019: 'Welsh for April 2019 onwards'
+      period_title:
+        april_2017_march_2018: Nawr
+        april_2018_march_2019: Ebrill 2018 – Mawrth 2019
+        after_april_2019: O Ebrill 2019 ymlaen
+      period_percents_title:
+        april_2017_march_2018: Nawr
+        april_2018_march_2019: Ebrill 2018 – Mawrth 2019
+        after_april_2019: O Ebrill 2019 ymlaen
       period:
         contribution_heading:
           yours: Eich cyfraniad chi
@@ -120,3 +124,6 @@ cy:
       edit_frequency:
         label: Dangos fy nghyfraniadau [y Flwyddy/y Mis/fesul 4 wythnos/y Wythnos ]
         button: Al-gyfrifo
+      contribution_changes:
+        you: Chi
+        employer: Eich cyflogwr

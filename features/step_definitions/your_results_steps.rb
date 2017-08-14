@@ -1,11 +1,26 @@
-Given(/^that I am on the WPCC homepage in my own "([^"]*)"$/) do |language|
-  locale = language_to_locale(language)
-
-  your_details_page.load(locale: locale)
+Given(/^I am on the Your Results step$/) do
+  your_results_page.load(language_code: language_code)
 end
 
-When(/^I move on to the results page$/) do
-  click_button
+When(/^I progress to the results page$/) do
+  step 'I submit my details'
+  step 'I am on the Your Results step'
+end
+
+When(/^I click to edit my contributions$/) do
+  your_results_page.your_contributions_edit.click
+end
+
+When(/^I select "([^"]*)" to change the calculations$/) do |salary_frequency|
+  your_results_page.salary_frequencies.select(salary_frequency)
+end
+
+When(/^I press recalculate$/) do
+  your_results_page.recalculate_button.click
+end
+
+Then(/^I should see "([^"]*)" in the Recalculate Salary Frequency selector dropdown$/) do |selected_frequency|
+  expect(your_results_page).to have_select('salary_frequency', selected: selected_frequency)
 end
 
 Then(/^I should see my employee contributions for current period as "([^"]*)"$/) do |employee_contribution|
@@ -64,24 +79,31 @@ Then(/^I should see my total contributions for third period as "([^"]*)"$/) do |
   expect(your_results_page.third_period.total_contributions.text).to eq(total_contributions)
 end
 
-When(/^I enter my personal details$/) do
-  your_details_page.age.set(35)
-  your_details_page.genders.select(
-    I18n.translate('wpcc.details.options.gender.female')
-  )
-  your_details_page.minimum_contribution_button.set(true)
+Then(/^I should( not| NOT)? see tax relief "([^"]*)"$/) do |should_not, warning_message|
+  if should_not
+    expect(page).to_not have_content(warning_message)
+  else
+    expect(page).to have_content(warning_message)
+  end
 end
 
-When(/^I progress to the results page$/) do
-  step 'I move to your results page'
+Then(/^I should( not)? see the manually_opt_in "([^"]*)"$/) do |should_not, message|
+  if should_not
+    expect(page).to_not have_content(message)
+  else
+    expect(page).to have_content(message)
+  end
 end
 
-Then(/^I should see tax relief "([^"]*)"$/) do |warning_message|
-  expect(page).to have_content(warning_message)
+Then(/^I should see a link to the legal minimum contributions table$/) do
+  expect(your_results_page).to have_legal_contributions_table_link
 end
 
-Then(/^I should NOT see tax relief "([^"]*)"$/) do |warning_message|
-  expect(page).to_not have_content(warning_message)
+Then(/^I should see the percents information:$/) do |table|
+  data = table.raw.flatten
+  headings = ['', 'Now', 'April 2018 - March 2019', 'April 2019 onwards']
+  expect(your_results_page.percent_table_headings.map{|cell| cell.text}).to eq(headings)
+  expect(your_results_page.table_cells.map{|cell| cell.text}).to eq(data)
 end
 
 Given(/^that I am on your details step I fill:$/) do |table|
@@ -99,24 +121,24 @@ Given(/^that on your contributions step I fill:$/) do |table|
   step %{my employer contribution is "#{data[:employer_contribution]}"}
 end
 
-Then(/^I should see on the results page:$/) do |table|
+Then(/^I should see the values on the results page as:$/) do |table|
   data = table.transpose.raw
-  current_period = data[0]
-  second_period = data[1]
-  third_period = data[2]
+  current_period = data[1]
+  second_period = data[2]
+  third_period = data[3]
 
-  step %{I should see my employee contributions for current period as "#{current_period[0]}"}
-  step %{I should see my tax relief for current period as "#{current_period[1]}"}
-  step %{I should see my employer contributions for current period as "#{current_period[2]}"}
-  step %{I should see my total contributions for current period as "#{current_period[3]}"}
+  step %{I should see my employee contributions for current period as "#{current_period[1]}"}
+  step %{I should see my tax relief for current period as "#{current_period[2]}"}
+  step %{I should see my employer contributions for current period as "#{current_period[3]}"}
+  step %{I should see my total contributions for current period as "#{current_period[4]}"}
 
-  step %{I should see my employee contributions for second period as "#{second_period[0]}"}
-  step %{I should see my tax relief for second period as "#{second_period[1]}"}
-  step %{I should see my employer contributions for second period as "#{second_period[2]}"}
-  step %{I should see my total contributions for second period as "#{second_period[3]}"}
+  step %{I should see my employee contributions for second period as "#{second_period[1]}"}
+  step %{I should see my tax relief for second period as "#{second_period[2]}"}
+  step %{I should see my employer contributions for second period as "#{second_period[3]}"}
+  step %{I should see my total contributions for second period as "#{second_period[4]}"}
 
-  step %{I should see my employee contributions for third period as "#{third_period[0]}"}
-  step %{I should see my tax relief for third period as "#{third_period[1]}"}
-  step %{I should see my employer contributions for third period as "#{third_period[2]}"}
-  step %{I should see my total contributions for third period as "#{third_period[3]}"}
+  step %{I should see my employee contributions for third period as "#{third_period[1]}"}
+  step %{I should see my tax relief for third period as "#{third_period[2]}"}
+  step %{I should see my employer contributions for third period as "#{third_period[3]}"}
+  step %{I should see my total contributions for third period as "#{third_period[4]}"}
 end

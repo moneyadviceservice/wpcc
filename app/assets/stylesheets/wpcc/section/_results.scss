@@ -45,6 +45,41 @@
   }
 }
 
+.contribution-changes__trigger {
+  .no-js & {
+    display: none;
+  }
+}
+
+.contribution-changes__content {
+  display: none;
+
+  &.is-active, .no-js & {
+    display: block;
+  }
+}
+
+.contribution-changes__heading {
+  font-size: 1.25rem;
+  display: none;
+
+  .no-js & {
+    display: block;
+  }
+}
+
+.contribution-changes__table {
+  margin: $baseline-unit*2 0 0;
+
+  & th, & td {
+    padding: $baseline-unit*2;
+  }
+
+  .no-js & {
+    margin-top: $baseline-unit*4;
+  }
+}
+
 .next-steps {
   margin: $baseline-unit*9 0 0;
 }
