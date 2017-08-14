@@ -51,7 +51,7 @@ en:
       callout__optIn: Your employer will not automatically enrol you into a pension but you can choose to join. If you do so, your employer will make contributions.
       callout__gt74: You are not eligible to join a workplace pension because you are above the maximum age.
       callout__lt5876: Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will not be obliged to make contributions.
-      callout__radiodisabled: Your earnings level is below the minimum contribution level so you will have to make contributions based on your full salary
+      callout__radiodisabled: At your earnings level, you will have to make contributions based on your full salary
       callout__gt5876_lt10000: Your employer will not automatically enroll you into a workplace pension scheme but you can choose to join. If you do so, your employer will make contributions.
 
       section__heading:

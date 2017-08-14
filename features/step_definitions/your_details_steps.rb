@@ -173,3 +173,7 @@ Then(/^I should see that the full contribution option should( not| NOT)? be sele
     expect(your_details_page.full_contribution_button).to be_checked
   end
 end
+
+Then(/^I should see the salary below threshold "([^"]*)"$/) do |callout_message|
+  expect(your_details_page.salary_below_threshold_callout).to have_content(callout_message)
+end
