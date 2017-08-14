@@ -20,4 +20,19 @@ RSpec.describe Wpcc::Presenter do
       expect(subject.salary_frequency_options).to eq(expected_result)
     end
   end
+
+  describe '#formatted_currency - formats a number with a "£" sign and' do
+    let(:number) { 5_876 }
+    context 'when a precision is provided' do
+      it 'the provided number of decimal places' do
+        expect(subject.formatted_currency(5_876, precision: 0)).to eq('£5,876')
+      end
+    end
+
+    context 'when NO precision is provided' do
+      it 'the default number of decimal places, i.e. 2' do
+        expect(subject.formatted_currency(5_876)).to eq('£5,876.00')
+      end
+    end
+  end
 end

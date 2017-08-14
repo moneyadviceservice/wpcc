@@ -4,10 +4,18 @@
   <h2 class="wpcc__heading">2. <%= t('wpcc.contributions.title') %></h2>
   <div class="contributions__row">
     <p class="t-contributions_description">
-      <%= t('wpcc.contributions.description', eligible_salary: number_with_delimiter(@your_contribution.eligible_salary, :delimiter => ',')) %>
+      <%= t('wpcc.contributions.description', 
+        eligible_salary: @your_contribution.formatted_eligible_salary,
+        lower_earnings_threshold: @your_contribution.lower_earnings_threshold
+      ) %>
     </p>
     <p>
-      <p><%= t('wpcc.contributions.description_tooltip') %></p>
+      <p>
+        <%= t('wpcc.contributions.description_tooltip',
+          upper_earnings_threshold: @your_contribution.upper_earnings_threshold,
+          lower_earnings_threshold: @your_contribution.lower_earnings_threshold
+        ) %>
+      </p>
     </p>
   </div>
   <%= form_for(
@@ -57,7 +65,11 @@
       <div class="contributions__row">
         <div class="form__row details__callout details__callout--inactive" data-dough-callout-contribution-gt40000>
           <div class="callout">
-            <p><%= t('wpcc.contributions.contribution_gt40000_warning') %></p>
+            <p>
+              <%= t('wpcc.contributions.contribution_gt40000_warning', 
+                upper_earnings_threshold: @your_contribution.upper_earnings_threshold)
+              %>
+            </p>
           </div>
         </div>
         <%= f.submit(t('wpcc.contributions.calculate_button'), class: 'button button--primary', 'data-dough-submit': true) %>
