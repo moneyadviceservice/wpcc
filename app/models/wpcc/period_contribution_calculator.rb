@@ -49,17 +49,17 @@ module Wpcc
     end
 
     def tax_relief
-      result = (employee_contribution * (tax_relief_percent / 100.00))
+      result = (employee_contribution * (tax_relief_percent / 100.00)).round(2)
 
       [TAX_RELIEF_LIMIT_BY_FREQUENCY[salary_frequency], result].min
     end
 
     def total_contributions
-      (employee_contribution.round(2) + employer_contribution.round(2))
+      (employee_contribution + employer_contribution).round(2)
     end
 
     def contribution_for_percent(percent)
-      ((eligible_salary.to_f / salary_frequency) * (percent / 100.00))
+      ((eligible_salary.to_f / salary_frequency) * (percent / 100.00)).round(2)
     end
   end
 end

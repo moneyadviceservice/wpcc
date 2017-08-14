@@ -36,7 +36,7 @@ describe Wpcc::PeriodContributionCalculator, type: :model do
       end
 
       it 'returns employee tax relief' do
-        expect(period_contribution.tax_relief).to eq(78.248)
+        expect(period_contribution.tax_relief).to eq(78.25)
       end
     end
 
@@ -51,17 +51,15 @@ describe Wpcc::PeriodContributionCalculator, type: :model do
       end
 
       it 'returns monthly employer contribution' do
-        expected_result = 20.206666666666667
-        expect(period_contribution.employer_contribution).to eq(expected_result)
+        expect(period_contribution.employer_contribution).to eq(20.21)
       end
 
       it 'returns monthly total contribution' do
-        expected_result = 50.519999999999996
-        expect(period_contribution.total_contributions).to eq(expected_result)
+        expect(period_contribution.total_contributions).to eq(50.52)
       end
 
       it 'returns employee tax relief' do
-        expect(period_contribution.tax_relief).to eq(6.062)
+        expect(period_contribution.tax_relief).to eq(6.06)
       end
     end
 
@@ -84,7 +82,7 @@ describe Wpcc::PeriodContributionCalculator, type: :model do
       end
 
       it 'returns the employee tax relief' do
-        expect(period_contribution.tax_relief).to eq(14.480000000000002)
+        expect(period_contribution.tax_relief).to eq(14.48)
       end
     end
 
@@ -107,7 +105,7 @@ describe Wpcc::PeriodContributionCalculator, type: :model do
       end
 
       it 'returns employee tax relief' do
-        expect(period_contribution.tax_relief).to eq(1.722)
+        expect(period_contribution.tax_relief).to eq(1.72)
       end
     end
 
