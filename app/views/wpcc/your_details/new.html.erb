@@ -119,7 +119,9 @@
             <fieldset>
               <legend class="details__calculate-heading"><%= t('wpcc.details.calculate.legend') %></legend>
               <p class="details__calculate-intro">
-                <%= t('wpcc.details.calculate.details_html') %>
+                <%= t('wpcc.details.calculate.details_html_1') %>
+                <%= render 'wpcc/tooltips/trigger' %>
+                <%= t('wpcc.details.calculate.details_html_2') %>
               </p>
 
               <div data-dough-popup-container 
