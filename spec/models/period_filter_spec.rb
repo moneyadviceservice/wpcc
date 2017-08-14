@@ -39,11 +39,11 @@ RSpec.describe Wpcc::PeriodFilter do
   end
 
   describe '#filter' do
-    subject(:filter) do
+    subject(:filtered_periods) do
       described_class.new(
         user_input_employee_percent: user_input_employee_percent,
         user_input_employer_percent: user_input_employer_percent
-      ).filter
+      ).filtered_periods
     end
 
     context 'when only employee contribution is higher than the period' do
@@ -51,7 +51,7 @@ RSpec.describe Wpcc::PeriodFilter do
       let(:user_input_employer_percent) { 1 }
 
       it 'does not exclude the period' do
-        expect(filter.size).to eq(3)
+        expect(filtered_periods.size).to eq(3)
       end
     end
 
@@ -60,7 +60,7 @@ RSpec.describe Wpcc::PeriodFilter do
       let(:user_input_employer_percent) { 4.5 }
 
       it 'does not exclude the period' do
-        expect(filter.size).to eq(3)
+        expect(filtered_periods.size).to eq(3)
       end
     end
 
@@ -69,7 +69,7 @@ RSpec.describe Wpcc::PeriodFilter do
       let(:user_input_employer_percent) { 4 }
 
       it 'excludes contribution period which is equal to the contributions' do
-        expect(filter.size).to eq(2)
+        expect(filtered_periods.size).to eq(2)
       end
     end
 
@@ -79,7 +79,7 @@ RSpec.describe Wpcc::PeriodFilter do
         let(:user_input_employer_percent) { 5 }
 
         it 'excludes the lower contribution period' do
-          expect(filter.size).to eq(2)
+          expect(filtered_periods.size).to eq(2)
         end
       end
 
@@ -88,7 +88,7 @@ RSpec.describe Wpcc::PeriodFilter do
         let(:user_input_employer_percent) { 10 }
 
         it 'excludes all lower contribution periods' do
-          expect(filter.size).to eq(1)
+          expect(filtered_periods.size).to eq(1)
         end
       end
     end

@@ -97,7 +97,7 @@ describe Wpcc::ContributionsCalendar, type: :model do
         )
         .and_return(period_filter)
 
-      expect(period_filter).to receive(:filter)
+      expect(period_filter).to receive(:filtered_periods)
 
       contributions_calendar.filtered_periods
     end

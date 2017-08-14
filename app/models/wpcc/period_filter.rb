@@ -9,7 +9,7 @@ module Wpcc
     )
     PERIODS = HashWithIndifferentAccess.new(YAML.load_file(PERIODS_FILE))
 
-    def filter
+    def filtered_periods
       periods.reject do |legal_period|
         legal_period.below_user_contributions?(self)
       end

@@ -19,11 +19,7 @@ module Wpcc
       end
     end
 
-    delegate :periods, to: :period_filter
-
-    def filtered_periods
-      period_filter.filter
-    end
+    delegate :periods, :filtered_periods, to: :period_filter
 
     private
 
