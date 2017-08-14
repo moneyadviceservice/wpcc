@@ -15,6 +15,17 @@ RSpec.describe Wpcc::YourResultsController do
   let(:period_presenters) { [period_presenter, period_presenter] }
   let(:period_presenter) { double(Wpcc::PeriodPresenter) }
 
+  describe 'GET /your_results' do
+    context 'when session has no keys' do
+      it 'redirects to root page' do
+        get :index, {}, {}
+
+        expect(response)
+          .to redirect_to wpcc_root_path(locale: 'en')
+      end
+    end
+  end
+
   describe '#schedule' do
     it 'returns an array of formatted PeriodContributions' do
       expect(Wpcc::ContributionsCalendar)

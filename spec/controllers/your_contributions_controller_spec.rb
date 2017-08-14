@@ -42,6 +42,15 @@ module Wpcc
         end
       end
 
+      context 'when session has no keys' do
+        it 'redirects to root page' do
+          get :new, {}, {}
+
+          expect(response)
+            .to redirect_to wpcc_root_path(locale: 'en')
+        end
+      end
+
       context 'translation not supported' do
         it 'throws an error for an unsupported locale' do
           expect do

@@ -3,7 +3,7 @@ require_dependency 'wpcc/engine_controller'
 module Wpcc
   class YourContributionsController < Wpcc::EngineController
     protect_from_forgery
-    before_action Wpcc::YourContributionsVerifySession, only: :new
+    before_action Wpcc::YourContributionsSessionVerifier, only: :new
     after_action :store_eligible_salary, :store_percentages, only: :new
 
     def new

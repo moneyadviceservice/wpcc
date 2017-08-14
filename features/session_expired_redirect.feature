@@ -3,10 +3,10 @@ Feature: Redirect to your details step when there is no session
   I need to be sent back to your details step if I go direct to other steps
   So that I can enter my details first to get my pension contributions
 
-  Scenario: Redirect when visiting Your contributions step directly
+  Scenario: Redirect when visiting Your Contributions step directly
     When I visit your contributions step directly
     Then I should return to the Your Details step
 
-  Scenario: Redirect when visiting Your results step directly
+  Scenario: Redirect when visiting Your Results step directly
     When I visit Your results step directly
     Then I should return to the Your Details step
