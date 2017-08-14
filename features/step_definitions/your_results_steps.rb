@@ -95,6 +95,32 @@ Then(/^I should( not)? see the manually_opt_in "([^"]*)"$/) do |should_not, mess
   end
 end
 
+Then(/^I should see a link to the legal minimum contributions table$/) do
+  expect(your_results_page).to have_legal_contributions_table_link
+end
+
+Then(/^I should see the percents information:$/) do |table|
+  data = table.raw.flatten
+  headings = ['', 'Now', 'April 2018 - March 2019', 'April 2019 onwards']
+  expect(your_results_page.percent_table_headings.map{|cell| cell.text}).to eq(headings)
+  expect(your_results_page.table_cells.map{|cell| cell.text}).to eq(data)
+end
+
+Given(/^that I am on your details step I fill:$/) do |table|
+  data = table.hashes.first
+  step %{I enter my age as "#{data[:age]}"}
+  step %{I select my gender as "#{data[:gender]}"}
+  step %{I enter my salary as "#{data[:salary]}"}
+  step %{I select my salary frequency as "#{data[:salary_frequency]}"}
+  step %{I choose my contribution preference as "#{data[:contribution]}"}
+end
+
+Given(/^that on your contributions step I fill:$/) do |table|
+  data = table.hashes.first
+  step %{my employee contribution is "#{data[:your_contribution]}"}
+  step %{my employer contribution is "#{data[:employer_contribution]}"}
+end
+
 Then(/^I should see the values on the results page as:$/) do |table|
   data = table.transpose.raw
   current_period = data[1]
