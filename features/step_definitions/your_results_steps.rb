@@ -2,6 +2,10 @@ Given(/^I am on the Your Results step$/) do
   your_results_page.load(language_code: language_code)
 end
 
+When(/^I visit Your results step directly$/) do
+  step 'I am on the Your Results step'
+end
+
 When(/^I progress to the results page$/) do
   step 'I submit my details'
   step 'I am on the Your Results step'

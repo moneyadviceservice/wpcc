@@ -3,6 +3,8 @@ module Wpcc
     routes { Wpcc::Engine.routes }
 
     describe '#new' do
+      let(:age) { 20 }
+      let(:gender) { 'female' }
       let(:salary) { 30_000 }
       let(:contribution_preference) { 'minimum' }
       let(:eligible_salary) { 24_124 }
@@ -72,7 +74,9 @@ module Wpcc
               employer_percent: 40,
               salary: salary,
               contribution_preference: contribution_preference,
-              salary_frequency: 'year'
+              salary_frequency: 'year',
+              age: age,
+              gender: gender
 
           expect(your_contributions_form.employee_percent).to eq(10)
           expect(your_contributions_form.employer_percent).to eq(40)
@@ -94,7 +98,9 @@ module Wpcc
               employer_percent: 40,
               salary: salary,
               contribution_preference: contribution_preference,
-              salary_frequency: 'year'
+              salary_frequency: 'year',
+              age: age,
+              gender: gender
         end
       end
     end
@@ -130,7 +136,9 @@ module Wpcc
           locale: locale,
           salary: salary,
           contribution_preference: contribution_preference,
-          salary_frequency: salary_frequency
+          salary_frequency: salary_frequency,
+          age: age,
+          gender: gender
     end
 
     def post_create(locale = 'en', employee_percent = 1)

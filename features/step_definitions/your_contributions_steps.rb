@@ -46,6 +46,10 @@ When(/^I press next and move to your result step$/) do
   step 'I move to your results page'
 end
 
+When(/^I visit your contributions step directly$/) do
+  step 'I am on the Your Contributions step'
+end
+
 Then(/^I should see my contributions summarised$/) do
   expect(your_results_page.your_contributions_information.text).to eq('You: 14%, Your employer: 15%')
 end
