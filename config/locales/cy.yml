@@ -94,9 +94,9 @@ cy:
     results:
       title: Eich canlyniadau
       description: |
-        WELSH: Minimum pension contribution rates will increase in stages until April 2019.
-        These figures show how this will affect your contributions. Contributions will be
-        based on your eligible salary of £%{eligible_salary} per year.
+        Bydd cyfraddau cyfraniadau pensiwn isaf yn cynyddu yn Ebrill 2018 ac eto yn Ebrill 2019. 
+        Bydd y ffigyrau hyn yn dangos sut y bydd hyn yn effeithio ar eich cyfraniadau. 
+        Bydd cyfraniadau yn seiliedig ar eich enillion o £%{eligible_salary} y flwyddyn.
       period_title:
         april_2017_march_2018: Nawr
         april_2018_march_2019: Ebrill 2018 – Mawrth 2019
@@ -122,7 +122,7 @@ cy:
           workplace_pensions_html: Dysgwch ragor am <a href="#">bensiynau gweithle</a>.
           budget_planner_html: Defnyddiwch ein <a href="#">cynllunydd cyllideb</a> i weld pa effaith y bydd eich cyfraniadau yn eu cael ar eich incwm.
       edit_frequency:
-        label: Dangos fy nghyfraniadau [y Flwyddy/y Mis/fesul 4 wythnos/y Wythnos ]
+        label: Dangos fy nghyfraniadau
         button: Al-gyfrifo
       contribution_changes:
         you: Chi
