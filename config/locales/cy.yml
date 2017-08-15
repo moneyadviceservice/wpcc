@@ -77,7 +77,7 @@ cy:
       your_contribution_tip_lt5876: Ar eich lefel cyflog, nid oes isafswm cyfreithiol o gyfraniad ond efallai y bydd eich cynllun pensiwn gweithlu wedi gosod isafswm. Holwch eich cyflogwr.
       employer_contribution_title: Nodwch gyfraniad eich cyflogwr
       employer_contribution_tip: Yr isafswm cyfreithiol yw 1%
-      input_of_label: o
+      input_of_label: '% o'
       calculate_button: Cyfrifwch eich cyfraniadau
       contribution_gt40000_warning: Rhoddir gostyngiad treth ar gyfraniadau hyd at %{upper_earnings_threshold} y flwyddyn yn unig, neu 100% o’ch enillion, pa bynnag un sydd leiaf.
       employee_validation:
