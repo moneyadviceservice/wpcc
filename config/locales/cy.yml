@@ -4,7 +4,7 @@ cy:
     tooltip_hide: cuddio cymorth
 
     title: Cyfrifiannell cyfraniadau pensiwn gweithle
-    intro: Mae’n gyfraith erbyn hyn y dylai’r rhan fwyaf o gyflogeion gael eu cofrestru ar gynllun pensiwn gweithle gan eu cyflogwr. Mae’n ofynnol i chi a’ch cyflogwr gyfrannu. Bydd y gyfrifiannell hon yn cyfrifo swm y cyfraniadau.
+    intro: Mae’n gyfraith erbyn hyn y dylai’r rhan fwyaf o gyflogeion gael eu cofrestru ar gynllun pensiwn gweithle gan eu cyflogwr. Bydd y gyfrifiannell hon yn dangos faint fydd yn cael ei dalu i mewn i'ch pensiwn gennych chi a'ch cyflogwr. Bydd hefyd yn dangos sut y gallai'r cyfraniadau yma gynyddu gydag amser.
     edit: Golygu
 
     details:
@@ -42,7 +42,10 @@ cy:
 
       calculate:
         legend: Dewiswch sut mae eich cyflogwr yn cyfrannu
-        details: Mae eich cyflogwr yn penderfynu un ai i gyfrannu ar ran o’r cyflog neu’ch cyflog yn llawn. I gael gwybod pa un, bydd angen i chi wirio gyda’ch cyflogwr.
+        qualifying_earnings_title: Enillion cymhwyso
+        details_html_1: Gall eich cyflogwr ddewis os yw am wneud cyfraniadau ar ran o'ch cyflog (a elwir yn enillion cymhwyso
+        details_html_2: ) neu ar eich cyflog llawn. I gael gwybod pa un, bydd angen i chi wirio gyda’ch cyflogwr.
+        qualifying_earnings: Dyma’r rhan o’ch cyflog blynyddol fydd yn cael ei defnyddio i gyfrifo eich cyfraniad pensiwn dan gofrestru awtomatig. Sef eich enillion cyn treth (hyd at derfyn uchafswm o £45000 y flwyddyn) - tynnu’r trothwy enillion isaf o £5,876.
 
       next: Next
       prompt: os gwelwch yn dda dewiswch
@@ -51,7 +54,7 @@ cy:
       callout__optIn: Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am bensiwn, ond gallwch ddewis ymuno. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau.
       callout__gt74: Nid ydych yn gymwys i ymuno â phensiwn gweithle gan eich bod yn hŷn na’r uchafswm oed.
       callout__lt5876: Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno. Os felly, ni fydd yn ofynnol i'ch cyflogwr wneud cyfraniadau.
-      callout__radiodisabled: Ar eich lefel enillion, bydd rhaid i chi wneud cyfraniadau yn seiliedig ar eich cyflog llawn
+      callout__radiodisabled: Ar eich lefel enillion, bydd rhaid i chi wneud cyfraniadau yn seiliedig ar eich cyflog llawn.
       callout__gt5876_lt10000: Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau.
 
       section__heading:
