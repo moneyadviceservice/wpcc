@@ -1,6 +1,6 @@
 module Wpcc
   class Presenter < SimpleDelegator
-    delegate :t, :number_to_currency, to: :view_context
+    delegate :t, :number_to_currency, :session, to: :view_context
 
     attr_reader :object, :view_context
 

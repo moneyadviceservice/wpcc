@@ -29,58 +29,24 @@ RSpec.describe Wpcc::YourContributionPresenter do
     end
   end
 
-  describe '#description_minimum' do
-    it 'returns the qualifying earnings message' do
-      # rubocop:disable LineLength
-      qualifying_earnings = 'Contributions will be made on your qualifying earnings of £19,124 per year.'
-      # rubocop:enable LineLength
-      expect(subject.description_minimum).to eq qualifying_earnings
-    end
-  end
-
-  describe '#description_full' do
-    it 'returns the qualifying earnings message' do
-      qualifying_earnings =
-        'Contributions will be made on your salary of £19,124 per year.'
-      expect(subject.description_full).to eq qualifying_earnings
-    end
-  end
-
-  describe '#contribution_preference?' do
-    it 'returns true if contribution_preference value is set in session' do
-      expect(subject.contribution_preference?).to be_truthy
-    end
-  end
-
-  describe '#contribution_minimum?' do
-    it 'returns true if contribution_minimum value is set in session' do
-      expect(subject.contribution_minimum?).to be_truthy
-    end
-  end
-
-  describe '#contribution_full?' do
-    let(:session) { { contribution_preference: 'full' } }
-    it 'returns true if contribution_full value is set in session' do
-      expect(subject.contribution_full?).to be_truthy
-    end
-  end
-
   describe '#earnings_description' do
     context 'full salary' do
       let(:session) { { contribution_preference: 'full' } }
       it 'should return full salary description' do
-        expect(subject).to receive(:description_full)
-
-        subject.earnings_description
+        qualifying_earnings =
+          'Contributions will be made on your salary of £19,124 per year.'
+        expect(subject.earnings_description).to eq qualifying_earnings
       end
     end
 
     context 'qualifying earnings' do
       let(:session) { { contribution_preference: 'minimum' } }
       it 'should return qualifying earnings description' do
-        expect(subject).to receive(:description_minimum)
-
-        subject.earnings_description
+        # rubocop:disable LineLength
+        qualifying_earnings =
+          'Contributions will be made on your qualifying earnings of £19,124 per year.'
+        # rubocop:enable LineLength
+        expect(subject.earnings_description).to eq qualifying_earnings
       end
     end
   end

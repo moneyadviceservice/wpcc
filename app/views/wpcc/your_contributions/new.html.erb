@@ -4,16 +4,7 @@
   <h2 class="wpcc__heading">2. <%= t('wpcc.contributions.title') %></h2>
   <div class="contributions__row">
     <p class="t-contributions_description">
-      <% if session[:contribution_preference] == 'minimum' %>
-          <%= t('wpcc.contributions.description_minimum', 
-            eligible_salary: @your_contribution.formatted_eligible_salary,
-          ) %>
-      <% end %>
-      <% if session[:contribution_preference] == 'full' %>
-          <%= t('wpcc.contributions.description_full', 
-            eligible_salary: @your_contribution.formatted_eligible_salary,
-          ) %>
-      <% end %>
+      <%= @your_contribution.earnings_description %>
     </p>
   </div>
   <%= form_for(
@@ -41,7 +32,7 @@
           %>
           <%= t('wpcc.contributions.input_of_label') %>
           <span>
-            £<span data-dough-contribution-salary><%= @your_contribution.eligible_salary %></span>
+            <span data-dough-contribution-salary><%= @your_contribution.formatted_eligible_salary %></span>
           </span>
         </div>
         <div class="contributions__source contributions__source--employer form__row">
@@ -57,7 +48,7 @@
             'data-dough-validation-invalid': t('wpcc.contributions.employee_validation.out_of_range')
           %>
           <%= t('wpcc.contributions.input_of_label') %>
-          <span>£<%= @your_contribution.eligible_salary %></span>
+          <span><%= @your_contribution.formatted_eligible_salary %></span>
         </div>
       </div>
       <div class="contributions__row">
