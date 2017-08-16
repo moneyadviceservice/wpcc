@@ -94,11 +94,11 @@ en:
     results:
       title: Your Results
       description: |
-        Minimum pension contribution rates will increase in stages until April 2019.
-        These figures show how this will affect your contributions. Contributions will be
-        based on your eligible salary of £%{eligible_salary} per year.
+        Minimum pension contribution rates will increase in April 2018 and again in April 2019. 
+        These figures show how this will affect your contributions. 
+        Contributions will be based on your earnings of £%{eligible_salary} a year
       period_title:
-        april_2017_march_2018: Today - March 2018
+        april_2017_march_2018: Now
         april_2018_march_2019: April 2018 - March 2019
         after_april_2019: April 2019 onwards
       period_percents_title:
@@ -122,7 +122,7 @@ en:
           workplace_pensions_html: Find out more about <a href="#">workplace pensions</a>.
           budget_planner_html: Use our <a href="#">budget planner</a> to see what effect your contributions will have on your income.
       edit_frequency:
-        label: Show my contributions [per Year/per Month/per 4 Weeks/per Week]
+        label: Show my contributions
         button: Recalculate
       contribution_changes:
         you: You
