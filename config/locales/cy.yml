@@ -70,8 +70,8 @@ cy:
 
     contributions:
       title: Eich cyfraniadaulower
-      description: Gwneir cyfraniadau ar eich cyflog cymwys o %{eligible_salary} y flwyddyn. Dyma eich cyflog meinws y trothwy Yswiriant Gwladol o %{lower_earnings_threshold}.
-      description_tooltip: Dyma’r rhan o’ch cyflog blynyddol a ddefnyddir i gyfrifo’ch cyfraniad pensiwn dan gofrestru awtomatig. Sef eich enillion cyn treth (hyd at derfyn uchafswm o %{upper_earnings_threshold} y flwyddyn) – meinws trothwy enillion isaf o %{lower_earnings_threshold}.
+      description_minimum: Gwneir cyfraniadau ar eich enillion cymwys o %{eligible_salary} y flwyddyn.
+      description_full: Gwneir cyfraniadau ar eich cyflog o %{eligible_salary} y flwyddyn.
       your_contribution_title: Nodwch eich cyfraniad
       your_contribution_tip: Yr isafswm cyfreithiol yw 1%
       your_contribution_tip_lt5876: Ar eich lefel cyflog, nid oes isafswm cyfreithiol o gyfraniad ond efallai y bydd eich cynllun pensiwn gweithlu wedi gosod isafswm. Holwch eich cyflogwr.

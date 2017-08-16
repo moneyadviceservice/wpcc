@@ -4,18 +4,20 @@
   <h2 class="wpcc__heading">2. <%= t('wpcc.contributions.title') %></h2>
   <div class="contributions__row">
     <p class="t-contributions_description">
-      <%= t('wpcc.contributions.description', 
-        eligible_salary: @your_contribution.formatted_eligible_salary,
-        lower_earnings_threshold: @your_contribution.lower_earnings_threshold
-      ) %>
-    </p>
-    <p>
-      <p>
-        <%= t('wpcc.contributions.description_tooltip',
-          upper_earnings_threshold: @your_contribution.upper_earnings_threshold,
-          lower_earnings_threshold: @your_contribution.lower_earnings_threshold
-        ) %>
-      </p>
+      <% if session[:contribution_preference] == 'minimum' %>
+        <p>
+          <%= t('wpcc.contributions.description_minimum', 
+            eligible_salary: @your_contribution.formatted_eligible_salary,
+          ) %>
+        </p>
+      <% end %>
+      <% if session[:contribution_preference] == 'full' %>
+        <p>
+          <%= t('wpcc.contributions.description_full', 
+            eligible_salary: @your_contribution.formatted_eligible_salary,
+          ) %>
+        </p>
+      <% end %>
     </p>
   </div>
   <%= form_for(
