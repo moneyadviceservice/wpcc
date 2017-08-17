@@ -77,7 +77,7 @@ en:
       your_contribution_tip_lt5876: At your salary level there is no legal minimum contribution but your workplace pension scheme may have a set minimum. Check with your employer.
       employer_contribution_title: Enter your employer’s contribution
       employer_contribution_tip: The legal minimum is 1%
-      input_of_label: of
+      input_of_label: '% of'
       calculate_button: Calculate your contributions
       contribution_gt40000_warning: Tax relief is only applied to contributions of up to %{upper_earnings_threshold} per year or 100% of your earnings, whichever is lower.
       employee_validation:
