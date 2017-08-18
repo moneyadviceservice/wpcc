@@ -32,7 +32,13 @@ describe('Salary Conditions', function() {
       this.radioDisabled = this.component.find('[data-dough-callout-radio-disabled]');
       this.employerPartRadio = this.component.find('[data-dough-employer-part-radio]');
       this.employerFullRadio = this.component.find('[data-dough-employer-full-radio]');
+
       clock = sinon.useFakeTimers();
+
+      // set initial values for salary field and checked radio control
+      this.salaryField.val(null);
+      this.component.find('input[name="your_details_form[contribution_preference]"]')[1].checked = true;  // full salary selected
+
       this.obj.init();
     });
 
@@ -58,7 +64,7 @@ describe('Salary Conditions', function() {
     });
 
     describe('When salary is less than £5876', function() {
-      it('Shows the correct callout', function(done) {
+      it('Shows the correct callout and checks the correct radio control', function(done) {
         this.salaryFrequency.val('year');
         this.salaryField.val('3000');
         this.salaryField.trigger('keyup');
@@ -66,24 +72,35 @@ describe('Salary Conditions', function() {
         expect(
           this.callout_lt5876.hasClass('details__callout--active')
         ).to.be.true;
+        expect(
+          this.component.find('input[name="your_details_form[contribution_preference]"]:checked').val()
+        ).to.equal('full');
         done();
       });
 
-      it('Disables the employer part contribution radio', function(done) {
+      it('Disables the employer part contribution radio and checks the correct radio control', function(done) {
         this.salaryField.val('3000');
         this.salaryField.trigger('keyup');
         clock.tick(this.delay);
-        expect(this.employerPartRadio.prop('disabled')).to.be.true;
+        expect(
+          this.employerPartRadio.prop('disabled')
+        ).to.be.true;
+        expect(
+          this.component.find('input[name="your_details_form[contribution_preference]"]:checked').val()
+        ).to.equal('full');
         done();
       });
 
-      it('Displays disabled radio callout', function(done) {
+      it('Displays disabled radio callout and checks the correct radio control', function(done) {
         this.salaryField.val('3000');
         this.salaryField.trigger('keyup');
         clock.tick(this.delay);
         expect(
           this.radioDisabled.hasClass('details__callout--active')
         ).to.be.true;
+        expect(
+          this.component.find('input[name="your_details_form[contribution_preference]"]:checked').val()
+        ).to.equal('full');
         done();
       });
 
@@ -91,51 +108,64 @@ describe('Salary Conditions', function() {
         this.salaryField.val('3000');
         this.salaryField.trigger('keyup');
         clock.tick(this.delay);
-        expect(this.employerFullRadio.prop('checked')).to.be.true;
+        expect(
+          this.component.find('input[name="your_details_form[contribution_preference]"]:checked').val()
+        ).to.equal('full');
         done();
       });
 
-      it('Saves this state to local storage', function(done) {
+      it('Saves this state to local storage and checks the correct radio control', function(done) {
         this.salaryField.val('3000');
         this.salaryField.trigger('keyup');
         clock.tick(this.delay);
         expect(localStorage.getItem('lt5876')).to.equal('true');
+        expect(
+          this.component.find('input[name="your_details_form[contribution_preference]"]:checked').val()
+        ).to.equal('full');
         done();
       });
 
-      it('Clears state from localStorage if salary is changed to £5876 or above', 
+      it('Clears state from localStorage if salary is changed to £5876 or above and checks the correct radio control',
         function(done) {
         this.salaryField.val('5876');
         this.salaryField.trigger('keyup');
         clock.tick(this.delay);
         expect(localStorage.getItem('lt5876')).to.be.equal(null);
+        expect(
+          this.component.find('input[name="your_details_form[contribution_preference]"]:checked').val()
+        ).to.equal('full');
         done();
       });
     });
 
     describe('When salary is between £5876 and £10000', function() {
-      it('Shows the correct callout', function(done) {
+      it('Shows the correct callout and checks the correct radio control', function(done) {
         this.salaryField.val('7000');
         this.salaryField.trigger('keyup');
         clock.tick(this.delay);
         expect(
           this.callout_gt5876_lt10000.hasClass('details__callout--active')
         ).to.be.true;
+        expect(
+          this.component.find('input[name="your_details_form[contribution_preference]"]:checked').val()
+        ).to.equal('full');
         done();
       });
     });
 
     describe('When salary is equal to or greater than £10000', function() {
-      it('Does not display any callouts', function(done) {
+      it('Does not display any callouts and checks the correct radio control', function(done) {
         this.salaryField.val('22000');
         this.salaryField.trigger('keyup');
         clock.tick(this.delay);
         expect(this.callout_gt5876_lt10000.hasClass('details__callout--inactive')).to.be.true;
         expect(this.callout_gt5876_lt10000.hasClass('details__callout--inactive')).to.be.true;
+        expect(
+          this.component.find('input[name="your_details_form[contribution_preference]"]:checked').val()
+        ).to.equal('full');
         done();
       });
     });
-
   });
 
   describe('When frequency field is changed', function() {
@@ -256,7 +286,7 @@ describe('Salary Conditions', function() {
       this.salaryField.trigger('keyup');
       clock.tick(this.delay);
       expect(this.employeeTip_lt5876.hasClass('is-hidden')).to.be.false;
-      done(); 
+      done();
     });
 
     it('Hides the employer contribution tip', function(done) {
@@ -264,7 +294,7 @@ describe('Salary Conditions', function() {
       this.salaryField.trigger('keyup');
       clock.tick(this.delay);
       expect(this.employerTip.text()).to.equal('');
-      done(); 
+      done();
     });
   });
 
