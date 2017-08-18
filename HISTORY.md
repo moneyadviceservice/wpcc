@@ -1,3 +1,16 @@
+## 1.6.0
+
+* TP-8505: Fixes bug on Step 1 re salary/contributions inputs
+* TP-8472: Conditional messaging for step 2
+* TP-8492: Step 2, updates percent boxes
+* TP-8491: Updates copy in the results page
+* TP-8448: Session expired redirect
+* TP-8492: Step 3, updates percent boxes
+* TP-8471: step 1 updates
+* TP-8434: Information table of annual percents
+* TP-8477: Display the salary below threshold callout message
+* TP-8459: Select 'full salary' contribution preference
+
 ## 1.5.1
 
 * Fix welsh translation missing errors.
