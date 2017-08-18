@@ -70,8 +70,8 @@ en:
 
     contributions:
       title: Your contributions
-      description: Contributions will be made on your eligible salary of %{eligible_salary} per year. This is your salary minus the National Insurance threshold of %{lower_earnings_threshold}.
-      description_tooltip: This is the part of your annual pay that will be used to calculate your pension contribution under automatic enrolment. It is your earnings before tax (up to a maximum limit of %{upper_earnings_threshold} per year) – less the lower earnings threshold of %{lower_earnings_threshold}.
+      description_minimum:  Contributions will be made on your qualifying earnings of %{eligible_salary} per year.
+      description_full:  Contributions will be made on your salary of %{eligible_salary} per year.
       your_contribution_title: Enter your contribution
       your_contribution_tip: The legal minimum is 1%
       your_contribution_tip_lt5876: At your salary level there is no legal minimum contribution but your workplace pension scheme may have a set minimum. Check with your employer.
