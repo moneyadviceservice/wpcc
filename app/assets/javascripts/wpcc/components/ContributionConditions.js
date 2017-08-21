@@ -40,7 +40,8 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
   //if more than 40k call display function otherwise call the hide function
   ContributionConditions.prototype._calculateContribution = function() {
     var $this = this,
-    salaryToNumber = parseInt(this.$eligibleSalary.text()),
+    salaryNumber = this.$eligibleSalary.text().replace(/[\£,]/g, ''),
+    salaryToNumber = parseInt(salaryNumber),
     salaryContributionAmount = (salaryToNumber/100)*this.$employeeContributions.val();
     
     if (salaryContributionAmount > 40000) {
