@@ -1,0 +1,48 @@
+@page {
+  margin: 30pt;
+}
+
+header, nav, footer, .l-contact-panels, a,
+.wpcc__intro, .results__salary-frequency, .next-steps {
+  display: none;
+}
+
+body {
+  font: 12pt Georgia, "Times New Roman", Times, serif;
+  line-height: 1.5;
+  color: #000;
+}
+
+h1, h2 {
+  color: #000;
+}
+
+.section {
+  border: none;
+}
+
+.section__heading-summary {
+  &:before, &:after {
+    content: '';
+  }
+}
+
+.results__period {
+  border: 1pt solid #000;
+  margin-top: 12pt;
+}
+
+.results__period-title {
+  color: #000;
+  background: none;
+}
+
+.results__period-heading, .results__period-details, .results__period-parenthesis {
+  float: left;
+  margin: 0 0 0 0.5em;
+}
+
+.results__period-heading {
+  clear: left;
+  margin-left: 0;
+}

@@ -3,10 +3,14 @@ module Wpcc
     routes { Wpcc::Engine.routes }
 
     describe '#new' do
+      let(:age) { 20 }
+      let(:gender) { 'female' }
       let(:salary) { 30_000 }
       let(:contribution_preference) { 'minimum' }
       let(:eligible_salary) { 24_124 }
       let(:salary_frequency) { 'year' }
+      let(:salary_message) { double(Wpcc::SalaryMessage) }
+
       let(:your_contribution) do
         double(
           eligible_salary: eligible_salary,
@@ -35,6 +39,15 @@ module Wpcc
           get_new('cy')
 
           expect(response).to be_success
+        end
+      end
+
+      context 'when session has no keys' do
+        it 'redirects to root page' do
+          get :new, {}, {}
+
+          expect(response)
+            .to redirect_to wpcc_root_path(locale: 'en')
         end
       end
 
@@ -70,10 +83,33 @@ module Wpcc
               employer_percent: 40,
               salary: salary,
               contribution_preference: contribution_preference,
-              salary_frequency: 'year'
+              salary_frequency: 'year',
+              age: age,
+              gender: gender
 
           expect(your_contributions_form.employee_percent).to eq(10)
           expect(your_contributions_form.employer_percent).to eq(40)
+        end
+
+        it 'arranges for the conditional message to display' do
+          expect(Wpcc::SalaryMessage)
+            .to receive(:new)
+            .with(
+              salary: salary,
+              salary_frequency: salary_frequency,
+              text: :manually_opt_in
+            )
+            .and_return(salary_message)
+
+          get :new,
+              nil,
+              employee_percent: 10,
+              employer_percent: 40,
+              salary: salary,
+              contribution_preference: contribution_preference,
+              salary_frequency: 'year',
+              age: age,
+              gender: gender
         end
       end
     end
@@ -109,7 +145,9 @@ module Wpcc
           locale: locale,
           salary: salary,
           contribution_preference: contribution_preference,
-          salary_frequency: salary_frequency
+          salary_frequency: salary_frequency,
+          age: age,
+          gender: gender
     end
 
     def post_create(locale = 'en', employee_percent = 1)

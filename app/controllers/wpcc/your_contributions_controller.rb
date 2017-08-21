@@ -3,6 +3,7 @@ require_dependency 'wpcc/engine_controller'
 module Wpcc
   class YourContributionsController < Wpcc::EngineController
     protect_from_forgery
+    before_action Wpcc::YourContributionsSessionVerifier, only: :new
     after_action :store_eligible_salary, :store_percentages, only: :new
 
     def new
@@ -11,14 +12,19 @@ module Wpcc
         salary_frequency: session[:salary_frequency]
       ).convert
 
-      @your_contribution = Wpcc::YourContributionGenerator.new(
-        contribution_preference: session[:contribution_preference],
-        salary_per_year: salary_per_year
+      @your_contribution = Wpcc::YourContributionPresenter.new(
+        Wpcc::YourContributionGenerator.new(
+          contribution_preference: session[:contribution_preference],
+          salary_per_year: salary_per_year
+        ),
+        view_context: view_context
       )
 
       @your_contributions_form = Wpcc::YourContributionsForm.new(
         contribution_percentages
       )
+
+      @message_presenter = message_presenter
     end
 
     def create
@@ -66,6 +72,21 @@ module Wpcc
         employee_percent: employee_percent,
         employer_percent: employer_percent
       }
+    end
+
+    def message_presenter
+      Wpcc::MessagePresenter.new(
+        salary_message,
+        view_context: view_context
+      )
+    end
+
+    def salary_message
+      Wpcc::SalaryMessage.new(
+        salary: session[:salary].to_f.round(2),
+        salary_frequency: session[:salary_frequency],
+        text: :manually_opt_in
+      )
     end
   end
 end

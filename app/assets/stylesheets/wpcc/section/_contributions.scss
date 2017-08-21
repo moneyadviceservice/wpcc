@@ -1,5 +1,5 @@
 .contributions__content {
-  
+
 }
 
 .contributions__row {
@@ -38,8 +38,6 @@
   }
 
   .contributions__source-input {
-    @include column(4);
+    width: 4rem;
   }
 }
-
-

@@ -44,7 +44,7 @@ describe Wpcc::YourDetailsForm, type: :model do
       it { should_not allow_value('foo').for(:salary) }
       it { should_not allow_value(0).for(:salary) }
       it { should_not allow_value(-1).for(:salary) }
-      it { should_not allow_value(12.4).for(:salary) }
+      it { should allow_value(12.4).for(:salary) }
     end
 
     context 'salary_frequency' do
@@ -91,6 +91,46 @@ describe Wpcc::YourDetailsForm, type: :model do
         it 'should not validate' do
           subject.valid?
           expect(subject.errors.keys).to_not include(:contribution_preference)
+        end
+      end
+    end
+  end
+
+  describe 'contribution_preference' do
+    context 'no contribution' do
+      let(:contribution_preference) { nil }
+
+      it 'returns minimum' do
+        expect(subject.contribution_preference).to eq('minimum')
+      end
+    end
+
+    context 'when the form is valid' do
+      context 'full contribution' do
+        let(:contribution_preference) { 'full' }
+
+        it 'returns full' do
+          expect(subject.contribution_preference).to eq('full')
+        end
+      end
+
+      context 'full contribution' do
+        let(:contribution_preference) { 'minimum' }
+
+        it 'returns minimum' do
+          expect(subject.contribution_preference).to eq('minimum')
+        end
+      end
+    end
+
+    context 'for salary below the minimum threshold' do
+      context 'minimum contribution' do
+        let(:salary) { 5_000 }
+        let(:contribution_preference) { 'minimum' }
+
+        it 'returns full' do
+          subject.valid?
+          expect(subject.contribution_preference).to eq('full')
         end
       end
     end

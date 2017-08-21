@@ -4,31 +4,29 @@ Feature:
   So that I can see where my contributions will or won't rise.
 
   Background:
-    Given I am on the YourDetailsPage
+    Given I am on the Your Details step
+    And I fill in my details:
+      | age | gender | salary | salary_frequency | contribution |
+      | 25  | male   | 20000   | per Year        | Minimum      |
+    And I proceed to the next step
 
-    Scenario Outline:
-      Given I enter my age as "<age>"
-      And I select my gender as "<gender>"
-      And I enter my salary as "<salary>"
-      And I select my salary frequency as "<salary_frequency>"
-      And I choose my contribution preference as "<contribution_preference>"
-      And I click the Next button
-      And my employee contribution is "<employee_percent>"
-      And my employer contribution is "<employer_percent>"
+    Scenario: When employee contribution is above default
+      And my employee contribution is "4"
       When I move on to the results page
-      Then I should see my employee contributions for current period as "<employee_current_period>"
-      And I should see my tax relief for current period as "<tax_relief_current_period>"
-      And I should see my employer contributions for current period as "<employer_current_period>"
-      And I should see my total contributions for current period as "<total_current_period>"
-      And I should see my employee contributions for second period as "<employee_second_period>"
-      And I should see my employer contributions for second period as "<employer_second_period>"
-      And I should see my tax relief for second period as "<tax_relief_second_period>"
-      And I should see my total contributions for second period as "<total_second_period>"
-      And I should see my employee contributions for third period as "<employee_third_period>"
-      And I should see my employer contributions for third period as "<employer_third_period>"
-      And I should see my tax relief for third period as "<tax_relief_third_period>"
-      And I should see my total contributions for third period as "<total_third_period>"
-    Examples:
-      | age | gender | salary | salary_frequency | contribution_preference | employee_percent | employer_percent | employee_current_period | tax_relief_current_period | employer_current_period | total_current_period | employee_second_period | employer_second_period | tax_relief_second_period | total_second_period | employee_third_period | employer_third_period | tax_relief_third_period | total_third_period |
-      | 25  | male   | 20000  | per Year         | Minimum                 | 4                | 1                | £564.96                 | £112.99                   | £141.24                 | £706.20              | £564.96                | £282.48                | £112.99                  | £847.44             | £706.20               | £423.72               | £141.24                 | £1,129.92          |
-      | 25  | female | 20000  | per Year         | Minimum                 | 1                | 5                | £141.24                 | £28.25                    | £706.20                 | £847.44              | £423.72                | £706.20                | £84.74                   | £1,129.92           | £706.20               | £706.20               | £141.24                 | £1,412.40          |
+      Then I should see the values on the results page as:
+        |                         | Now    | April 2018 - March 2019 | Apr 2019 onwards |
+        | Employee Contributions  | £47.08 | £47.08                  | £58.85           |
+        | Including tax relief of | £9.42  | £9.42                   | £11.77           |
+        | Employer Contributions  | £11.77 | £23.54                  | £35.31           |
+        | TOTAL Contributions     | £58.85 | £70.62                  | £94.16           |
+
+
+    Scenario: When employer contribution is above default
+      And my employer contribution is "5"
+      When I move on to the results page
+      Then I should see the values on the results page as:
+        |                         | Now    | April 2018 - March 2019 | Apr 2019 onwards |
+        | Employee Contributions  | £11.77 | £35.31                  | £58.85           |
+        | Including tax relief of | £2.35  | £7.06                   | £11.77           |
+        | Employer Contributions  | £58.85 | £58.85                  | £58.85           |
+        | TOTAL Contributions     | £70.62 | £94.16                  | £117.70          |

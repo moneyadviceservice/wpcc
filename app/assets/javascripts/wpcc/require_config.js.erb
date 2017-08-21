@@ -7,8 +7,12 @@
 //= depend_on_asset dough/assets/js/components/DoughBaseComponent
 //= depend_on_asset dough/assets/js/components/PopupTip
 //= depend_on_asset wpcc/components/StepTransition
+//= depend_on_asset dough/assets/js/components/Validation
+//= depend_on_asset dough/assets/js/components/Print
+//= depend_on_asset dough/assets/js/components/Collapsable
 //= depend_on_asset wpcc/components/ConditionalMessaging
 //= depend_on_asset wpcc/components/SalaryConditions
+//= depend_on_asset wpcc/components/ContributionConditions
 
 <%
   def requirejs_path(asset)
@@ -20,15 +24,19 @@
       DoughBaseComponent: requirejs_path('dough/assets/js/components/DoughBaseComponent'),
       jquery: requirejs_path('jquery/dist/jquery'),
       rsvp: requirejs_path('rsvp/rsvp.js'),
+      eventsWithPromises: requirejs_path('eventsWithPromises/src/eventsWithPromises'),
 
       # Dough Components
       PopupTip: requirejs_path('dough/assets/js/components/PopupTip'),
       Validation: requirejs_path('dough/assets/js/components/Validation'),
+      Collapsable: requirejs_path('dough/assets/js/components/Collapsable'),
+      Print: requirejs_path('dough/assets/js/components/Print'),
 
       # Non Dough Component
       ConditionalMessaging: requirejs_path('wpcc/components/ConditionalMessaging'),
       SalaryConditions: requirejs_path('wpcc/components/SalaryConditions'),
-      StepTransition: requirejs_path('wpcc/components/StepTransition')
+      StepTransition: requirejs_path('wpcc/components/StepTransition'),
+      ContributionConditions: requirejs_path('wpcc/components/ContributionConditions')
     }
   }
 %>

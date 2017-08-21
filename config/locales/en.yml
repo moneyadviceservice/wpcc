@@ -1,7 +1,10 @@
 en:
   wpcc:
+    tooltip_show: show help
+    tooltip_hide: hide help
+
     title: Workplace pension contribution calculator
-    intro: It is now law that most employees must be enrolled into a workplace pension scheme by their employer. Both you and your employer are required to make contributions. This calculator will work out the amount of contributions.
+    intro: It is now law that most employees must be enrolled into a workplace pension scheme by their employer. This calculator will show you how much will be paid into your pension by you and your employer. It will also show how these contributions might increase over time.
     edit: Edit
 
     details:
@@ -39,48 +42,67 @@ en:
 
       calculate:
         legend: Choose how your employer makes contributions
-        details: Your employer chooses whether to make contribution on part of the salary or your full salary. To find this out, you will need to check with your employer.
+        qualifying_earnings_title: Qualifying earnings
+        details_html_1: Your employer can choose whether to make contributions on part of your salary (known as your qualifying earnings
+        details_html_2: ) or on your full salary. To find this out, you will need to check with your employer.
+        qualifying_earnings: This is the part of your annual pay that will be used to calculate your pension contribution under automatic enrolment. It is your earnings before tax (up to a maximum limit of £45000 per year) – less the lower earnings threshold of £5,876.
 
       next: Next
       prompt: Please choose
-
-      tooltip_show: show help
-      tooltip_hide: hide help
 
       callout__lt16: You are too young to join a workplace pension. When you reach the age of 16 you may ask your employer to enrol you. If you do so, your employer will make contributions.
       callout__optIn: Your employer will not automatically enrol you into a pension but you can choose to join. If you do so, your employer will make contributions.
       callout__gt74: You are not eligible to join a workplace pension because you are above the maximum age.
       callout__lt5876: Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will not be obliged to make contributions.
-      callout__radiodisabled: Your earnings level is below the minimum contribution level so you will have to make contributions based on your full salary
+      callout__radiodisabled: At your earnings level, you will have to make contributions based on your full salary.
       callout__gt5876_lt10000: Your employer will not automatically enroll you into a workplace pension scheme but you can choose to join. If you do so, your employer will make contributions.
+
+      section__heading:
+        age: '%{age} years'
+        gender_male: male
+        gender_female: female
+        salary_year: £%{salary} per year
+        salary_month: £%{salary} per month
+        salary_fourweeks: £%{salary} per 4-weeks
+        salary_week: £%{salary} per week
+        contribution_minimum: part salary
+        contribution_full: full salary
 
     contributions:
       title: Your contributions
-      description: Contributions will be made on your eligible salary of £%{eligible_salary} per year. This is your salary minus the National Insurance threshold of £££.
-      description_tooltip: This is the part of your annual pay that will be used to calculate your pension contribution under automatic enrolment. It is your earnings before tax (up to a maximum limit of £45000 per year) – less the lower earnings threshold of £5,876.
+      description_minimum:  Contributions will be made on your qualifying earnings of %{eligible_salary} per year.
+      description_full:  Contributions will be made on your salary of %{eligible_salary} per year.
       your_contribution_title: Enter your contribution
       your_contribution_tip: The legal minimum is 1%
       your_contribution_tip_lt5876: At your salary level there is no legal minimum contribution but your workplace pension scheme may have a set minimum. Check with your employer.
       employer_contribution_title: Enter your employer’s contribution
       employer_contribution_tip: The legal minimum is 1%
-      input_of_label: of
+      input_of_label: '% of'
       calculate_button: Calculate your contributions
-      employee_contribution_warning: The maximum you can contribute to a pension per year is 100% of your salary or £40,000, whichever is lower.
+      contribution_gt40000_warning: Tax relief is only applied to contributions of up to %{upper_earnings_threshold} per year or 100% of your earnings, whichever is lower.
       employee_validation:
         blank: Please enter your contribution
         out_of_range: Your contribution must be in the range 0% - 100%
       employer_validation:
         blank: Please enter your employer’s contribution
         out_of_range: Your employer’s contribution must be in the range 0% - 100%
+      manually_opt_in: |
+        Your employer will not automatically enrol you into a workplace pension
+        scheme but you can choose to join. If you do so, your employer will make
+         contributions.
 
     results:
       title: Your Results
       description: |
-        Minimum pension contribution rates will increase in stages until April 2019.
-        These figures show how this will affect your contributions. Contributions will be
-        based on your eligible salary of £%{eligible_salary} per year.
+        Minimum pension contribution rates will increase in April 2018 and again in April 2019. 
+        These figures show how this will affect your contributions. 
+        Contributions will be based on your earnings of £%{eligible_salary} a year
       period_title:
-        april_2017_march_2018: Today - March 2018
+        april_2017_march_2018: Now
+        april_2018_march_2019: April 2018 - March 2019
+        after_april_2019: April 2019 onwards
+      period_percents_title:
+        april_2017_march_2018: Now
         april_2018_march_2019: April 2018 - March 2019
         after_april_2019: April 2019 onwards
       period:
@@ -88,7 +110,11 @@ en:
           yours: Your contribution
           employers: Employer's contribution
           total: Total contributions
+      tax_relief_warning_html: If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions if your pension scheme collects contributions using the tax relief at source method. We have assumed your scheme does. Read more in our guide about <a href="https://www.moneyadviceservice.org.uk/en/articles/tax-relief-on-pension-contributions">tax relief on pension contributions</a>.
+      tax_relief_warning: If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions if your pension scheme collects contributions using the tax relief at source method.  We have assumed your scheme does. Read more in our guide about tax relief on pension contributions.
+      tax_relief_tooltip_html: You get tax relief on pension contributions which means some of the money from your pay that would have gone to the government as tax goes towards your pension instead. <a href="https://www.moneyadviceservice.org.uk/en/articles/tax-relief-on-pension-contributions">Read more about how you get tax relief</a>.
       contribution_table_link: View a table of how legal minimum contributions change
+      print_link: Print your results
       next_steps:
         heading: Next steps
         list:
@@ -96,6 +122,8 @@ en:
           workplace_pensions_html: Find out more about <a href="#">workplace pensions</a>.
           budget_planner_html: Use our <a href="#">budget planner</a> to see what effect your contributions will have on your income.
       edit_frequency:
-        label: Show my contributions [per Year/per Month/per 4 Weeks/per Week]
+        label: Show my contributions
         button: Recalculate
-
+      contribution_changes:
+        you: You
+        employer: Your employer

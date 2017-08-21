@@ -15,6 +15,7 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     this.$radioDisabled = this.$el.find('[data-dough-callout-radio-disabled]');
     this.$employerPartRadio = this.$el.find('[data-dough-employer-part-radio]');
     this.$employerFullRadio = this.$el.find('[data-dough-employer-full-radio]');
+    this.contribution = 'full';
 
     // Step 2 - Contributions
     this.$employeeTip = this.$el.find('[data-dough-employee-tip]');
@@ -22,7 +23,6 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     this.$employerTip = this.$el.find('[data-dough-employer-tip]');
     this.$employeeContributions = this.$el.find('[data-dough-employee-contributions]');
     this.$employerContributions = this.$el.find('[data-dough-employer-contributions]');
-
   };
 
   DoughBaseComponent.extend(SalaryConditions);
@@ -51,6 +51,28 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
       clearTimeout(typingTimer);
     })
 
+    this.$salaryFrequency.change(function() {
+      $this._calculateAnnual();
+    });
+
+    this._checkContributionState();
+  }
+
+  // Store value of contribution selector (full/part)
+  SalaryConditions.prototype._checkContributionState = function() {
+    // update contribution state on page load
+    if (this.$el.find('input[name="your_details_form[contribution_preference]"]:checked').val() == 'part') {
+      this.contribution = 'part';
+    }
+
+    // update contribution state when selectors changed
+    this.$el.find('input[name="your_details_form[contribution_preference]"]').on('change', function(e) {
+      if (e.target.value == 'full') {
+        this.contribution = 'full';
+      } else {
+        this.contribution = 'part';
+      }
+    });
   }
 
   // Function to calculate the annual salary based on different frequencies
@@ -70,10 +92,9 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     } else if (frequency == 'year') {
       annualSalary = salary;
     };
-    
+
     // Pass the value of annual salary to display message function
     $this._displayMessage(annualSalary);
-
   };
 
   // Result of annual salary function passed to this function
@@ -103,7 +124,6 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
 
   // Function for salary outside any conditions
   SalaryConditions.prototype._defaultRange = function($this) {
-
     // Hide any callouts which are displayed
     $this.$callout_lt5876.addClass('details__callout--inactive');
     $this.$callout_lt5876.removeClass('details__callout--active');
@@ -112,9 +132,13 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     $this.$radioDisabled.removeClass('details__callout--active');
     $this.$radioDisabled.addClass('details__callout--inactive');
 
-    // Enable radio button if disabled & recheck inital option
+    // Enable radio button if disabled
+    // And recheck inital option if full not already selected
     $this.$employerPartRadio.attr('disabled', false);
-    $this.$employerPartRadio.prop('checked', true);
+
+    if (this.contribution !== 'full') {
+      $this.$employerPartRadio.prop('checked', true);
+    }
 
     // Remove local storage if already saved
     localStorage.removeItem('lt5876');
@@ -122,7 +146,6 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
 
   // Function for salary less than £5876
   SalaryConditions.prototype._lessThan5876 = function($this) {
-
     // Show relevant callouts
     $this.$callout_lt5876.removeClass('details__callout--inactive');
     $this.$callout_lt5876.addClass('details__callout--active');
@@ -143,7 +166,6 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
 
   // Function for salary between £5876 and £10000
   SalaryConditions.prototype._between5876and10000 = function($this) {
-
     // Display relevant callout
     $this.$callout_gt5876_lt10000.removeClass('details__callout--inactive');
     $this.$callout_gt5876_lt10000.addClass('details__callout--active');
@@ -154,9 +176,13 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     $this.$radioDisabled.removeClass('details__callout--active');
     $this.$radioDisabled.addClass('details__callout--inactive');
 
-    // Enable radio button if disabled & recheck inital option
+    // Enable radio button if disabled
+    // And recheck inital option if full not already selected
     $this.$employerPartRadio.attr('disabled', false);
-    $this.$employerPartRadio.prop('checked', true);
+
+    if (this.contribution !== 'full') {
+      $this.$employerPartRadio.prop('checked', true);
+    }
 
     // Remove local storage if already saved
     localStorage.removeItem('lt5876');
@@ -165,7 +191,6 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
   // Step 2 - Alters values of the contribution inputs
   // Modifies the employee contributions tip
   SalaryConditions.prototype._step2Conditions = function() {
-
     var salaryCondition = localStorage.getItem('lt5876'),
         $this           = this;
 

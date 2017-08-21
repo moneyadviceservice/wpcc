@@ -1,0 +1,10 @@
+salary_frequencies:
+  year: 1
+  month: 12
+  fourweeks: 13
+  week: 52
+tax_relief_limit_by_frequency:
+  1:  8000
+  12: 666.67
+  13: 615.38
+  52: 153.85

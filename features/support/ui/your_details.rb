@@ -2,7 +2,7 @@ require_relative 'ui'
 
 module UI
   class YourDetailsPage < SitePrism::Page
-    set_url '/'
+    set_url '/{language_code}/tools/workplace-pension-contribution-calculator'
 
     element :form, "#new_your_details_form"
     element :age, "input[name='your_details_form[age]']"
@@ -11,6 +11,8 @@ module UI
     element :salary_frequencies, "select[name='your_details_form[salary_frequency]']"
     element :minimum_contribution_button, '#your_details_form_contribution_preference_minimum'
     element :full_contribution_button, '#your_details_form_contribution_preference_full'
+
+    element :salary_below_threshold_callout, '[data-dough-callout-radio-disabled]'
 
     element :next_button, "input[type='submit']"
   end

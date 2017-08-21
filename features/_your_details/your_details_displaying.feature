@@ -1,18 +1,23 @@
-Feature:
+Feature: Your Details displaying
+  In order to confirm my inputs are correct as I progress through the tool,
   As a user of the WPCC tool,
-  In order to confirm the accuracy of my inputs,
-  I want to see my supplied information as I progress through the tool.
+  I want to see my details that I filled in on step one.
 
-Background:
-  Given I am on step 1 of the WPCC homepage
-  When I fill in the age, gender, salary and frequency fields
+Scenario Outline: Display input details on later steps
+  Given I am on the Your Details step
+  When I enter my age as "<age>"
+  And I select my gender as "<gender>"
+  And I select my salary frequency as "<salary_frequency>"
+  And I choose my contribution preference as "<contribution_preference>"
+  And I enter my salary as "<salary>"
+  And I proceed to the next step
+  Then I should see "<my_details>" summarised
 
-Scenario: Display minimum contribution details
-  And I click on "My employer makes contributions on part of my salary"
-  And I click the Next button
-  Then I should see my age, gender, salary, frequency and contribution option
+  Examples:
+    | age | gender    | salary_frequency | salary | contribution_preference | my_details                                                               |
+    | 23  | Male      | per Year         | 6000   | Minimum                 | 23 years, male, £6,000 per year, part salary                             |
 
-Scenario: Display full pay contribution details
-  And I click on "My employer makes contributions on all of my salary"
-  And I click the Next button
-  Then I should see in English my age, gender, salary, frequency and full pay
+  @welsh
+  Examples:
+    | age | gender    | salary_frequency | salary | contribution_preference | my_details                                                               |
+    | 34  | Benywaidd | fesul 4 wythnos  | 36000  | Minimum                 | 34 blynyddoedd, benywaidd, £36,000 fesul 4 wythnos, nghyflog rhan Golygu |

@@ -1,13 +1,10 @@
-<%= render 'wpcc/shared/your_details' %>
+<%= render 'wpcc/shared/your_details', message_presenter: @message_presenter %>
 
 <section class="contributions">
   <h2 class="wpcc__heading">2. <%= t('wpcc.contributions.title') %></h2>
   <div class="contributions__row">
     <p class="t-contributions_description">
-      <%= t('wpcc.contributions.description', eligible_salary: @your_contribution.eligible_salary) %>
-    </p>
-    <p>
-      <p><%= t('wpcc.contributions.description_tooltip') %></p>
+      <%= @your_contribution.earnings_description %>
     </p>
   </div>
   <%= form_for(
@@ -18,7 +15,7 @@
       'data-dough-validation-config': '{"showValidationSummary": false}',
       'novalidate': true
     }) do |f| %>
-    <div data-dough-component="SalaryConditions">
+    <div data-dough-component="SalaryConditions ContributionConditions">
       <div class="contributions__row">
         <div class="contributions__source contributions__source--employee form__row">
           <h3 class="contributions__source-title"><%= t('wpcc.contributions.your_contribution_title') %></h3>
@@ -34,7 +31,9 @@
             'data-dough-validation-invalid': t('wpcc.contributions.employee_validation.out_of_range')
           %>
           <%= t('wpcc.contributions.input_of_label') %>
-          <span>£<%= @your_contribution.eligible_salary %></span>
+          <span>
+            <span data-dough-contribution-salary><%= @your_contribution.formatted_eligible_salary %></span>
+          </span>
         </div>
         <div class="contributions__source contributions__source--employer form__row">
           <h3 class="contributions__source-title"><%= t('wpcc.contributions.employer_contribution_title') %></h3>
@@ -49,14 +48,20 @@
             'data-dough-validation-invalid': t('wpcc.contributions.employee_validation.out_of_range')
           %>
           <%= t('wpcc.contributions.input_of_label') %>
-          <span>£<%= @your_contribution.eligible_salary %></span>
+          <span><%= @your_contribution.formatted_eligible_salary %></span>
         </div>
       </div>
       <div class="contributions__row">
-        <div class="callout">
-          <p><%= t('wpcc.contributions.employee_contribution_warning') %></p>
+        <div class="form__row details__callout details__callout--inactive" data-dough-callout-contribution-gt40000>
+          <div class="callout">
+            <p>
+              <%= t('wpcc.contributions.contribution_gt40000_warning', 
+                upper_earnings_threshold: @your_contribution.upper_earnings_threshold)
+              %>
+            </p>
+          </div>
         </div>
-        <%= f.submit t('wpcc.contributions.calculate_button'), class: 'button button--primary' %>
+        <%= f.submit(t('wpcc.contributions.calculate_button'), class: 'button button--primary', 'data-dough-submit': true) %>
       </div>
     </div>
   <% end %>

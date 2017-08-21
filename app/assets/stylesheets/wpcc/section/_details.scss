@@ -51,6 +51,18 @@
   }
 }
 
+.details__helper--block {
+  @include column(12);
+}
+
+.details__helper-title--no-js {
+  display: inline;
+
+  .js & {
+    display: none;
+  }
+}
+
 .details__salary {
   @include row(12);
 }

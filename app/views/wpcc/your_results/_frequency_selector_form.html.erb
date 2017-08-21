@@ -1,7 +1,7 @@
 <div class="results__salary-frequency">
   <%= form_tag(your_results_path, method: :get) do %>
     <%= label :salary_frequency, t('wpcc.results.edit_frequency.label'), class: 'form__label-heading results__salary-label' %>
-    <%= select_tag(:salary_frequency, options_for_select(@schedule.salary_frequency_options, salary_frequency)) %>
+    <%= select_tag(:salary_frequency, options_for_select(message_presenter.salary_frequency_options, salary_frequency.to_s)) %>
     <%= submit_tag t('wpcc.results.edit_frequency.button'), class: 'results__salary-frequency-submit' %>
   <% end %>
 </div>

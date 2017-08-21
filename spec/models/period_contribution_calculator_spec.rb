@@ -108,5 +108,43 @@ describe Wpcc::PeriodContributionCalculator, type: :model do
         expect(period_contribution.tax_relief).to eq(1.72)
       end
     end
+
+    context 'when employee is contributing more than 40,000 per year' do
+      let(:eligible_salary) { 80_000 }
+      let(:employee_percent) { 60 }
+      let(:employer_percent) { 1 }
+
+      context 'when yearly frequency' do
+        let(:salary_frequency) { 1 }
+
+        it 'returns employee tax relief' do
+          expect(period_contribution.tax_relief).to eq(8000)
+        end
+      end
+
+      context 'when monthly frequency' do
+        let(:salary_frequency) { 12 }
+
+        it 'returns employee tax relief limit' do
+          expect(period_contribution.tax_relief).to eq(666.67)
+        end
+      end
+
+      context 'when per 4 weeks frequency' do
+        let(:salary_frequency) { 13 }
+
+        it 'returns employee tax relief limit' do
+          expect(period_contribution.tax_relief).to eq(615.38)
+        end
+      end
+
+      context 'when weekly frequency' do
+        let(:salary_frequency) { 52 }
+
+        it 'returns employee tax relief limit' do
+          expect(period_contribution.tax_relief).to eq(153.85)
+        end
+      end
+    end
   end
 end

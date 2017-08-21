@@ -9,12 +9,14 @@ module Wpcc
       app.config.assets.precompile += %w[
         wpcc/require_config.js
         wpcc/components/*.js
+        wpcc/print.css
       ]
     end
 
     config.autoload_paths += %W[
       #{config.root}/app/presenters
       #{config.root}/app/validators
+      #{config.root}/app/filters
     ]
   end
 end

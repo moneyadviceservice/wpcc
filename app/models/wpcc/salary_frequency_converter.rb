@@ -1,18 +1,12 @@
 module Wpcc
   class SalaryFrequencyConverter
+    CONVERSIONS = YAML.load_file(
+      Wpcc::Engine.root.join('config', 'salary_frequency_conversions.yml')
+    )
+    SALARY_FREQUENCIES = CONVERSIONS['salary_frequencies']
+
     def self.convert(salary_frequency)
-      salary_frequencies[salary_frequency]
+      SALARY_FREQUENCIES[salary_frequency]
     end
-
-    def self.salary_frequencies
-      {
-        'year' => 1,
-        'month' => 12,
-        'fourweeks' => 13,
-        'week' => 52
-      }
-    end
-
-    private_class_method :salary_frequencies
   end
 end
