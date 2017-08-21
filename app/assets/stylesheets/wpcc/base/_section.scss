@@ -31,6 +31,9 @@
 .section__heading-edit {
   @include body(16, 22);
   font-weight: 500;
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
 }
 
 .section--details {

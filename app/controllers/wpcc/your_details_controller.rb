@@ -11,12 +11,25 @@ module Wpcc
         Wpcc::YourDetailsForm.new(your_details_form_params)
       )
 
-      if @your_details_form.valid?
-        amend_session
-        redirect_to new_your_contribution_path
-      else
-        render 'new'
+      respond_to do |format|
+
+        format.json { render json: {
+          age: '34', 
+          gender: 'male', 
+          frequency: 'year', 
+          contribution_preference: 'minimum', 
+          eligible_salary: '35000'
+          }
+        }
+
       end
+
+      # if @your_details_form.valid?
+      #   amend_session
+      #   redirect_to new_your_contribution_path
+      # else
+      #   render 'new'
+      # end
     end
 
     private
