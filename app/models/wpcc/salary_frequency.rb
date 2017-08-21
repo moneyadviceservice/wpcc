@@ -1,7 +1,7 @@
 module Wpcc
   class SalaryFrequency
     include ActiveModel::Model
-    attr_accessor :params_salary_frequency, :session_salary_frequency
+    attr_accessor :params_salary_frequency, :session_salary_frequency, :locale
 
     DEFAULT_SALARY_FREQUENCIES = Hash[
       Wpcc::YourDetailsForm::SALARY_FREQUENCIES.map { |e| [e, e] }
@@ -12,6 +12,10 @@ module Wpcc
     def initialize(attributes)
       @converter = SalaryFrequencyConverter
       super(attributes)
+    end
+
+    def to_adj
+      @converter.adjectives[locale.to_s][to_s]
     end
 
     def to_i

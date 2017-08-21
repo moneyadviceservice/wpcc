@@ -8,3 +8,14 @@ tax_relief_limit_by_frequency:
   12: 666.67
   13: 615.38
   52: 153.85
+adjectives:
+  en:
+    year: annual
+    month: monthly
+    fourweeks: 4-weekly
+    week: weekly
+  cy:
+    year: blynyddol
+    month: misol
+    fourweeks: 4-wythnosol
+    week: wythnosol

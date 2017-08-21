@@ -1,12 +1,33 @@
 RSpec.describe Wpcc::SalaryFrequency do
   subject do
     described_class.new(
+      locale: locale,
       params_salary_frequency: params_salary_frequency,
       session_salary_frequency: session_salary_frequency
     )
   end
 
   let(:params_salary_frequency) { nil }
+  let(:locale) { :en }
+
+  describe '#to_adj' do
+    let(:params_salary_frequency) { 'week' }
+    let(:session_salary_frequency) { 'week' }
+
+    context 'when english' do
+      it 'returns the frequency adjective' do
+        expect(subject.to_adj).to eq('weekly')
+      end
+    end
+
+    context 'when welsh' do
+      let(:locale) { :cy }
+
+      it 'returns the frequency adjective' do
+        expect(subject.to_adj).to eq('wythnosol')
+      end
+    end
+  end
 
   describe '#to_i' do
     let(:session_salary_frequency) { 'month' }

@@ -51,7 +51,11 @@ RSpec.describe Wpcc::YourResultsController do
       request.session[:salary_frequency] = 'week'
       expect(Wpcc::SalaryFrequency)
         .to receive(:new)
-        .with(params_salary_frequency: nil, session_salary_frequency: 'week')
+        .with(
+          locale: nil,
+          params_salary_frequency: nil,
+          session_salary_frequency: 'week'
+        )
         .and_return(salary_frequency)
 
       @controller.send(:salary_frequency)
