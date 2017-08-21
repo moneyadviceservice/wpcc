@@ -142,12 +142,12 @@ Then(/^I should return to the Your Details step$/) do
   expect(your_details_page.form).to be_visible
 end
 
-Then(/^I should see my current details in the form fields$/) do
-  expect(page).to have_css("input[value='35']")
-  expect(find(:css, 'select#your_details_form_gender').value).to eq('female')
-  expect(page).to have_css("input[value='35000']")
-  expect(find(:css, 'select#your_details_form_salary_frequency').value).to eq('year')
-  expect(page).to have_css("input[value='minimum']")
+Then(/^I should see my "([^"]*)", "([^"]*)", "([^"]*)", "([^"]*)" and "([^"]*)" in the form$/) do |age, gender, salary, selected_frequency, contribution |
+  expect(your_details_page.age.value).to eq(age)
+  expect(your_details_page.genders.value).to eq(gender)
+  expect(your_details_page.salary.value).to eq(salary)
+  expect(your_details_page.salary_frequencies.value).to eq(selected_frequency)
+  expect(your_details_page.send("#{contribution.downcase}_contribution_button")).to be_truthy
 end
 
 Then(/^the employee_percent input intro paragraph should display the correct percentage$/) do
