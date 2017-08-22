@@ -32,7 +32,7 @@ describe('Contribution Conditions', function() {
     describe('When salary contribution is under 40000', function() {
       it('Does not display the callout message', function() {
         this.employeeContributions.val(20);
-        this.eligibleSalary.text('60000');
+        this.eligibleSalary.text('£60,000');
         this.employeeContributions.trigger('keyup');
         expect(
           this.contributionWarning.hasClass('details__callout--inactive')
@@ -43,7 +43,7 @@ describe('Contribution Conditions', function() {
     describe('When salary contribution is over 40000', function() {
       it('Displays the callout message', function() {
         this.employeeContributions.val(100);
-        this.eligibleSalary.text('60000');
+        this.eligibleSalary.text('£60,000');
         this.employeeContributions.trigger('keyup');
         expect(
           this.contributionWarning.hasClass('details__callout--active')
