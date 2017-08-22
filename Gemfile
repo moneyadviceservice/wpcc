@@ -31,6 +31,7 @@ group :test do
   gem 'brakeman', require: false
   gem 'capybara'
   gem 'cucumber-rails', require: false
+  gem 'poltergeist'
   gem 'simplecov', require: false
   gem 'site_prism'
   gem 'timecop'

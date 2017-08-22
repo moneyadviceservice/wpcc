@@ -1,36 +1,75 @@
 Feature:
-  As an employee, I want to be able to see my results in a frequency different to how I input my salary because I want to understand how the contributions will impact my monthly or weekly take-home pay.
+  In order to understand how the contributions will impact my monthly or weekly take-home pay
+  As an employee
+  I want to be able to see my results in a frequency different to how I input my salary
 
   Background:
     Given I am on the Your Details step
+    And I am a "25" year old "female"
+    And my salary is "80000" "per Year" with "Full" contribution
+    And I click the Next button
+    And my contribution is "10" percent
+    When I move on to the results page
 
-  Scenario Outline:
-    Given I enter my age as "<age>"
-    And I select my gender as "<gender>"
-    And I enter my salary as "<salary>"
-    And I select my salary frequency as "<salary_frequency>"
-    And I choose to make minimum contributions
-    And I press next and move to your contributions step
-    And I press next and move to your result step
-    When I select "<salary_frequency>" to change the calculations
+  @javascript
+  Scenario: Recalculate results changing to monthly frequency
+    When I select "per Month" to change the calculations
+    Then I should see the values on the results page as:
+      |                         | Now     | April 2018 - March 2019 | Apr 2019 onwards |
+      | Employee Contributions  | £666.67 | £666.67                 | £666.67          |
+      | Including tax relief of | £133.33 | £133.33                 | £133.33          |
+      | Employer Contributions  | £66.67  | £133.33                 | £200.00          |
+      | TOTAL contributions     | £733.34 | £800.00                 | £866.67          |
+
+  @no-javascript
+  Scenario: Recalculate results changing to monthly frequency
+    When I select "per Month" to change the calculations
     And I press recalculate
-    Then I should see my employee contributions for current period as "<employee_current_period>"
-    And I should see my tax relief for current period as "<tax_relief_current_period>"
-    And I should see my employer contributions for current period as "<employer_current_period>"
-    And I should see my total contributions for current period as "<total_current_period>"
-    And I should see my employee contributions for second period as "<employee_second_period>"
-    And I should see my employer contributions for second period as "<employer_second_period>"
-    And I should see my tax relief for second period as "<tax_relief_second_period>"
-    And I should see my total contributions for second period as "<total_second_period>"
-    And I should see my employee contributions for third period as "<employee_third_period>"
-    And I should see my employer contributions for third period as "<employer_third_period>"
-    And I should see my tax relief for third period as "<tax_relief_third_period>"
-    And I should see my total contributions for third period as "<total_third_period>"
+    Then I should see the values on the results page as:
+      |                         | Now     | April 2018 - March 2019 | Apr 2019 onwards |
+      | Employee Contributions  | £666.67 | £666.67                 | £666.67          |
+      | Including tax relief of | £133.33 | £133.33                 | £133.33          |
+      | Employer Contributions  | £66.67  | £133.33                 | £200.00          |
+      | TOTAL contributions     | £733.34 | £800.00                 | £866.67          |
 
+  @javascript
+  Scenario: Recalculate results changing to weekly frequency
+    When I select "per Week" to change the calculations
+    Then I should see the values on the results page as:
+      |                         | Now     | April 2018 - March 2019 | Apr 2019 onwards |
+      | Employee Contributions  | £153.85 | £153.85                 | £153.85          |
+      | Including tax relief of | £30.77  | £30.77                  | £30.77           |
+      | Employer Contributions  | £15.38  | £30.77                  | £46.15           |
+      | TOTAL contributions     | £169.23 | £184.62                 | £200.00          |
 
-  Examples:
-    | age | gender | salary   | salary_frequency | employee_current_period | employee_second_period | employee_third_period | tax_relief_current_period | tax_relief_second_period | tax_relief_third_period | employer_current_period | employer_second_period | employer_third_period | total_current_period | total_second_period | total_third_period |
-    | 25  | male   | 25000    | per Year         | £191.24                 | £573.72                | £956.20               | £38.25                    | £114.74                  | £191.24                 | £191.24                 | £382.48                | £573.72               | £382.48              | £956.20             | £1,529.92          |
-    | 25  | male   | 2083     | per Month        | £15.93                  | £47.80                 | £79.67                | £3.19                     | £9.56                    | £15.93                  | £15.93                  | £31.87                 | £47.80                | £31.86               | £79.67              | £127.47            |
-    | 25  | male   | 1923     | per 4 weeks      | £14.71                  | £44.13                 | £73.55                | £2.94                     | £8.83                    | £14.71                  | £14.71                  | £29.42                 | £44.13                | £29.42               | £73.55              | £117.68            |
-    | 25  | male   | 480      | per Week         | £3.67                   | £11.01                 | £18.35                | £0.73                     | £2.20                    | £3.67                   | £3.67                   | £7.34                  | £11.01                | £7.34                | £18.35              | £29.36             |
+  @no-javascript
+  Scenario: Recalculate results changing to weekly frequency
+    When I select "per Week" to change the calculations
+    And I press recalculate
+    Then I should see the values on the results page as:
+      |                         | Now     | April 2018 - March 2019 | Apr 2019 onwards |
+      | Employee Contributions  | £153.85 | £153.85                 | £153.85          |
+      | Including tax relief of | £30.77  | £30.77                  | £30.77           |
+      | Employer Contributions  | £15.38  | £30.77                  | £46.15           |
+      | TOTAL contributions     | £169.23 | £184.62                 | £200.00          |
+
+  @javascript
+  Scenario: Recalculate results changing to weekly frequency
+    When I select "per 4 weeks" to change the calculations
+    Then I should see the values on the results page as:
+      |                         | Now     | April 2018 - March 2019 | Apr 2019 onwards |
+      | Employee Contributions  | £615.38 | £615.38                 | £615.38          |
+      | Including tax relief of | £123.08 | £123.08                 | £123.08          |
+      | Employer Contributions  | £61.54  | £123.08                 | £184.62          |
+      | TOTAL contributions     | £676.92 | £738.46                 | £800.00          |
+
+  @no-javascript
+  Scenario: Recalculate results changing to weekly frequency
+    When I select "per 4 weeks" to change the calculations
+    And I press recalculate
+    Then I should see the values on the results page as:
+      |                         | Now     | April 2018 - March 2019 | Apr 2019 onwards |
+      | Employee Contributions  | £615.38 | £615.38                 | £615.38          |
+      | Including tax relief of | £123.08 | £123.08                 | £123.08          |
+      | Employer Contributions  | £61.54  | £123.08                 | £184.62          |
+      | TOTAL contributions     | £676.92 | £738.46                 | £800.00          |

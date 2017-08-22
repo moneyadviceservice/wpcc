@@ -7,16 +7,16 @@ RSpec.describe Wpcc::Presenter do
   let(:context) { ActionController::Base.new.view_context }
 
   describe '#salary_frequency_options' do
-    let(:salary_frequency_values) { %w[year month fourweeks week] }
-    let(:salary_frequencies) do
-      ['per Year', 'per Month', 'per 4 weeks', 'per Week']
+    let(:expected_result) do
+      [
+        ['per Year',    'year',      { data: { unit_converter: 1 } }],
+        ['per Month',   'month',     { data: { unit_converter: 12 } }],
+        ['per 4 weeks', 'fourweeks', { data: { unit_converter: 13 } }],
+        ['per Week',    'week',      { data: { unit_converter: 52 } }]
+      ]
     end
 
     it 'returns an array of translation keys for salary_frequencies' do
-      expected_result = Hash[
-        salary_frequencies.zip(salary_frequency_values)
-      ].to_a
-
       expect(subject.salary_frequency_options).to eq(expected_result)
     end
   end

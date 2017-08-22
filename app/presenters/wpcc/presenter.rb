@@ -11,9 +11,14 @@ module Wpcc
     end
 
     def salary_frequency_options
-      Wpcc::YourDetailsForm::SALARY_FREQUENCIES.map do |frequency|
-        [text_for('salary_frequency', frequency), frequency]
-      end
+      Wpcc::SalaryFrequencyConverter::SALARY_FREQUENCIES
+        .map do |frequency, frequency_number|
+          [
+            text_for('salary_frequency', frequency),
+            frequency,
+            data: { unit_converter: frequency_number }
+          ]
+        end
     end
 
     def formatted_currency(currency_value, precision: 2)
