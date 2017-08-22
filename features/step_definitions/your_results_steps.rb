@@ -146,3 +146,7 @@ Then(/^I should see the values on the results page as:$/) do |table|
   step %{I should see my employer contributions for third period as "#{third_period[3]}"}
   step %{I should see my total contributions for third period as "#{third_period[4]}"}
 end
+
+Then(/^I should see a contribution explanation "([^"]*)"$/) do |message|
+  expect(your_results_page.description.first).to have_content(message)
+end

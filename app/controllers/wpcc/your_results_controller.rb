@@ -21,7 +21,7 @@ module Wpcc
     helper_method :salary_frequency
 
     def period_legal_percents
-      calendar.periods.map do |period|
+      period_filter.periods.map do |period|
         Wpcc::PeriodPresenter.new(
           period,
           view_context: view_context
@@ -38,18 +38,29 @@ module Wpcc
     end
     helper_method :message_presenter
 
+    def period_filter_presenter
+      Wpcc::PeriodFilterPresenter.new(period_filter, view_context: view_context)
+    end
+    helper_method :period_filter_presenter
+
     private
 
     def calendar
       @calendar ||= Wpcc::ContributionsCalendar.new(contributions_params)
     end
 
+    def period_filter
+      @period_filter ||= PeriodFilter.new(
+        user_input_employee_percent: session[:employee_percent].to_i,
+        user_input_employer_percent: session[:employer_percent].to_i
+      )
+    end
+
     def contributions_params
       {
         eligible_salary: session[:eligible_salary].to_i,
-        employee_percent: session[:employee_percent].to_i,
-        employer_percent: session[:employer_percent].to_i,
-        salary_frequency: salary_frequency.to_i
+        salary_frequency: salary_frequency.to_i,
+        periods: period_filter.filtered_periods
       }
     end
 

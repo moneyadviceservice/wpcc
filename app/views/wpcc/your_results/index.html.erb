@@ -15,7 +15,10 @@
     data-dough-component="UpdateResults"
     data-dough-update-results-config='{"i18nStrings": {"parentheses": "<%= t('wpcc.results.period.tax_relief_parentheses') %>"}}'
   >
-    <p><%= t('wpcc.results.description', eligible_salary: session[:eligible_salary]) %></p>
+    <p>
+      <%= t('wpcc.results.description', eligible_salary: session[:eligible_salary]) %>
+      <%= period_filter_presenter.contribution_percents_explanation %>
+    </p>
 
     <% if message_presenter.tax_relief_warning? %>
       <div class="callout">

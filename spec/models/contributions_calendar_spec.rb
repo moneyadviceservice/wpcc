@@ -4,18 +4,21 @@ describe Wpcc::ContributionsCalendar, type: :model do
   let(:contributions_calendar) do
     described_class.new(
       eligible_salary: eligible_salary,
-      employee_percent: employee_percent,
-      employer_percent: employer_percent,
-      salary_frequency: salary_frequency
+      salary_frequency: salary_frequency,
+      periods: periods
     )
   end
 
   let(:eligible_salary) { 0 }
-  let(:employee_percent) { 0 }
-  let(:employer_percent) { 0 }
   let(:salary_frequency) { 1 }
 
   describe '#schedule' do
+    let(:periods) do
+      Wpcc::PeriodFilter.new(
+        user_input_employee_percent: 1,
+        user_input_employer_percent: 2
+      ).periods
+    end
     let(:period_contribution_calculator) do
       double('PeriodContributionCalculator')
     end
@@ -31,6 +34,7 @@ describe Wpcc::ContributionsCalendar, type: :model do
     end
 
     describe 'creates PeriodContribution objects for each period' do
+      let(:periods) { [next_period] }
       let(:next_period) do
         double(
           name: 'some_period',
@@ -38,12 +42,6 @@ describe Wpcc::ContributionsCalendar, type: :model do
           employee_percent: 3,
           employer_percent: 4
         )
-      end
-
-      before do
-        allow(contributions_calendar)
-          .to receive(:filtered_periods)
-          .and_return([next_period])
       end
 
       it 'calls the PeriodContributionCalculator passing the percentages' do
@@ -64,42 +62,6 @@ describe Wpcc::ContributionsCalendar, type: :model do
 
         schedule
       end
-    end
-  end
-
-  describe '#periods' do
-    let(:period_filter) { double(Wpcc::PeriodFilter) }
-
-    it 'converts the data in the config file to PeriodContribution objects' do
-      expect(Wpcc::PeriodFilter)
-        .to receive(:new)
-        .with(
-          user_input_employee_percent: 0,
-          user_input_employer_percent: 0
-        )
-        .and_return(period_filter)
-
-      expect(period_filter).to receive(:periods)
-
-      contributions_calendar.periods
-    end
-  end
-
-  describe '#filtered_periods' do
-    let(:period_filter) { double(Wpcc::PeriodFilter) }
-
-    it 'calls the PeriodFilter to get the periods required for scheduling' do
-      expect(Wpcc::PeriodFilter)
-        .to receive(:new)
-        .with(
-          user_input_employee_percent: 0,
-          user_input_employer_percent: 0
-        )
-        .and_return(period_filter)
-
-      expect(period_filter).to receive(:filtered_periods)
-
-      contributions_calendar.filtered_periods
     end
   end
 end
