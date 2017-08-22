@@ -51,8 +51,8 @@ module Wpcc
 
     def period_filter
       @period_filter ||= PeriodFilter.new(
-        user_input_employee_percent: session[:employee_percent].to_i,
-        user_input_employer_percent: session[:employer_percent].to_i
+        user_input_employee_percent: session[:employee_percent].to_f,
+        user_input_employer_percent: session[:employer_percent].to_f
       )
     end
 

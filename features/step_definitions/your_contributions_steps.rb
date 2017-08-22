@@ -59,6 +59,6 @@ Then(/^I should return to the Your Contributions step$/) do
 end
 
 Then(/^I should see my current contributions in the form fields$/) do
-  expect(your_contributions_page.employee_percent.value).to eq('14')
-  expect(your_contributions_page.employer_percent.value).to eq('15')
+  expect(your_contributions_page.employee_percent.value).to eq('14.0')
+  expect(your_contributions_page.employer_percent.value).to eq('15.0')
 end
