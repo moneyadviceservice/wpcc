@@ -1,4 +1,17 @@
 cy:
+  activemodel:
+    errors:
+      models:
+        wpcc/your_details_form:
+          attributes:
+            age:
+              greater_than_or_equal_to: Rydych yn rhy ifanc i ymuno â phensiwn gweithle. Pan gyrhaeddwch 16 oed gallwch ofyn i’ch cyflogwr eich cofrestru. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau
+              less than: Nid ydych yn gymwys i ymuno â phensiwn gweithle gan eich bod yn hŷn na’r uchafswm oed.
+  dough:
+    forms:
+      validation:
+        summary:
+          title: "Gwiriwch yn ofalus iawn am y gwallau canlynol:"
   wpcc:
     tooltip_show: sioe help
     tooltip_hide: cuddio cymorth

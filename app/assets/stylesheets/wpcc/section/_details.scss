@@ -13,6 +13,11 @@
   }
 }
 
+.details__error-summary,
+.details__row--group {
+  @include column(12);
+}
+
 .details__field {
   @include column(12);
 

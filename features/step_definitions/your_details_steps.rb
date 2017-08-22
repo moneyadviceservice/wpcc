@@ -122,6 +122,15 @@ Then(/^I should be able to proceed to the next page$/) do
   expect(page.current_url).to have_content('/your_contributions/new')
 end
 
+Then(/^I should NOT be able to progress to the next page$/) do
+  expect(page.current_url).to have_content('/your_details')
+  expect(page.current_url).not_to have_content('/your_contributions/new')
+end
+
+Then(/^I should see the "([^"]*)" for age$/) do |validation_message|
+  expect(page).to have_content(validation_message)
+end
+
 Then(/^I should see "([^"]*)" summarised$/) do |my_details|
   expect(page).to have_content(my_details)
 end
