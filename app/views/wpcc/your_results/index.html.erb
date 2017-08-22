@@ -13,7 +13,7 @@
   </h2>
 </section>
 
-<section class="section section--results">
+<section class="section section--results" data-dough-component="Email">
   <h2 class="section__heading results__heading">3. <%= t('wpcc.results.title') %></h2>
 
   <div
@@ -37,7 +37,7 @@
     <%= render 'period_percents_table' %>
 
     <p><a href="#" data-dough-component="Print"><%= t('wpcc.results.print_link') %></a></p>
-    <p><a href="mailto:?body=" data-dough-component="Email"><%= t('wpcc.results.email_link') %></a></p>
+    <p><a href="mailto:?body="><%= t('wpcc.results.email_link') %></a></p>
   </div>
 
   <div class="next-steps">
