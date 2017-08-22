@@ -13,6 +13,7 @@
 //= depend_on_asset wpcc/components/SalaryConditions
 //= depend_on_asset wpcc/components/ContributionConditions
 //= depend_on_asset wpcc/components/UpdateResults
+//= depend_on_asset wpcc/components/Email
 
 <%
   def requirejs_path(asset)
@@ -36,7 +37,8 @@
       ConditionalMessaging: requirejs_path('wpcc/components/ConditionalMessaging'),
       SalaryConditions: requirejs_path('wpcc/components/SalaryConditions'),
       ContributionConditions: requirejs_path('wpcc/components/ContributionConditions'),
-      UpdateResults: requirejs_path('wpcc/components/UpdateResults')
+      UpdateResults: requirejs_path('wpcc/components/UpdateResults'),
+      Email: requirejs_path('wpcc/components/Email')
     }
   }
 %>
