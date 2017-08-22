@@ -47,7 +47,7 @@ cy:
         details_html_2: ) neu ar eich cyflog llawn. I gael gwybod pa un, bydd angen i chi wirio gyda’ch cyflogwr.
         qualifying_earnings: Dyma’r rhan o’ch cyflog blynyddol fydd yn cael ei defnyddio i gyfrifo eich cyfraniad pensiwn dan gofrestru awtomatig. Sef eich enillion cyn treth (hyd at derfyn uchafswm o £45000 y flwyddyn) - tynnu’r trothwy enillion isaf o £5,876.
 
-      next: Next
+      next: Nesaf
       prompt: os gwelwch yn dda dewiswch
 
       callout__lt16: Rydych yn rhy ifanc i ymuno â phensiwn gweithle. Pan gyrhaeddwch 16 oed gallwch ofyn i’ch cyflogwr eich cofrestru. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau.
@@ -124,12 +124,12 @@ cy:
       tax_relief_tooltip_html: Byddwch yn cael gostyngiad treth ar eich cyfraniadau pensiwn sy'n golygu y rhoddir peth o’r arian o'ch cyflog a fyddai wedi mynd i’r llywodraeth fel treth tuag at eich pensiwn yn hytrach. <a href="https://www.moneyadviceservice.org.uk/cy/articles/gostyngiad-treth-ar-gyfraniadau-pensiwn">Darllenwch fwy am sut i gael gostyngiad treth</a>.
       contribution_table_link: Darllen tabl sy’n dangos sut mae isafswm cyfraniadau cyfreithlon yn newid
       print_link: Argraffu eich canlyniadau
-      next_steps:
-        heading: Next steps
+      next_steps: 
+        heading: Y Camau Nesaf
         list:
-          pension_calculator_html: Defnyddiwch ein <a href="#">Cyfrifiannell Pensiwn</a> i weld faint o bensiwn y bydd eich cronfa yn ei chronni dros amser.
-          workplace_pensions_html: Dysgwch ragor am <a href="#">bensiynau gweithle</a>.
-          budget_planner_html: Defnyddiwch ein <a href="#">cynllunydd cyllideb</a> i weld pa effaith y bydd eich cyfraniadau yn eu cael ar eich incwm.
+          pension_calculator_html: Defnyddiwch ein <a href="https://www.moneyadviceservice.org.uk/cy/tools/cyfrifiannell-pensiwn">Cyfrifiannell Pensiwn</a> i weld faint o bensiwn y bydd eich cronfa yn ei chronni dros amser.
+          workplace_pensions_html: Dysgwch ragor am <a href="https://www.moneyadviceservice.org.uk/cy/categories/automatic-enrolment">bensiynau gweithle</a>.
+          budget_planner_html: Defnyddiwch ein <a href="https://www.moneyadviceservice.org.uk/cy/tools/cynllunydd-cyllideb/start">cynllunydd cyllideb</a> i weld pa effaith y bydd eich cyfraniadau yn eu cael ar eich incwm.
       edit_frequency:
         label: Dangos fy nghyfraniadau
         button: Al-gyfrifo
