@@ -6,11 +6,16 @@ module Wpcc
     attr_accessor :age, :gender, :salary
     attr_accessor :salary_frequency, :contribution_preference
 
+    AGE = { minimum: 16, maximum: 75 }.freeze
     GENDERS = %w[male female].freeze
     SALARY_FREQUENCIES = load_config(file: 'salary_threshold').keys.map(&:to_s)
     CONTRIBUTIONS = %w[full minimum].freeze
 
     validates :age, presence: true
+    validates :age, numericality: {
+      greater_than_or_equal_to: AGE[:minimum],
+      less_than: AGE[:maximum]
+    }
     validates :gender, inclusion: { in: GENDERS }
     validates :salary, numericality: { greater_than: 0 }
     validates :salary_frequency, inclusion: { in: SALARY_FREQUENCIES }

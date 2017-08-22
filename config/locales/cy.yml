@@ -1,4 +1,17 @@
 cy:
+  activemodel:
+    errors:
+      models:
+        wpcc/your_details_form:
+          attributes:
+            age:
+              greater_than_or_equal_to: Rydych yn rhy ifanc i ymuno â phensiwn gweithle. Pan gyrhaeddwch 16 oed gallwch ofyn i’ch cyflogwr eich cofrestru. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau
+              less than: Nid ydych yn gymwys i ymuno â phensiwn gweithle gan eich bod yn hŷn na’r uchafswm oed.
+  dough:
+    forms:
+      validation:
+        summary:
+          title: "Gwiriwch yn ofalus iawn am y gwallau canlynol:"
   wpcc:
     tooltip_show: sioe help
     tooltip_hide: cuddio cymorth
@@ -94,8 +107,8 @@ cy:
     results:
       title: Eich canlyniadau
       description: |
-        Bydd cyfraddau cyfraniadau pensiwn isaf yn cynyddu yn Ebrill 2018 ac eto yn Ebrill 2019. 
-        Bydd y ffigyrau hyn yn dangos sut y bydd hyn yn effeithio ar eich cyfraniadau. 
+        Bydd cyfraddau cyfraniadau pensiwn isaf yn cynyddu yn Ebrill 2018 ac eto yn Ebrill 2019.
+        Bydd y ffigyrau hyn yn dangos sut y bydd hyn yn effeithio ar eich cyfraniadau.
         Bydd cyfraniadau yn seiliedig ar eich enillion o £%{eligible_salary} y flwyddyn.
       period_title:
         april_2017_march_2018: Nawr

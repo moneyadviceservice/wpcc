@@ -32,6 +32,25 @@ describe Wpcc::YourDetailsForm, type: :model do
   describe 'validations' do
     context 'age' do
       it { should validate_presence_of(:age) }
+
+      it { should validate_numericality_of(:age) }
+      it { should validate_numericality_of(:age).is_less_than(75) }
+
+      it do
+        should validate_numericality_of(:age).is_greater_than_or_equal_to(16)
+      end
+
+      context 'minimum age' do
+        it 'should be 16 years' do
+          expect(described_class::AGE[:minimum]).to eq(16)
+        end
+      end
+
+      context 'maximum age' do
+        it 'should be 75 years' do
+          expect(described_class::AGE[:maximum]).to eq(75)
+        end
+      end
     end
 
     context 'gender' do
