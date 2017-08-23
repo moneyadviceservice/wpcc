@@ -2,15 +2,22 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
   'use strict';
 
   var Email,
-    defaultConfig = {};
+    defaultConfig = {
+      i18nStrings: {
+        detailsHeading: 'Your details',
+        contributionsHeading: 'Your contributions',
+        resultsHeading: 'Your Results',
+        qualifyingEarningsHeading: 'Qualifying earnings'
+      }
+    };
 
   Email = function($el, config) {
     Email.baseConstructor.call(this, $el, config, defaultConfig);
 
     this.$emailLink = this.$el.find('[data-dough-email-link]');
-    this.$detailsHeadingSummary = this.$el.find('.details__heading .section__heading-summary');
-    this.$contributionsHeadingSummary = this.$el.find('.contributions__heading .section__heading-summary');
-    this.$eligibleSalary = this.$el.find('.results__eligible-salary');
+    this.$detailsHeadingSummary = this.$el.find('.details__heading .section__heading-summary'); // use data-dough value?
+    this.$contributionsHeadingSummary = this.$el.find('.contributions__heading .section__heading-summary'); // use data-dough value?
+    this.$eligibleSalary = this.$el.find('.results__eligible-salary'); // use data-dough value?
     this.$resultsTables = this.$el.find('[data-dough-results-table]');
   };
 
@@ -36,18 +43,27 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
   Email.prototype._getMessage = function() {
     var message = '';
 
-    message += '1. Your details: ' + this.$detailsHeadingSummary.text() + '\n\n';
-    message += '2. Your contributions: ' + this.$contributionsHeadingSummary.text() + '\n\n';
-    message += '3. Results\n';
-    message += 'Qualifying Earnings: ' + this.$eligibleSalary.text() + '\n\n';
+    // console.log(this.config.i18nStrings.qualifyingEarningsHeading);
+
+    message += '1. ' + this.config.i18nStrings.detailsHeading + ': ' + this.$detailsHeadingSummary.text() + '\n\n';
+    message += '2. ' + this.config.i18nStrings.contributionsHeading + ': ' + this.$contributionsHeadingSummary.text() + '\n\n';
+    message += '3. ' + this.config.i18nStrings.resultsHeading + '\n';
+    message += this.config.i18nStrings.qualifyingEarningsHeading + ': ' + this.$eligibleSalary.text() + '\n\n';
 
     for (var i = 0, max = this.$resultsTables.length; i < max; i++) {
-      message += $(this.$resultsTables.get(i)).find('.results__period-title').text() + '\n';
+      // console.log($(this.$resultsTables.get(i)).find('[data-dough-period-heading-total]').text());
+
+      message += $(this.$resultsTables.get(i)).find('.results__period-title').text() + '\n'; // use data-dough value?
       message +=
-        'Your contribution: ' + $(this.$resultsTables.get(i)).find('[data-dough-employee-contribution]').text() + ' ' +
+        $(this.$resultsTables.get(i)).find('[data-dough-period-heading-yours]').text() + ': ' +
+        $(this.$resultsTables.get(i)).find('[data-dough-employee-contribution]').text() + ' ' +
         $(this.$resultsTables.get(i)).find('[data-dough-tax-relief]').text() + '\n';
-      message += 'Employer\'s contribution: ' + $(this.$resultsTables.get(i)).find('[data-dough-employer-contribution]').text() + '\n';
-      message += 'Total contributions: ' + $(this.$resultsTables.get(i)).find('[data-dough-total]').text();
+      message +=
+        $(this.$resultsTables.get(i)).find('[data-dough-period-heading-employers]').text() + ': ' +
+        $(this.$resultsTables.get(i)).find('[data-dough-employer-contribution]').text() + '\n';
+      message +=
+        $(this.$resultsTables.get(i)).find('[data-dough-period-heading-total]').text() + ': ' +
+        $(this.$resultsTables.get(i)).find('[data-dough-total]').text();
 
       if (i !== max - 1) {
         message += '\n\n';

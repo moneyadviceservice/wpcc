@@ -12,7 +12,17 @@
     <div class="l-container-tool">
       <div class="wpcc">
         <h1><%= t('wpcc.title') %></h1>
-        <main data-dough-component="Email">
+        <main
+          data-dough-component="Email"
+          data-dough-email-config='{
+            "i18nStrings": {
+              "detailsHeading": "<%= t('wpcc.details.title') %>",
+              "contributionsHeading": "<%= t('wpcc.contributions.title') %>",
+              "resultsHeading": "<%= t('wpcc.results.title') %>",
+              "qualifyingEarningsHeading": "<%= t('wpcc.details.calculate.qualifying_earnings_title') %>"
+            }
+          }'
+        >
           <p class="wpcc__intro"><%= t('wpcc.intro') %></p>
           <%= yield %>
         </main>
