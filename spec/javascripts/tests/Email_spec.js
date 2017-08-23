@@ -32,19 +32,18 @@ describe.only('Email', function() {
 
       message += '1. Your details: 31 years, male, £50,000 per year, part salary\n\n';
       message += '2. Your contributions: You: 1%, Your employer: 1%\n\n';
-      message += '3. Results: Qualifying Earnings: £39,124\n\n';
+      message += '3. Results\n';
+      message += 'Qualifying Earnings: £39,124\n\n';
       message += 'Now\n';
       message += 'Your contribution: £32.60 (includes tax relief of £6.52)\n';
       message += 'Employer\'s contribution: £32.60\n';
       message += 'Total contributions: £65.20\n\n';
-      message += 'April 2018 - March 2019:\n';
-      message += 'Your contribution: £97.81\n';
-      message += '(includes tax relief of £19.56)\n';
+      message += 'April 2018 - March 2019\n';
+      message += 'Your contribution: £97.81 (includes tax relief of £19.56)\n';
       message += 'Employer\'s contribution: £65.21\n';
       message += 'Total contributions: £163.02\n\n';
-      message += 'April 2019 onwards:\n';
-      message += 'Your contribution: £163.02\n';
-      message += '(includes tax relief of £32.60)\n';
+      message += 'April 2019 onwards\n';
+      message += 'Your contribution: £163.02 (includes tax relief of £32.60)\n';
       message += 'Employer\'s contribution: £97.81\n';
       message += 'Total contributions: £260.83';
 
