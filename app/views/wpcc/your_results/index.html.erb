@@ -3,8 +3,8 @@
 <section class="section section--contributions">
   <h2 class="section__heading contributions__heading">2. <%= t('wpcc.contributions.title') %>
     <span class="section__heading-summary">
-      <%= t('wpcc.results.contribution_changes.you') %>: 
-      <%= session[:employee_percent] %>%, 
+      <%= t('wpcc.results.contribution_changes.you') %>:
+      <%= session[:employee_percent] %>%,
       <%= t('wpcc.results.contribution_changes.employer') %>: <%= session[:employer_percent] %>%
     </span>
     <span>
@@ -13,7 +13,7 @@
   </h2>
 </section>
 
-<section class="section section--results" data-dough-component="Email">
+<section class="section section--results">
   <h2 class="section__heading results__heading">3. <%= t('wpcc.results.title') %></h2>
 
   <div
@@ -22,7 +22,7 @@
     data-dough-update-results-config='{"i18nStrings": {"parentheses": "<%= t('wpcc.results.period.tax_relief_parentheses') %>"}}'
   >
     <p>
-      <%= t('wpcc.results.description', eligible_salary: message_presenter.formatted_currency(session[:eligible_salary], precision: 0)) %>
+      <%= t('wpcc.results.description_html', eligible_salary: message_presenter.formatted_currency(session[:eligible_salary], precision: 0)) %>
       <%= period_filter_presenter.contribution_percents_explanation %>
     </p>
 
