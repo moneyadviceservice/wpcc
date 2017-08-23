@@ -8,6 +8,10 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     Email.baseConstructor.call(this, $el, config, defaultConfig);
 
     this.$emailLink = this.$el.find('[data-dough-email-link]');
+    this.$detailsHeadingSummary = this.$el.find('.details__heading .section__heading-summary');
+    this.$contributionsHeadingSummary = this.$el.find('.contributions__heading .section__heading-summary');
+    this.$eligibleSalary = this.$el.find('.results__eligible-salary');
+    this.$resultsTables = this.$el.find('[data-dough-results-table]');
   };
 
   /**
@@ -32,23 +36,23 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
   Email.prototype._getMessage = function() {
     var message = '';
 
-    message += '1. Your details: 31 years, male, £50,000 per year, part salary\n\n';
-    message += '2. Your contributions: You: 1%, Your employer: 1%\n\n';
-    message += '3. Results: Qualifying Earnings: £39,124\n\n';
-    message += 'Now\n';
-    message += 'Your contribution: £32.60 (includes tax relief of £6.52)\n';
-    message += 'Employer\'s contribution: £32.60\n';
-    message += 'Total contributions: £65.20\n\n';
-    message += 'April 2018 - March 2019:\n';
-    message += 'Your contribution: £97.81\n';
-    message += '(includes tax relief of £19.56)\n';
-    message += 'Employer\'s contribution: £65.21\n';
-    message += 'Total contributions: £163.02\n\n';
-    message += 'April 2019 onwards:\n';
-    message += 'Your contribution: £163.02\n';
-    message += '(includes tax relief of £32.60)\n';
-    message += 'Employer\'s contribution: £97.81\n';
-    message += 'Total contributions: £260.83';
+    message += '1. Your details: ' + this.$detailsHeadingSummary.text() + '\n\n';
+    message += '2. Your contributions: ' + this.$contributionsHeadingSummary.text() + '\n\n';
+    message += '3. Results\n';
+    message += 'Qualifying Earnings: ' + this.$eligibleSalary.text() + '\n\n';
+
+    for (var i = 0, max = this.$resultsTables.length; i < max; i++) {
+      message += $(this.$resultsTables.get(i)).find('.results__period-title').text() + '\n';
+      message +=
+        'Your contribution: ' + $(this.$resultsTables.get(i)).find('[data-dough-employee-contribution]').text() + ' ' +
+        $(this.$resultsTables.get(i)).find('[data-dough-tax-relief]').text() + '\n';
+      message += 'Employer\'s contribution: ' + $(this.$resultsTables.get(i)).find('[data-dough-employer-contribution]').text() + '\n';
+      message += 'Total contributions: ' + $(this.$resultsTables.get(i)).find('[data-dough-total]').text();
+
+      if (i !== max - 1) {
+        message += '\n\n';
+      }
+    }
 
     return encodeURIComponent(message);
   }
