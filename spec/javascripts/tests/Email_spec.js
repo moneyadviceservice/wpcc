@@ -32,8 +32,8 @@ describe.only('Email', function() {
 
       message += '1. Your details: 31 years, male, £50,000 per year, part salary\n\n';
       message += '2. Your contributions: You: 1%, Your employer: 1%\n\n';
-      message += '3. Results\n';
-      message += 'Qualifying Earnings: £39,124\n\n';
+      message += '3. Your Results\n';
+      message += 'Qualifying earnings: £39,124\n\n';
       message += 'Now\n';
       message += 'Your contribution: £32.60 (includes tax relief of £6.52)\n';
       message += 'Employer\'s contribution: £32.60\n';
