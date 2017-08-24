@@ -58,7 +58,7 @@ cy:
         qualifying_earnings_title: Enillion cymhwyso
         details_html_1: Gall eich cyflogwr ddewis os yw am wneud cyfraniadau ar ran o'ch cyflog (a elwir yn enillion cymhwyso
         details_html_2: ) neu ar eich cyflog llawn. I gael gwybod pa un, bydd angen i chi wirio gyda’ch cyflogwr.
-        qualifying_earnings: Dyma’r rhan o’ch cyflog blynyddol fydd yn cael ei defnyddio i gyfrifo eich cyfraniad pensiwn dan gofrestru awtomatig. Sef eich enillion cyn treth (hyd at derfyn uchafswm o £45000 y flwyddyn) - tynnu’r trothwy enillion isaf o £5,876.
+        qualifying_earnings: Dyma’r rhan o’ch cyflog blynyddol fydd yn cael ei defnyddio i gyfrifo eich cyfraniad pensiwn dan gofrestru awtomatig. Sef eich enillion cyn treth (hyd at derfyn uchafswm o %{formatted_upper_earnings} y flwyddyn) - tynnu’r trothwy enillion isaf o %{formatted_lower_earnings}.
 
       next: Nesaf
       prompt: os gwelwch yn dda dewiswch
@@ -92,7 +92,7 @@ cy:
       employer_contribution_tip: Yr isafswm cyfreithiol yw 1%
       input_of_label: '% o'
       calculate_button: Cyfrifwch eich cyfraniadau
-      contribution_gt40000_warning: Rhoddir gostyngiad treth ar gyfraniadau hyd at %{upper_earnings_threshold} y flwyddyn yn unig, neu 100% o’ch enillion, pa bynnag un sydd leiaf.
+      contribution_gt40000_warning: Rhoddir gostyngiad treth ar gyfraniadau hyd at %{formatted_upper_earnings} y flwyddyn yn unig, neu 100% o’ch enillion, pa bynnag un sydd leiaf.
       employee_validation:
         blank: Rhowch eich cyfraniad
         out_of_range: Rhaid i'ch cyfraniad fod yn yr ystod 0 - 100%
@@ -109,7 +109,7 @@ cy:
       description: |
         Bydd cyfraddau cyfraniadau pensiwn isaf yn cynyddu yn Ebrill 2018 ac eto yn Ebrill 2019.
         Bydd y ffigyrau hyn yn dangos sut y bydd hyn yn effeithio ar eich cyfraniadau.
-        Bydd cyfraniadau yn seiliedig ar eich enillion o £%{eligible_salary} y flwyddyn.
+        Bydd cyfraniadau yn seiliedig ar eich enillion o %{eligible_salary} y flwyddyn.
       large_contribution_percent_for_two_periods:
         Rydych chi a'ch cyflogwr eisoes yn talu mwy na'r isafswm newydd, felly rydym wedi dangos y cyfraniadau cyfredol yn unig. Ni fydd y rhain yn newid oni bai bod eich cyflog yn cynyddu neu rydych chi ac/neu eich cyflogwr yn dewis talu mwy.
       large_contribution_percent_for_middle_period:

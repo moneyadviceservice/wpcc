@@ -21,6 +21,20 @@ module Wpcc
         end
     end
 
+    def formatted_upper_earnings
+      formatted_currency(
+        Wpcc::ContributionCalculator::THRESHOLDS['upper'],
+        precision: 0
+      )
+    end
+
+    def formatted_lower_earnings
+      formatted_currency(
+        Wpcc::ContributionCalculator::THRESHOLDS['lower'],
+        precision: 0
+      )
+    end
+
     def formatted_currency(currency_value, precision: 2)
       number_to_currency(currency_value, unit: '£', precision: precision)
     end

@@ -17,18 +17,6 @@ RSpec.describe Wpcc::YourContributionPresenter do
     end
   end
 
-  describe '#upper_earnings_threshold' do
-    it 'gets the upper earnings threshold and formats it' do
-      expect(subject.upper_earnings_threshold).to eq('£45,000')
-    end
-  end
-
-  describe '#lower_earnings_threshold' do
-    it 'gets the lower earnings threshold and formats it' do
-      expect(subject.lower_earnings_threshold).to eq('£5,876')
-    end
-  end
-
   describe '#earnings_description' do
     context 'full salary' do
       let(:session) { { contribution_preference: 'full' } }
