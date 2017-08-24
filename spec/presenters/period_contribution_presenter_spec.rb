@@ -43,4 +43,35 @@ RSpec.describe Wpcc::PeriodContributionPresenter do
       )
     end
   end
+
+  describe '#employer_frequency_heading' do
+    let(:salary_frequency) { Wpcc::SalaryFrequency.new(attributes) }
+    let(:attributes) do
+      {
+        locale: locale,
+        params_salary_frequency: nil,
+        session_salary_frequency: 'fourweeks'
+      }
+    end
+
+    context 'for english fourweekly salary frequency' do
+      let(:locale) { 'en' }
+      it 'returns the english translation for 4-weekly' do
+        expect(subject.employer_frequency_heading(salary_frequency))
+          .to eq('Employer\'s 4-weekly contribution')
+      end
+    end
+
+    context 'for welsh fourweekly salary frequency' do
+      let(:locale) { 'cy' }
+
+      before { I18n.locale = :cy }
+      after { I18n.locale = :en }
+
+      it 'returns the welsh translation for 4-weekly' do
+        expect(subject.employer_frequency_heading(salary_frequency))
+          .to eq('Cyfraniad y cyflogwr bob 4 wythnos')
+      end
+    end
+  end
 end

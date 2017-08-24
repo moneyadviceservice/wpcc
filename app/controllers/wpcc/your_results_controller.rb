@@ -14,6 +14,7 @@ module Wpcc
 
     def salary_frequency
       @salary_frequency ||= SalaryFrequency.new(
+        locale: params[:locale],
         params_salary_frequency: params[:salary_frequency],
         session_salary_frequency: session[:salary_frequency]
       )
