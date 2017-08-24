@@ -16,6 +16,7 @@ module UI
     element :percent_input, '.contributions__source-input'
     element :your_contributions_edit, '.contributions__heading a'
     element :your_contributions_information, '.section--contributions .section__heading-summary'
+    elements :description, '.results__content p'
 
     element :salary_frequencies, "select[name='salary_frequency']"
     element :recalculate_button, "input[type='submit']"

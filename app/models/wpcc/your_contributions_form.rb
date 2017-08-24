@@ -8,11 +8,11 @@ module Wpcc
     validates :employer_percent, inclusion: { in: 0..100 }
 
     def employee_percent
-      @employee_percent.to_i
+      @employee_percent.to_f
     end
 
     def employer_percent
-      @employer_percent.to_i
+      @employer_percent.to_f
     end
   end
 end

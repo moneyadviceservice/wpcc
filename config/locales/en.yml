@@ -96,7 +96,15 @@ en:
       description: |
         Minimum pension contribution rates will increase in April 2018 and again in April 2019.
         These figures show how this will affect your contributions.
-        Contributions will be based on your earnings of £%{eligible_salary} a year
+        Contributions will be based on your earnings of £%{eligible_salary} a year.
+      large_contribution_percent_for_two_periods:
+        "Both you and your employer are already paying above the new minimums so we have just shown the current contributions. These won't change unless your salary increases or you and/or your employer choose to pay more."
+      large_contribution_percent_for_middle_period:
+        "Both you and your employer are already paying above the new minimum for April 2018 so we have only shown the increase for April 2019."
+      employee_large_contribution_percent_for_two_periods:
+        "You are already paying above the new minimums so we have just shown how your employer's contributions will increase. Your contributions won't change unless your salary increases or you choose to pay more."
+      employer_large_contribution_percent_for_two_periods:
+        "Your employer is already paying above the new minimums so we have just shown how your contributions will increase. Your employer's contribution won't change unless your salary increases or your employer chooses to pay more."
       period_title:
         april_2017_march_2018: Now
         april_2018_march_2019: April 2018 - March 2019
