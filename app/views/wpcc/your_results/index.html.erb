@@ -22,7 +22,7 @@
     data-dough-update-results-config='{"i18nStrings": {"parentheses": "<%= t('wpcc.results.period.tax_relief_parentheses') %>"}}'
   >
     <p>
-      <%= t('wpcc.results.description', eligible_salary: session[:eligible_salary]) %>
+      <%= t('wpcc.results.description', eligible_salary: message_presenter.formatted_currency(session[:eligible_salary], precision: 0)) %>
       <%= period_filter_presenter.contribution_percents_explanation %>
     </p>
 
