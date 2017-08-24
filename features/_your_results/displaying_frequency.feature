@@ -22,10 +22,10 @@ Feature: Displaying frequency in the results table
 
     @welsh
     Examples:
-      | age | gender      | salary | salary_frequency | contribution | your_heading                 | employer_heading                      | total_heading                      |
-      | 45  | Benywaidd   | 200    | y Wythnos        | Minimum      | Eich cyfraniad wythnosol     | Cyfraniad wythnosol y cyflogwr        | Cyfanswm y cyfraniad wythnosol     |
-      | 53  | Benywaidd   | 1200   | fesul 4 wythnos  | Full         | Eich cyfraniad bob 4 wythnos | Cyfraniad eich cyflogwr bob 4 wythnos | Cyfanswm y cyfraniad bob 4 wythnos |
-      | 28  | Gwrywaidd   | 1500   | y Mis            | Minimum      | Eich cyfraniad misol         | Cyfraniad misol y cyflogwr            | Cyfanswm y cyfraniad misol         |
+      | age | gender      | salary | salary_frequency | contribution | your_heading                 | employer_heading                   | total_heading                      |
+      | 45  | Benywaidd   | 200    | y Wythnos        | Minimum      | Eich cyfraniad wythnosol     | Cyfraniad wythnosol y cyflogwr     | Cyfanswm y cyfraniad wythnosol     |
+      | 53  | Benywaidd   | 1200   | fesul 4 wythnos  | Full         | Eich cyfraniad bob 4 wythnos | Cyfraniad y cyflogwr bob 4 wythnos | Cyfanswm y cyfraniad bob 4 wythnos |
+      | 28  | Gwrywaidd   | 1500   | y Mis            | Minimum      | Eich cyfraniad misol         | Cyfraniad misol y cyflogwr         | Cyfanswm y cyfraniad misol         |
 
   Scenario Outline: When salary frequency is yearly
     And I am a "<age>" year old "<gender>"
@@ -33,7 +33,7 @@ Feature: Displaying frequency in the results table
     And I click the Next button
     When I move on to the results page
     And I move on to the results page
-    When I select "per Year" to change the calculations
+    When I select "<salary_frequency>" to change the calculations
     And I press recalculate
     Then my results should have "<your_heading>" "<employer_heading>" and "<total_heading>"
 

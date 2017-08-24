@@ -23,9 +23,9 @@
         </p>
         <%= render 'wpcc/tooltips/close' %>
       </div>
-
       <p class="results__period-heading">
-        <%= t('wpcc.results.period.contribution_heading.employers', salary_frequency: salary_frequency.to_adj) %></p>
+        <%= period.employer_frequency_heading(salary_frequency) %>
+      </p>
       <p class="results__period-details results__period-employer-contribution" data-dough-employer-contribution data-value="<%= period.employer_contribution %>">
         <%= period.formatted_employer_contribution %>
 

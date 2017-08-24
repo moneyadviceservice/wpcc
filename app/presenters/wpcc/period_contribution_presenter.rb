@@ -32,6 +32,18 @@ module Wpcc
       formatted_contribution(object.total_contributions)
     end
 
+    def employer_frequency_heading(salary_frequency)
+      # rubocop:disable Lint/StringConversionInInterpolation
+      default_i18n_key = 'wpcc.results.period.contribution_heading.employers'
+
+      I18n.t(
+        "#{default_i18n_key}_#{salary_frequency.to_s}",
+        default: :"#{default_i18n_key}",
+        salary_frequency: salary_frequency.to_adj
+      )
+      # rubocop:enable Lint/StringConversionInInterpolation
+    end
+
     private
 
     def formatted_contribution(contribution_value)

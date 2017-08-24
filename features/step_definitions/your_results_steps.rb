@@ -104,11 +104,6 @@ Then(/^my results should have "([^"]*)" "([^"]*)" and "([^"]*)"$/) do |your_head
   expect(your_results_page.results_period_headings[0..2].map(&:text)).to eq(headings)
 end
 
-# Then(/^my results should all read:$/) do |table|
-#   headings = table.raw.flatten
-#   expect(your_results_page.results_period_headings[0..2].map(&:text)).to eq(headings)
-# end
-
 Then(/^I should see a link to the legal minimum contributions table$/) do
   expect(your_results_page).to have_legal_contributions_table_link
 end

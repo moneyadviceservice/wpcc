@@ -11,20 +11,71 @@ RSpec.describe Wpcc::SalaryFrequency do
   let(:locale) { :en }
 
   describe '#to_adj' do
-    let(:params_salary_frequency) { 'week' }
-    let(:session_salary_frequency) { 'week' }
-
     context 'when english' do
-      it 'returns the frequency adjective' do
-        expect(subject.to_adj).to eq('weekly')
+      context 'for weekly salary_frequency' do
+        let(:params_salary_frequency) { 'week' }
+        let(:session_salary_frequency) { 'week' }
+        it 'returns the frequency adjective' do
+          expect(subject.to_adj).to eq('weekly')
+        end
+      end
+
+      context 'for 4-weekly salary_frequency' do
+        let(:params_salary_frequency) { 'fourweeks' }
+        let(:session_salary_frequency) { 'fourweeks' }
+        it 'returns the frequency adjective' do
+          expect(subject.to_adj).to eq('4-weekly')
+        end
+      end
+
+      context 'for montly salary_frequency' do
+        let(:params_salary_frequency) { 'month' }
+        let(:session_salary_frequency) { 'month' }
+        it 'returns the frequency adjective' do
+          expect(subject.to_adj).to eq('monthly')
+        end
+      end
+      context 'for 4-weekly salary_frequency' do
+        let(:params_salary_frequency) { 'year' }
+        let(:session_salary_frequency) { 'year' }
+        it 'returns the frequency adjective' do
+          expect(subject.to_adj).to eq('annual')
+        end
       end
     end
 
     context 'when welsh' do
       let(:locale) { :cy }
 
-      it 'returns the frequency adjective' do
-        expect(subject.to_adj).to eq('wythnosol')
+      context 'for weekly salary_frequency' do
+        let(:params_salary_frequency) { 'week' }
+        let(:session_salary_frequency) { 'week' }
+        it 'returns the frequency adjective' do
+          expect(subject.to_adj).to eq('wythnosol')
+        end
+      end
+
+      context 'for 4-weekly salary_frequency' do
+        let(:params_salary_frequency) { 'fourweeks' }
+        let(:session_salary_frequency) { 'fourweeks' }
+        it 'returns the frequency adjective' do
+          expect(subject.to_adj).to eq('bob 4 wythnos')
+        end
+      end
+
+      context 'for montly salary_frequency' do
+        let(:params_salary_frequency) { 'month' }
+        let(:session_salary_frequency) { 'month' }
+        it 'returns the frequency adjective' do
+          expect(subject.to_adj).to eq('misol')
+        end
+      end
+      context 'for 4-weekly salary_frequency' do
+        let(:params_salary_frequency) { 'year' }
+        let(:session_salary_frequency) { 'year' }
+        it 'returns the frequency adjective' do
+          expect(subject.to_adj).to eq('blynyddol')
+        end
       end
     end
   end
