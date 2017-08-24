@@ -193,32 +193,3 @@ Run Rubocop locally with this command, `$ bundle exec rubocop .`
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
-## TODO
-
-#### For the initial demo - 11th July, 2017:
-
-- [x] Happy path journey through all the steps
-- [x] Display conditional messages for salary
-- [x] Ability to edit Step 1, Your Details
-
-#### For stakeholder demo - 20th July, 2017:
-
-- [ ] Tooltips - [John](https://maswiki.valiantyscloud.net/display/~john.player)
-- [ ] Your Results view - [David](https://maswiki.valiantyscloud.net/display/~dtrussler)
-- [ ] Views to incorporate correct data for salary_frequency.
-- [ ] Add frequency selector to Your Results page, [TP User Story](https://moneyadviceservice.tpondemand.com/RestUI/Board.aspx?acid=74E24C42BB81286E55C11FA8BF7FAAF3#page=board/5624876525867731357&appConfig=eyJhY2lkIjoiREI4ODcwRjkxMDNDRTM2NTlBMzhDNTRBRTVBNUU1N0UifQ==&boardPopup=userstory/8406/silent) - [Tomas](https://maswiki.valiantyscloud.net/display/~tdestefi)
-- [ ] Ability to edit Step 2, Your Details - [Margo](https://maswiki.valiantyscloud.net/display/~margo.urey)
-- [ ] Display error messages on the first 2 steps - [Will](https://maswiki.valiantyscloud.net/display/~will.hall), [Jones](https://maswiki.valiantyscloud.net/display/~jones.agyemang)
-
-
-#### For launch - August, 2017
-
-- [ ] Ensure all copy is translated to Welsh
-- [ ] Cater for the non-happy path
-- [ ] Refactor contribution calculations
-- [ ] Expire/delete session
-- [ ] Email results
-- [ ] Print results
-- [ ] Logging
-- [ ] Progressive enhancement: steps should be collapsable/expandable
