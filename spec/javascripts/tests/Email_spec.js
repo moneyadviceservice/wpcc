@@ -1,4 +1,4 @@
-describe.only('Email', function() {
+describe('Email', function() {
   'use strict';
 
   beforeEach(function(done) {
