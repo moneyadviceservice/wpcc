@@ -109,7 +109,7 @@ cy:
       description_html: |
         Bydd cyfraddau cyfraniadau pensiwn isaf yn cynyddu yn Ebrill 2018 ac eto yn Ebrill 2019.
         Bydd y ffigyrau hyn yn dangos sut y bydd hyn yn effeithio ar eich cyfraniadau.
-        Bydd cyfraniadau yn seiliedig ar eich enillion o <span class="results__eligible-salary">£%{eligible_salary}</span> y flwyddyn.
+        Bydd cyfraniadau yn seiliedig ar eich enillion o <span data-dough-eligible-salary>£%{eligible_salary}</span> y flwyddyn.
       large_contribution_percent_for_two_periods:
         Rydych chi a'ch cyflogwr eisoes yn talu mwy na'r isafswm newydd, felly rydym wedi dangos y cyfraniadau cyfredol yn unig. Ni fydd y rhain yn newid oni bai bod eich cyflog yn cynyddu neu rydych chi ac/neu eich cyflogwr yn dewis talu mwy.
       large_contribution_percent_for_middle_period:
