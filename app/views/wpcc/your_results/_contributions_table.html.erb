@@ -1,7 +1,7 @@
 <div class="results__row">
   <% schedule.each do |period| %>
     <div class="results__period results__period-<%= period.name %>" data-dough-component="PopupTip" data-dough-results-table>
-      <h3 class="results__period-title"><%= period.title %></h3>
+      <h3 class="results__period-title" data-dough-results-period-title><%= period.title %></h3>
 
       <p class="results__period-heading" data-dough-period-heading-yours>
         <%= t('wpcc.results.period.contribution_heading.yours') %>
