@@ -19,6 +19,7 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     this.$contributionsHeadingSummary = this.$el.find('[data-dough-contributions-heading-summary]');
     this.$eligibleSalary = this.$el.find('[data-dough-eligible-salary]');
     this.$resultsTables = this.$el.find('[data-dough-results-table]');
+    this.$frequencySelector = this.$el.find('[data-dough-selector]');
   };
 
   /**
@@ -31,9 +32,18 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
   Email.prototype.init = function(initialised) {
     if (this.$emailLink.length > 0) {
       this._initialisedSuccess(initialised);
-      this._setUpLink();
+      this._setUpEvents();
     }
   };
+
+  Email.prototype._setUpEvents = function() {
+    var _this = this;
+
+    this._setUpLink();
+    this.$frequencySelector.change(function() {
+      _this._setUpLink();
+    });
+  }
 
   Email.prototype._setUpLink = function() {
     var message = this._getMessage();
