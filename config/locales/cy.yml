@@ -138,6 +138,7 @@ cy:
       tax_relief_tooltip_html: Byddwch yn cael gostyngiad treth ar eich cyfraniadau pensiwn sy'n golygu y rhoddir peth o’r arian o'ch cyflog a fyddai wedi mynd i’r llywodraeth fel treth tuag at eich pensiwn yn hytrach. <a href="https://www.moneyadviceservice.org.uk/cy/articles/gostyngiad-treth-ar-gyfraniadau-pensiwn">Darllenwch fwy am sut i gael gostyngiad treth</a>.
       contribution_table_link: Darllen tabl sy’n dangos sut mae isafswm cyfraniadau cyfreithlon yn newid
       print_link: Argraffu eich canlyniadau
+      reset_calculator: Ailosod y gyfrifiannell
       next_steps: 
         heading: Y Camau Nesaf
         list:
