@@ -29,8 +29,10 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
   Email.componentName = 'Email';
 
   Email.prototype.init = function(initialised) {
-    this._initialisedSuccess(initialised);
-    this._setUpLink();
+    if (this.$emailLink.length > 0) {
+      this._initialisedSuccess(initialised);
+      this._setUpLink();
+    }
   };
 
   Email.prototype._setUpLink = function() {
