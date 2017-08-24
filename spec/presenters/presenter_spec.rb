@@ -21,6 +21,18 @@ RSpec.describe Wpcc::Presenter do
     end
   end
 
+  describe '#formatted_upper_earnings' do
+    it 'gets the upper earnings threshold and formats it' do
+      expect(subject.formatted_upper_earnings).to eq('£45,000')
+    end
+  end
+
+  describe '#formatted_lower_earnings' do
+    it 'gets the lower earnings threshold and formats it' do
+      expect(subject.formatted_lower_earnings).to eq('£5,876')
+    end
+  end
+
   describe '#formatted_currency - formats a number with a "£" sign and' do
     let(:number) { 5_876 }
     context 'when a precision is provided' do

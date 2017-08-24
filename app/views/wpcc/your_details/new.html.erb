@@ -137,7 +137,11 @@
                 <span class="details__helper-title--no-js">
                   <%= t('wpcc.details.calculate.qualifying_earnings_title') %>:
                 </span>
-                <%= t('wpcc.details.calculate.qualifying_earnings') %>
+                <%= t(
+                  'wpcc.details.calculate.qualifying_earnings',
+                  formatted_upper_earnings: @your_details_form.formatted_upper_earnings,
+                  formatted_lower_earnings: @your_details_form.formatted_lower_earnings
+                  ) %>
               </p>
               <%= render 'wpcc/tooltips/close' %>
             </div>
