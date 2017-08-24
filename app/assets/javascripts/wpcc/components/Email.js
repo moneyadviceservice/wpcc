@@ -42,24 +42,27 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
 
   Email.prototype._getMessage = function() {
     var message = '';
+    var i18nStrings = this.config.i18nStrings;
 
-    message += '1. ' + this.config.i18nStrings.detailsHeading + ': ' + this.$detailsHeadingSummary.text() + '\n\n';
-    message += '2. ' + this.config.i18nStrings.contributionsHeading + ': ' + this.$contributionsHeadingSummary.text() + '\n\n';
-    message += '3. ' + this.config.i18nStrings.resultsHeading + '\n';
-    message += this.config.i18nStrings.qualifyingEarningsHeading + ': ' + this.$eligibleSalary.text() + '\n\n';
+    message += '1. ' + i18nStrings.detailsHeading + ': ' + this.$detailsHeadingSummary.text() + '\n\n';
+    message += '2. ' + i18nStrings.contributionsHeading + ': ' + this.$contributionsHeadingSummary.text() + '\n\n';
+    message += '3. ' + i18nStrings.resultsHeading + '\n';
+    message += i18nStrings.qualifyingEarningsHeading + ': ' + this.$eligibleSalary.text() + '\n\n';
 
     for (var i = 0, max = this.$resultsTables.length; i < max; i++) {
-      message += $(this.$resultsTables.get(i)).find('[data-dough-results-period-title]').text() + '\n';
+      var resultTable = this.$resultsTables[i];
+
+      message += $(resultTable).find('[data-dough-results-period-title]').text() + '\n';
       message +=
-        $(this.$resultsTables.get(i)).find('[data-dough-period-heading-yours]').text() + ': ' +
-        $(this.$resultsTables.get(i)).find('[data-dough-employee-contribution]').text() + ' ' +
-        $(this.$resultsTables.get(i)).find('[data-dough-tax-relief]').text() + '\n';
+        $(resultTable).find('[data-dough-period-heading-yours]').text() + ': ' +
+        $(resultTable).find('[data-dough-employee-contribution]').text() + ' ' +
+        $(resultTable).find('[data-dough-tax-relief]').text() + '\n';
       message +=
-        $(this.$resultsTables.get(i)).find('[data-dough-period-heading-employers]').text() + ': ' +
-        $(this.$resultsTables.get(i)).find('[data-dough-employer-contribution]').text() + '\n';
+        $(resultTable).find('[data-dough-period-heading-employers]').text() + ': ' +
+        $(resultTable).find('[data-dough-employer-contribution]').text() + '\n';
       message +=
-        $(this.$resultsTables.get(i)).find('[data-dough-period-heading-total]').text() + ': ' +
-        $(this.$resultsTables.get(i)).find('[data-dough-total]').text();
+        $(resultTable).find('[data-dough-period-heading-total]').text() + ': ' +
+        $(resultTable).find('[data-dough-total]').text();
 
       if (i !== max - 1) {
         message += '\n\n';
