@@ -20,10 +20,6 @@ $responsive: true;
 @import 'yeast/assets/base/reset';
 @import 'yeast/assets/base/type';
 
-// Layout
-@import 'yeast/assets/layout/common/constrained';
-@import 'yeast/assets/layout/common/tool';
-
 // Dough Theme Components
 @import 'yeast/assets/components/dough_theme/form/form';
 @import 'yeast/assets/components/dough_theme/field_help_text/field_help_text';
