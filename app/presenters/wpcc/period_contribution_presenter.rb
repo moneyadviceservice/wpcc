@@ -37,8 +37,8 @@ module Wpcc
       default_i18n_key = 'wpcc.results.period.contribution_heading.employers'
 
       I18n.t(
-        "#{default_i18n_key}_#{salary_frequency.to_s}",
-        default: :"#{default_i18n_key}",
+        "#{default_i18n_key}_#{salary_frequency.to_s}_html",
+        default: :"#{default_i18n_key}_html",
         salary_frequency: salary_frequency.to_adj
       )
       # rubocop:enable Lint/StringConversionInInterpolation
