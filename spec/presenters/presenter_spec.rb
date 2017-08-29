@@ -9,14 +9,18 @@ RSpec.describe Wpcc::Presenter do
   describe '#salary_frequency_options' do
     let(:expected_result) do
       [
-        ['per Year',    'year',      { data: { unit_converter: 1 } }],
-        ['per Month',   'month',     { data: { unit_converter: 12 } }],
-        ['per 4 weeks', 'fourweeks', { data: { unit_converter: 13 } }],
-        ['per Week',    'week',      { data: { unit_converter: 52 } }]
+        ['per Year', 'year',
+         { data: { unit_converter: 1, frequency_adjective: 'annual' } }],
+        ['per Month', 'month',
+         { data: { unit_converter: 12, frequency_adjective: 'monthly' } }],
+        ['per 4 weeks', 'fourweeks',
+         { data: { unit_converter: 13, frequency_adjective: '4-weekly' } }],
+        ['per Week', 'week',
+         { data: { unit_converter: 52, frequency_adjective: 'weekly' } }]
       ]
     end
 
-    it 'returns an array of translation keys for salary_frequencies' do
+    it 'returns translation keys and data-attributes for salary_frequencies' do
       expect(subject.salary_frequency_options).to eq(expected_result)
     end
   end
