@@ -23,6 +23,10 @@ When(/^I press recalculate$/) do
   your_results_page.recalculate_button.click
 end
 
+When(/^I click the reset the calculator button$/) do
+  your_results_page.reset_calculator_link.click
+end
+
 Then(/^I should see "([^"]*)" in the Recalculate Salary Frequency selector dropdown$/) do |selected_frequency|
   expect(your_results_page).to have_select('salary_frequency', selected: selected_frequency)
 end

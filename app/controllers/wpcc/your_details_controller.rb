@@ -2,6 +2,8 @@ module Wpcc
   class YourDetailsController < EngineController
     protect_from_forgery
 
+    before_action SessionResetter, only: :destroy
+
     def new
       @your_details_form = present(Wpcc::YourDetailsForm.new(session_params))
     end
@@ -18,6 +20,8 @@ module Wpcc
         render 'new'
       end
     end
+
+    def destroy; end
 
     private
 

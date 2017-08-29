@@ -186,3 +186,11 @@ end
 Then(/^I should see the salary below threshold "([^"]*)"$/) do |callout_message|
   expect(your_details_page.salary_below_threshold_callout).to have_content(callout_message)
 end
+
+Then(/^The form should be reset to its default values$/) do
+  expect(your_details_page.age.value).to be_nil
+  expect(your_details_page.genders.value).to eq("")
+  expect(your_details_page.salary.value).to be_nil
+  expect(your_details_page.salary_frequencies.value).to eq('year')
+  expect(your_details_page.minimum_contribution_button).to be_truthy
+end
