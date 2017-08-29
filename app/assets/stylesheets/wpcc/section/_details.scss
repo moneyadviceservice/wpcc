@@ -3,6 +3,7 @@
   position: relative;
   clear: both;
 
+
   @include respond-to($mq-l) {
     @include column(8);
     margin: 0;
