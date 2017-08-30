@@ -105,7 +105,10 @@ end
 
 Then(/^my results should have "([^"]*)" "([^"]*)" and "([^"]*)"$/) do |your_heading, employer_heading, total_heading|
   headings = [your_heading, employer_heading, total_heading]
-  expect(your_results_page.results_period_headings[0..2].map(&:text)).to eq(headings)
+  headings = your_results_page.results_period_headings[0..2].map do |heading|
+    ActionView::Base.full_sanitizer.sanitize(heading.text)
+  end
+  expect(headings).to eq(headings)
 end
 
 Then(/^I should see a link to the legal minimum contributions table$/) do

@@ -8,15 +8,19 @@ module Wpcc
       super(object)
       @view_context = args[:view_context]
       @object = object
+      @converter = Wpcc::SalaryFrequencyConverter
     end
 
     def salary_frequency_options
-      Wpcc::SalaryFrequencyConverter::SALARY_FREQUENCIES
+      @converter::SALARY_FREQUENCIES
         .map do |frequency, frequency_number|
           [
             text_for('salary_frequency', frequency),
             frequency,
-            data: { unit_converter: frequency_number }
+            data: {
+              unit_converter: frequency_number,
+              frequency_adjective: frequency_adjective(frequency)
+            }
           ]
         end
     end
@@ -43,6 +47,10 @@ module Wpcc
 
     def text_for(option, value)
       t("wpcc.details.options.#{option}.#{value}")
+    end
+
+    def frequency_adjective(frequency)
+      @converter.adjectives[I18n.locale.to_s][frequency]
     end
   end
 end
