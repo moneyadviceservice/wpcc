@@ -106,10 +106,10 @@ cy:
 
     results:
       title: Eich canlyniadau
-      description: |
+      description_html: |
         Bydd cyfraddau cyfraniadau pensiwn isaf yn cynyddu yn Ebrill 2018 ac eto yn Ebrill 2019.
         Bydd y ffigyrau hyn yn dangos sut y bydd hyn yn effeithio ar eich cyfraniadau.
-        Bydd cyfraniadau yn seiliedig ar eich enillion o %{eligible_salary} y flwyddyn.
+        Bydd cyfraniadau yn seiliedig ar eich enillion o <span data-dough-eligible-salary>%{eligible_salary}</span> y flwyddyn.
       large_contribution_percent_for_two_periods:
         Rydych chi a'ch cyflogwr eisoes yn talu mwy na'r isafswm newydd, felly rydym wedi dangos y cyfraniadau cyfredol yn unig. Ni fydd y rhain yn newid oni bai bod eich cyflog yn cynyddu neu rydych chi ac/neu eich cyflogwr yn dewis talu mwy.
       large_contribution_percent_for_middle_period:
@@ -138,8 +138,9 @@ cy:
       tax_relief_tooltip_html: Byddwch yn cael gostyngiad treth ar eich cyfraniadau pensiwn sy'n golygu y rhoddir peth o’r arian o'ch cyflog a fyddai wedi mynd i’r llywodraeth fel treth tuag at eich pensiwn yn hytrach. <a href="https://www.moneyadviceservice.org.uk/cy/articles/gostyngiad-treth-ar-gyfraniadau-pensiwn">Darllenwch fwy am sut i gael gostyngiad treth</a>.
       contribution_table_link: Darllen tabl sy’n dangos sut mae isafswm cyfraniadau cyfreithlon yn newid
       print_link: Argraffu eich canlyniadau
+      email_link: E-bostio eich canlyniadau
       reset_calculator: Ailosod y gyfrifiannell
-      next_steps: 
+      next_steps:
         heading: Y Camau Nesaf
         list:
           pension_calculator_html: Defnyddiwch ein <a href="https://www.moneyadviceservice.org.uk/cy/tools/cyfrifiannell-pensiwn">Cyfrifiannell Pensiwn</a> i weld faint o bensiwn y bydd eich cronfa yn ei chronni dros amser.
