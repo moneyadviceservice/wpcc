@@ -1,7 +1,7 @@
 module Wpcc
   module Version
     MAJOR = 1
-    MINOR = 6
+    MINOR = 7
     PATCH = 1
 
     STRING = [MAJOR, MINOR, PATCH].join('.')

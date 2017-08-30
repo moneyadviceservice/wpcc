@@ -20,6 +20,7 @@ module UI
 
     element :salary_frequencies, "select[name='salary_frequency']"
     element :recalculate_button, "input[type='submit']"
+    element :reset_calculator_link, "a", text: "Reset the calculator"
 
     element :legal_contributions_table_link, 'p.contribution-changes__trigger'
     elements :percent_table_headings, 'table.contribution-changes__table th'
