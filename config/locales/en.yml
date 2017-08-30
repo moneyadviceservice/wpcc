@@ -106,10 +106,10 @@ en:
 
     results:
       title: Your Results
-      description: |
+      description_html: |
         Minimum pension contribution rates will increase in April 2018 and again in April 2019.
         These figures show how this will affect your contributions.
-        Contributions will be based on your earnings of %{eligible_salary} a year.
+        Contributions will be based on your earnings of <span data-dough-eligible-salary>%{eligible_salary}</span> a year
       large_contribution_percent_for_two_periods:
         "Both you and your employer are already paying above the new minimums so we have just shown the current contributions. These won't change unless your salary increases or you and/or your employer choose to pay more."
       large_contribution_percent_for_middle_period:
@@ -137,6 +137,7 @@ en:
       tax_relief_tooltip_html: You get tax relief on pension contributions which means some of the money from your pay that would have gone to the government as tax goes towards your pension instead. <a href="https://www.moneyadviceservice.org.uk/en/articles/tax-relief-on-pension-contributions">Read more about how you get tax relief</a>.
       contribution_table_link: View a table of how legal minimum contributions change
       print_link: Print your results
+      email_link: Email your results
       reset_calculator: Reset the calculator
       next_steps:
         heading: Next steps
