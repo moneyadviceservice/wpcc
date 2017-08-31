@@ -104,11 +104,13 @@ Then(/^I should( not)? see the manually_opt_in "([^"]*)"$/) do |should_not, mess
 end
 
 Then(/^my results should have "([^"]*)" "([^"]*)" and "([^"]*)"$/) do |your_heading, employer_heading, total_heading|
-  headings = [your_heading, employer_heading, total_heading]
-  headings = your_results_page.results_period_headings[0..2].map do |heading|
+  expected_headings = [your_heading, employer_heading, total_heading]
+
+  actual_headings = your_results_page.results_period_headings[0..2].map do |heading|
     ActionView::Base.full_sanitizer.sanitize(heading.text)
   end
-  expect(headings).to eq(headings)
+
+  expect(actual_headings).to eq(expected_headings)
 end
 
 Then(/^I should see a link to the legal minimum contributions table$/) do
