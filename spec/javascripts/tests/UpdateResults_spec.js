@@ -108,14 +108,16 @@ describe('Update Results', function() {
         }
 
         function testExpected(frequency, values) {
-          it('Initial frequency set to ' + initialFrequency + ', changed to ' + frequency, function() {
+          it('Initial value and title frequency set to ' + initialFrequency + ', changed to ' + frequency, function() {
             this.triggerChange(this.frequencySelector, frequency);
+            var titleContributions = this.frequencySelector.find('option:selected').attr('data-frequency-adjective');
 
             for (var i = 0, max = this.resultsTables.length; i < max; i++) {
               expect($(this.resultsTables[i]).find('[data-dough-employee-contribution]').html()).to.equal(values.employeeContributions[i]);
               expect($(this.resultsTables[i]).find('[data-dough-tax-relief]').html()).to.equal(values.taxRelief[i]);
               expect($(this.resultsTables[i]).find('[data-dough-employer-contribution]').html()).to.equal(values.employerContributions[i]);
               expect($(this.resultsTables[i]).find('[data-dough-total]').html()).to.equal(values.total[i]);
+              expect($(this.resultsTables[i]).find('[data-dough-title-frequency]').html()).to.equal(titleContributions);
             };
           });
         }
