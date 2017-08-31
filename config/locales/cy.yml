@@ -16,6 +16,10 @@ cy:
     tooltip_show: sioe help
     tooltip_hide: cuddio cymorth
 
+    launch_warning_title: Mae’r offeryn hwn yn un Beta
+    launch_warning_content: sy’n golygu ein bod yn profi a gwella’r gyfrifiannell. Os byddwch yn cael unrhyw broblemau, 
+    launch_warning_email_text: rhowch wybod i ni.
+
     title: Cyfrifiannell cyfraniadau pensiwn gweithle
     intro: Mae’n gyfraith erbyn hyn y dylai’r rhan fwyaf o gyflogeion gael eu cofrestru ar gynllun pensiwn gweithle gan eu cyflogwr. Bydd y gyfrifiannell hon yn dangos faint fydd yn cael ei dalu i mewn i'ch pensiwn gennych chi a'ch cyflogwr. Bydd hefyd yn dangos sut y gallai'r cyfraniadau yma gynyddu gydag amser.
     edit: Golygu

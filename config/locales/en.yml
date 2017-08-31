@@ -16,6 +16,10 @@ en:
     tooltip_show: show help
     tooltip_hide: hide help
 
+    launch_warning_title: This is tool is in Beta
+    launch_warning_content: That means we are testing and improving the calculator. If you have any problems
+    launch_warning_email_text: please let us know.
+
     title: Workplace pension contribution calculator
     intro: It is now law that most employees must be enrolled into a workplace pension scheme by their employer. This calculator will show you how much will be paid into your pension by you and your employer. It will also show how these contributions might increase over time.
     edit: Edit
