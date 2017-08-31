@@ -21,6 +21,14 @@ module Wpcc
     end
     helper_method :salary_frequency
 
+    def your_contributions_presenter
+      @your_contributions_presenter ||= Wpcc::YourContributionPresenter.new(
+        OpenStruct.new(eligible_salary: session[:eligible_salary]),
+        view_context: view_context
+      )
+    end
+    helper_method :your_contributions_presenter
+
     def period_legal_percents
       period_filter.periods.map do |period|
         Wpcc::PeriodPresenter.new(
