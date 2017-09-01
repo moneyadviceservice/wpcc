@@ -58,8 +58,9 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
   // Display recalculated values in tables
   UpdateResults.prototype._displayValues = function() {
     var unitConverter = this._unitConverter();
+    var titleContributions = this.frequencySelector.find('option:selected').attr('data-frequency-adjective');
 
-    // calculate & display new values
+    // calculate & display new values & titles
     for (var i = 0, max = this.resultsTables.length; i < max; i++) {
       var employeeContributions = (this.values.employeeContributions[i] / unitConverter).toFixed(2);
       var employerContributions = (this.values.employerContributions[i] / unitConverter).toFixed(2);
@@ -74,6 +75,7 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
       $(this.resultsTables[i]).find('[data-dough-employer-contribution]').html(employerContributions_html);
       $(this.resultsTables[i]).find('[data-dough-tax-relief]').html(taxRelief_html);
       $(this.resultsTables[i]).find('[data-dough-total]').html(total_html);
+      $(this.resultsTables[i]).find('[data-dough-title-frequency]').html(titleContributions); 
     };
   }
 

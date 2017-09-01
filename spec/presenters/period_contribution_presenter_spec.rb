@@ -57,8 +57,10 @@ RSpec.describe Wpcc::PeriodContributionPresenter do
     context 'for english fourweekly salary frequency' do
       let(:locale) { 'en' }
       it 'returns the english translation for 4-weekly' do
+        # rubocop:disable LineLength
         expect(subject.employer_frequency_heading(salary_frequency))
-          .to eq('Employer\'s 4-weekly contribution')
+          .to eq('Employer\'s <span data-dough-title-frequency>4-weekly</span> contribution')
+        # rubocop:enable LineLength
       end
     end
 
@@ -69,8 +71,10 @@ RSpec.describe Wpcc::PeriodContributionPresenter do
       after { I18n.locale = :en }
 
       it 'returns the welsh translation for 4-weekly' do
+        # rubocop:disable LineLength
         expect(subject.employer_frequency_heading(salary_frequency))
-          .to eq('Cyfraniad y cyflogwr bob 4 wythnos')
+          .to eq('Cyfraniad y cyflogwr <span data-dough-title-frequency>bob 4 wythnos</span>')
+        # rubocop:enable LineLength
       end
     end
   end
