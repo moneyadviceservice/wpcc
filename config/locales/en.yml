@@ -16,7 +16,7 @@ en:
     tooltip_show: show help
     tooltip_hide: hide help
 
-    launch_warning_title: This is tool is in Beta
+    launch_warning_title: This tool is in Beta
     launch_warning_content: That means we are testing and improving the calculator. If you have any problems
     launch_warning_email_text: please let us know.
 
