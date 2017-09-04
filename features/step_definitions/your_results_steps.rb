@@ -157,5 +157,6 @@ Then(/^I should see the values on the results page as:$/) do |table|
 end
 
 Then(/^I should see a contribution explanation "([^"]*)"$/) do |message|
-  expect(your_results_page.description.first).to have_content(message)
+  description = ActionView::Base.full_sanitizer.sanitize(your_results_page.description.first.text)
+  expect(description).to have_content(message)
 end

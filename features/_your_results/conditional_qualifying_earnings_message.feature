@@ -15,7 +15,7 @@ Feature: Additional message depending on your contribution preference
 
       Examples:
         | message |
-        | Contributions will be made on your qualifying earnings of £29,124 per year |
+        | Contributions will be based on your qualifying earnings of £29,124 per year |
 
       @welsh
       Examples:
@@ -30,7 +30,7 @@ Feature: Additional message depending on your contribution preference
 
       Examples:
         | message |
-        | Contributions will be made on your salary of £35,000 per year |
+        | Contributions will be based on your salary of £35,000 per year |
 
       @welsh
       Examples:
