@@ -109,7 +109,7 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
 
         // Annual salary is between £5876 and £10000 and not empty
         gt5876_lt10000 = annualSalary >= 5876 &&
-                         annualSalary <= 9999 &&
+                         annualSalary <= 10000 &&
                          annualSalary != '';
 
     if (!lt5876 && !gt5876_lt10000) {
