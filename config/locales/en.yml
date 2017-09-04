@@ -6,7 +6,7 @@ en:
           attributes:
             age:
               greater_than_or_equal_to: You are too young to join a workplace pension. When you reach the age of 16 you may ask your employer to enrol you. If you do so, your employer will make contributions
-              less_than: You are not eligible to join a workplace pension because you are above the maximum age.
+              less_than_or_equal_to: You are not eligible to join a workplace pension because you are above the maximum age.
   dough:
     forms:
       validation:
