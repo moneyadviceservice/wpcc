@@ -1,3 +1,7 @@
+## 1.8.2
+* TP-8458: Fix validation message
+* TP-8552: Fix Client side salary validation bugs
+
 ## 1.8.1
 * TP-8526: Display correct frequency titles in results
 * TP-8531: Amend Salary label and tooltip
