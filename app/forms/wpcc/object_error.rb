@@ -4,7 +4,7 @@ module Wpcc
       'activemodel.errors.models.wpcc/your_details_form.attributes.age'.freeze
     MESSAGES = [
       I18n.t("#{AGE_I18N_KEY}.greater_than_or_equal_to"),
-      I18n.t("#{AGE_I18N_KEY}.less_than")
+      I18n.t("#{AGE_I18N_KEY}.less_than_or_equal_to")
     ].freeze
 
     def full_message
