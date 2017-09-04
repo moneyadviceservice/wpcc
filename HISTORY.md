@@ -1,3 +1,34 @@
+## 1.8.1
+* TP-8526: Display correct frequency titles in results
+* TP-8531: Amend Salary label and tooltip
+
+Refactors:
+* Fix Grammar
+
+## 1.8.0
+* TP-8213: Add email component
+* TP-8532: Add launch warning
+
+## 1.7.1
+* TP-8408: Reset the calculator
+
+Refactors:
+* Tidies the mark up
+
+## 1.7.0
+
+* TP-8439: Dynamically update values on results page
+* TP-8522: Fix contribution conditional messaging
+* TP-8513: Fix edit details salary frequency bug
+* TP-8506: Display messages based on contribution percents
+* TP-8520: Results page links and welsh text in views
+* TP-8507: Display frequency in results table headings
+* TP-8458: Adds server side validation for the age field
+* TP-8524: Format numbers
+
+Refactors:
+* Fix issue with global nav not being full width
+
 ## 1.6.0
 
 * TP-8505: Fixes bug on Step 1 re salary/contributions inputs
