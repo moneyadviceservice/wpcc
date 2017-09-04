@@ -37,8 +37,8 @@ en:
         validation: Please select your gender
 
       salary:
-        label: Your basic salary
-        tooltip: We need your salary to calculate monthly contributions for you and your employer
+        label: Your salary
+        tooltip_html: Enter your salary before tax or other deductions are taken off.  This is known as your gross salary.  <a href="/en/articles/automatic-enrolment-when-you-have-more-than-one-job">If you have more than one job</a>, you will have to enter each salary separately. 
         validation: Please enter your salary
         frequency:
           label: Frequency
