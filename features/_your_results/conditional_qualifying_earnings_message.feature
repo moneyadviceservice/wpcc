@@ -7,7 +7,7 @@ Feature: Additional message depending on your contribution preference
     Given I am on the Your Details step
     And I fill in my details
 
-    Scenario Outline: Display message when selecting minimum contribution
+    Scenario Outline: When is Minimum contribution
       Given I choose my contribution preference as "Minimum"
       When I click the Next button
       And I move on to the results page
@@ -22,7 +22,7 @@ Feature: Additional message depending on your contribution preference
         | message |
         | Bydd cyfraniadau yn seiliedig ar eich enillion cymwys o £29,124 y flwyddyn. |
 
-    Scenario Outline: Display message when selecting full salary contribution
+    Scenario Outline: When is Full Contribution
       Given I choose my contribution preference as "Full"
       When I click the Next button
       And I move on to the results page

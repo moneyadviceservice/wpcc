@@ -5,6 +5,10 @@ abort('Do not run the tests in production mode!!!') if Rails.env.production?
 require 'rspec/rails'
 require 'simplecov'
 
+Dir[
+  ::Wpcc::Engine.root.join('spec/shared_examples/**.rb')
+].each { |f| require f }
+
 SimpleCov.start do
   add_filter '/spec/'
 end

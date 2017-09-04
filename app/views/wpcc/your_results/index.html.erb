@@ -19,7 +19,7 @@
   >
     <p>
       <%= t('wpcc.results.description_html') %>
-      <%= your_results_presenter.earnings_description %>
+      <%= your_results_presenter.earnings_description.html_safe %>
       <%= period_filter_presenter.contribution_percents_explanation %>
     </p>
 
