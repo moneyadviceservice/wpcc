@@ -12,6 +12,7 @@ Metrics/ModuleLength:
 Metrics/BlockLength:
   Exclude:
     - '**/*_spec.rb'
+    - '**/shared_examples/*.rb'
 Style/ClassAndModuleChildren:
   Enabled: false
 Style/CollectionMethods:

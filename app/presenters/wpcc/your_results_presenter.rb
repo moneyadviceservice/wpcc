@@ -1,9 +1,9 @@
 module Wpcc
-  class YourContributionPresenter < Presenter
+  class YourResultsPresenter < ::Wpcc::Presenter
     include ::Wpcc::EarningsDescription
 
     def earnings_description_key
-      'contributions'
+      'results'
     end
   end
 end
