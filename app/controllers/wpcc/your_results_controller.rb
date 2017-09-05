@@ -76,7 +76,8 @@ module Wpcc
     def salary_message
       Wpcc::SalaryMessage.new(
         salary: session[:salary].to_f.round(2),
-        salary_frequency: session[:salary_frequency]
+        salary_frequency: session[:salary_frequency],
+        employee_percent: session[:employee_percent]
       )
     end
   end

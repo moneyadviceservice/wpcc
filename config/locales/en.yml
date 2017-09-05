@@ -96,7 +96,7 @@ en:
       employer_contribution_tip: The legal minimum is 1%
       input_of_label: '% of'
       calculate_button: Calculate your contributions
-      contribution_gt40000_warning: Tax relief is only applied to contributions of up to %{formatted_upper_earnings} per year or 100% of your earnings, whichever is lower.
+      contribution_gt40000_warning: Tax relief is only applied to contributions of up to %{amount} per year or 100% of your earnings, whichever is lower.
       employee_validation:
         blank: Please enter your contribution
         out_of_range: Your contribution must be in the range 0% - 100%

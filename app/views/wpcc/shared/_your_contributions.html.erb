@@ -1,0 +1,17 @@
+<section class="section section--contributions">
+  <h2 class="section__heading contributions__heading">2. <%= t('wpcc.contributions.title') %>
+    <span class="section__heading-summary" data-dough-contributions-heading-summary>
+      <%= t('wpcc.results.contribution_changes.you') %>: <%= session[:employee_percent] %>%, <%= t('wpcc.results.contribution_changes.employer') %>: <%= session[:employer_percent] %>%
+    </span>
+    <span>
+      <%= link_to(t('wpcc.edit'), new_your_contribution_path, class: 'section__heading-edit') %>
+    </span>
+  </h2>
+  <% if message_presenter.show_above_max_contribution? %>
+    <div class="contributions__row">
+      <div class="callout">
+        <p><%= message_presenter.above_max_contribution %></p>
+      </div>
+    </div>
+  <% end %>
+</section>

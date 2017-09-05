@@ -108,6 +108,10 @@ Then(/^I should( not)? see the manually_opt_in "([^"]*)"$/) do |should_not, mess
   end
 end
 
+Then(/^I should see the contribution above maximum "([^"]*)"$/) do |message|
+  expect(page).to have_content(message)
+end
+
 Then(/^my results should have "([^"]*)" "([^"]*)" and "([^"]*)"$/) do |your_heading, employer_heading, total_heading|
   expected_headings = [your_heading, employer_heading, total_heading]
 

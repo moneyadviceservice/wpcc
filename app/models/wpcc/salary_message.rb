@@ -1,10 +1,11 @@
 module Wpcc
   class SalaryMessage
     include ActiveModel::Model
-    attr_accessor :salary, :salary_frequency, :text
+    attr_accessor :salary, :salary_frequency, :employee_percent, :text
 
     OPT_IN_SALARY_LOWER_LIMIT = 5_876
     OPT_IN_SALARY_UPPER_LIMIT = 10_000
+    TAX_RELIEF_MAX_CONTRIBUTION = 40_000
     TAX_RELIEF_THRESHOLD_RATE = {
       year: 11_500,
       month: 958.33,
@@ -20,6 +21,10 @@ module Wpcc
       valid_salary_frequency? && salary_below_frequency_threshold?
     end
 
+    def above_max_contribution?
+      employee_contribution > TAX_RELIEF_MAX_CONTRIBUTION
+    end
+
     private
 
     def valid_salary_frequency?
@@ -28,6 +33,11 @@ module Wpcc
 
     def salary_below_frequency_threshold?
       salary < TAX_RELIEF_THRESHOLD_RATE[salary_frequency.to_sym]
+    end
+
+    def employee_contribution
+      frequency = Wpcc::SalaryFrequencyConverter.convert(salary_frequency)
+      frequency * salary * employee_percent.to_i / 100
     end
   end
 end

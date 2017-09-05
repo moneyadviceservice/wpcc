@@ -27,5 +27,18 @@ module Wpcc
         t("wpcc.details.section__heading.contribution_#{preference}")
       ].join(', ')
     end
+
+    def show_above_max_contribution?
+      above_max_contribution?
+    end
+
+    def above_max_contribution
+      amount = formatted_currency(
+        Wpcc::SalaryMessage::TAX_RELIEF_MAX_CONTRIBUTION,
+        precision: 0
+      )
+
+      t('wpcc.contributions.contribution_gt40000_warning', amount: amount)
+    end
   end
 end

@@ -100,7 +100,8 @@ RSpec.describe Wpcc::YourResultsController do
         .to receive(:new)
         .with(
           salary: 25_000.00,
-          salary_frequency: 'week'
+          salary_frequency: 'week',
+          employee_percent: nil
         )
         .and_return(salary_message)
 
