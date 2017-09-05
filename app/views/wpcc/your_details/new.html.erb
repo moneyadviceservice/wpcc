@@ -120,7 +120,7 @@
             <%= render 'wpcc/tooltips/close' %>
           </div>
         </div>
-        <div data-dough-component="PopupTip">
+        <div class="details__row--group" data-dough-component="PopupTip">
           <fieldset>
             <legend class="details__calculate-heading"><%= t('wpcc.details.calculate.legend') %></legend>
             <p class="details__calculate-intro">
@@ -148,7 +148,7 @@
                 </div>
               </div>
             </div>
-            <div class="details__row details__row--group">
+            <div>
               <%= f.form_row :contribution_preference do %>
                 <%= f.errors_for :contribution_preference %>
                 <div class="form__group-item details__calculate-item">
