@@ -12,18 +12,19 @@ Feature: Display Tax Relief Warning
     And my salary is "<salary>" "<salary_frequency>"
     And I progress to the results page
     Then I should see tax relief "<warning_message>"
+    And I should see a link to "<tax_relief_link>" which reads "<tax_relief_link_text>"
 
     Examples:
-      | salary | salary_frequency | warning_message |
-      | 11000  | per Year         | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
-      | 858.33 | per Month        | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
-      | 784.61 | per 4 weeks      | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
-      | 121.14 | per Week         | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
+      | salary | salary_frequency | warning_message                                                                                                         | tax_relief_link                       | tax_relief_link_text |
+      | 11000  | per Year         | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            | tax-relief-and-your-workplace-pension | tax relief on pension contributions |
+      | 858.33 | per Month        | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            | tax-relief-and-your-workplace-pension | tax relief on pension contributions |
+      | 784.61 | per 4 weeks      | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            | tax-relief-and-your-workplace-pension | tax relief on pension contributions |
+      | 121.14 | per Week         | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            | tax-relief-and-your-workplace-pension | tax relief on pension contributions |
 
     @welsh
     Examples:
-      | salary | salary_frequency | warning_message |
-      | 11000  | y Flwyddyn       | Os nad ydych chi'n talu treth incwm ar eich enillion, fyddwch chi ddim ond yn cael gostyngiad treth ar eich cyfraniadau |
+      | salary | salary_frequency | warning_message                                                                                                         | tax_relief_link_text                     | tax_relief_link |
+      | 11000  | y Flwyddyn       | Os nad ydych chi'n talu treth incwm ar eich enillion, fyddwch chi ddim ond yn cael gostyngiad treth ar eich cyfraniadau | ostyngiadau treth ar gyfraniadau pensiwn | gostyngiad-treth-ach-pensiwn-gweithle |
 
   @no-javascript
   Scenario Outline: Earning £11,500 per year
