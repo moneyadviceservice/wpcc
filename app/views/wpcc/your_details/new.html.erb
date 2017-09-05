@@ -78,45 +78,47 @@
           </div>
         </div>
       </div>
-      <div class="details__row" data-dough-component="SalaryConditions PopupTip">
-        <div class="details__field">
-          <%= f.form_row :salary do %>
-            <div class="details__field-label">
-              <%= f.label :salary, t('wpcc.details.salary.label'), class: 'form__label-heading' %>
-              <%= render 'wpcc/tooltips/trigger' %>
-            </div>
-            <%= f.errors_for :salary %>
-            <%= f.errors_for :salary_frequency %>
-            <div class="details__salary">
-              <div class="details__salary-amount">
-              <%= f.text_field :salary,
-                required: true,
-                'data-dough-validation-empty': t('wpcc.details.salary.validation'),
-                'data-dough-salary-input': true
-              %>
+      <div class="details__row" data-dough-component="SalaryConditions">
+        <div data-dough-component="PopupTip">
+          <div class="details__field">
+            <%= f.form_row :salary do %>
+              <div class="details__field-label">
+                <%= f.label :salary, t('wpcc.details.salary.label'), class: 'form__label-heading' %>
+                <%= render 'wpcc/tooltips/trigger' %>
               </div>
-              <div class="details__salary-frequency">
-                <%= f.label :salary_frequency, t('wpcc.details.salary.frequency.label'), class: 'form__label-heading details__field-label visually-hidden' %>
-              <%= f.select(:salary_frequency, options_for_select(@your_details_form.salary_frequency_options, @your_details_form.salary_frequency), {}, {'data-dough-frequency-select': true}) %>
+              <%= f.errors_for :salary %>
+              <%= f.errors_for :salary_frequency %>
+              <div class="details__salary">
+                <div class="details__salary-amount">
+                <%= f.text_field :salary,
+                  required: true,
+                  'data-dough-validation-empty': t('wpcc.details.salary.validation'),
+                  'data-dough-salary-input': true
+                %>
+                </div>
+                <div class="details__salary-frequency">
+                  <%= f.label :salary_frequency, t('wpcc.details.salary.frequency.label'), class: 'form__label-heading details__field-label visually-hidden' %>
+                <%= f.select(:salary_frequency, options_for_select(@your_details_form.salary_frequency_options, @your_details_form.salary_frequency), {}, {'data-dough-frequency-select': true}) %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <div class="details__callouts">
+            <div class="form__row details__callout details__callout--inactive" data-dough-callout-lt5876>
+              <div class="callout">
+                <p><%= t('wpcc.details.callout__lt5876') %></p>
               </div>
             </div>
-          <% end %>
-        </div>
-        <div class="details__callouts">
-          <div class="form__row details__callout details__callout--inactive" data-dough-callout-lt5876>
-            <div class="callout">
-              <p><%= t('wpcc.details.callout__lt5876') %></p>
+            <div class="form__row details__callout details__callout--inactive" data-dough-callout-gt5876_lt10000>
+              <div class="callout">
+                <p><%= t('wpcc.details.callout__gt5876_lt10000') %></p>
+              </div>
             </div>
           </div>
-          <div class="form__row details__callout details__callout--inactive" data-dough-callout-gt5876_lt10000>
-            <div class="callout">
-              <p><%= t('wpcc.details.callout__gt5876_lt10000') %></p>
-            </div>
+          <div data-dough-popup-container class="popup-tip__container details__helper">
+            <p data-dough-popup-content class="popup-tip__content"><%= t('wpcc.details.salary.tooltip_html') %></p>
+            <%= render 'wpcc/tooltips/close' %>
           </div>
-        </div>
-        <div data-dough-popup-container class="popup-tip__container details__helper">
-          <p data-dough-popup-content class="popup-tip__content"><%= t('wpcc.details.salary.tooltip_html') %></p>
-          <%= render 'wpcc/tooltips/close' %>
         </div>
         <div data-dough-component="PopupTip">
           <fieldset>
