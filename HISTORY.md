@@ -1,3 +1,8 @@
+# 1.9.0
+* TP-8541: Add conditional intro text to results page
+* TP-8555: Amend salary tooltip url
+* TP-8554: Add url link to tax relief guide
+
 ## 1.8.2
 * TP-8458: Fix validation message
 * TP-8552: Fix Client side salary validation bugs
