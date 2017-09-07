@@ -35,11 +35,10 @@ RSpec.describe Wpcc::PeriodContributionPresenter do
   end
 
   describe '#formatted_tax_relief' do
-    let(:period_contribution) { double(tax_relief: 1.99) }
-
     it 'returns a message with the formatted value' do
+      period_contribution.tax_relief = 1.99
       expect(subject.formatted_tax_relief).to eq(
-        '(includes tax relief of £1.99)'
+        '(includes tax relief of <span>£1.99</span>)'
       )
     end
   end

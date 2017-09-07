@@ -1,15 +1,10 @@
 define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
   'use strict';
 
-  var UpdateResults,
-    defaultConfig = {
-      i18nStrings: {
-        parentheses: 'includes tax relief of £'
-      }
-    };
+  var UpdateResults;
 
   UpdateResults = function($el, config) {
-    UpdateResults.baseConstructor.call(this, $el, config, defaultConfig);
+    UpdateResults.baseConstructor.call(this, $el, config);
 
     this.frequencySelector = this.$el.find('[data-dough-selector]');
     this.resultsTables = this.$el.find('[data-dough-results-table]')
@@ -62,18 +57,19 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
 
     // calculate & display new values & titles
     for (var i = 0, max = this.resultsTables.length; i < max; i++) {
+
       var employeeContributions = (this.values.employeeContributions[i] / unitConverter).toFixed(2);
       var employerContributions = (this.values.employerContributions[i] / unitConverter).toFixed(2);
       var taxRelief = (this.values.taxRelief[i] / unitConverter).toFixed(2);
       var total = parseFloat(employeeContributions) + parseFloat(employerContributions);
       var employeeContributions_html = '£' + employeeContributions.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
       var employerContributions_html = '£' + employerContributions.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-      var taxRelief_html = '(' + this.config.i18nStrings.parentheses + taxRelief + ')';
+      var taxRelief_html = '£' + taxRelief;
       var total_html = '£' + total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
       $(this.resultsTables[i]).find('[data-dough-employee-contribution]').html(employeeContributions_html);
       $(this.resultsTables[i]).find('[data-dough-employer-contribution]').html(employerContributions_html);
-      $(this.resultsTables[i]).find('[data-dough-tax-relief]').html(taxRelief_html);
+      $(this.resultsTables[i]).find('[data-dough-tax-relief] span').text(taxRelief_html);
       $(this.resultsTables[i]).find('[data-dough-total]').html(total_html);
       $(this.resultsTables[i]).find('[data-dough-title-frequency]').html(titleContributions); 
     };

@@ -25,7 +25,10 @@ module Wpcc
     end
 
     def formatted_tax_relief
-      "(includes tax relief of #{formatted_contribution(object.tax_relief)})"
+      t(
+        'wpcc.results.period.tax_relief_html',
+        formatted_tax_relief: formatted_contribution(object.tax_relief)
+      )
     end
 
     def formatted_total_contributions
