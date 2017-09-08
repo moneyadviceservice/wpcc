@@ -37,14 +37,17 @@ RSpec.describe Wpcc::PeriodContributionPresenter do
   describe '#formatted_tax_relief' do
     it 'returns a message with the formatted value' do
       period_contribution.tax_relief = 1.99
+      data_attribute = 'data-dough-tax-relief-value'
+
       expect(subject.formatted_tax_relief).to eq(
-        '(includes tax relief of <span>£1.99</span>)'
+        "(includes tax relief of <span #{data_attribute}>£1.99</span>)"
       )
     end
   end
 
   describe '#employer_frequency_heading' do
     let(:salary_frequency) { Wpcc::SalaryFrequency.new(attributes) }
+    let(:data_attribute) { 'data-dough-title-frequency' }
     let(:attributes) do
       {
         locale: locale,
@@ -56,10 +59,9 @@ RSpec.describe Wpcc::PeriodContributionPresenter do
     context 'for english fourweekly salary frequency' do
       let(:locale) { 'en' }
       it 'returns the english translation for 4-weekly' do
-        # rubocop:disable LineLength
-        expect(subject.employer_frequency_heading(salary_frequency))
-          .to eq('Employer\'s <span data-dough-title-frequency>4-weekly</span> contribution')
-        # rubocop:enable LineLength
+        expect(subject.employer_frequency_heading(salary_frequency)).to eq(
+          "Employer's <span #{data_attribute}>4-weekly</span> contribution"
+        )
       end
     end
 
@@ -70,10 +72,9 @@ RSpec.describe Wpcc::PeriodContributionPresenter do
       after { I18n.locale = :en }
 
       it 'returns the welsh translation for 4-weekly' do
-        # rubocop:disable LineLength
-        expect(subject.employer_frequency_heading(salary_frequency))
-          .to eq('Cyfraniad y cyflogwr <span data-dough-title-frequency>bob 4 wythnos</span>')
-        # rubocop:enable LineLength
+        expect(subject.employer_frequency_heading(salary_frequency)).to eq(
+          "Cyfraniad y cyflogwr <span #{data_attribute}>bob 4 wythnos</span>"
+        )
       end
     end
   end

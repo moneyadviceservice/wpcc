@@ -69,9 +69,9 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
 
       $(this.resultsTables[i]).find('[data-dough-employee-contribution]').html(employeeContributions_html);
       $(this.resultsTables[i]).find('[data-dough-employer-contribution]').html(employerContributions_html);
-      $(this.resultsTables[i]).find('[data-dough-tax-relief] span').text(taxRelief_html);
+      $(this.resultsTables[i]).find('[data-dough-tax-relief-value]').text(taxRelief_html);
       $(this.resultsTables[i]).find('[data-dough-total]').html(total_html);
-      $(this.resultsTables[i]).find('[data-dough-title-frequency]').html(titleContributions); 
+      $(this.resultsTables[i]).find('[data-dough-title-frequency]').html(titleContributions);
     };
   }
 
