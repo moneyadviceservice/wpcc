@@ -9,7 +9,7 @@ Feature: Display messaging based on results table shown in results
   Scenario Outline: Employee and Employer contributions are greater than the minimum for 2018 AND 2019
     Given I fill in my contributions:
       | your_contribution | employer_contribution |
-      | 6                 | 4                     |
+      | 5                 | 3                     |
     When I move on to the results page
     Then I should see a contribution explanation "<message>"
 
@@ -25,7 +25,7 @@ Feature: Display messaging based on results table shown in results
   Scenario Outline: Employee and Employer contributions are greater than the minimum for 2018 but NOT for 2019
     Given I fill in my contributions:
       | your_contribution | employer_contribution |
-      | 4                 | 2.5                   |
+      | 3                 | 2.99                  |
     When I move on to the results page
     Then I should see a contribution explanation "<message>"
 
@@ -41,7 +41,7 @@ Feature: Display messaging based on results table shown in results
   Scenario Outline: Only Employee contribution is greater than the minimum for 2018 AND 2019
     Given I fill in my contributions:
       | your_contribution | employer_contribution |
-      | 6                 | 1                     |
+      | 5                 | 1                     |
     When I move on to the results page
     Then I should see a contribution explanation "<message>"
 
@@ -57,7 +57,7 @@ Feature: Display messaging based on results table shown in results
   Scenario Outline: Only Employer contribution is greater than the minimum for 2018 AND 2019
     Given I fill in my contributions:
       | your_contribution | employer_contribution |
-      | 1                 | 3.1                   |
+      | 1                 | 3                     |
     When I move on to the results page
     Then I should see a contribution explanation "<message>"
 

@@ -23,18 +23,18 @@ module Wpcc
     end
 
     def user_inputs_between_2nd_and_3rd_period_legal_minimums?
-      user_input_employee_percent > @second_period.employee_percent &&
+      user_input_employee_percent >= @second_period.employee_percent &&
         user_input_employee_percent < @last_period.employee_percent &&
-        user_input_employer_percent > @second_period.employer_percent &&
+        user_input_employer_percent >= @second_period.employer_percent &&
         user_input_employer_percent < @last_period.employer_percent
     end
 
     def user_input_for_employee_percent_greater_than_legal_minimums?
-      user_input_employee_percent > @last_period.employee_percent
+      user_input_employee_percent >= @last_period.employee_percent
     end
 
     def user_input_for_employer_percent_greater_than_legal_minimums?
-      user_input_employer_percent > @last_period.employer_percent
+      user_input_employer_percent >= @last_period.employer_percent
     end
   end
 end
