@@ -8,21 +8,21 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     SalaryConditions.baseConstructor.call(this, $el, config, defaultConfig);
 
     // Step 1 - Details
-    this.$salaryField = this.$el.find('[data-dough-salary-input]');
-    this.$salaryFrequency = this.$el.find('[data-dough-frequency-select]');
-    this.$callout_lt5876 = this.$el.find('[data-dough-callout-lt5876]');
-    this.$callout_gt5876_lt10000 = this.$el.find('[data-dough-callout-gt5876_lt10000]');
-    this.$radioDisabled = this.$el.find('[data-dough-callout-radio-disabled]');
-    this.$employerPartRadio = this.$el.find('[data-dough-employer-part-radio]');
-    this.$employerFullRadio = this.$el.find('[data-dough-employer-full-radio]');
+    this.$salaryField = this.$el.find('[data-wpcc-salary-input]');
+    this.$salaryFrequency = this.$el.find('[data-wpcc-frequency-select]');
+    this.$callout_lt5876 = this.$el.find('[data-wpcc-callout-lt5876]');
+    this.$callout_gt5876_lt10000 = this.$el.find('[data-wpcc-callout-gt5876_lt10000]');
+    this.$radioDisabled = this.$el.find('[data-wpcc-callout-radio-disabled]');
+    this.$employerPartRadio = this.$el.find('[data-wpcc-employer-part-radio]');
+    this.$employerFullRadio = this.$el.find('[data-wpcc-employer-full-radio]');
     this.contribution = 'full';
 
     // Step 2 - Contributions
-    this.$employeeTip = this.$el.find('[data-dough-employee-tip]');
-    this.$employeeTip_lt5876 = this.$el.find('[data-dough-employee-tip-lt5876]');
-    this.$employerTip = this.$el.find('[data-dough-employer-tip]');
-    this.$employeeContributions = this.$el.find('[data-dough-employee-contributions]');
-    this.$employerContributions = this.$el.find('[data-dough-employer-contributions]');
+    this.$employeeTip = this.$el.find('[data-wpcc-employee-tip]');
+    this.$employeeTip_lt5876 = this.$el.find('[data-wpcc-employee-tip-lt5876]');
+    this.$employerTip = this.$el.find('[data-wpcc-employer-tip]');
+    this.$employeeContributions = this.$el.find('[data-wpcc-employee-contributions]');
+    this.$employerContributions = this.$el.find('[data-wpcc-employer-contributions]');
   };
 
   DoughBaseComponent.extend(SalaryConditions);

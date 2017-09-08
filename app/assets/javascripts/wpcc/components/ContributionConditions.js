@@ -7,9 +7,9 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
   ContributionConditions = function($el, config) {
     ContributionConditions.baseConstructor.call(this, $el, config, defaultConfig);
 
-    this.$employeeContributions = this.$el.find('[data-dough-employee-contributions]');
-    this.$eligibleSalary = this.$el.find('[data-dough-contribution-salary]');
-    this.$contributionWarning = this.$el.find('[data-dough-callout-contribution-gt40000]');
+    this.$employeeContributions = this.$el.find('[data-wpcc-employee-contributions]');
+    this.$eligibleSalary = this.$el.find('[data-wpcc-contribution-salary]');
+    this.$contributionWarning = this.$el.find('[data-wpcc-callout-contribution-gt40000]');
 
   };
 

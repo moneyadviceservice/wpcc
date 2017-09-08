@@ -1,6 +1,6 @@
 <section class="section section--details details">
   <h2 class="section__heading details__heading">1. <%= t('wpcc.details.title') %>
-    <span class="section__heading-summary" data-dough-details-heading-summary><%= message_presenter.your_details_summary(session) %></span>
+    <span class="section__heading-summary" data-wpcc-details-heading-summary><%= message_presenter.your_details_summary(session) %></span>
     <span>
       <%= link_to(t('wpcc.edit'), new_your_detail_path, class: 'section__heading-edit') %>
     </span>

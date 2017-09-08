@@ -22,9 +22,9 @@ describe('Contribution Conditions', function() {
   describe('When an employee contribution percentage is entered', function() {
     
     beforeEach(function() {
-      this.employeeContributions = this.component.find('[data-dough-employee-contributions]');
-      this.eligibleSalary = this.component.find('[data-dough-contribution-salary]');
-      this.contributionWarning = this.component.find('[data-dough-callout-contribution-gt40000]');
+      this.employeeContributions = this.component.find('[data-wpcc-employee-contributions]');
+      this.eligibleSalary = this.component.find('[data-wpcc-contribution-salary]');
+      this.contributionWarning = this.component.find('[data-wpcc-callout-contribution-gt40000]');
 
       this.obj.init();
     });

@@ -1,17 +1,16 @@
 <div class="results__row">
   <% schedule.each do |period| %>
-    <div class="results__period results__period-<%= period.name %>" data-dough-component="PopupTip" data-dough-results-table>
-      <h3 class="results__period-title" data-dough-results-period-title><%= period.title %></h3>
+    <div class="results__period results__period-<%= period.name %>" data-dough-component="PopupTip" data-wpcc-results-table>
+      <h3 class="results__period-title" data-wpcc-results-period-title><%= period.title %></h3>
 
-      <p class="results__period-heading" data-dough-period-heading-yours>
+      <p class="results__period-heading" data-wpcc-period-heading-yours>
         <%= t('wpcc.results.period.contribution_heading.yours_html', salary_frequency: salary_frequency.to_adj) %>
       </p>
 
-      <p class="results__period-details results__period-employee-contribution" data-dough-employee-contribution data-value="<%= period.employee_contribution %>">
+      <p class="results__period-details results__period-employee-contribution" data-wpcc-employee-contribution data-value="<%= period.employee_contribution %>">
         <%= period.formatted_employee_contribution %>
       </p>
-
-      <p class="results__period-parenthesis" data-dough-tax-relief data-value="<%= period.tax_relief %>">
+      <p class="results__period-parenthesis" data-wpcc-tax-relief data-value="<%= period.tax_relief %>">
         <span class="results__period-tax-relief">
           <%= period.formatted_tax_relief %>
         </span>
@@ -25,19 +24,19 @@
         <%= render 'wpcc/tooltips/close' %>
       </div>
 
-      <p class="results__period-heading" data-dough-period-heading-employers>
+      <p class="results__period-heading" data-wpcc-period-heading-employers>
         <%= period.employer_frequency_heading(salary_frequency).html_safe %>
       </p>
 
-      <p class="results__period-details results__period-employer-contribution" data-dough-employer-contribution data-value="<%= period.employer_contribution %>">
+      <p class="results__period-details results__period-employer-contribution" data-wpcc-employer-contribution data-value="<%= period.employer_contribution %>">
         <%= period.formatted_employer_contribution %>
       </p>
 
-      <p class="results__period-heading" data-dough-period-heading-total>
+      <p class="results__period-heading" data-wpcc-period-heading-total>
         <%= t('wpcc.results.period.contribution_heading.total_html', salary_frequency: salary_frequency.to_adj) %>
       </p>
 
-      <p class="results__period-details results__period-total-contributions" data-dough-total>
+      <p class="results__period-details results__period-total-contributions" data-wpcc-total>
         <%= period.formatted_total_contributions %>
       </p>
     </div>

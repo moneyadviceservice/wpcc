@@ -114,9 +114,9 @@ en:
         Minimum pension contribution rates will increase in April 2018 and again in April 2019.
         These figures show how this will affect your contributions.
       description_full:
-        Contributions will be based on your salary of <span data-dough-eligible-salary>%{eligible_salary}</span> per year.
+        Contributions will be based on your salary of <span data-wpcc-eligible-salary>%{eligible_salary}</span> per year.
       description_minimum:
-        Contributions will be based on your qualifying earnings of <span data-dough-eligible-salary>%{eligible_salary}</span> per year.
+        Contributions will be based on your qualifying earnings of <span data-wpcc-eligible-salary>%{eligible_salary}</span> per year.
       large_contribution_percent_for_two_periods:
         "Both you and your employer are already paying above the new minimums so we have just shown the current contributions. These won't change unless your salary increases or you and/or your employer choose to pay more."
       large_contribution_percent_for_middle_period:
@@ -135,10 +135,10 @@ en:
         after_april_2019: April 2019 onwards
       period:
         contribution_heading:
-          yours_html: Your <span data-dough-title-frequency>%{salary_frequency}</span> contribution
-          employers_html: Employer's <span data-dough-title-frequency>%{salary_frequency}</span> contribution
-          total_html: Total <span data-dough-title-frequency>%{salary_frequency}</span> contributions
-        tax_relief_html: (includes tax relief of <span data-dough-tax-relief-value>%{formatted_tax_relief}</span>)
+          yours_html: Your <span data-wpcc-title-frequency>%{salary_frequency}</span> contribution
+          employers_html: Employer's <span data-wpcc-title-frequency>%{salary_frequency}</span> contribution
+          total_html: Total <span data-wpcc-title-frequency>%{salary_frequency}</span> contributions
+        tax_relief_html: (includes tax relief of <span data-wpcc-tax-relief-value>%{formatted_tax_relief}</span>)
       tax_relief_warning_html: If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions if your pension scheme collects contributions using the tax relief at source method. We have assumed your scheme does. Read more in our guide about <a href="https://www.moneyadviceservice.org.uk/en/articles/tax-relief-and-your-workplace-pension">tax relief on pension contributions</a>.
       tax_relief_warning: If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions if your pension scheme collects contributions using the tax relief at source method.  We have assumed your scheme does. Read more in our guide about tax relief on pension contributions.
       tax_relief_tooltip_html: You get tax relief on pension contributions which means some of the money from your pay that would have gone to the government as tax goes towards your pension instead. <a href="https://www.moneyadviceservice.org.uk/en/articles/tax-relief-and-your-workplace-pension">Read more about how you get tax relief</a>.

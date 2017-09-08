@@ -19,31 +19,31 @@
       <div class="contributions__row">
         <div class="contributions__source contributions__source--employee form__row">
           <h3 class="contributions__source-title"><%= t('wpcc.contributions.your_contribution_title') %></h3>
-          <p data-dough-employee-tip><%= t('wpcc.contributions.your_contribution_tip') %></p>
-          <p data-dough-employee-tip-lt5876 class="is-hidden"><%= t('wpcc.contributions.your_contribution_tip_lt5876') %></p>
+          <p data-wpcc-employee-tip><%= t('wpcc.contributions.your_contribution_tip') %></p>
+          <p data-wpcc-employee-tip-lt5876 class="is-hidden"><%= t('wpcc.contributions.your_contribution_tip_lt5876') %></p>
           <%= f.number_field :employee_percent,
             class: "contributions__source-input",
             required: true,
             min: 0,
             max: 100,
-            'data-dough-employee-contributions': true,
+            'data-wpcc-employee-contributions': true,
             'data-dough-validation-empty': t('wpcc.contributions.employee_validation.blank'),
             'data-dough-validation-invalid': t('wpcc.contributions.employee_validation.out_of_range')
           %>
           <%= t('wpcc.contributions.input_of_label') %>
           <span>
-            <span data-dough-contribution-salary><%= @your_contribution.formatted_eligible_salary %></span>
+            <span data-wpcc-contribution-salary><%= @your_contribution.formatted_eligible_salary %></span>
           </span>
         </div>
         <div class="contributions__source contributions__source--employer form__row">
           <h3 class="contributions__source-title"><%= t('wpcc.contributions.employer_contribution_title') %></h3>
-          <p data-dough-employer-tip><%= t('wpcc.contributions.employer_contribution_tip') %></p>
+          <p data-wpcc-employer-tip><%= t('wpcc.contributions.employer_contribution_tip') %></p>
           <%= f.number_field :employer_percent,
             class: "contributions__source-input",
             required: true,
             min: 0,
             max: 100,
-            'data-dough-employer-contributions': true,
+            'data-wpcc-employer-contributions': true,
             'data-dough-validation-empty': t('wpcc.contributions.employer_validation.blank'),
             'data-dough-validation-invalid': t('wpcc.contributions.employee_validation.out_of_range')
           %>
@@ -52,12 +52,12 @@
         </div>
       </div>
       <div class="contributions__row">
-        <div class="form__row details__callout details__callout--inactive" data-dough-callout-contribution-gt40000>
+        <div class="form__row details__callout details__callout--inactive" data-wpcc-callout-contribution-gt40000>
           <div class="callout">
             <p><%= @message_presenter.above_max_contribution %></p>
           </div>
         </div>
-        <%= f.submit(t('wpcc.contributions.calculate_button'), class: 'button button--primary', 'data-dough-submit': true) %>
+        <%= f.submit(t('wpcc.contributions.calculate_button'), class: 'button button--primary', 'data-wpcc-submit': true) %>
       </div>
     </div>
   <% end %>
