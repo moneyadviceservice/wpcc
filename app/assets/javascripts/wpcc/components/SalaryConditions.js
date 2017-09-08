@@ -12,7 +12,7 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     this.$salaryFrequency = this.$el.find('[data-wpcc-frequency-select]');
     this.$callout_lt5876 = this.$el.find('[data-wpcc-callout-lt5876]');
     this.$callout_gt5876_lt10000 = this.$el.find('[data-wpcc-callout-gt5876_lt10000]');
-    this.$radioDisabled = this.$el.find('[data-wpcc-callout-radio-disabled]');
+    this.$callout_lt5876_min_contribution = this.$el.find('[data-wpcc-callout-lt5876-min-contribution]');
     this.$employerPartRadio = this.$el.find('[data-wpcc-employer-part-radio]');
     this.$employerFullRadio = this.$el.find('[data-wpcc-employer-full-radio]');
     this.contribution = 'full';
@@ -129,8 +129,8 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     $this.$callout_lt5876.removeClass('details__callout--active');
     $this.$callout_gt5876_lt10000.removeClass('details__callout--active');
     $this.$callout_gt5876_lt10000.addClass('details__callout--inactive');
-    $this.$radioDisabled.removeClass('details__callout--active');
-    $this.$radioDisabled.addClass('details__callout--inactive');
+    $this.$callout_lt5876_min_contribution.removeClass('details__callout--active');
+    $this.$callout_lt5876_min_contribution.addClass('details__callout--inactive');
 
     // Enable radio button if disabled
     // And recheck inital option if full not already selected
@@ -149,8 +149,8 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     // Show relevant callouts
     $this.$callout_lt5876.removeClass('details__callout--inactive');
     $this.$callout_lt5876.addClass('details__callout--active');
-    $this.$radioDisabled.removeClass('details__callout--inactive');
-    $this.$radioDisabled.addClass('details__callout--active');
+    $this.$callout_lt5876_min_contribution.removeClass('details__callout--inactive');
+    $this.$callout_lt5876_min_contribution.addClass('details__callout--active');
 
     // Hide other callouts if visible
     $this.$callout_gt5876_lt10000.addClass('details__callout--inactive');
@@ -173,8 +173,8 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     // Hide previous callout if active
     $this.$callout_lt5876.addClass('details__callout--inactive');
     $this.$callout_lt5876.removeClass('details__callout--active');
-    $this.$radioDisabled.removeClass('details__callout--active');
-    $this.$radioDisabled.addClass('details__callout--inactive');
+    $this.$callout_lt5876_min_contribution.removeClass('details__callout--active');
+    $this.$callout_lt5876_min_contribution.addClass('details__callout--inactive');
 
     // Enable radio button if disabled
     // And recheck inital option if full not already selected
