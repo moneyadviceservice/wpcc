@@ -54,11 +54,7 @@
       <div class="contributions__row">
         <div class="form__row details__callout details__callout--inactive" data-dough-callout-contribution-gt40000>
           <div class="callout">
-            <p>
-              <%= t('wpcc.contributions.contribution_gt40000_warning', 
-                formatted_upper_earnings: @your_contribution.formatted_upper_earnings)
-              %>
-            </p>
+            <p><%= @message_presenter.above_max_contribution %></p>
           </div>
         </div>
         <%= f.submit(t('wpcc.contributions.calculate_button'), class: 'button button--primary', 'data-dough-submit': true) %>

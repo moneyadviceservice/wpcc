@@ -96,7 +96,7 @@ cy:
       employer_contribution_tip: Yr isafswm cyfreithiol yw 1%
       input_of_label: '% o'
       calculate_button: Cyfrifwch eich cyfraniadau
-      contribution_gt40000_warning: Rhoddir gostyngiad treth ar gyfraniadau hyd at %{formatted_upper_earnings} y flwyddyn yn unig, neu 100% o’ch enillion, pa bynnag un sydd leiaf.
+      contribution_gt40000_warning: Rhoddir gostyngiad treth ar gyfraniadau hyd at %{amount} y flwyddyn yn unig, neu 100% o’ch enillion, pa bynnag un sydd leiaf.
       employee_validation:
         blank: Rhowch eich cyfraniad
         out_of_range: Rhaid i'ch cyfraniad fod yn yr ystod 0 - 100%

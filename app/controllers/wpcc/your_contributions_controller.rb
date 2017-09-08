@@ -85,6 +85,7 @@ module Wpcc
       Wpcc::SalaryMessage.new(
         salary: session[:salary].to_f.round(2),
         salary_frequency: session[:salary_frequency],
+        employee_percent: session[:employee_percent],
         text: :manually_opt_in
       )
     end

@@ -1,13 +1,5 @@
 <%= render 'wpcc/shared/your_details' %>
-
-<section class="section section--contributions">
-  <h2 class="section__heading contributions__heading">2. <%= t('wpcc.contributions.title') %>
-    <span class="section__heading-summary" data-dough-contributions-heading-summary><%= t('wpcc.results.contribution_changes.you') %>: <%= session[:employee_percent] %>%, <%= t('wpcc.results.contribution_changes.employer') %>: <%= session[:employer_percent] %>%</span>
-    <span>
-      <%= link_to(t('wpcc.edit'), new_your_contribution_path, class: 'section__heading-edit') %>
-    </span>
-  </h2>
-</section>
+<%= render 'wpcc/shared/your_contributions', message_presenter: message_presenter %>
 
 <section class="section section--results">
   <h2 class="section__heading results__heading">3. <%= t('wpcc.results.title') %></h2>

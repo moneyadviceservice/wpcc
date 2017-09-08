@@ -45,7 +45,7 @@ end
 
 When(/^I enter my details$/) do
   step %{I enter my age as "35"}
-  step %{I select my gender as "Female"}
+  step %{I select my gender as "#{I18n.translate('wpcc.details.options.gender.female')}"}
 end
 
 When(/^I enter my personal details$/) do
@@ -58,6 +58,13 @@ Given(/^my salary is "([^"]*)" "([^"]*)" with "([^"]*)" contribution$/) do |sala
   step %{I enter my salary as "#{salary}"}
   step %{I select my salary frequency as "#{salary_frequency}"}
   step %{I choose my contribution preference as "#{contribution}"}
+end
+
+When(/^I enter "([^"]*)" "([^"]*)" with contributions greater than the maximum for tax relief$/) do |salary, salary_frequency|
+  step %{I enter my details}
+  step %{my salary is "#{salary}" "#{salary_frequency}" with "Full" contribution}
+  step %{I click the Next button}
+  step %{my contribution is "60" percent}
 end
 
 When(/^I fill in my details$/) do
