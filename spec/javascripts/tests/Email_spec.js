@@ -12,7 +12,7 @@ describe('Email', function() {
         _this.email = Email;
         _this.obj = new _this.email(_this.component);
 
-        _this.$emailLink = _this.component.find('[data-dough-email-link]');
+        _this.$emailLink = _this.component.find('[data-wpcc-email-link]');
 
         done();
     }, done);

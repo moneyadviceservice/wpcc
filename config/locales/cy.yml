@@ -114,9 +114,9 @@ cy:
         Bydd cyfraddau cyfraniadau pensiwn isaf yn cynyddu yn Ebrill 2018 ac eto yn Ebrill 2019.
         Bydd y ffigyrau hyn yn dangos sut y bydd hyn yn effeithio ar eich cyfraniadau.
       description_full:
-        Bydd cyfraniadau yn seiliedig ar eich cyflog o <span data-dough-eligible-salary>%{eligible_salary}</span> y flwyddyn.
+        Bydd cyfraniadau yn seiliedig ar eich cyflog o <span data-wpcc-eligible-salary>%{eligible_salary}</span> y flwyddyn.
       description_minimum:
-        Bydd cyfraniadau yn seiliedig ar eich enillion cymwys o <span data-dough-eligible-salary>%{eligible_salary}</span> y flwyddyn.
+        Bydd cyfraniadau yn seiliedig ar eich enillion cymwys o <span data-wpcc-eligible-salary>%{eligible_salary}</span> y flwyddyn.
       large_contribution_percent_for_two_periods:
         Rydych chi a'ch cyflogwr eisoes yn talu mwy na'r isafswm newydd, felly rydym wedi dangos y cyfraniadau cyfredol yn unig. Ni fydd y rhain yn newid oni bai bod eich cyflog yn cynyddu neu rydych chi ac/neu eich cyflogwr yn dewis talu mwy.
       large_contribution_percent_for_middle_period:
@@ -135,11 +135,11 @@ cy:
         after_april_2019: O Ebrill 2019 ymlaen
       period:
         contribution_heading:
-          yours_html: Eich cyfraniad <span data-dough-title-frequency>%{salary_frequency}</span>
-          employers_html: Cyfraniad <span data-dough-title-frequency>%{salary_frequency}</span> y cyflogwr
-          employers_fourweeks_html: Cyfraniad y cyflogwr <span data-dough-title-frequency>%{salary_frequency}</span>
-          total_html: Cyfanswm y cyfraniad <span data-dough-title-frequency>%{salary_frequency}</span>
-        tax_relief_html: (yn cynnwys gostyngiad treth o <span data-dough-tax-relief-value>%{formatted_tax_relief}</span>)
+          yours_html: Eich cyfraniad <span data-wpcc-title-frequency>%{salary_frequency}</span>
+          employers_html: Cyfraniad <span data-wpcc-title-frequency>%{salary_frequency}</span> y cyflogwr
+          employers_fourweeks_html: Cyfraniad y cyflogwr <span data-wpcc-title-frequency>%{salary_frequency}</span>
+          total_html: Cyfanswm y cyfraniad <span data-wpcc-title-frequency>%{salary_frequency}</span>
+        tax_relief_html: (yn cynnwys gostyngiad treth o <span data-wpcc-tax-relief-value>%{formatted_tax_relief}</span>)
       tax_relief_warning_html: Os nad ydych chi'n talu treth incwm ar eich enillion, fyddwch chi ddim ond yn cael gostyngiad treth ar eich cyfraniadau os bydd eich cynllun pensiwn yn casglu cyfraniadau yn defnyddio'r gostyngiad treth yn y ffynhonnell. Rydym wedi tybio bod eich cynllun yn gwneud hyn. Darllenwch ragor yn ein canllaw am <a href="https://www.moneyadviceservice.org.uk/cy/articles/gostyngiad-treth-ach-pensiwn-gweithle">ostyngiadau treth ar gyfraniadau pensiwn</a>.
       tax_relief_warning: Os nad ydych chi'n talu treth incwm ar eich enillion, fyddwch chi ddim ond yn cael gostyngiad treth ar eich cyfraniadau os bydd eich cynllun pensiwn yn casglu cyfraniadau yn defnyddio'r gostyngiad treth yn y ffynhonnell. Rydym wedi tybio bod eich cynllun yn gwneud hyn. Darllenwch ragor yn ein canllaw am ostyngiadau treth ar gyfraniadau pensiwn.
       tax_relief_tooltip_html: Byddwch yn cael gostyngiad treth ar eich cyfraniadau pensiwn sy'n golygu y rhoddir peth o’r arian o'ch cyflog a fyddai wedi mynd i’r llywodraeth fel treth tuag at eich pensiwn yn hytrach. <a href="https://www.moneyadviceservice.org.uk/cy/articles/gostyngiad-treth-ach-pensiwn-gweithle">Darllenwch fwy am sut i gael gostyngiad treth</a>.

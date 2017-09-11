@@ -7,12 +7,12 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
   ConditionalMessaging = function($el, config) {
     ConditionalMessaging.baseConstructor.call(this, $el, config, defaultConfig);
 
-    this.$ageField = this.$el.find('[data-dough-age-field]');
-    this.$genderSelect = this.$el.find('[data-dough-gender-select]');
-    this.$callout_lt16 = this.$el.find('[data-dough-callout-lt16]');
-    this.$callout_optIn = this.$el.find('[data-dough-callout-optIn]');
-    this.$callout_gt74 = this.$el.find('[data-dough-callout-gt74]');
-    this.$submit = this.$el.find('[data-dough-submit]');
+    this.$ageField = this.$el.find('[data-wpcc-age-field]');
+    this.$genderSelect = this.$el.find('[data-wpcc-gender-select]');
+    this.$callout_lt16 = this.$el.find('[data-wpcc-callout-lt16]');
+    this.$callout_optIn = this.$el.find('[data-wpcc-callout-optIn]');
+    this.$callout_gt74 = this.$el.find('[data-wpcc-callout-gt74]');
+    this.$submit = this.$el.find('[data-wpcc-submit]');
   };
 
   /**

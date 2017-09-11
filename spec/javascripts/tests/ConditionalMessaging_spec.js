@@ -35,12 +35,12 @@ describe('Conditional Messaging', function() {
         element.trigger(e);
       };
 
-      this.ageField = this.component.find('[data-dough-age-field]');
-      this.genderField = this.component.find('[data-dough-gender-select]');
-      this.callout_lt16 = this.component.find('[data-dough-callout-lt16]');
-      this.callout_optIn = this.component.find('[data-dough-callout-optIn]');
-      this.callout_gt74 = this.component.find('[data-dough-callout-gt74]');
-      this.submit = this.component.find('[data-dough-submit]');
+      this.ageField = this.component.find('[data-wpcc-age-field]');
+      this.genderField = this.component.find('[data-wpcc-gender-select]');
+      this.callout_lt16 = this.component.find('[data-wpcc-callout-lt16]');
+      this.callout_optIn = this.component.find('[data-wpcc-callout-optIn]');
+      this.callout_gt74 = this.component.find('[data-wpcc-callout-gt74]');
+      this.submit = this.component.find('[data-wpcc-submit]');
 
       this.obj.init();
     });

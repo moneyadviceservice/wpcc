@@ -14,12 +14,12 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
   Email = function($el, config) {
     Email.baseConstructor.call(this, $el, config, defaultConfig);
 
-    this.$emailLink = this.$el.find('[data-dough-email-link]');
-    this.$detailsHeadingSummary = this.$el.find('[data-dough-details-heading-summary]');
-    this.$contributionsHeadingSummary = this.$el.find('[data-dough-contributions-heading-summary]');
-    this.$eligibleSalary = this.$el.find('[data-dough-eligible-salary]');
-    this.$resultsTables = this.$el.find('[data-dough-results-table]');
-    this.$frequencySelector = this.$el.find('[data-dough-selector]');
+    this.$emailLink = this.$el.find('[data-wpcc-email-link]');
+    this.$detailsHeadingSummary = this.$el.find('[data-wpcc-details-heading-summary]');
+    this.$contributionsHeadingSummary = this.$el.find('[data-wpcc-contributions-heading-summary]');
+    this.$eligibleSalary = this.$el.find('[data-wpcc-eligible-salary]');
+    this.$resultsTables = this.$el.find('[data-wpcc-results-table]');
+    this.$frequencySelector = this.$el.find('[data-wpcc-selector]');
   };
 
   /**
@@ -64,17 +64,17 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     for (var i = 0, max = this.$resultsTables.length; i < max; i++) {
       var resultTable = this.$resultsTables[i];
 
-      message += $(resultTable).find('[data-dough-results-period-title]').text().trim() + '\n';
+      message += $(resultTable).find('[data-wpcc-results-period-title]').text().trim() + '\n';
       message +=
-        $(resultTable).find('[data-dough-period-heading-yours]').text().trim() + ': ' +
-        $(resultTable).find('[data-dough-employee-contribution]').text().trim() + ' ' +
-        $(resultTable).find('[data-dough-tax-relief]').text().trim() + '\n';
+        $(resultTable).find('[data-wpcc-period-heading-yours]').text().trim() + ': ' +
+        $(resultTable).find('[data-wpcc-employee-contribution]').text().trim() + ' ' +
+        $(resultTable).find('[data-wpcc-tax-relief]').text().trim() + '\n';
       message +=
-        $(resultTable).find('[data-dough-period-heading-employers]').text().trim() + ': ' +
-        $(resultTable).find('[data-dough-employer-contribution]').text().trim() + '\n';
+        $(resultTable).find('[data-wpcc-period-heading-employers]').text().trim() + ': ' +
+        $(resultTable).find('[data-wpcc-employer-contribution]').text().trim() + '\n';
       message +=
-        $(resultTable).find('[data-dough-period-heading-total]').text().trim() + ': ' +
-        $(resultTable).find('[data-dough-total]').text().trim();
+        $(resultTable).find('[data-wpcc-period-heading-total]').text().trim() + ': ' +
+        $(resultTable).find('[data-wpcc-total]').text().trim();
 
       if (i !== max - 1) {
         message += '\n\n';

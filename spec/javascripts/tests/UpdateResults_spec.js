@@ -18,8 +18,8 @@ describe('Update Results', function() {
         _this.component = _this.$html.find('[data-dough-component="UpdateResults"]');
         _this.updateResults = UpdateResults;
         _this.obj = new _this.updateResults(_this.component);
-        _this.frequencySelector = _this.$html.find('[data-dough-selector]');
-        _this.resultsTables = _this.$html.find('[data-dough-results-table]');
+        _this.frequencySelector = _this.$html.find('[data-wpcc-selector]');
+        _this.resultsTables = _this.$html.find('[data-wpcc-results-table]');
 
         done();
     }, done);
@@ -62,9 +62,9 @@ describe('Update Results', function() {
       beforeEach(function () {
         // add intial values to fixture
         for (var i = 0, max = this.resultsTables.length; i < max; i++) {
-          $(this.resultsTables[i]).find('[data-dough-employee-contribution]').attr('data-value', values.employeeContributions[i]);
-          $(this.resultsTables[i]).find('[data-dough-tax-relief]').attr('data-value', values.taxRelief[i]);
-          $(this.resultsTables[i]).find('[data-dough-employer-contribution]').attr('data-value', values.employerContributions[i]);
+          $(this.resultsTables[i]).find('[data-wpcc-employee-contribution]').attr('data-value', values.employeeContributions[i]);
+          $(this.resultsTables[i]).find('[data-wpcc-tax-relief]').attr('data-value', values.taxRelief[i]);
+          $(this.resultsTables[i]).find('[data-wpcc-employer-contribution]').attr('data-value', values.employerContributions[i]);
         }
 
         // intialise the component
@@ -113,11 +113,11 @@ describe('Update Results', function() {
             var titleContributions = this.frequencySelector.find('option:selected').attr('data-frequency-adjective');
 
             for (var i = 0, max = this.resultsTables.length; i < max; i++) {
-              expect($(this.resultsTables[i]).find('[data-dough-employee-contribution]').html()).to.equal(values.employeeContributions[i]);
-              expect($(this.resultsTables[i]).find('[data-dough-tax-relief-value]').html()).to.equal(values.taxRelief[i]);
-              expect($(this.resultsTables[i]).find('[data-dough-employer-contribution]').html()).to.equal(values.employerContributions[i]);
-              expect($(this.resultsTables[i]).find('[data-dough-total]').html()).to.equal(values.total[i]);
-              expect($(this.resultsTables[i]).find('[data-dough-title-frequency]').html()).to.equal(titleContributions);
+              expect($(this.resultsTables[i]).find('[data-wpcc-employee-contribution]').html()).to.equal(values.employeeContributions[i]);
+              expect($(this.resultsTables[i]).find('[data-wpcc-tax-relief-value]').html()).to.equal(values.taxRelief[i]);
+              expect($(this.resultsTables[i]).find('[data-wpcc-employer-contribution]').html()).to.equal(values.employerContributions[i]);
+              expect($(this.resultsTables[i]).find('[data-wpcc-total]').html()).to.equal(values.total[i]);
+              expect($(this.resultsTables[i]).find('[data-wpcc-title-frequency]').html()).to.equal(titleContributions);
             };
           });
         }

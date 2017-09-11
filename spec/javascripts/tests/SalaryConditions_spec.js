@@ -25,13 +25,13 @@ describe('Salary Conditions', function() {
     var clock;
 
     beforeEach(function() {
-      this.salaryField = this.component.find('[data-dough-salary-input]');
-      this.salaryFrequency = this.component.find('[data-dough-frequency-select]');
-      this.callout_lt5876 = this.component.find('[data-dough-callout-lt5876]');
-      this.callout_gt5876_lt10000 = this.component.find('[data-dough-callout-gt5876_lt10000]');
-      this.radioDisabled = this.component.find('[data-dough-callout-radio-disabled]');
-      this.employerPartRadio = this.component.find('[data-dough-employer-part-radio]');
-      this.employerFullRadio = this.component.find('[data-dough-employer-full-radio]');
+      this.salaryField = this.component.find('[data-wpcc-salary-input]');
+      this.salaryFrequency = this.component.find('[data-wpcc-frequency-select]');
+      this.callout_lt5876 = this.component.find('[data-wpcc-callout-lt5876]');
+      this.callout_gt5876_lt10000 = this.component.find('[data-wpcc-callout-gt5876_lt10000]');
+      this.radioDisabled = this.component.find('[data-wpcc-callout-radio-disabled]');
+      this.employerPartRadio = this.component.find('[data-wpcc-employer-part-radio]');
+      this.employerFullRadio = this.component.find('[data-wpcc-employer-full-radio]');
 
       clock = sinon.useFakeTimers();
 
@@ -179,11 +179,11 @@ describe('Salary Conditions', function() {
         element.trigger(e);
       };
 
-      this.salaryField = this.component.find('[data-dough-salary-input]');
-      this.salaryFrequency = this.component.find('[data-dough-frequency-select]');
-      this.callout_lt5876 = this.component.find('[data-dough-callout-lt5876]');
-      this.callout_gt5876_lt10000 = this.component.find('[data-dough-callout-gt5876_lt10000]');
-      this.radioDisabled = this.component.find('[data-dough-callout-radio-disabled]');
+      this.salaryField = this.component.find('[data-wpcc-salary-input]');
+      this.salaryFrequency = this.component.find('[data-wpcc-frequency-select]');
+      this.callout_lt5876 = this.component.find('[data-wpcc-callout-lt5876]');
+      this.callout_gt5876_lt10000 = this.component.find('[data-wpcc-callout-gt5876_lt10000]');
+      this.radioDisabled = this.component.find('[data-wpcc-callout-radio-disabled]');
       clock = sinon.useFakeTimers();
       this.obj.init();
     });
@@ -246,12 +246,12 @@ describe('Salary Conditions', function() {
     var clock;
 
     beforeEach(function() {
-      this.salaryField = this.component.find('[data-dough-salary-input]');
-      this.employeeTip = this.component.find('[data-dough-employee-tip]');
-      this.employeeTip_lt5876 = this.component.find('[data-dough-employee-tip-lt5876]');
-      this.employerTip = this.component.find('[data-dough-employer-tip]');
-      this.employeeContributions = this.component.find('[data-dough-employee-contributions]');
-      this.employerContributions = this.component.find('[data-dough-employer-contributions]');
+      this.salaryField = this.component.find('[data-wpcc-salary-input]');
+      this.employeeTip = this.component.find('[data-wpcc-employee-tip]');
+      this.employeeTip_lt5876 = this.component.find('[data-wpcc-employee-tip-lt5876]');
+      this.employerTip = this.component.find('[data-wpcc-employer-tip]');
+      this.employeeContributions = this.component.find('[data-wpcc-employee-contributions]');
+      this.employerContributions = this.component.find('[data-wpcc-employer-contributions]');
       clock = sinon.useFakeTimers();
       this.obj.init();
     });
@@ -302,12 +302,12 @@ describe('Salary Conditions', function() {
     var clock;
 
     beforeEach(function() {
-      this.salaryField = this.component.find('[data-dough-salary-input]');
-      this.employeeContributions = this.component.find('[data-dough-employee-contributions]');
-      this.employerContributions = this.component.find('[data-dough-employer-contributions]');
-      this.employeeTip = this.component.find('[data-dough-employee-tip]');
-      this.employeeTip_lt5876 = this.component.find('[data-dough-employee-tip-lt5876]');
-      this.employerTip = this.component.find('[data-dough-employer-tip]');
+      this.salaryField = this.component.find('[data-wpcc-salary-input]');
+      this.employeeContributions = this.component.find('[data-wpcc-employee-contributions]');
+      this.employerContributions = this.component.find('[data-wpcc-employer-contributions]');
+      this.employeeTip = this.component.find('[data-wpcc-employee-tip]');
+      this.employeeTip_lt5876 = this.component.find('[data-wpcc-employee-tip-lt5876]');
+      this.employerTip = this.component.find('[data-wpcc-employer-tip]');
       clock = sinon.useFakeTimers();
       this.obj.init();
     });

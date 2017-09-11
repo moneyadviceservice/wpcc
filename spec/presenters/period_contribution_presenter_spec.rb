@@ -37,7 +37,7 @@ RSpec.describe Wpcc::PeriodContributionPresenter do
   describe '#formatted_tax_relief' do
     it 'returns a message with the formatted value' do
       period_contribution.tax_relief = 1.99
-      data_attribute = 'data-dough-tax-relief-value'
+      data_attribute = 'data-wpcc-tax-relief-value'
 
       expect(subject.formatted_tax_relief).to eq(
         "(includes tax relief of <span #{data_attribute}>£1.99</span>)"
@@ -47,7 +47,7 @@ RSpec.describe Wpcc::PeriodContributionPresenter do
 
   describe '#employer_frequency_heading' do
     let(:salary_frequency) { Wpcc::SalaryFrequency.new(attributes) }
-    let(:data_attribute) { 'data-dough-title-frequency' }
+    let(:data_attribute) { 'data-wpcc-title-frequency' }
     let(:attributes) do
       {
         locale: locale,

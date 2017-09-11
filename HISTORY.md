@@ -1,3 +1,6 @@
+## 1.9.2: 
+* Refactors data attributes for internal components
+
 ## 1.9.1: 
 * TP-8556: Fixes Popuptips and div floating issue in step 1
 
