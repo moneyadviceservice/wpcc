@@ -29,7 +29,7 @@ describe('Salary Conditions', function() {
       this.salaryFrequency = this.component.find('[data-wpcc-frequency-select]');
       this.callout_lt5876 = this.component.find('[data-wpcc-callout-lt5876]');
       this.callout_gt5876_lt10000 = this.component.find('[data-wpcc-callout-gt5876_lt10000]');
-      this.radioDisabled = this.component.find('[data-wpcc-callout-radio-disabled]');
+      this.callout_lt5876_min_contribution = this.component.find('[data-wpcc-callout-lt5876-min-contribution]');
       this.employerPartRadio = this.component.find('[data-wpcc-employer-part-radio]');
       this.employerFullRadio = this.component.find('[data-wpcc-employer-full-radio]');
 
@@ -59,7 +59,7 @@ describe('Salary Conditions', function() {
       ).to.be.true;
 
       expect(
-        this.radioDisabled.hasClass('details__callout--inactive')
+        this.callout_lt5876_min_contribution.hasClass('details__callout--inactive')
       ).to.be.true;
     });
 
@@ -96,7 +96,7 @@ describe('Salary Conditions', function() {
         this.salaryField.trigger('keyup');
         clock.tick(this.delay);
         expect(
-          this.radioDisabled.hasClass('details__callout--active')
+          this.callout_lt5876_min_contribution.hasClass('details__callout--active')
         ).to.be.true;
         expect(
           this.component.find('input[name="your_details_form[contribution_preference]"]:checked').val()
@@ -183,7 +183,7 @@ describe('Salary Conditions', function() {
       this.salaryFrequency = this.component.find('[data-wpcc-frequency-select]');
       this.callout_lt5876 = this.component.find('[data-wpcc-callout-lt5876]');
       this.callout_gt5876_lt10000 = this.component.find('[data-wpcc-callout-gt5876_lt10000]');
-      this.radioDisabled = this.component.find('[data-wpcc-callout-radio-disabled]');
+      this.callout_lt5876_min_contribution = this.component.find('[data-wpcc-callout-lt5876-min-contribution]');
       clock = sinon.useFakeTimers();
       this.obj.init();
     });
