@@ -25,13 +25,29 @@ RSpec.describe Wpcc::Period do
     end
   end
 
-  describe '#highest_employer_percent' do
+  describe '#required_employer_percent' do
     let(:employer_percent) { 5 }
     let(:user_input_employer_percent) { 6 }
 
-    it 'returns highest percent between period percent and user percent' do
-      expect(Wpcc::Percent).to receive(:choose_highest).with(5, 6).and_return(6)
-      period.highest_employer_percent
+    context 'when user\'s salary is below the minimum threshold' do
+      let(:salary) { 5_000 }
+
+      it 'returns the user percent' do
+        expect(period.required_employer_percent(salary)).to eq(6)
+      end
+    end
+
+    context 'when user\'s salary is gte the minimum threshold' do
+      let(:salary) { 5_876 }
+
+      it 'returns highest percent between period percent and user percent' do
+        expect(Wpcc::Percent)
+          .to receive(:choose_highest)
+          .with(5, 6)
+          .and_return(6)
+
+        period.required_employer_percent(salary)
+      end
     end
   end
 

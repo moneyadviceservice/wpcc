@@ -43,6 +43,13 @@ Given(/^I am a "([^"]*)" year old "([^"]*)"$/) do |age, gender|
   step %{I select my gender as "#{gender}"}
 end
 
+Given(/^my "([^"]*)" "([^"]*)" is below the minimum threshold$/) do |salary, salary_frequency|
+  step %{I am on the Your Details step}
+  step %{I enter my details}
+  step %{my salary is "#{salary}" "#{salary_frequency}" with "Full" contribution}
+  step %{I proceed to the next step}
+end
+
 When(/^I enter my details$/) do
   step %{I enter my age as "35"}
   step %{I select my gender as "#{I18n.translate('wpcc.details.options.gender.female')}"}
