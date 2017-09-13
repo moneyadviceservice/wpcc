@@ -13,6 +13,10 @@ en:
         summary:
           title: "Please double-check for the following errors:"
   wpcc:
+    meta:
+      title: Workplace pension contribution calculator
+      description: Our workplace pension contribution calculator will show how much will be paid into your pension by you and your employer and how these contributions might increase over time.
+      canonical_url: https://www.moneyadviceservice.org.uk/en/tools/workplace-pension-contribution-calculator
     tooltip_show: show help
     tooltip_hide: hide help
 

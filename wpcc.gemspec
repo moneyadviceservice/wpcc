@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir['spec/**/*']
 
   s.add_dependency 'dough-ruby'
+  s.add_dependency 'meta-tags'
 
   s.add_runtime_dependency 'rails', '>= 4', '< 5'
 end
