@@ -114,17 +114,6 @@ describe('Salary Conditions', function() {
         done();
       });
 
-      it('Saves this state to local storage and checks the correct radio control', function(done) {
-        this.salaryField.val('3000');
-        this.salaryField.trigger('keyup');
-        clock.tick(this.delay);
-        expect(localStorage.getItem('lt5876')).to.equal('true');
-        expect(
-          this.component.find('input[name="your_details_form[contribution_preference]"]:checked').val()
-        ).to.equal('full');
-        done();
-      });
-
       it('Clears state from localStorage if salary is changed to £5876 or above and checks the correct radio control',
         function(done) {
         this.salaryField.val('5876');
@@ -240,62 +229,6 @@ describe('Salary Conditions', function() {
       ).to.be.true;
     });
 
-  });
-
-  describe('When user proceeds to step 2 with salary below £5876', function() {
-    var clock;
-
-    beforeEach(function() {
-      this.salaryField = this.component.find('[data-wpcc-salary-input]');
-      this.employeeTip = this.component.find('[data-wpcc-employee-tip]');
-      this.employeeTip_lt5876 = this.component.find('[data-wpcc-employee-tip-lt5876]');
-      this.employerTip = this.component.find('[data-wpcc-employer-tip]');
-      this.employeeContributions = this.component.find('[data-wpcc-employee-contributions]');
-      this.employerContributions = this.component.find('[data-wpcc-employer-contributions]');
-      clock = sinon.useFakeTimers();
-      this.obj.init();
-    });
-
-    afterEach(function() {
-      clock.restore();
-    });
-
-    it('Has saved state to local storage', function(done) {
-      this.salaryField.val('3000');
-      this.salaryField.trigger('keyup');
-      clock.tick(this.delay);
-      expect(localStorage.getItem('lt5876')).to.equal('true');
-      done();
-    });
-
-    it('Adjusts the default contribution values', function(done) {
-      this.salaryField.val('3000');
-      this.salaryField.trigger('keyup');
-      clock.tick(this.delay);
-
-      if (localStorage.getItem('lt5876') == 'true') {
-        expect(this.employeeContributions.val()).to.equal('1');
-        expect(this.employerContributions.val()).to.equal('0');
-      }
-
-      done();
-    });
-
-    it('Updates the employee contribution tip', function(done) {
-      this.salaryField.val('3000');
-      this.salaryField.trigger('keyup');
-      clock.tick(this.delay);
-      expect(this.employeeTip_lt5876.hasClass('is-hidden')).to.be.false;
-      done();
-    });
-
-    it('Hides the employer contribution tip', function(done) {
-      this.salaryField.val('3000');
-      this.salaryField.trigger('keyup');
-      clock.tick(this.delay);
-      expect(this.employerTip.text()).to.equal('');
-      done();
-    });
   });
 
   describe('When user proceeds to step 2 with salary of £5876 or above', function() {

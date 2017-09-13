@@ -32,7 +32,6 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
   SalaryConditions.prototype.init = function(initialised) {
     this._initialisedSuccess(initialised);
     this._setUpEvents();
-    this._step2Conditions();
   };
 
   // Set up events to detect salary input changes
@@ -139,9 +138,6 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     if (this.contribution !== 'full') {
       $this.$employerPartRadio.prop('checked', true);
     }
-
-    // Remove local storage if already saved
-    localStorage.removeItem('lt5876');
   }
 
   // Function for salary less than £5876
@@ -159,9 +155,6 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     // Disable Employer contributions checkbox
     $this.$employerPartRadio.attr('disabled', true);
     $this.$employerFullRadio.prop('checked', true);
-
-    // Save state to local storage
-    localStorage.setItem('lt5876', true);
   };
 
   // Function for salary between £5876 and £10000
@@ -183,35 +176,6 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     if (this.contribution !== 'full') {
       $this.$employerPartRadio.prop('checked', true);
     }
-
-    // Remove local storage if already saved
-    localStorage.removeItem('lt5876');
-  }
-
-  // Step 2 - Alters values of the contribution inputs
-  // Modifies the employee contributions tip
-  SalaryConditions.prototype._step2Conditions = function() {
-    var salaryCondition = localStorage.getItem('lt5876'),
-        $this           = this;
-
-    if (salaryCondition) {
-      this._updateEmployeeTip();
-      this.$employeeTip.addClass('is-hidden');
-      this.$employeeTip_lt5876.removeClass('is-hidden');
-    } else {
-      this.$employeeTip.removeClass('is-hidden');
-      this.$employeeTip_lt5876.addClass('is-hidden');
-    }
-
-  };
-
-  // Called from _step2Conditions
-  // Updates the values of the contributions inputs
-  // And removes the employer tip
-  SalaryConditions.prototype._updateEmployeeTip = function() {
-    this.$employeeContributions.val(1);
-    this.$employerContributions.val(0);
-    this.$employerTip.text('');
   }
 
   return SalaryConditions;
