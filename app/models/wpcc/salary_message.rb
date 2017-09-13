@@ -14,11 +14,15 @@ module Wpcc
     }.freeze
 
     def manually_opt_in?
-      salary >= OPT_IN_SALARY_LOWER_LIMIT && salary <= OPT_IN_SALARY_UPPER_LIMIT
+      !salary_below_pension_limit? && salary <= OPT_IN_SALARY_UPPER_LIMIT
     end
 
     def salary_below_tax_relief_threshold?
       valid_salary_frequency? && salary_below_frequency_threshold?
+    end
+
+    def salary_below_pension_limit?
+      salary < OPT_IN_SALARY_LOWER_LIMIT
     end
 
     def above_max_contribution?

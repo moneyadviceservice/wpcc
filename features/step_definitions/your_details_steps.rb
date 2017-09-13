@@ -173,15 +173,9 @@ Then(/^I should see my "([^"]*)", "([^"]*)", "([^"]*)", "([^"]*)" and "([^"]*)" 
   expect(your_details_page.send("#{contribution.downcase}_contribution_button")).to be_truthy
 end
 
-Then(/^the employee_percent input intro paragraph should display the correct percentage$/) do
-  within('.contributions__source--employee') do
-    expect(your_contributions_page).to have_content('The legal minimum is 1%')
-  end
-end
-
-Then(/^the employer_percent input intro paragraph should display the correct percentage$/) do
-  within('.contributions__source--employer') do
-    expect(your_contributions_page).to have_content('The legal minimum is 1%')
+Then(/^the "([^"]*)" contribution intro should display "([^"]*)"$/) do |contributor, message|
+  within(".contributions__source--#{contributor}") do
+    expect(your_contributions_page).to have_content(message)
   end
 end
 

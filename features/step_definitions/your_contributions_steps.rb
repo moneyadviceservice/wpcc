@@ -62,3 +62,9 @@ Then(/^I should see my current contributions in the form fields$/) do
   expect(your_contributions_page.employee_percent.value).to eq('14.0')
   expect(your_contributions_page.employer_percent.value).to eq('15.0')
 end
+
+Then(/^I should NOT see an intro for employer contributions$/) do
+  within(".contributions__source--employer") do
+    expect(your_contributions_page).to_not have_content('The legal minimum is')
+  end
+end

@@ -40,5 +40,18 @@ module Wpcc
 
       t('wpcc.contributions.contribution_gt40000_warning', amount: amount)
     end
+
+    def employee_contribution_tip
+      if salary_below_pension_limit?
+        t('wpcc.contributions.your_contribution_tip_lt5876')
+      else
+        t('wpcc.contributions.your_contribution_tip')
+      end
+    end
+
+    def employer_contribution_tip
+      return if salary_below_pension_limit?
+      t('wpcc.contributions.employer_contribution_tip')
+    end
   end
 end
