@@ -164,6 +164,21 @@ spec/dummy/app/views/layouts/application.html.erb
 </html>
 ```
 
+## Dependencies
+
+There are 2 dependencies listed in ``wpcc.gemspec`` each are required for correct display and functionality of the tool.
+
+### dough-ruby
+
+Contains UI components and helpers for tool features.  Also contains the component loader and 
+base component of which all internal components are based.
+
+### meta-tags
+
+This dependency allows the injection of meta tags into the ``<head>`` of the markup. 
+While this is used to add SEO content to the frontend project, the dependency is required
+within the tool to prevent undefined method errors in the dummy app.
+
 ## Tests
 
 To run the tests (rspec, cucumber and karma), just run:
