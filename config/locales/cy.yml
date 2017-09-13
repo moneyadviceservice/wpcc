@@ -13,6 +13,10 @@ cy:
         summary:
           title: "Gwiriwch yn ofalus iawn am y gwallau canlynol:"
   wpcc:
+    meta:
+      title: Cyfrifiannell cyfraniadau pensiwn gweithle
+      description: Bydd y gyfrifiannell hon yn dangos faint fydd yn cael ei dalu i mewn i'ch pensiwn gennych chi a'ch cyflogwr. Bydd hefyd yn dangos sut y gallai'r cyfraniadau yma gynyddu gydag amser.
+      canonical_url: https://www.moneyadviceservice.org.uk/cy/tools/cyfrifiannell-cyfraniadau-pensiwn-gweithle
     tooltip_show: sioe help
     tooltip_hide: cuddio cymorth
 

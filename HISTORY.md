@@ -1,3 +1,6 @@
+## 1.10.0:
+* TP-8568: Adds meta title description and canonical
+
 ## 1.9.2: 
 * Refactors data attributes for internal components
 
