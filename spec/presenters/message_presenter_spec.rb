@@ -6,11 +6,13 @@ RSpec.describe Wpcc::MessagePresenter do
     double(
       :object,
       text: text,
-      salary_below_tax_relief_threshold?: salary_below_tax_relief_threshold?
+      salary_below_tax_relief_threshold?: salary_below_tax_relief_threshold?,
+      salary_below_pension_limit?: salary_below_pension_limit?
     )
   end
   let(:text) { nil }
   let(:salary_below_tax_relief_threshold?) { true }
+  let(:salary_below_pension_limit?) { true }
 
   describe '#manually_opt_in_message?' do
     context 'when the text is manually_opt_in' do
@@ -119,6 +121,43 @@ RSpec.describe Wpcc::MessagePresenter do
       it 'formats the session details to a string' do
         string = '43 years, female, £26,000 per week, full salary'
         expect(subject.your_details_summary(hash)).to eq(string)
+      end
+    end
+  end
+
+  describe '#employee_contribution_tip' do
+    context 'when the salary is below tax relief threshold' do
+      let(:salary_below_pension_limit?) { true }
+      it 'returns information message' do
+        string = 'At your salary level there is no legal minimum contribution' \
+          ' but your workplace pension scheme may have a set minimum.'\
+          ' Check with your employer.'
+        expect(subject.employee_contribution_tip).to eq string
+      end
+    end
+
+    context 'when the salary is above tax relief threshold' do
+      let(:salary_below_pension_limit?) { false }
+      it 'default legal message' do
+        string = 'The legal minimum is 1%'
+        expect(subject.employee_contribution_tip).to eq string
+      end
+    end
+  end
+
+  describe '#employer_contribution_tip' do
+    context 'when the salary is below tax relief threshold' do
+      let(:salary_below_pension_limit?) { true }
+      it 'returns no message' do
+        expect(subject.employer_contribution_tip).to be_nil
+      end
+    end
+
+    context 'when the salary is above tax relief threshold' do
+      let(:salary_below_pension_limit?) { false }
+      it 'default legal message' do
+        string = 'The legal minimum is 1%'
+        expect(subject.employer_contribution_tip).to eq string
       end
     end
   end

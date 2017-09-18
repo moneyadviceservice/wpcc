@@ -156,4 +156,32 @@ RSpec.describe Wpcc::SalaryMessage do
       end
     end
   end
+
+  describe '#salary_below_pension_limit?' do
+    let(:salary_frequency) { 'whatever' }
+
+    context 'salary is within the range of an automatic workplace pension' do
+      let(:salary) { 5_876 }
+
+      it 'returns false' do
+        expect(subject).not_to be_salary_below_pension_limit
+      end
+    end
+
+    context 'salary is above the range of an automatic workplace pension' do
+      let(:salary) { 10_001 }
+
+      it 'returns false' do
+        expect(subject).not_to be_salary_below_pension_limit
+      end
+    end
+
+    context 'salary is below the range of an automatic workplace pension' do
+      let(:salary) { 5_875 }
+
+      it 'returns true' do
+        expect(subject).to be_salary_below_pension_limit
+      end
+    end
+  end
 end

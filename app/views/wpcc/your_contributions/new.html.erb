@@ -19,13 +19,13 @@
       <div class="contributions__row">
         <div class="contributions__source contributions__source--employee form__row">
           <h3 class="contributions__source-title"><%= t('wpcc.contributions.your_contribution_title') %></h3>
-          <p data-wpcc-employee-tip><%= t('wpcc.contributions.your_contribution_tip') %></p>
-          <p data-wpcc-employee-tip-lt5876 class="is-hidden"><%= t('wpcc.contributions.your_contribution_tip_lt5876') %></p>
+          <p><%= @message_presenter.employee_contribution_tip %></p>
           <%= f.number_field :employee_percent,
             class: "contributions__source-input",
             required: true,
             min: 0,
             max: 100,
+            step: 0.5,
             'data-wpcc-employee-contributions': true,
             'data-dough-validation-empty': t('wpcc.contributions.employee_validation.blank'),
             'data-dough-validation-invalid': t('wpcc.contributions.employee_validation.out_of_range')
@@ -37,12 +37,13 @@
         </div>
         <div class="contributions__source contributions__source--employer form__row">
           <h3 class="contributions__source-title"><%= t('wpcc.contributions.employer_contribution_title') %></h3>
-          <p data-wpcc-employer-tip><%= t('wpcc.contributions.employer_contribution_tip') %></p>
+          <p><%=  @message_presenter.employer_contribution_tip %></p>
           <%= f.number_field :employer_percent,
             class: "contributions__source-input",
             required: true,
             min: 0,
             max: 100,
+            step: 0.5,
             'data-wpcc-employer-contributions': true,
             'data-dough-validation-empty': t('wpcc.contributions.employer_validation.blank'),
             'data-dough-validation-invalid': t('wpcc.contributions.employee_validation.out_of_range')
