@@ -1,10 +1,14 @@
+## 1.11.0:
+* TP-8565: Amend the employer percent for calculating contributions
+* TP-8564: Add server side validations for contribution percent
+
 ## 1.10.0:
 * TP-8568: Adds meta title description and canonical
 
-## 1.9.2: 
+## 1.9.2:
 * Refactors data attributes for internal components
 
-## 1.9.1: 
+## 1.9.1:
 * TP-8556: Fixes Popuptips and div floating issue in step 1
 
 ## 1.9.0
