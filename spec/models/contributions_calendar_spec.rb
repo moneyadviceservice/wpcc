@@ -47,7 +47,7 @@ describe Wpcc::ContributionsCalendar, type: :model do
       it 'calls the PeriodContributionCalculator passing the percentages' do
         expect(next_period).to receive(:highest_employee_percent).and_return(3)
 
-        expect(next_period).to receive(:highest_employer_percent).and_return(4)
+        expect(next_period).to receive(:required_employer_percent).and_return(4)
 
         expect(Wpcc::PeriodContributionCalculator)
           .to receive(:new)
