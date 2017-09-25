@@ -1,5 +1,6 @@
 Given(/^I am on the Your Details step$/) do
   your_details_page.load(language_code: language_code)
+  wait_for_page_load('your_details')
 end
 
 Given(/^I have valid details$/) do
@@ -118,6 +119,7 @@ end
 
 When(/^I submit my details$/) do
   your_details_page.next_button.click
+  wait_for_page_load('your_contributions')
 end
 
 When(/^I click the Next button$/) do
