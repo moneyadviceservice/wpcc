@@ -7,4 +7,8 @@ select {
   -webkit-appearance:none;
   -moz-appearance:none;
   cursor: pointer;
+
+  &::-ms-expand {
+    display: none;
+  }
 }
