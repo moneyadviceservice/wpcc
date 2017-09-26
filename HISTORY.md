@@ -1,3 +1,6 @@
+## 1.11.2:
+* TP-8580: Fixing the double dropdown issue
+
 ## 1.11.1:
 * TP-8572: Making reference links within WPCC to be opened in new tab
 
