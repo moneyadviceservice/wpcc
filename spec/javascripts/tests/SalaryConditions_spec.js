@@ -113,18 +113,6 @@ describe('Salary Conditions', function() {
         ).to.equal('full');
         done();
       });
-
-      it('Clears state from localStorage if salary is changed to £5876 or above and checks the correct radio control',
-        function(done) {
-        this.salaryField.val('5876');
-        this.salaryField.trigger('keyup');
-        clock.tick(this.delay);
-        expect(localStorage.getItem('lt5876')).to.be.equal(null);
-        expect(
-          this.component.find('input[name="your_details_form[contribution_preference]"]:checked').val()
-        ).to.equal('full');
-        done();
-      });
     });
 
     describe('When salary is between £5876 and £10000', function() {
@@ -243,14 +231,6 @@ describe('Salary Conditions', function() {
       this.employerTip = this.component.find('[data-wpcc-employer-tip]');
       clock = sinon.useFakeTimers();
       this.obj.init();
-    });
-
-    it('Has not saved state to local storage', function(done) {
-      this.salaryField.val('6000');
-      this.salaryField.trigger('keyup');
-      clock.tick(this.delay);
-      expect(localStorage.getItem('lt5876')).to.equal(null);
-      done();
     });
 
     it('Shows the original contribution values', function(done) {
