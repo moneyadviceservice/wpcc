@@ -1,3 +1,6 @@
+## 1.11.1:
+* TP-8572: Making reference links within WPCC to be opened in new tab
+
 ## 1.11.0:
 * TP-8565: Amend the employer percent for calculating contributions
 * TP-8564: Add server side validations for contribution percent
