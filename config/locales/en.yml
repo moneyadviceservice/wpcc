@@ -42,7 +42,7 @@ en:
 
       salary:
         label: Your salary
-        tooltip_html: Enter your salary before tax or other deductions are taken off.  This is known as your gross salary.  <a href="/en/articles/automatic-enrolment-into-a-workplace-pension#automatic-enrolment-when-you-have-more-than-one-job">If you have more than one job</a>, you will have to enter each salary separately.
+        tooltip_html: Enter your salary before tax or other deductions are taken off.  This is known as your gross salary.  <a href="/en/articles/automatic-enrolment-into-a-workplace-pension#automatic-enrolment-when-you-have-more-than-one-job" target="_blank">If you have more than one job <span class="visually-hidden">(opens in a new window)</span></a>, you will have to enter each salary separately.
         validation: Please enter your salary
         frequency:
           label: Frequency
@@ -143,9 +143,9 @@ en:
           employers_html: Employer's <span data-wpcc-title-frequency>%{salary_frequency}</span> contribution
           total_html: Total <span data-wpcc-title-frequency>%{salary_frequency}</span> contributions
         tax_relief_html: (includes tax relief of <span data-wpcc-tax-relief-value>%{formatted_tax_relief}</span>)
-      tax_relief_warning_html: If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions if your pension scheme collects contributions using the tax relief at source method. We have assumed your scheme does. Read more in our guide about <a href="https://www.moneyadviceservice.org.uk/en/articles/tax-relief-and-your-workplace-pension">tax relief on pension contributions</a>.
+      tax_relief_warning_html: If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions if your pension scheme collects contributions using the tax relief at source method. We have assumed your scheme does. Read more in our guide about <a href="https://www.moneyadviceservice.org.uk/en/articles/tax-relief-and-your-workplace-pension" target="_blank">tax relief on pension contributions <span class="visually-hidden">(opens in a new window)</span></a>.
       tax_relief_warning: If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions if your pension scheme collects contributions using the tax relief at source method.  We have assumed your scheme does. Read more in our guide about tax relief on pension contributions.
-      tax_relief_tooltip_html: You get tax relief on pension contributions which means some of the money from your pay that would have gone to the government as tax goes towards your pension instead. <a href="https://www.moneyadviceservice.org.uk/en/articles/tax-relief-and-your-workplace-pension">Read more about how you get tax relief</a>.
+      tax_relief_tooltip_html: You get tax relief on pension contributions which means some of the money from your pay that would have gone to the government as tax goes towards your pension instead. <a href="https://www.moneyadviceservice.org.uk/en/articles/tax-relief-and-your-workplace-pension" target="_blank">Read more about how you get tax relief <span class="visually-hidden">(opens in a new window)</span></a>.
       contribution_table_link: View a table of how legal minimum contributions change
       print_link: Print your results
       email_link: Email your results
@@ -153,9 +153,9 @@ en:
       next_steps:
         heading: Next steps
         list:
-          pension_calculator_html: Use our <a href="https://www.moneyadviceservice.org.uk/en/tools/pension-calculator">Pension Calculator</a> to see how much pension pot you will build over time.
-          workplace_pensions_html: Find out more about <a href="https://www.moneyadviceservice.org.uk/en/categories/automatic-enrolment">workplace pensions</a>.
-          budget_planner_html: Use our <a href="https://www.moneyadviceservice.org.uk/en/tools/budget-planner">budget planner</a> to see what effect your contributions will have on your income.
+          pension_calculator_html: Use our <a href="https://www.moneyadviceservice.org.uk/en/tools/pension-calculator" target="_blank">Pension Calculator <span class="visually-hidden">(opens in a new window)</span></a> to see how much pension pot you will build over time.
+          workplace_pensions_html: Find out more about <a href="https://www.moneyadviceservice.org.uk/en/categories/automatic-enrolment" target="_blank">workplace pensions <span class="visually-hidden">(opens in a new window)</span></a>.
+          budget_planner_html: Use our <a href="https://www.moneyadviceservice.org.uk/en/tools/budget-planner" target="_blank">budget planner <span class="visually-hidden">(opens in a new window)</span></a> to see what effect your contributions will have on your income.
       edit_frequency:
         label: Show my contributions
         button: Recalculate
