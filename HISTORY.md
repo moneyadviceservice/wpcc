@@ -1,3 +1,6 @@
+## 1.11.3:
+* Fixing Karma tests
+
 ## 1.11.2:
 * TP-8580: Fixing the double dropdown issue
 
