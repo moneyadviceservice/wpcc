@@ -36,6 +36,7 @@ end
 
 When(/^I move( on)? to (your|the) results page$/) do |_,_|
   your_contributions_page.next_button.click
+  wait_for_page_load('your_results')
 end
 
 When(/^I submit the Your Contributiions form and proceed to Your Results$/) do
