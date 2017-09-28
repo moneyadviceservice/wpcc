@@ -139,6 +139,12 @@ Then(/^I should see that the "([^"]*)" is the same for each period$/) do |employ
   step %{I should see my employer contributions for third period as "#{employer_contribution}"}  
 end
 
+Then(/^I should see employer_contributions for "([^"]*)", "([^"]*)" and "([^"]*)" increase as per the legal minimums$/) do |period_1, period_2, period_3|
+  step %{I should see my employer contributions for current period as "#{period_1}"}
+  step %{I should see my employer contributions for second period as "#{period_2}"}
+  step %{I should see my employer contributions for third period as "#{period_3}"}
+end
+
 Given(/^that I am on your details step I fill:$/) do |table|
   data = table.hashes.first
   step %{I enter my age as "#{data[:age]}"}

@@ -14,8 +14,8 @@ module Wpcc
       Percent.choose_highest(@employee_percent, @user_input_employee_percent)
     end
 
-    def required_employer_percent(eligible_salary)
-      if salary_below_minimum?(eligible_salary)
+    def required_employer_percent(annual_salary)
+      if salary_below_minimum?(annual_salary)
         @user_input_employer_percent
       else
         highest_employer_percent
@@ -37,8 +37,8 @@ module Wpcc
         employer_percent <= period_filter.user_input_employer_percent
     end
 
-    def salary_below_minimum?(eligible_salary)
-      eligible_salary < Wpcc::ContributionCalculator::THRESHOLDS['lower']
+    def salary_below_minimum?(annual_salary)
+      annual_salary < Wpcc::ContributionCalculator::THRESHOLDS['lower']
     end
 
     def highest_employer_percent
