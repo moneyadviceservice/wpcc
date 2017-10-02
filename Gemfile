@@ -6,20 +6,18 @@ source 'http://gems.dev.mas.local'
 # development dependencies will be added by default to the :development group.
 gemspec
 
-ruby '2.2.5'
+ruby '2.3.3'
 
-gem 'bowndler', git: 'https://github.com/moneyadviceservice/bowndler'
+gem 'bowndler'
 gem 'jquery-rails'
 gem 'rails', '~> 4.2.7'
+gem 'rubocop', '~> 0.49.1', require: false
 gem 'sass-rails'
 gem 'turbolinks'
 
-group :development do
+group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
-end
-
-group :development, :test do
   gem 'byebug'
   gem 'launchy'
   gem 'pry-rails'
@@ -35,8 +33,5 @@ group :test do
   gem 'simplecov', require: false
   gem 'site_prism'
   gem 'timecop'
-end
-
-group :build, :development do
-  gem 'rubocop', '~> 0.49.1', require: false
+  gem 'tzinfo-data'
 end

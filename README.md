@@ -181,6 +181,8 @@ within the tool to prevent undefined method errors in the dummy app.
 
 ## Tests
 
+### Running tests on your Mac
+
 To run the tests (rspec, cucumber and karma), just run:
 
 ```
@@ -191,6 +193,12 @@ When running Rspec, SimpleCov will also measure the code coverage with a minimum
 This value will be displayed at the end of your Rspec tests.
 
 To view the coverage output open `coverage/index.html` in your browser.
+
+### Running tests in Docker
+
+If you have Docker setup and want to run the tests in a more isolated
+environment, run `./script/docker_test`. This will run the tests exactly
+as they are run under Jenkins.
 
 ## Code Quality
 ### Rubocop
