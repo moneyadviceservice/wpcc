@@ -1,3 +1,11 @@
+## 1.11.4:
+* TP-8601: Fix increasing employer contributions
+
+Refactors:
+* Update javascript cucumber features to stop race condition
+* Update test script to reduce noise on command line when running
+* Add Docker and Jenkins
+
 ## 1.11.3:
 * Fixing Karma tests
 
