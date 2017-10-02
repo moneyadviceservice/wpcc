@@ -5,12 +5,14 @@ describe Wpcc::ContributionsCalendar, type: :model do
     described_class.new(
       eligible_salary: eligible_salary,
       salary_frequency: salary_frequency,
-      periods: periods
+      periods: periods,
+      salary: salary
     )
   end
 
   let(:eligible_salary) { 0 }
   let(:salary_frequency) { 1 }
+  let(:salary) { 11_000 }
 
   describe '#schedule' do
     let(:periods) do

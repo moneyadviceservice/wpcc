@@ -44,10 +44,10 @@ Given(/^I am a "([^"]*)" year old "([^"]*)"$/) do |age, gender|
   step %{I select my gender as "#{gender}"}
 end
 
-Given(/^my "([^"]*)" "([^"]*)" is below the minimum threshold$/) do |salary, salary_frequency|
+Given(/^my "([^"]*)" "([^"]*)", regardless of "([^"]*)" contribution, is (above|below)? the minimum threshold$/) do |salary, salary_frequency, part_or_full, _|
   step %{I am on the Your Details step}
   step %{I enter my details}
-  step %{my salary is "#{salary}" "#{salary_frequency}" with "Full" contribution}
+  step %{my salary is "#{salary}" "#{salary_frequency}" with "#{part_or_full}" contribution}
   step %{I proceed to the next step}
 end
 

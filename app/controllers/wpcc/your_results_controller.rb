@@ -69,7 +69,8 @@ module Wpcc
       {
         eligible_salary: session[:eligible_salary].to_i,
         salary_frequency: salary_frequency.to_i,
-        periods: period_filter.filtered_periods
+        periods: period_filter.filtered_periods,
+        salary: session[:salary].to_i
       }
     end
 
