@@ -3,8 +3,14 @@ module Wpcc
     include ActiveModel::Model
     attr_accessor :salary, :salary_frequency, :employee_percent, :text
 
-    OPT_IN_SALARY_LOWER_LIMIT = 5_876
-    OPT_IN_SALARY_UPPER_LIMIT = 10_000
+    THRESHOLDS_FILE = Wpcc::Engine.root.join(
+      'config', 'salary_frequency_conversions.yml'
+    ).freeze
+    FREQUENCY_THRESHOLDS = YAML.load_file(THRESHOLDS_FILE).freeze
+    OPT_IN_THRESHOLDS = FREQUENCY_THRESHOLDS['manual_opt_in_by_frequency'].freeze
+
+    # OPT_IN_SALARY_LOWER_LIMIT = 5_876
+    # OPT_IN_SALARY_UPPER_LIMIT = 10_000
     TAX_RELIEF_MAX_CONTRIBUTION = 40_000
     TAX_RELIEF_THRESHOLD_RATE = {
       year: 11_500,
@@ -14,7 +20,10 @@ module Wpcc
     }.freeze
 
     def manually_opt_in?
-      !salary_below_pension_limit? && salary <= OPT_IN_SALARY_UPPER_LIMIT
+      puts "\nsalary: #{salary}, salary_frequency: #{salary_frequency}\n"
+      puts "\nOPTIN THRESHOLDS: #{OPT_IN_THRESHOLDS}, salary_frequency: #{salary_frequency}\n"
+      puts "\n\nopt in upper: #{OPT_IN_THRESHOLDS['upper'].key(:year)} \n\n"
+      !salary_below_pension_limit? && salary <= opt_in_upper_limit
     end
 
     def salary_below_tax_relief_threshold?
@@ -22,7 +31,7 @@ module Wpcc
     end
 
     def salary_below_pension_limit?
-      salary < OPT_IN_SALARY_LOWER_LIMIT
+      salary < opt_in_lower_limit
     end
 
     def above_max_contribution?
@@ -42,6 +51,15 @@ module Wpcc
     def employee_contribution
       frequency = Wpcc::SalaryFrequencyConverter.convert(salary_frequency)
       frequency * salary * employee_percent.to_i / 100
+    end
+
+    def opt_in_lower_limit
+      OPT_IN_THRESHOLDS['lower'][salary_frequency]
+    end
+    
+    def opt_in_upper_limit
+      
+      OPT_IN_THRESHOLDS['upper'][salary_frequency]
     end
   end
 end

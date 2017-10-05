@@ -6,18 +6,22 @@ Feature: Conditional messaging for users earning £5876 - £10,000 (inclusive)
 
 
   Background:
-  Given I am on the Your Details step
-  And I fill in my details
+  
 
   @no-javascript
-  Scenario Outline: Viewing my details on step 2 and my salary is between £5,876 and £10,000
-    And I enter my salary as "6000"
+  Scenario Outline: Viewing my details on step 2 and my annual salary is between £5,876 and £10,000
+    Given I am on the Your Details step
+    And I am a "31" year old "female"
+    And my salary is "<salary>" "<salary_frequency>" with "Full" contribution
     And I submit my details
     And I should see the manually_opt_in "<message>"
 
     Examples:
-      | message                                                                                                                                                         |
-      | Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will make contributions. |
+      | salary  | salary_frequency | message                                                                                                                                                |
+      | 9999.99 | per Year        | Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will make contributions. |
+      | 832.99  | per Month       | Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will make contributions. |
+      | 191.99  | per 4 weeks     | Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will make contributions. |
+      | 767     | per Week        | Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will make contributions. |
 
     @welsh
     Examples:
