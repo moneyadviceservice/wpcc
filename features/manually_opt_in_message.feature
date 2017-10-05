@@ -6,27 +6,30 @@ Feature: Conditional messaging for users earning £5876 - £10,000 (inclusive)
 
 
   Background:
+  Given I am on the Your Details step
+  And I fill in my details
   
 
   @no-javascript
-  Scenario Outline: Viewing my details on step 2 and my annual salary is between £5,876 and £10,000
-    Given I am on the Your Details step
-    And I am a "31" year old "female"
+  Scenario Outline: Viewing my details on step 2 and my annual salary is between £5,876 and £10,000    
     And my salary is "<salary>" "<salary_frequency>" with "Full" contribution
     And I submit my details
     And I should see the manually_opt_in "<message>"
 
     Examples:
-      | salary  | salary_frequency | message                                                                                                                                                |
+      | salary  | salary_frequency | message                                                                                                                                                        |
       | 9999.99 | per Year        | Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will make contributions. |
       | 832.99  | per Month       | Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will make contributions. |
-      | 191.99  | per 4 weeks     | Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will make contributions. |
-      | 767     | per Week        | Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will make contributions. |
+      | 767     | per 4 weeks     | Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will make contributions. |
+      | 191.99  | per Week        | Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will make contributions. |
 
     @welsh
     Examples:
-      | message                                                                                                                                                         |
-      | Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau. |
+      | salary   | salary_frequency | message                                                                                                                                                         |
+      | 9999.99  | y Flwyddyn       | Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau. |
+      | 832.99   | y Mis            | Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau. |
+      | 767      | fesul 4 wythnos  | Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau. |
+      | 191.99   | y Wythnos        | Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau. |
 
   @no-javascript
   Scenario Outline: Viewing my details on step 2 and my salary is above £10,000

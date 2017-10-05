@@ -28,27 +28,4 @@ describe Wpcc::SalaryFrequencyConverter, type: :model do
       end
     end
   end
-
-  describe '.to_string' do
-    context 'for 1' do
-      it 'returns year' do
-        expect(subject.to_string(1)).to eq('year')
-      end
-    end
-    context 'for 12' do
-      it 'returns month' do
-        expect(subject.to_string(12)).to eq('month')
-      end
-    end
-    context 'for 13' do
-      it 'returns fourweeks' do
-        expect(subject.to_string(13)).to eq('fourweeks')
-      end
-    end
-    context 'for 52' do
-      it 'returns week' do
-        expect(subject.to_string(52)).to eq('week')
-      end
-    end
-  end
 end

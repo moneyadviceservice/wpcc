@@ -9,10 +9,6 @@ module Wpcc
       SALARY_FREQUENCIES[salary_frequency]
     end
 
-    def self.to_string(salary_frequency)
-      SALARY_FREQUENCIES.key(salary_frequency)
-    end
-
     def self.adjectives
       CONVERSIONS['adjectives']
     end
