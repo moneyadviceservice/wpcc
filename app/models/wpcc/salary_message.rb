@@ -20,7 +20,7 @@ module Wpcc
     TAX_RELIEF_MAX_CONTRIBUTION = 40_000
 
     def manually_opt_in?
-      !salary_below_pension_limit? && salary <= opt_in_upper_limit
+      salary >= opt_in_lower_limit && salary <= opt_in_upper_limit
     end
 
     def salary_below_tax_relief_threshold?

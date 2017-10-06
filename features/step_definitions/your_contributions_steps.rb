@@ -69,3 +69,15 @@ Then(/^I should NOT see an intro for employer contributions$/) do
     expect(your_contributions_page).to_not have_content('The legal minimum is')
   end
 end
+
+Then(/^I should see the salary between thresholds "([^"]*)"$/) do |message|
+  expect(your_contributions_page).to have_content(message)
+end
+
+Then(/^I should see the salary less than the threshold "([^"]*)"$/) do |message|
+  expect(your_contributions_page).to have_content(message)
+end
+
+Then(/^I should not see any salary "([^"]*)"$/) do |message|
+  expect(your_contributions_page).to_not have_content(message)
+end

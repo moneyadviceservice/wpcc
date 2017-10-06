@@ -115,9 +115,58 @@ describe('Salary Conditions', function() {
       });
     });
 
-    describe('When salary is between £5876 and £10000', function() {
+    describe('When yearly salary is between £5876 and £10000', function() {
       it('Shows the correct callout and checks the correct radio control', function(done) {
+        this.salaryFrequency.val('year')
         this.salaryField.val('7000');
+        this.salaryField.trigger('keyup');
+        clock.tick(this.delay);
+        expect(
+          this.callout_gt5876_lt10000.hasClass('details__callout--active')
+        ).to.be.true;
+        expect(
+          this.component.find('input[name="your_details_form[contribution_preference]"]:checked').val()
+        ).to.equal('full');
+        done();
+      });
+    });
+
+    describe('When monthly salary is between £490 and £833', function() {
+      it('Shows the correct callout and checks the correct radio control', function(done) {
+        this.salaryFrequency.val('month')
+        this.salaryField.val('499');
+        this.salaryField.trigger('keyup');
+        clock.tick(this.delay);
+        expect(
+          this.callout_gt5876_lt10000.hasClass('details__callout--active')
+        ).to.be.true;
+        expect(
+          this.component.find('input[name="your_details_form[contribution_preference]"]:checked').val()
+        ).to.equal('full');
+        done();
+      });
+    });
+
+    describe('When 4-weekly salary is between £452 and £768', function() {
+      it('Shows the correct callout and checks the correct radio control', function(done) {
+        this.salaryFrequency.val('fourweeks')
+        this.salaryField.val('500');
+        this.salaryField.trigger('keyup');
+        clock.tick(this.delay);
+        expect(
+          this.callout_gt5876_lt10000.hasClass('details__callout--active')
+        ).to.be.true;
+        expect(
+          this.component.find('input[name="your_details_form[contribution_preference]"]:checked').val()
+        ).to.equal('full');
+        done();
+      });
+    });
+
+    describe('When weekly salary is between £113 and £192', function() {
+      it('Shows the correct callout and checks the correct radio control', function(done) {
+        this.salaryFrequency.val('week')
+        this.salaryField.val('114');
         this.salaryField.trigger('keyup');
         clock.tick(this.delay);
         expect(
