@@ -10,6 +10,7 @@ ruby '2.3.3'
 
 gem 'bowndler'
 gem 'jquery-rails'
+gem 'mas-templating'
 gem 'rails', '~> 4.2.7'
 gem 'rubocop', '~> 0.49.1', require: false
 gem 'sass-rails'
