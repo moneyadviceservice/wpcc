@@ -49,10 +49,10 @@ en:
 
       options:
         salary_frequency:
-          year: per Year
-          month: per Month
+          year: per year
+          month: per month
           fourweeks: per 4 weeks
-          week: per Week
+          week: per week
         gender:
           female: Female
           male: Male

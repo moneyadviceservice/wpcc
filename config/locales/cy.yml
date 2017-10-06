@@ -49,10 +49,10 @@ cy:
 
       options:
         salary_frequency:
-          year: y Flwyddyn
-          month: y Mis
+          year: y flwyddyn
+          month: y mis
           fourweeks: fesul 4 wythnos
-          week: y Wythnos
+          week: y wythnos
         gender:
           female: Benywaidd
           male: Gwrywaidd
