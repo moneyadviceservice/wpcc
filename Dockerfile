@@ -80,6 +80,7 @@ RUN bundle install
 
 COPY bower.json.erb /var/tmp/gem/
 RUN bundle exec bowndler install
+RUN bundle exec gem install geminabox
 
 COPY package.json /var/tmp/gem/
 RUN npm install

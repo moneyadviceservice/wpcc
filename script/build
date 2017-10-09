@@ -1,0 +1,26 @@
+#!/bin/bash
+
+export RAILS_ENV=production
+exit_code=0
+
+function run_build {
+    declare -a build_command=("$@")
+
+    echo ''
+    echo "=== Running \`${build_command[*]}\`"
+    if ! ${build_command[*]}; then
+        echo "=== This build failed."
+        exit_code=1
+    fi
+}
+
+
+# (re)install node packages to local dir before tests run
+npm install
+bundle exec bowndler install
+bundle install
+
+run_build gem build wpcc.gemspec
+run_build gem inabox *.gem -g http://gems.dev.mas.local
+
+exit "$exit_code"

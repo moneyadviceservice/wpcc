@@ -1,3 +1,6 @@
+## 1.11.5:
+* Switch build process to Jenkins
+
 ## 1.11.4:
 * TP-8601: Fix increasing employer contributions
 
