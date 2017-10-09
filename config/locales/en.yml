@@ -42,7 +42,7 @@ en:
 
       salary:
         label: Your salary
-        tooltip_html: Enter your salary before tax or other deductions are taken off.  This is known as your gross salary.  <a href="/en/articles/automatic-enrolment-into-a-workplace-pension#automatic-enrolment-when-you-have-more-than-one-job" target="_blank">If you have more than one job <span class="visually-hidden">(opens in a new window)</span></a>, you will have to enter each salary separately.
+        tooltip_html: Enter your salary before tax or other deductions are taken off. This is known as your gross salary. <a href="/en/articles/automatic-enrolment-into-a-workplace-pension#automatic-enrolment-when-you-have-more-than-one-job" target="_blank">If you have more than one job<span class="visually-hidden"> (opens in a new window)</span></a>, you will have to enter each salary separately.
         validation: Please enter your salary
         frequency:
           label: Frequency
