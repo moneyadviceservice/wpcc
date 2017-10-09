@@ -1,8 +1,26 @@
 define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
   'use strict';
 
-  var SalaryConditions,
-  defaultConfig = {};
+  var SalaryConditions;
+  var defaultConfig = {};
+  var optInTriggers = {
+      year: {
+        lower: 5876.00,
+        upper: 10000.00
+      },
+      month: {
+        lower: 490.00,
+        upper: 833.00
+      },
+      fourweeks: {
+        lower: 452.00,
+        upper: 768.00
+      },
+      week: {
+        lower: 113.00,
+        upper: 192.00
+      }
+    };
 
   SalaryConditions = function($el, config) {
     SalaryConditions.baseConstructor.call(this, $el, config, defaultConfig);
@@ -42,7 +60,7 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     this.$salaryField.on('keyup change', function(){
       clearTimeout(typingTimer);
       typingTimer = setTimeout(function() {
-        $this._calculateAnnual()
+        $this._salaryMessage()
       }, 500);
     })
 
@@ -51,7 +69,7 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     })
 
     this.$salaryFrequency.change(function() {
-      $this._calculateAnnual();
+      $this._salaryMessage();
     });
 
     this._checkContributionState();
@@ -74,49 +92,49 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     });
   }
 
-  // Function to calculate the annual salary based on different frequencies
-  SalaryConditions.prototype._calculateAnnual = function() {
-    var frequency    = this.$salaryFrequency.val(),
-        salary       = this.$salaryField.val(),
-        annualSalary = 0,
-        $this        = this;
+  SalaryConditions.prototype._belowManualOptIn = function(salary, frequency) {
+    var thresholds = optInTriggers[frequency];
+    if (salary < thresholds.lower) {
+      return true;
+    }
 
-    // Calculate annual salary based on frequency
-    if (frequency == 'fourweeks') {
-      annualSalary = salary * 13;
-    } else if (frequency == 'week') {
-      annualSalary = salary * 52;
-    } else if (frequency == 'month') {
-      annualSalary = salary * 12;
-    } else if (frequency == 'year') {
-      annualSalary = salary;
-    };
-
-    // Pass the value of annual salary to display message function
-    $this._displayMessage(annualSalary);
   };
 
-  // Result of annual salary function passed to this function
+  SalaryConditions.prototype._manualOptInRequired = function(salary, frequency) {
+    var thresholds = optInTriggers[frequency];
+    if (salary >= thresholds.lower && salary <= thresholds.upper) {
+      return true;
+    }
+  };
+
+  // This function determines which if any salary message is to be displayed
+  SalaryConditions.prototype._salaryMessage = function() {
+    var frequency            = this.$salaryFrequency.val(),
+        salary               = this.$salaryField.val(),
+        $this                = this,
+        belowManualOptIn     = $this._belowManualOptIn(salary, frequency),    
+        manualOptInRequired  = $this._manualOptInRequired(salary, frequency);
+
+    $this._displayMessage(belowManualOptIn, manualOptInRequired);
+  };
+
   // This function displays the message and saves state to local storage
   // Local storage value used in step 2
-  SalaryConditions.prototype._displayMessage = function(annualSalary) {
+  SalaryConditions.prototype._displayMessage = function(belowManualOptIn, manualOptInRequired) {
     var $this          = this,
 
-        // Annual salary is less than £5876 and not empty
-        lt5876         = annualSalary <= 5875 &&
-                         annualSalary != '',
+        // salary is below the manual opt limit
+        lt5876         = belowManualOptIn,
 
-        // Annual salary is between £5876 and £10000 and not empty
-        gt5876_lt10000 = annualSalary >= 5876 &&
-                         annualSalary <= 10000 &&
-                         annualSalary != '';
+        // salary is between the manual opt-in limits for the salary frequency
+        gt5876_lt10000 = manualOptInRequired;
 
-    if (!lt5876 && !gt5876_lt10000) {
+    if (!lt5876 && !gt5876_lt10000){
       $this._defaultRange($this);
     } else if (lt5876) {
       $this._lessThan5876($this);
     } else if (gt5876_lt10000) {
-      $this._between5876and10000($this);
+      $this._between5876and10000($this);   
     };
 
   };

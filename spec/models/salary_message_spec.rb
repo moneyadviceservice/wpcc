@@ -130,7 +130,8 @@ RSpec.describe Wpcc::SalaryMessage do
   end
 
   describe '#manually_opt_in?' do
-    let(:salary_frequency) { 'whatever' }
+    context 'weekly rate'
+    let(:salary_frequency) { 'year' }
 
     context 'salary is within the range requiring manually opting in' do
       let(:salary) { 5_876 }
@@ -158,7 +159,7 @@ RSpec.describe Wpcc::SalaryMessage do
   end
 
   describe '#salary_below_pension_limit?' do
-    let(:salary_frequency) { 'whatever' }
+    let(:salary_frequency) { 'year' }
 
     context 'salary is within the range of an automatic workplace pension' do
       let(:salary) { 5_876 }
