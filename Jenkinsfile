@@ -7,5 +7,10 @@ pipeline {
                 sh('./script/test')
             }
         }
+        stage('Build') {
+            steps {
+                sh('./script/build')
+            }
+        }
     }
 }
