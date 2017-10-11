@@ -24,14 +24,15 @@ Feature: Employer contributions do not increase when user's salary is less than 
     And my employee contribution is "1"
     And my employer contribution is "<employer_percent>"
     When I move on to the results page
+    Then I should see that the employer_contributions is the same for each period at the "<monthly_value>"
     And I select "<salary_frequency>" to change the calculations
     And I press recalculate
-    Then I should see that the "<employer_contribution>" is the same for each period
+    Then I should see that the employer_contributions is the same for each period at the "<yearly_value>"
 
     Examples:
-        | salary | salary_frequency | part_or_full | employer_percent | employer_contribution |
-        | 5000   | per Year         | Full         | 0                | £0.00                 |
-        | 5000   | per Year         | Full         | 1                | £50.00                |
+        | salary | salary_frequency | part_or_full | employer_percent | monthly_value | yearly_value |
+        | 5000   | per Year         | Full         | 0                | £0.00         | £0.00        |
+        | 5000   | per Year         | Full         | 1                | £4.17         | £50.00       |
 
   Scenario Outline: For monthly, 4-weekly and weekly salary frequencies above the minimum threshold
     Given my "<salary>" "<salary_frequency>", regardless of "<part_or_full>" contribution, is above the minimum threshold
