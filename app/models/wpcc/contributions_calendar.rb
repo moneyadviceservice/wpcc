@@ -1,7 +1,7 @@
 module Wpcc
   class ContributionsCalendar
     include ActiveModel::Model
-    attr_accessor :eligible_salary, :salary_frequency, :periods, :salary
+    attr_accessor :eligible_salary, :salary_frequency, :periods, :annual_salary
 
     def schedule
       periods.map do |period|
@@ -14,12 +14,6 @@ module Wpcc
           tax_relief_percent: period.tax_relief_percent
         ).contribution
       end
-    end
-
-    private
-
-    def annual_salary
-      salary * salary_frequency.to_i
     end
   end
 end

@@ -145,6 +145,10 @@ Then(/^I should see employer_contributions for "([^"]*)", "([^"]*)" and "([^"]*)
   step %{I should see my employer contributions for third period as "#{period_3}"}
 end
 
+Then(/^I should see that the employer_contributions is the same for each period at the "([^"]*)"$/) do |employer_contribution|
+  step %{I should see that the "#{employer_contribution}" is the same for each period}
+end
+
 Given(/^that I am on your details step I fill:$/) do |table|
   data = table.hashes.first
   step %{I enter my age as "#{data[:age]}"}
