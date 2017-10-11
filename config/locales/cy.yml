@@ -21,7 +21,7 @@ cy:
     tooltip_hide: cuddio cymorth
 
     launch_warning_title: Mae’r offeryn hwn yn un Beta
-    launch_warning_content: sy’n golygu ein bod yn profi a gwella’r gyfrifiannell. Os byddwch yn cael unrhyw broblemau,
+    launch_warning_content: sy’n golygu ein bod yn profi a gwella’r gyfrifiannell. Os oes gennych chi unrhyw adborth
     launch_warning_email_text: rhowch wybod i ni.
 
     title: Cyfrifiannell cyfraniadau pensiwn gweithle
