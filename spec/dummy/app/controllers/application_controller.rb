@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
 
   before_action :set_locale
 
+  include MAS::Templating::ControllerConcerns::ParentTemplateSupport
+
   def parent_template
     'layouts/application'
   end
