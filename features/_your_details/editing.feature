@@ -16,11 +16,11 @@ Scenario Outline: on Your Contributions page
 
   Examples:
       | age | gender | salary  | salary_frequency | contribution | selected_frequency |
-      | 25  | male   | 25000   | per Year         | Minimum      | year               |
-      | 35  | female | 2500    | per Month        | Full         | month              |
+      | 25  | male   | 25000   | per year         | Minimum      | year               |
+      | 35  | female | 2500    | per month        | Full         | month              |
       | 45  | male   | 2450    | per 4 weeks      | Minimum      | fourweeks          |
-      | 55  | female | 500     | per Week         | Full         | week               |
-      
+      | 55  | female | 500     | per week         | Full         | week               |
+
 
 Scenario Outline: on Your Results page
   Given I am a "<age>" year old "<gender>"
@@ -33,7 +33,7 @@ Scenario Outline: on Your Results page
 
   Examples:
       | age | gender | salary  | salary_frequency | contribution | selected_frequency |
-      | 25  | male   | 25000   | per Year         | Minimum      | year               |
-      | 35  | female | 2500    | per Month        | Full         | month              |
+      | 25  | male   | 25000   | per year         | Minimum      | year               |
+      | 35  | female | 2500    | per month        | Full         | month              |
       | 45  | male   | 2450    | per 4 weeks      | Minimum      | fourweeks          |
-      | 55  | female | 500     | per Week         | Full         | week               |
+      | 55  | female | 500     | per week         | Full         | week               |

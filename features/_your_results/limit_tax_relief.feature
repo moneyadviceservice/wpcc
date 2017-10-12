@@ -9,7 +9,7 @@ Feature: Limit Tax Relief
     And I am a "25" year old "male"
 
     Scenario: Employee contributing more than £40,000 per year to pension
-      Given my salary is "80000" "per Year" with "Full" contribution
+      Given my salary is "80000" "per year" with "Full" contribution
       And I click the Next button
       And my contribution is "60" percent
       When I move on to the results page
@@ -21,7 +21,7 @@ Feature: Limit Tax Relief
         | TOTAL Contributions     | £4,066.67  | £4,133.33               | £4,200.00        |
 
     Scenario: Employee contributing more than £769.23 per week to pension
-      Given my salary is "1200" "per Week" with "Full" contribution
+      Given my salary is "1200" "per week" with "Full" contribution
       And I click the Next button
       And my contribution is "65" percent
       When I move on to the results page
@@ -33,7 +33,7 @@ Feature: Limit Tax Relief
         | TOTAL Contributions     | £792.00 | £804.00                 | £816.00          |
 
     Scenario: Employee contributing more than £3,333.33 per month to pension
-      Given my salary is "4000" "per Month" with "Full" contribution
+      Given my salary is "4000" "per month" with "Full" contribution
       And I click the Next button
       And my contribution is "90" percent
       When I move on to the results page
