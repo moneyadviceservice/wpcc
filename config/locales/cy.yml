@@ -42,7 +42,7 @@ cy:
 
       salary:
         label: Eich cyflog
-        tooltip_html: Rhowch eich cyflog cyn i’r dreth nag unrhyw ddidyniadau eraill gael eu tynnu. Gelwir hyn yn gyflog gros. <a href="/cy/articles/cofrestriad-awtomatig-ar-bensiwn-man-gwaith#cofrestru-awtomatig-pam-fydd-gennych-fwy-nag-un-swydd" target="_blank">Os oes gennych fwy nag un swydd <span class="visually-hidden">(Yn agor mewn ffenestr newydd)</span></a>, bydd raid i chi roi pob cyflog ar wahân.
+        tooltip_html: Rhowch eich cyflog cyn i’r dreth nag unrhyw ddidyniadau eraill gael eu tynnu. Gelwir hyn yn gyflog gros. <a href="/cy/articles/cofrestriad-awtomatig-ar-bensiwn-man-gwaith#cofrestru-awtomatig-pam-fydd-gennych-fwy-nag-un-swydd" target="_blank">Os oes gennych fwy nag un swydd<span class="visually-hidden"> (Yn agor mewn ffenestr newydd)</span></a>, bydd raid i chi roi pob cyflog ar wahân.
         validation: Nodwch eich cyflog
         frequency:
           label: Frequency
