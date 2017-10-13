@@ -1,0 +1,13 @@
+<div data-dough-popup-container class="popup-tip__container <%= classname %>">
+  <p data-dough-popup-content class="popup-tip__content">
+    <span class="popup-tip__title--no-js">
+      <%= t('wpcc.tooltip_qualifying_earnings.title') %>:
+    </span>
+    <%= t(
+      'wpcc.tooltip_qualifying_earnings.text',
+      formatted_upper_earnings: formatted_upper_earnings,
+      formatted_lower_earnings: formatted_lower_earnings
+      ) %>
+  </p>
+  <%= render 'wpcc/tooltips/close' %>
+</div>

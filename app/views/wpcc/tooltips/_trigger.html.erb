@@ -1,4 +1,10 @@
-<button type="button" class="popup-tip__button" data-dough-popup-trigger>
+<% if local_assigns[:locals] %>
+  <% popup_type = locals.fetch(:popup_type, '') %>
+<% end %>
+
+<button type="button"
+        class= "popup-tip__button <%= popup_type %>"
+        data-dough-popup-trigger>
   <span aria-hidden="true">i</span>
   <span class="visually-hidden"><%= t('wpcc.tooltip_show') %></span>
 </button>

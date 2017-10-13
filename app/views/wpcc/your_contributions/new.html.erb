@@ -2,11 +2,22 @@
 
 <section class="contributions">
   <h2 class="wpcc__heading">2. <%= t('wpcc.contributions.title') %></h2>
-  <div class="contributions__row">
+  <div class="contributions__row" data-dough-component="PopupTip">
     <p class="t-contributions_description">
-      <%= @your_contribution.earnings_description %>
+      <% if @message_presenter.minimum_contribution? %>
+        <% tooltip_html = render('wpcc/tooltips/trigger', locals: { popup_type: 't-qualifying-earnings' }) %>
+        <%= @your_contribution.earnings_description({ tooltip_html: raw(tooltip_html) }) %>
+      <% else %>
+        <%= @your_contribution.earnings_description %>
+      <% end %>
     </p>
+    <%= render 'wpcc/tooltips/content_qualifying_earnings',
+      formatted_upper_earnings: @message_presenter.formatted_upper_earnings,
+      formatted_lower_earnings: @message_presenter.formatted_lower_earnings,
+      classname: 'contributions__helper'
+    %>
   </div>
+
   <%= form_for(
     @your_contributions_form,
     url: your_contributions_path,

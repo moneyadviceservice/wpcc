@@ -128,19 +128,11 @@
               <%= render 'wpcc/tooltips/trigger' %>
               <%= t('wpcc.details.calculate.details_html_2') %>
             </p>
-            <div data-dough-popup-container class="popup-tip__container details__helper details__helper--block">
-              <p data-dough-popup-content class="popup-tip__content">
-                <span class="details__helper-title--no-js">
-                  <%= t('wpcc.details.calculate.qualifying_earnings_title') %>:
-                </span>
-                <%= t(
-                  'wpcc.details.calculate.qualifying_earnings',
-                  formatted_upper_earnings: @your_details_form.formatted_upper_earnings,
-                  formatted_lower_earnings: @your_details_form.formatted_lower_earnings
-                  ) %>
-              </p>
-              <%= render 'wpcc/tooltips/close' %>
-            </div>
+            <%= render 'wpcc/tooltips/content_qualifying_earnings',
+              formatted_upper_earnings: @your_details_form.formatted_upper_earnings,
+              formatted_lower_earnings: @your_details_form.formatted_lower_earnings,
+              classname: 'details__helper details__helper--block'
+            %>
             <div class="details__callouts">
               <div class="form__row details__callout <%= @your_details_form.activate_disabled_callout %>" data-wpcc-callout-lt5876-min-contribution>
                 <div class="callout">

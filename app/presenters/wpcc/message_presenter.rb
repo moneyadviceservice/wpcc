@@ -28,6 +28,10 @@ module Wpcc
       ].join(', ')
     end
 
+    def minimum_contribution?
+      session[:contribution_preference] == 'minimum'
+    end
+
     def show_above_max_contribution?
       above_max_contribution?
     end

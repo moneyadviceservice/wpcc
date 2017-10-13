@@ -1,6 +1,16 @@
 .popup-tip__content {
-  @include respond-to($mq-m) {
-    padding: $baseline-unit;
+  .js & {
+    @include respond-to($mq-m) {
+      padding: $baseline-unit;
+    }
+  }
+}
+
+.popup-tip__title--no-js {
+  display: inline;
+
+  .js & {
+    display: none;
   }
 }
 
