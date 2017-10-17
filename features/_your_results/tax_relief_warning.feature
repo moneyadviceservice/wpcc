@@ -16,15 +16,15 @@ Feature: Display Tax Relief Warning
 
     Examples:
       | salary | salary_frequency | warning_message                                                                                                         | tax_relief_link                       | tax_relief_link_text |
-      | 11000  | per year         | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            | tax-relief-and-your-workplace-pension | tax relief on pension contributions |
-      | 858.33 | per month        | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            | tax-relief-and-your-workplace-pension | tax relief on pension contributions |
-      | 784.61 | per 4 weeks      | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            | tax-relief-and-your-workplace-pension | tax relief on pension contributions |
-      | 121.14 | per week         | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            | tax-relief-and-your-workplace-pension | tax relief on pension contributions |
+      | 11000  | per year         | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            | tax-relief-and-your-workplace-pension | tax relief and your workplace pension |
+      | 858.33 | per month        | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            | tax-relief-and-your-workplace-pension | tax relief and your workplace pension |
+      | 784.61 | per 4 weeks      | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            | tax-relief-and-your-workplace-pension | tax relief and your workplace pension |
+      | 121.14 | per week         | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            | tax-relief-and-your-workplace-pension | tax relief and your workplace pension |
 
     @welsh
     Examples:
       | salary | salary_frequency | warning_message                                                                                                         | tax_relief_link_text                     | tax_relief_link |
-      | 11000  | y flwyddyn       | Os nad ydych chi'n talu treth incwm ar eich enillion, fyddwch chi ddim ond yn cael gostyngiad treth ar eich cyfraniadau | ostyngiadau treth ar gyfraniadau pensiwn | gostyngiad-treth-ach-pensiwn-gweithle |
+      | 11000  | y flwyddyn       | Os nad ydych chi'n talu treth incwm ar eich enillion, cewch ostyngiad treth yn unig ar eich cyfraniadau | ostyngiadau treth ar eich pensiwn gweithle | gostyngiad-treth-ach-pensiwn-gweithle |
 
   @no-javascript
   Scenario Outline: Earning £11,500 per year
