@@ -11,7 +11,7 @@
         <%= period.formatted_employee_contribution %>
       </p>
       <p class="results__period-parenthesis" data-wpcc-tax-relief data-value="<%= period.tax_relief %>">
-        <span class="results__period-tax-relief">
+        <span data-wpcc-tax-relief-text class="results__period-tax-relief">
           <%= period.formatted_tax_relief %>
         </span>
         <%= render 'wpcc/tooltips/trigger' %>
