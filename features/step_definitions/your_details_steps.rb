@@ -130,6 +130,10 @@ When(/^I proceed to the next step$/) do
   step 'I submit my details'
 end
 
+When(/^I move to your contribution step$/) do
+  step 'I submit my details'
+end
+
 When(/^I press next and move to your contributions step$/) do
   step 'I submit my details'
 end

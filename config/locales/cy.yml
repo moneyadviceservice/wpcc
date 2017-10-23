@@ -19,6 +19,9 @@ cy:
       canonical_url: https://www.moneyadviceservice.org.uk/cy/tools/cyfrifiannell-cyfraniadau-pensiwn-gweithle
     tooltip_show: sioe help
     tooltip_hide: cuddio cymorth
+    tooltip_qualifying_earnings:
+      title: Enillion cymhwyso
+      text: Dyma’r rhan o’ch cyflog blynyddol fydd yn cael ei defnyddio i gyfrifo eich cyfraniad pensiwn dan gofrestru awtomatig. Sef eich enillion cyn treth (hyd at derfyn uchafswm o %{formatted_upper_earnings} y flwyddyn) - tynnu’r trothwy enillion isaf o %{formatted_lower_earnings}.
 
     launch_warning_title: Mae’r offeryn hwn yn un Beta
     launch_warning_content: sy’n golygu ein bod yn profi a gwella’r gyfrifiannell. Os oes gennych chi unrhyw adborth
@@ -63,10 +66,8 @@ cy:
 
       calculate:
         legend: Dewiswch sut mae eich cyflogwr yn cyfrannu
-        qualifying_earnings_title: Enillion cymhwyso
         details_html_1: Gall eich cyflogwr ddewis os yw am wneud cyfraniadau ar ran o'ch cyflog (a elwir yn enillion cymhwyso
         details_html_2: ) neu ar eich cyflog llawn. I gael gwybod pa un, bydd angen i chi wirio gyda’ch cyflogwr.
-        qualifying_earnings: Dyma’r rhan o’ch cyflog blynyddol fydd yn cael ei defnyddio i gyfrifo eich cyfraniad pensiwn dan gofrestru awtomatig. Sef eich enillion cyn treth (hyd at derfyn uchafswm o %{formatted_upper_earnings} y flwyddyn) - tynnu’r trothwy enillion isaf o %{formatted_lower_earnings}.
 
       next: Nesaf
       prompt: os gwelwch yn dda dewiswch
@@ -91,8 +92,8 @@ cy:
 
     contributions:
       title: Eich cyfraniadaulower
-      description_minimum: Gwneir cyfraniadau ar eich enillion cymwys o %{eligible_salary} y flwyddyn.
-      description_full: Gwneir cyfraniadau ar eich cyflog o %{eligible_salary} y flwyddyn.
+      description_minimum_html: Gwneir cyfraniadau ar eich enillion cymwys o %{eligible_salary} y flwyddyn.
+      description_full_html: Gwneir cyfraniadau ar eich cyflog o %{eligible_salary} y flwyddyn.
       your_contribution_title: Nodwch eich cyfraniad
       your_contribution_tip: Yr isafswm cyfreithiol yw 1%
       your_contribution_tip_lt5876: Ar eich lefel cyflog, nid oes isafswm cyfreithiol o gyfraniad ond efallai y bydd eich cynllun pensiwn gweithlu wedi gosod isafswm. Holwch eich cyflogwr.
@@ -117,10 +118,10 @@ cy:
       description_html: |
         Bydd cyfraddau cyfraniadau pensiwn isaf yn cynyddu yn Ebrill 2018 ac eto yn Ebrill 2019.
         Bydd y ffigyrau hyn yn dangos sut y bydd hyn yn effeithio ar eich cyfraniadau.
-      description_full:
+      description_full_html:
         Bydd cyfraniadau yn seiliedig ar eich cyflog o <span data-wpcc-eligible-salary>%{eligible_salary}</span> y flwyddyn.
-      description_minimum:
-        Bydd cyfraniadau yn seiliedig ar eich enillion cymwys o <span data-wpcc-eligible-salary>%{eligible_salary}</span> y flwyddyn.
+      description_minimum_html:
+        Bydd cyfraniadau yn seiliedig ar eich enillion cymwys%{tooltip_html} o <span data-wpcc-eligible-salary>%{eligible_salary}</span> y flwyddyn.
       large_contribution_percent_for_two_periods:
         Rydych chi a'ch cyflogwr eisoes yn talu mwy na'r isafswm newydd, felly rydym wedi dangos y cyfraniadau cyfredol yn unig. Ni fydd y rhain yn newid oni bai bod eich cyflog yn cynyddu neu rydych chi ac/neu eich cyflogwr yn dewis talu mwy.
       large_contribution_percent_for_middle_period:

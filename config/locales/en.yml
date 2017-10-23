@@ -19,6 +19,9 @@ en:
       canonical_url: https://www.moneyadviceservice.org.uk/en/tools/workplace-pension-contribution-calculator
     tooltip_show: show help
     tooltip_hide: hide help
+    tooltip_qualifying_earnings:
+      title: Qualifying earnings
+      text: This is the part of your annual pay that will be used to calculate your pension contribution under automatic enrolment. It is your earnings before tax (up to a maximum limit of %{formatted_upper_earnings} per year) – less the lower earnings threshold of %{formatted_lower_earnings}.
 
     launch_warning_title: This tool is in Beta
     launch_warning_content: That means we are testing and improving the calculator. If you have any feedback
@@ -63,10 +66,8 @@ en:
 
       calculate:
         legend: Choose how your employer makes contributions
-        qualifying_earnings_title: Qualifying earnings
         details_html_1: Your employer can choose whether to make contributions on part of your salary (known as your qualifying earnings
         details_html_2: ) or on your full salary. To find this out, you will need to check with your employer.
-        qualifying_earnings: This is the part of your annual pay that will be used to calculate your pension contribution under automatic enrolment. It is your earnings before tax (up to a maximum limit of %{formatted_upper_earnings} per year) – less the lower earnings threshold of %{formatted_lower_earnings}.
 
       next: Next
       prompt: Please choose
@@ -91,8 +92,8 @@ en:
 
     contributions:
       title: Your contributions
-      description_minimum:  Contributions will be made on your qualifying earnings of %{eligible_salary} per year.
-      description_full:  Contributions will be made on your salary of %{eligible_salary} per year.
+      description_minimum_html:  Contributions will be made on your qualifying earnings%{tooltip_html} of %{eligible_salary} per year.
+      description_full_html:  Contributions will be made on your salary of %{eligible_salary} per year.
       your_contribution_title: Enter your contribution
       your_contribution_tip: The legal minimum is 1%
       your_contribution_tip_lt5876: At your salary level there is no legal minimum contribution but your workplace pension scheme may have a set minimum. Check with your employer.
@@ -117,10 +118,10 @@ en:
       description_html: |
         Minimum pension contribution rates will increase in April 2018 and again in April 2019.
         These figures show how this will affect your contributions.
-      description_full:
+      description_full_html:
         Contributions will be based on your salary of <span data-wpcc-eligible-salary>%{eligible_salary}</span> per year.
-      description_minimum:
-        Contributions will be based on your qualifying earnings of <span data-wpcc-eligible-salary>%{eligible_salary}</span> per year.
+      description_minimum_html:
+        Contributions will be based on your qualifying earnings%{tooltip_html} of <span data-wpcc-eligible-salary>%{eligible_salary}</span> per year.
       large_contribution_percent_for_two_periods:
         "Both you and your employer are already paying above the new minimums so we have just shown the current contributions. These won't change unless your salary increases or you and/or your employer choose to pay more."
       large_contribution_percent_for_middle_period:
