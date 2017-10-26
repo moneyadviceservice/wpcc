@@ -1,3 +1,6 @@
+## 1.11.12:
+* TP-8634: Fix missing tooltip trigger for step 2 in Welsh
+
 ## 1.11.5:
 * Switch build process to Jenkins
 
