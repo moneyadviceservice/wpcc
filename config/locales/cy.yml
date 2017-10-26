@@ -92,7 +92,7 @@ cy:
 
     contributions:
       title: Eich cyfraniadaulower
-      description_minimum_html: Gwneir cyfraniadau ar eich enillion cymwys o %{eligible_salary} y flwyddyn.
+      description_minimum_html: Gwneir cyfraniadau ar eich enillion cymwys%{tooltip_html} o %{eligible_salary} y flwyddyn.
       description_full_html: Gwneir cyfraniadau ar eich cyflog o %{eligible_salary} y flwyddyn.
       your_contribution_title: Nodwch eich cyfraniad
       your_contribution_tip: Yr isafswm cyfreithiol yw 1%
