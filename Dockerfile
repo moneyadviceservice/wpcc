@@ -11,7 +11,8 @@ ENV BUNDLE_WITHOUT development:build
 ENV DEBIAN_FRONTEND noninteractive
 ENV APT_PACKAGES " \
   build-essential apt-utils git libfontconfig libpq-dev libsqlite3-dev libmysqlclient-dev \
-  libxml2-dev libreadline-dev zlib1g-dev apt-transport-https curl software-properties-common openssh-server"
+  libxml2-dev libreadline-dev zlib1g-dev apt-transport-https curl \
+  software-properties-common openssh-server"
 
 #Install Prerequisites
 RUN apt-get -qq update > /dev/null && \
@@ -19,6 +20,10 @@ RUN apt-get -qq update > /dev/null && \
   apt-get -qq install --no-install-recommends $APT_PACKAGES > /dev/null && \
   apt-get -qq clean  > /dev/null && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN apt-get -qq update && apt-get install -qq yarn
 
 WORKDIR /tmp
 
@@ -41,7 +46,7 @@ RUN curl https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x6
   | tar -xz -C /usr --strip-components=1
 
 #Install Bower
-RUN npm install bower@${BOWER_VERSION} -g
+RUN yarn global add bower@1.8.2
 
 #Install PhantomJs
 RUN curl -L -O https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-${PHANTOMJS_VERSION}-linux-x86_64.tar.bz2

@@ -19,7 +19,7 @@ RSpec.describe Wpcc::YourResultsController do
   describe 'GET /your_results' do
     context 'when session has no keys' do
       it 'redirects to root page' do
-        get :index, {}, {}
+        get :index
 
         expect(response)
           .to redirect_to wpcc_root_path(locale: 'en')

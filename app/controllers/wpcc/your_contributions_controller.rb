@@ -48,7 +48,7 @@ module Wpcc
     end
 
     def amend_session
-      your_contributions_params.keys.each do |key|
+      your_contributions_params.to_hash.each_key do |key|
         session[key] = params[:your_contributions_form][key]
       end
     end

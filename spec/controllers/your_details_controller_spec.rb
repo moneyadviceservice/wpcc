@@ -16,12 +16,12 @@ module Wpcc
 
       context 'supported translations' do
         it 'renders the start view for english' do
-          get :new, locale: 'en'
+          get :new, params: { locale: 'en' }
           is_expected.to be_success
         end
 
         it 'renders the start view for welsh' do
-          get :new, locale: 'cy'
+          get :new, params: { locale: 'cy' }
           is_expected.to be_success
         end
       end
@@ -29,14 +29,14 @@ module Wpcc
       context 'unsupported translation' do
         it 'throws an error for french' do
           expect do
-            get :new, locale: 'fr'
-          end.to raise_error ActionController::UrlGenerationError
+            get :new, params: { locale: 'fr' }
+          end.to raise_error I18n::InvalidLocale
         end
       end
 
       context 'editing previously submitted form' do
         it 'instantiates a YourDetailsForm object with the session details' do
-          get :new, nil, data_for_form
+          get :new, session: data_for_form
           expect(Wpcc::YourDetailsForm)
             .to receive(:new)
             .with(data_for_form)
@@ -66,8 +66,10 @@ module Wpcc
 
     def post_create(form_data = data_for_form)
       post :create,
-           locale: 'en',
-           your_details_form: form_data
+           params: {
+             locale: 'en',
+             your_details_form: form_data
+           }
     end
   end
 end

@@ -44,7 +44,7 @@ module Wpcc
 
       context 'when session has no keys' do
         it 'redirects to root page' do
-          get :new, {}, {}
+          get :new
 
           expect(response)
             .to redirect_to wpcc_root_path(locale: 'en')
@@ -54,8 +54,8 @@ module Wpcc
       context 'translation not supported' do
         it 'throws an error for an unsupported locale' do
           expect do
-            get :new, locale: 'fr'
-          end.to raise_error ActionController::UrlGenerationError
+            get :new, params: { locale: 'fr' }
+          end.to raise_error I18n::InvalidLocale
         end
       end
 
@@ -78,14 +78,15 @@ module Wpcc
 
         it 'sets employee & employer percent previously added' do
           get :new,
-              nil,
-              employee_percent: 10,
-              employer_percent: 40,
-              salary: salary,
-              contribution_preference: contribution_preference,
-              salary_frequency: 'year',
-              age: age,
-              gender: gender
+              session: {
+                employee_percent: 10,
+                employer_percent: 40,
+                salary: salary,
+                contribution_preference: contribution_preference,
+                salary_frequency: 'year',
+                age: age,
+                gender: gender
+              }
 
           expect(your_contributions_form.employee_percent).to eq(10)
           expect(your_contributions_form.employer_percent).to eq(40)
@@ -103,14 +104,15 @@ module Wpcc
             .and_return(salary_message)
 
           get :new,
-              nil,
-              employee_percent: 10,
-              employer_percent: 40,
-              salary: salary,
-              contribution_preference: contribution_preference,
-              salary_frequency: 'year',
-              age: age,
-              gender: gender
+              session: {
+                employee_percent: 10,
+                employer_percent: 40,
+                salary: salary,
+                contribution_preference: contribution_preference,
+                salary_frequency: 'year',
+                age: age,
+                gender: gender
+              }
         end
       end
     end
@@ -142,21 +144,24 @@ module Wpcc
 
     def get_new(locale = 'en')
       get :new,
-          nil,
-          locale: locale,
-          salary: salary,
-          contribution_preference: contribution_preference,
-          salary_frequency: salary_frequency,
-          age: age,
-          gender: gender
+          session: {
+            locale: locale,
+            salary: salary,
+            contribution_preference: contribution_preference,
+            salary_frequency: salary_frequency,
+            age: age,
+            gender: gender
+          }
     end
 
     def post_create(locale = 'en', employee_percent = 1)
       post :create,
-           locale: locale,
-           your_contributions_form: {
-             employee_percent: employee_percent,
-             employer_percent: 1
+           params: {
+             locale: locale,
+             your_contributions_form: {
+               employee_percent: employee_percent,
+               employer_percent: 1
+             }
            }
     end
   end

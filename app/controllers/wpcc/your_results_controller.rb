@@ -2,6 +2,8 @@ module Wpcc
   class YourResultsController < EngineController
     before_action YourResultsSessionVerifier, only: :index
 
+    def index; end
+
     def schedule
       calendar.schedule.map do |period_contribution|
         Wpcc::PeriodContributionPresenter.new(

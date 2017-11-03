@@ -6,12 +6,14 @@ source 'http://gems.dev.mas.local'
 # development dependencies will be added by default to the :development group.
 gemspec
 
-ruby '2.3.3'
+ruby '2.4.1'
 
 gem 'bowndler'
+gem 'dough-ruby',
+    github: 'moneyadviceservice/dough',
+    branch: 'upgrade-to-rails-5'
 gem 'jquery-rails'
-gem 'rails', '~> 4.2.7'
-gem 'rubocop', '~> 0.49.1', require: false
+gem 'rubocop', require: false
 gem 'sass-rails'
 gem 'turbolinks'
 
@@ -21,8 +23,8 @@ group :development, :test do
   gem 'byebug'
   gem 'launchy'
   gem 'pry-rails'
-  gem 'rspec-rails', '~> 3.5'
-  gem 'shoulda-matchers', '~> 3.1'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
 
 group :test do
@@ -30,6 +32,7 @@ group :test do
   gem 'capybara'
   gem 'cucumber-rails', require: false
   gem 'poltergeist'
+  gem 'rails-controller-testing'
   gem 'simplecov', require: false
   gem 'site_prism'
   gem 'timecop'
