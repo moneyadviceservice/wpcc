@@ -1,26 +1,3 @@
-.popup-tip__content {
-  .js & {
-    @include respond-to($mq-m) {
-      padding: $baseline-unit;
-    }
-  }
-}
-
-.popup-tip__title--no-js {
-  display: inline;
-
-  .js & {
-    display: none;
-  }
-}
-
-.popup-tip__close {
-  .icon,
-  .svg-icon {
-    width: 15px;
-    height: 15px;
-    position: absolute;
-    top: $baseline-unit;
-    left: $baseline-unit;
-  }
+.popup-tip__button {
+  margin: 0 0 $baseline-unit;
 }

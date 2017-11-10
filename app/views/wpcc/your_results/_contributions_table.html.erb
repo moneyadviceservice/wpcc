@@ -14,16 +14,15 @@
         <span data-wpcc-tax-relief-text class="results__period-tax-relief">
           <%= period.formatted_tax_relief %>
         </span>
-        <%= render 'wpcc/tooltips/trigger' %>
+        <%= popup_tip_trigger options: {
+          text: t('wpcc.tooltip_show')
+        } %>
       </p>
-
-      <div data-dough-popup-container class="popup-tip__container">
-        <p data-dough-popup-content class="popup-tip__content results__helper">
-          <%= t('wpcc.results.tax_relief_tooltip_html') %>
-        </p>
-        <%= render 'wpcc/tooltips/close' %>
-      </div>
-
+      <%= popup_tip_content options: {
+                              text: t('wpcc.results.tax_relief_tooltip_html'),
+                              classname: 'results__helper',
+                              tooltip_hide: t('wpcc.tooltip_hide')
+      } %>
       <p class="results__period-heading" data-wpcc-period-heading-employers>
         <%= period.employer_frequency_heading(salary_frequency).html_safe %>
       </p>
