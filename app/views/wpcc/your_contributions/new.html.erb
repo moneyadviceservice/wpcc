@@ -29,7 +29,11 @@
     <div data-dough-component="SalaryConditions ContributionConditions">
       <div class="contributions__row">
         <div class="contributions__source contributions__source--employee form__row">
-          <h3 class="contributions__source-title"><%= t('wpcc.contributions.your_contribution_title') %></h3>
+          <h3 class="contributions__source-title">
+            <label for="your_contributions_form_employee_percent">
+              <%= t('wpcc.contributions.your_contribution_title') %>
+            </label>
+          </h3>
           <p><%= @message_presenter.employee_contribution_tip %></p>
           <%= f.number_field :employee_percent,
             class: "contributions__source-input",
@@ -47,7 +51,11 @@
           </span>
         </div>
         <div class="contributions__source contributions__source--employer form__row">
-          <h3 class="contributions__source-title"><%= t('wpcc.contributions.employer_contribution_title') %></h3>
+          <h3 class="contributions__source-title">
+            <label for="your_contributions_form_employer_percent">
+              <%= t('wpcc.contributions.employer_contribution_title') %>
+            </label>
+          </h3>
           <p><%=  @message_presenter.employer_contribution_tip %></p>
           <%= f.number_field :employer_percent,
             class: "contributions__source-input",
