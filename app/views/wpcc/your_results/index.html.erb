@@ -1,4 +1,5 @@
-<% set_meta_tags title: t("wpcc.results.title") + ' | ' + t("wpcc.meta.title") %>
+<% set_meta_tags title: [t("wpcc.meta.title"), t("wpcc.results.title")], 
+                 reverse: true %>
 
 <%= render 'wpcc/shared/your_details' %>
 <%= render 'wpcc/shared/your_contributions', message_presenter: message_presenter %>

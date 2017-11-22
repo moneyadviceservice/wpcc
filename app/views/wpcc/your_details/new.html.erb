@@ -1,4 +1,5 @@
-<% set_meta_tags title: t("wpcc.details.title") + ' | ' + t("wpcc.meta.title") %>
+<% set_meta_tags title: [t("wpcc.meta.title"), t("wpcc.details.title")], 
+                 reverse: true %>
 
 <section class="section section--details details" data-dough-component="ConditionalMessaging">
   <%= form_for(
