@@ -1,6 +1,6 @@
 <div class="results__salary-frequency">
   <%= form_tag(your_results_path, method: :get) do %>
-    <%= label :salary_frequency, t('wpcc.results.edit_frequency.label'), class: 'form__label-heading results__salary-label' %>
+    <%= label :salary_frequency, t('wpcc.results.edit_frequency.label'), for: 'salary_frequency',class: 'form__label-heading results__salary-label' %>
     <%= select_tag(
       :salary_frequency,
       options_for_select(

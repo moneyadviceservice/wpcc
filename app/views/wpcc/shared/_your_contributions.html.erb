@@ -4,7 +4,12 @@
       <%= t('wpcc.results.contribution_changes.you') %>: <%= session[:employee_percent] %>%, <%= t('wpcc.results.contribution_changes.employer') %>: <%= session[:employer_percent] %>%
     </span>
     <span>
-      <%= link_to(t('wpcc.edit'), new_your_contribution_path, class: 'section__heading-edit') %>
+      <%= link_to(new_your_contribution_path, class: 'section__heading-edit') do %>
+        <%= t('wpcc.edit') %>
+        <span class="visually-hidden">
+          <%= t('wpcc.contributions.title') %>
+        </span>
+      <% end %>
     </span>
   </h2>
   <% if message_presenter.show_above_max_contribution? %>

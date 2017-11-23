@@ -1,3 +1,6 @@
+<% set_meta_tags title: [t("wpcc.meta.title"), t("wpcc.details.title")], 
+                 reverse: true %>
+
 <section class="section section--details details" data-dough-component="ConditionalMessaging">
   <%= form_for(
     @your_details_form,
@@ -98,7 +101,7 @@
                 </div>
                 <div class="details__salary-frequency">
                   <%= f.label :salary_frequency, t('wpcc.details.salary.frequency.label'), class: 'form__label-heading details__field-label visually-hidden' %>
-                <%= f.select(:salary_frequency, options_for_select(@your_details_form.salary_frequency_options, @your_details_form.salary_frequency), {}, {'data-wpcc-frequency-select': true}) %>
+                  <%= f.select(:salary_frequency, options_for_select(@your_details_form.salary_frequency_options, @your_details_form.salary_frequency), {}, {'data-wpcc-frequency-select': true}) %>
                 </div>
               </div>
             <% end %>

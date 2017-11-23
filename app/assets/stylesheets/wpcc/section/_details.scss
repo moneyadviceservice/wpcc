@@ -75,12 +75,6 @@
   }
 }
 
-.details__salary-frequency {
-  .form__label-heading {
-    visibility: hidden;
-  }
-}
-
 .details__calculate-heading,
 .details__calculate-intro {
   @include column(12);

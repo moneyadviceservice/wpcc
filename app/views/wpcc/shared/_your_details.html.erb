@@ -2,7 +2,12 @@
   <h2 class="section__heading details__heading">1. <%= t('wpcc.details.title') %>
     <span class="section__heading-summary" data-wpcc-details-heading-summary><%= message_presenter.your_details_summary(session) %></span>
     <span>
-      <%= link_to(t('wpcc.edit'), new_your_detail_path, class: 'section__heading-edit') %>
+      <%= link_to(new_your_detail_path, class: 'section__heading-edit') do %>
+        <%= t('wpcc.edit') %>
+        <span class="visually-hidden">
+          <%= t('wpcc.details.title') %>
+        </span>
+      <% end %>
     </span>
   </h2>
   <% if message_presenter.manually_opt_in_message? %>
