@@ -1,3 +1,10 @@
+## 1.11.13:
+* TP-8686: Adds field label for salary frequency
+* TP-8687: Adds labels to contribution inputs
+* TP-8689: Adds labels to contribution frequency
+* TP-8693: Adds more descriptive step header edit links
+* TP-8692: Sets pahe meta titles per step in process
+
 ## 1.11.12:
 * TP-8634: Fix missing tooltip trigger for step 2 in Welsh
 
