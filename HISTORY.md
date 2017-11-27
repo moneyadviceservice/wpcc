@@ -1,3 +1,6 @@
+## 1.11.14:
+* Bumps version for accessibility updates
+
 ## 1.11.13:
 * TP-8686: Adds field label for salary frequency
 * TP-8687: Adds labels to contribution inputs
