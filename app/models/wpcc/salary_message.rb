@@ -19,6 +19,8 @@ module Wpcc
 
     TAX_RELIEF_MAX_CONTRIBUTION = 40_000
 
+    WARNING_RANGE = 10
+
     def manually_opt_in?
       salary >= opt_in_lower_limit && salary <= opt_in_upper_limit
     end
@@ -29,6 +31,10 @@ module Wpcc
 
     def salary_below_pension_limit?
       salary < opt_in_lower_limit
+    end
+
+    def salary_near_pension_limit?
+      salary.between?(opt_in_lower_limit-WARNING_RANGE, opt_in_lower_limit+WARNING_RANGE)
     end
 
     def above_max_contribution?

@@ -185,4 +185,46 @@ RSpec.describe Wpcc::SalaryMessage do
       end
     end
   end
+
+  describe '#salary_near_pension_limit' do
+    context 'yearly salary_frequency' do
+      let(:salary_frequency) { 'year' }
+
+      context 'salary is within the range of an automatic pension warning' do
+        let(:salary) { 5_866 }
+        it { is_expected.to be_salary_near_pension_limit }
+
+        let(:salary) { 5_886 }
+        it { is_expected.to be_salary_near_pension_limit }
+      end
+
+      context 'salary is outside the range of an automatic pension warning' do
+        let(:salary) { 5_865 }
+        it { is_expected.not_to be_salary_near_pension_limit }
+
+        let(:salary) { 5_887 }
+        it { is_expected.not_to be_salary_near_pension_limit }
+      end
+    end
+
+    context 'weekly salary_frequency' do
+      let(:salary_frequency) { 'week' }
+
+      context 'salary is within the range of an automatic pension warning' do
+        let(:salary) { 103 }
+        it { is_expected.to be_salary_near_pension_limit }
+
+        let(:salary) { 123 }
+        it { is_expected.to be_salary_near_pension_limit }
+      end
+
+      context 'salary is outside the range of an automatic pension warning' do
+        let(:salary) { 102 }
+        it { is_expected.not_to be_salary_near_pension_limit }
+
+        let(:salary) { 124 }
+        it { is_expected.not_to be_salary_near_pension_limit }
+      end
+    end
+  end
 end
