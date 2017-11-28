@@ -13,12 +13,12 @@ Metrics/BlockLength:
   Exclude:
     - '**/*_spec.rb'
     - '**/shared_examples/*.rb'
+Layout/DotPosition:
+  EnforcedStyle: leading
 Style/ClassAndModuleChildren:
   Enabled: false
 Style/CollectionMethods:
   Enabled: false
-Style/DotPosition:
-  EnforcedStyle: leading
 Style/FormatString:
   Enabled: false
 Style/AndOr:
