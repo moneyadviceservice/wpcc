@@ -34,17 +34,11 @@ module Wpcc
     end
 
     def salary_near_pension_limit?
-      salary.between?(
-        opt_in_lower_limit - WARNING_RANGE,
-        opt_in_lower_limit + WARNING_RANGE
-      )
+      near_limit?(opt_in_lower_limit)
     end
 
     def salary_near_manual_opt_in_limit?
-      salary.between?(
-        opt_in_upper_limit - WARNING_RANGE,
-        opt_in_upper_limit + WARNING_RANGE
-      )
+      near_limit?(opt_in_upper_limit)
     end
 
     def above_max_contribution?
@@ -52,6 +46,13 @@ module Wpcc
     end
 
     private
+
+    def near_limit?(limit)
+      salary.between?(
+        limit - WARNING_RANGE,
+        limit + WARNING_RANGE
+      )
+    end
 
     def valid_salary_frequency?
       TAX_RELIEF_THRESHOLDS.keys.include?(salary_frequency)
