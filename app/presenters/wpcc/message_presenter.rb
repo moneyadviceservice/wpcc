@@ -8,12 +8,36 @@ module Wpcc
       t('wpcc.contributions.manually_opt_in')
     end
 
+    def salary_below_pension_limit_message?
+      salary_below_pension_limit?
+    end
+
+    def salary_below_pension_limit_message
+      t('wpcc.details.callout__lt5876')
+    end
+
     def tax_relief_warning?
       salary_below_tax_relief_threshold?
     end
 
     def tax_relief_warning
       t('wpcc.results.tax_relief_warning_html')
+    end
+
+    def salary_near_pension_limit_message?
+      salary_near_pension_limit?
+    end
+
+    def salary_near_pension_limit_message
+      t('wpcc.details.near_pension_limit_message_html')
+    end
+
+    def salary_near_manual_opt_in_limit_message?
+      salary_near_manual_opt_in_limit?
+    end
+
+    def salary_near_manual_opt_in_limit_message
+      t('wpcc.details.near_manual_opt_in_limit_message_html')
     end
 
     def your_details_summary(hash)
