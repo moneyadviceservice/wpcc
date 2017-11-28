@@ -34,7 +34,17 @@ module Wpcc
     end
 
     def salary_near_pension_limit?
-      salary.between?(opt_in_lower_limit-WARNING_RANGE, opt_in_lower_limit+WARNING_RANGE)
+      salary.between?(
+        opt_in_lower_limit - WARNING_RANGE,
+        opt_in_lower_limit + WARNING_RANGE
+      )
+    end
+
+    def salary_near_manual_opt_in_limit?
+      salary.between?(
+        opt_in_upper_limit - WARNING_RANGE,
+        opt_in_upper_limit + WARNING_RANGE
+      )
     end
 
     def above_max_contribution?
