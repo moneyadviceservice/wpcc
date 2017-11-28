@@ -227,4 +227,46 @@ RSpec.describe Wpcc::SalaryMessage do
       end
     end
   end
+
+  describe '#salary_near_manual_opt_in_limit' do
+    context 'yearly salary_frequency' do
+      let(:salary_frequency) { 'year' }
+
+      context 'salary is within the range of an automatic pension warning' do
+        let(:salary) { 9_990 }
+        it { is_expected.to be_salary_near_manual_opt_in_limit }
+
+        let(:salary) { 10_010 }
+        it { is_expected.to be_salary_near_manual_opt_in_limit }
+      end
+
+      context 'salary is outside the range of an automatic pension warning' do
+        let(:salary) { 9_989 }
+        it { is_expected.not_to be_salary_near_manual_opt_in_limit }
+
+        let(:salary) { 10_011 }
+        it { is_expected.not_to be_salary_near_manual_opt_in_limit }
+      end
+    end
+
+    context 'weekly salary_frequency' do
+      let(:salary_frequency) { 'week' }
+
+      context 'salary is within the range of an automatic pension warning' do
+        let(:salary) { 182 }
+        it { is_expected.to be_salary_near_manual_opt_in_limit }
+
+        let(:salary) { 202 }
+        it { is_expected.to be_salary_near_manual_opt_in_limit }
+      end
+
+      context 'salary is outside the range of an automatic pension warning' do
+        let(:salary) { 181 }
+        it { is_expected.not_to be_salary_near_manual_opt_in_limit }
+
+        let(:salary) { 203 }
+        it { is_expected.not_to be_salary_near_manual_opt_in_limit }
+      end
+    end
+  end
 end
