@@ -29,7 +29,7 @@ module Wpcc
     end
 
     def salary_near_pension_limit_message
-      t('wpcc.details.near_pension_limit_message').html_safe
+      t('wpcc.details.near_pension_limit_message_html')
     end
 
     def salary_near_manual_opt_in_limit_message?
@@ -37,7 +37,7 @@ module Wpcc
     end
 
     def salary_near_manual_opt_in_limit_message
-      t('wpcc.details.near_manual_opt_in_limit_message').html_safe
+      t('wpcc.details.near_manual_opt_in_limit_message_html')
     end
 
     def your_details_summary(hash)
