@@ -32,6 +32,14 @@ module Wpcc
       t('wpcc.details.near_pension_limit_message').html_safe
     end
 
+    def salary_near_manual_opt_in_limit_message?
+      salary_near_manual_opt_in_limit?
+    end
+
+    def salary_near_manual_opt_in_limit_message
+      t('wpcc.details.near_manual_opt_in_limit_message').html_safe
+    end
+
     def your_details_summary(hash)
       salary = view_context.number_with_delimiter(hash[:salary], delimiter: ',')
       preference = hash[:contribution_preference].downcase

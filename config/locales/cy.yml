@@ -80,6 +80,7 @@ cy:
       callout__gt5876_lt10000: Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau.
 
       near_pension_limit_message: "Sylwer: Mae eich enillion yn agos iawn at y trothwy lle nad oes raid i’ch cyflogwr gyfrannu at eich pensiwn os dewiswch gofrestru. Dylech wirio i gadarnhau a fydd eich cyflogwr yn cyfrannu neu beidio oherwydd mae’r trothwy hwn yn amrywio yn ddibynnol ar a ydych yn cael eich talu’n fisol, wythnosol neu bob 4 wythnos. <a href='/cy/articles/gall-cofrestru-awtomatig-ennill-hyd-at-10000-i-chi'>Darllenwch fwy am y trothwyon cyflog ar gyfer pensiynau gweithle.</a>"
+      near_manual_opt_in_limit_message: "Sylwer: Mae eich enillion yn agos iawn at y trothwy cyflog cofrestru awtomatig. Dylech wirio gyda’ch cyflogwr i gadarnhau a ydych yn gymwys neu beidio i gael eich cofrestru’n awtomatig gan fod y trothwyon yn amrywio yn ddibynnol ar a ydych yn cael eich talu’n fisol, wythnosol neu bob 4 wythnos. <a href='/cy/articles/gall-cofrestru-awtomatig-ennill-hyd-at-10000-i-chi'>Darllenwch fwy am y trothwyon cyflog ar gyfer pensiynau gweithle.</a>"
 
       section__heading:
         age: '%{age} blynyddoedd'
