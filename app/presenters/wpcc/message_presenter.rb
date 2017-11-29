@@ -24,6 +24,14 @@ module Wpcc
       t('wpcc.results.tax_relief_warning_html')
     end
 
+    def salary_near_pension_limit_message?
+      salary_near_pension_limit?
+    end
+
+    def salary_near_pension_limit_message
+      t('wpcc.details.near_pension_limit_message').html_safe
+    end
+
     def your_details_summary(hash)
       salary = view_context.number_with_delimiter(hash[:salary], delimiter: ',')
       preference = hash[:contribution_preference].downcase
