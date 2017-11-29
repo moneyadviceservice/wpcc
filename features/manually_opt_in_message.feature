@@ -70,4 +70,3 @@ Feature: Conditional messaging for users earning £5876 - £10,000 (inclusive)
       | 833.01   | y mis             | Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno.|
       | 768.01   | fesul 4 wythnos   | Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno.|
       | 192.01   | y wythnos         | Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno.|
-
