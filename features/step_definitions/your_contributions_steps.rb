@@ -81,3 +81,11 @@ end
 Then(/^I should not see any salary "([^"]*)"$/) do |message|
   expect(your_contributions_page).to_not have_content(message)
 end
+
+Then(/^I should( not| NOT)? see the warning "([^"]*)"$/) do |should_not, message|
+  if should_not
+    expect(your_contributions_page).to_not have_content(message)
+  else
+    expect(your_contributions_page).to have_content(message)
+  end
+end
