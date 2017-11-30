@@ -66,7 +66,7 @@ Feature: Near limit messaging for users earning close to £5876 per year
       | 124    | y wythnos        | Sylwer: Mae eich enillion yn agos iawn at y trothwy lle nad oes raid i’ch cyflogwr gyfrannu at eich pensiwn os dewiswch gofrestru. Dylech wirio i gadarnhau a fydd eich cyflogwr yn cyfrannu neu beidio oherwydd mae’r trothwy hwn yn amrywio yn ddibynnol ar a ydych yn cael eich talu’n fisol, wythnosol neu bob 4 wythnos. Darllenwch fwy am y trothwyon cyflog ar gyfer pensiynau gweithle. |
 
   @javascript
-  Scenario Outline: Viewing my details on step 2 and my salary is close to the lower Manual Opt In limits
+  Scenario Outline: Entering my salary when it is close to the lower Manual Opt In limits
     When my salary is "<salary>" "<salary_frequency>" with "Full" contribution
     Then I should see the warning "<message>"
 
@@ -94,7 +94,7 @@ Feature: Near limit messaging for users earning close to £5876 per year
       | 123    | y wythnos        | Sylwer: Mae eich enillion yn agos iawn at y trothwy lle nad oes raid i’ch cyflogwr gyfrannu at eich pensiwn os dewiswch gofrestru. Dylech wirio i gadarnhau a fydd eich cyflogwr yn cyfrannu neu beidio oherwydd mae’r trothwy hwn yn amrywio yn ddibynnol ar a ydych yn cael eich talu’n fisol, wythnosol neu bob 4 wythnos. Darllenwch fwy am y trothwyon cyflog ar gyfer pensiynau gweithle. |
 
   @javascript
-  Scenario Outline: Viewing my details on step 2 and my salary is not close to the lower Manual Opt In limits
+  Scenario Outline: Entering my salary when it is not close to the lower Manual Opt In limits
     And my salary is "<salary>" "<salary_frequency>" with "Full" contribution
     And I submit my details
     Then I should NOT see the warning "<message>"
