@@ -5,6 +5,7 @@ module World
     end
 
     def set_language(code)
+      I18n.locale = code
       @language = code
     end
   end
