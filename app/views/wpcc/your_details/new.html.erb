@@ -1,4 +1,4 @@
-<% set_meta_tags title: [t("wpcc.meta.title"), t("wpcc.details.title")], 
+<% set_meta_tags title: [t("wpcc.meta.title"), t("wpcc.details.title")],
                  reverse: true %>
 
 <section class="section section--details details" data-dough-component="ConditionalMessaging">
@@ -36,9 +36,9 @@
           <% end %>
         </div>
         <%= popup_tip_content options: {
-                                text: t('wpcc.details.age.tooltip'),
-                                classname: 'details__helper',
-                                tooltip_hide: t('wpcc.tooltip_hide')
+          text: t('wpcc.details.age.tooltip'),
+          classname: 'details__helper',
+          tooltip_hide: t('wpcc.tooltip_hide')
         } %>
       </div>
       <div class="details__row" data-dough-component="PopupTip">
@@ -61,9 +61,9 @@
           <% end %>
         </div>
         <%= popup_tip_content options: {
-                                text: t('wpcc.details.gender.tooltip'),
-                                classname: 'details__helper',
-                                tooltip_hide: t('wpcc.tooltip_hide')
+          text: t('wpcc.details.gender.tooltip'),
+          classname: 'details__helper',
+          tooltip_hide: t('wpcc.tooltip_hide')
         } %>
       </div>
       <div class="details__row">
@@ -125,9 +125,9 @@
             </div>
           </div>
           <%= popup_tip_content options: {
-                                  text: t('wpcc.details.salary.tooltip_html'),
-                                  classname: 'details__helper',
-                                  tooltip_hide: t('wpcc.tooltip_hide')
+            text: t('wpcc.details.salary.tooltip_html'),
+            classname: 'details__helper',
+            tooltip_hide: t('wpcc.tooltip_hide')
           } %>
         </div>
         <div class="details__row--group" data-dough-component="PopupTip">
@@ -141,13 +141,13 @@
               <%= t('wpcc.details.calculate.details_html_2') %>
             </p>
             <%= popup_tip_content options: {
-                                    title: t('wpcc.tooltip_qualifying_earnings.title'),
-                                    text: t('wpcc.tooltip_qualifying_earnings.text',
-                                      formatted_upper_earnings: @your_details_form.formatted_upper_earnings,
-                                      formatted_lower_earnings: @your_details_form.formatted_lower_earnings
-                                    ),
-                                    classname: 'details__helper details__helper--block',
-                                    tooltip_hide: t('wpcc.tooltip_hide')
+              title: t('wpcc.tooltip_qualifying_earnings.title'),
+              text: t('wpcc.tooltip_qualifying_earnings.text',
+                formatted_upper_earnings: @your_details_form.formatted_upper_earnings,
+                formatted_lower_earnings: @your_details_form.formatted_lower_earnings
+              ),
+              classname: 'details__helper details__helper--block',
+              tooltip_hide: t('wpcc.tooltip_hide')
             } %>
             <div class="details__callouts">
               <div class="form__row details__callout <%= @your_details_form.activate_disabled_callout %>" data-wpcc-callout-lt5876-min-contribution>
