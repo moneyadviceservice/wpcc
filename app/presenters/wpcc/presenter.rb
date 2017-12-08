@@ -43,6 +43,14 @@ module Wpcc
       number_to_currency(currency_value, unit: '£', precision: precision)
     end
 
+    def popup_tip_content_options(text, classname)
+      {
+        text: text,
+        classname: classname,
+        tooltip_hide: t('wpcc.tooltip_hide')
+      }
+    end
+
     private
 
     def text_for(option, value)

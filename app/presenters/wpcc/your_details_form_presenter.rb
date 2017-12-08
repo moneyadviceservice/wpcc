@@ -18,14 +18,6 @@ module Wpcc
       end
     end
 
-    def popup_tip_content_options(text)
-      {
-        text: text,
-        classname: 'details__helper',
-        tooltip_hide: t('wpcc.tooltip_hide')
-      }
-    end
-
     private
 
     def disable_minimum_contribution_option?
