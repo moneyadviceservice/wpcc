@@ -1,4 +1,4 @@
-<% set_meta_tags title: [t("wpcc.meta.title"), t("wpcc.details.title")], 
+<% set_meta_tags title: [t("wpcc.meta.title"), t("wpcc.details.title")],
                  reverse: true %>
 
 <section class="section section--details details" data-dough-component="ConditionalMessaging">
@@ -23,7 +23,9 @@
           <%= f.form_row :age do %>
             <div class="details__field-label">
               <%= f.label :age, t('wpcc.details.age.label'), class: 'form__label-heading' %>
-              <%= render 'wpcc/tooltips/trigger' %>
+              <%= popup_tip_trigger options: {
+                text: t('wpcc.tooltip_show')
+              } %>
             </div>
             <%= f.errors_for :age %>
             <%= f.text_field :age,
@@ -33,19 +35,20 @@
             %>
           <% end %>
         </div>
-        <div data-dough-popup-container class="popup-tip__container details__helper">
-          <p data-dough-popup-content class="popup-tip__content">
-            <%= t('wpcc.details.age.tooltip') %>
-          </p>
-          <%= render 'wpcc/tooltips/close' %>
-        </div>
+        <%= popup_tip_content options: {
+          text: t('wpcc.details.age.tooltip'),
+          classname: 'details__helper',
+          tooltip_hide: t('wpcc.tooltip_hide')
+        } %>
       </div>
       <div class="details__row" data-dough-component="PopupTip">
         <div class="details__field">
           <%= f.form_row :gender do %>
             <div class="details__field-label">
               <%= f.label :gender, t('wpcc.details.gender.label'), class: 'form__label-heading' %>
-              <%= render 'wpcc/tooltips/trigger' %>
+              <%= popup_tip_trigger options: {
+                text: t('wpcc.tooltip_show')
+              } %>
             </div>
             <%= f.errors_for :gender %>
             <%= f.select :gender,
@@ -57,10 +60,11 @@
             %>
           <% end %>
         </div>
-        <div data-dough-popup-container class="popup-tip__container details__helper">
-          <p data-dough-popup-content class="popup-tip__content"><%= t('wpcc.details.gender.tooltip') %></p>
-          <%= render 'wpcc/tooltips/close' %>
-        </div>
+        <%= popup_tip_content options: {
+          text: t('wpcc.details.gender.tooltip'),
+          classname: 'details__helper',
+          tooltip_hide: t('wpcc.tooltip_hide')
+        } %>
       </div>
       <div class="details__row">
         <div class="details__callouts">
@@ -87,7 +91,9 @@
             <%= f.form_row :salary do %>
               <div class="details__field-label">
                 <%= f.label :salary, t('wpcc.details.salary.label'), class: 'form__label-heading' %>
-                <%= render 'wpcc/tooltips/trigger' %>
+                <%= popup_tip_trigger options: {
+                  text: t('wpcc.tooltip_show')
+                } %>
               </div>
               <%= f.errors_for :salary %>
               <%= f.errors_for :salary_frequency %>
@@ -118,24 +124,31 @@
               </div>
             </div>
           </div>
-          <div data-dough-popup-container class="popup-tip__container details__helper">
-            <p data-dough-popup-content class="popup-tip__content"><%= t('wpcc.details.salary.tooltip_html') %></p>
-            <%= render 'wpcc/tooltips/close' %>
-          </div>
+          <%= popup_tip_content options: {
+            text: t('wpcc.details.salary.tooltip_html'),
+            classname: 'details__helper',
+            tooltip_hide: t('wpcc.tooltip_hide')
+          } %>
         </div>
         <div class="details__row--group" data-dough-component="PopupTip">
           <fieldset>
             <legend class="details__calculate-heading"><%= t('wpcc.details.calculate.legend') %></legend>
             <p class="details__calculate-intro">
               <%= t('wpcc.details.calculate.details_html_1') %>
-              <%= render 'wpcc/tooltips/trigger' %>
+              <%= popup_tip_trigger options: {
+                text: t('wpcc.tooltip_show')
+              } %>
               <%= t('wpcc.details.calculate.details_html_2') %>
             </p>
-            <%= render 'wpcc/tooltips/content_qualifying_earnings',
-              formatted_upper_earnings: @your_details_form.formatted_upper_earnings,
-              formatted_lower_earnings: @your_details_form.formatted_lower_earnings,
-              classname: 'details__helper details__helper--block'
-            %>
+            <%= popup_tip_content options: {
+              title: t('wpcc.tooltip_qualifying_earnings.title'),
+              text: t('wpcc.tooltip_qualifying_earnings.text',
+                formatted_upper_earnings: @your_details_form.formatted_upper_earnings,
+                formatted_lower_earnings: @your_details_form.formatted_lower_earnings
+              ),
+              classname: 'details__helper details__helper--block',
+              tooltip_hide: t('wpcc.tooltip_hide')
+            } %>
             <div class="details__callouts">
               <div class="form__row details__callout <%= @your_details_form.activate_disabled_callout %>" data-wpcc-callout-lt5876-min-contribution>
                 <div class="callout">

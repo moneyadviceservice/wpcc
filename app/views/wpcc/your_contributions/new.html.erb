@@ -1,4 +1,4 @@
-<% set_meta_tags title: [t("wpcc.meta.title"), t("wpcc.contributions.title")], 
+<% set_meta_tags title: [t("wpcc.meta.title"), t("wpcc.contributions.title")],
                  reverse: true %>
 
 <%= render 'wpcc/shared/your_details', message_presenter: @message_presenter %>
@@ -8,17 +8,23 @@
   <div class="contributions__row" data-dough-component="PopupTip">
     <p class="t-contributions_description">
       <% if @message_presenter.minimum_contribution? %>
-        <% tooltip_html = render('wpcc/tooltips/trigger', locals: { popup_type: 't-qualifying-earnings' }) %>
-        <%= @your_contribution.earnings_description({ tooltip_html: raw(tooltip_html) }) %>
+        <% tooltip_trigger_html = popup_tip_trigger options: {
+          text: t('wpcc.tooltip_show'),
+          classname: 't-qualifying-earnings'
+        } %>
+        <%= @your_contribution.earnings_description({ tooltip_html: raw(tooltip_trigger_html) }) %>
       <% else %>
         <%= @your_contribution.earnings_description %>
       <% end %>
     </p>
-    <%= render 'wpcc/tooltips/content_qualifying_earnings',
-      formatted_upper_earnings: @message_presenter.formatted_upper_earnings,
-      formatted_lower_earnings: @message_presenter.formatted_lower_earnings,
-      classname: 'contributions__helper'
-    %>
+    <%= popup_tip_content options: {
+      title: t('wpcc.tooltip_qualifying_earnings.title'),
+      text: t('wpcc.tooltip_qualifying_earnings.text',
+        formatted_upper_earnings: @message_presenter.formatted_upper_earnings,
+        formatted_lower_earnings: @message_presenter.formatted_lower_earnings),
+      classname: 'contributions__helper',
+      tooltip_hide: t('wpcc.tooltip_hide')
+    } %>
   </div>
 
   <%= form_for(

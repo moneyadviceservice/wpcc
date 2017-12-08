@@ -1,3 +1,6 @@
+## 1.12.0:
+* Adds Dough helpers across all views for tooltips
+
 ## 1.11.14:
 * Bumps version for accessibility updates
 
