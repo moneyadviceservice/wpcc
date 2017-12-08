@@ -51,4 +51,14 @@ RSpec.describe Wpcc::Presenter do
       end
     end
   end
+
+  describe '#popup_tip_content_options' do
+    it 'returns a hash of options for the popup_tip' do
+      expect(subject.popup_tip_content_options('text', 'class name')).to eq(
+        text: 'text',
+        classname: 'class name',
+        tooltip_hide: 'hide help'
+      )
+    end
+  end
 end

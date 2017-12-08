@@ -35,11 +35,10 @@
             %>
           <% end %>
         </div>
-        <%= popup_tip_content options: {
-          text: t('wpcc.details.age.tooltip'),
-          classname: 'details__helper',
-          tooltip_hide: t('wpcc.tooltip_hide')
-        } %>
+        <%= popup_tip_content options: @your_details_form.popup_tip_content_options(
+          t('wpcc.details.age.tooltip'),
+          'details__helper'
+        ) %>
       </div>
       <div class="details__row" data-dough-component="PopupTip">
         <div class="details__field">
@@ -60,11 +59,10 @@
             %>
           <% end %>
         </div>
-        <%= popup_tip_content options: {
-          text: t('wpcc.details.gender.tooltip'),
-          classname: 'details__helper',
-          tooltip_hide: t('wpcc.tooltip_hide')
-        } %>
+        <%= popup_tip_content options: @your_details_form.popup_tip_content_options(
+          t('wpcc.details.gender.tooltip'),
+          'details__helper',
+        ) %>
       </div>
       <div class="details__row">
         <div class="details__callouts">
@@ -124,11 +122,10 @@
               </div>
             </div>
           </div>
-          <%= popup_tip_content options: {
-            text: t('wpcc.details.salary.tooltip_html'),
-            classname: 'details__helper',
-            tooltip_hide: t('wpcc.tooltip_hide')
-          } %>
+          <%= popup_tip_content options: @your_details_form.popup_tip_content_options(
+            t('wpcc.details.salary.tooltip_html'),
+            'details__helper'
+          ) %>
         </div>
         <div class="details__row--group" data-dough-component="PopupTip">
           <fieldset>
