@@ -242,7 +242,7 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     $this.$callout_near_pension_threshold.addClass('details__callout--active');
   };
 
-  // Function for salary close to £5876 callout_near_pension_threshold
+  // Function for salary close to £1000 callout-near_auto_enrollment_threshold
   SalaryConditions.prototype._nearAutoEnrollThresholdMessage = function($this) {
     // Show relevant callouts
     $this.$callout_near_auto_enrollment_threshold.removeClass('details__callout--inactive');
