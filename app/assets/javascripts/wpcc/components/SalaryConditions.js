@@ -96,37 +96,31 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
 
   SalaryConditions.prototype._belowManualOptIn = function(salary, frequency) {
     var thresholds = optInTriggers[frequency];
-    if (salary < thresholds.lower) {
-      return true;
-    }
-
+    if (salary < thresholds.lower) return true;
   };
 
   SalaryConditions.prototype._manualOptInRequired = function(salary, frequency) {
     var thresholds = optInTriggers[frequency];
-    if (salary >= thresholds.lower && salary <= thresholds.upper) {
-      return true;
-    }
+    if (this._salaryInRange(salary, thresholds.lower, thresholds.upper)) return true;
   };
 
   SalaryConditions.prototype._nearPensionThreshold = function(salary, frequency) {
     var thresholds = optInTriggers[frequency];
     var bottomOfRange = thresholds.lower - 10;
     var topOfRange = thresholds.lower + 10;
-    if (salary >= bottomOfRange && salary <= topOfRange) {
-      return true;
-    }
+    if (this._salaryInRange(salary, bottomOfRange, topOfRange)) return true;
   };
 
   SalaryConditions.prototype._nearAutoEnrollThreshold = function(salary, frequency) {
     var thresholds = optInTriggers[frequency];
     var bottomOfRange = thresholds.upper - 10;
     var topOfRange = thresholds.upper + 10;
-    if (salary >= bottomOfRange && salary <= topOfRange) {
-      return true;
-    }
+    if (this._salaryInRange(salary, bottomOfRange, topOfRange)) return true;
   };
 
+  SalaryConditions.prototype._salaryInRange = function(salary, bottomOfRange, topOfRange) {
+    if (salary >= bottomOfRange && salary <= topOfRange) return true;
+  }
   // This function determines which if any salary message is to be displayed
   SalaryConditions.prototype._salaryMessage = function() {
     var frequency               = this.$salaryFrequency.val(),
@@ -167,12 +161,20 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
 
     if (nearLowerThreshold){
       $this._nearPensionThresholdMessage($this);
-    };
-
-    if (nearUpperThreshold){
+    } else if (nearUpperThreshold){
       $this._nearAutoEnrollThresholdMessage($this);
+    } else {
+      $this._clearNearThresholdMessages($this);
     };
   };
+
+  SalaryConditions.prototype._clearNearThresholdMessages = function($this) {
+    // Hide any callouts which are displayed
+    $this.$callout_near_pension_threshold.removeClass('details__callout--active');
+    $this.$callout_near_pension_threshold.addClass('details__callout--inactive');
+    $this.$callout_near_auto_enrollment_threshold.removeClass('details__callout--active');
+    $this.$callout_near_auto_enrollment_threshold.addClass('details__callout--inactive');
+  }
 
   // Function for salary outside any conditions
   SalaryConditions.prototype._defaultRange = function($this) {
@@ -242,7 +244,7 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     $this.$callout_near_pension_threshold.addClass('details__callout--active');
   };
 
-  // Function for salary close to £5876 callout_near_pension_threshold
+  // Function for salary close to £1000 callout-near_auto_enrollment_threshold
   SalaryConditions.prototype._nearAutoEnrollThresholdMessage = function($this) {
     // Show relevant callouts
     $this.$callout_near_auto_enrollment_threshold.removeClass('details__callout--inactive');
