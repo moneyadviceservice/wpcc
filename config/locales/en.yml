@@ -131,6 +131,7 @@ en:
       employer_large_contribution_percent_for_two_periods:
         "Your employer is already paying above the new minimums so we have just shown how your contributions will increase. Your employer's contribution won't change unless your salary increases or your employer chooses to pay more."
       period_title:
+        contributor_title: Contributor
         april_2017_march_2018: Now
         april_2018_march_2019: April 2018 - March 2019
         after_april_2019: April 2019 onwards
