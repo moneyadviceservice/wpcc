@@ -128,7 +128,7 @@ end
 
 Then(/^I should see the percents information:$/) do |table|
   data = table.raw.flatten
-  headings = ['', 'Now', 'April 2018 - March 2019', 'April 2019 onwards']
+  headings = ['Contributor', 'Now', 'April 2018 - March 2019', 'April 2019 onwards']
   expect(your_results_page.percent_table_headings.map{|cell| cell.text}).to eq(headings)
   expect(your_results_page.table_cells.map{|cell| cell.text}).to eq(data)
 end
