@@ -1,3 +1,6 @@
+## 1.12.1:
+* TP-8694 Adds visually hidden table heading for accessibility 
+
 ## 1.12.0:
 * Adds Dough helpers across all views for tooltips
 
