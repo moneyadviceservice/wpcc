@@ -23,10 +23,6 @@ en:
       title: Qualifying earnings
       text: This is the part of your annual pay that will be used to calculate your pension contribution under automatic enrolment. It is your earnings before tax (up to a maximum limit of %{formatted_upper_earnings} per year) – less the lower earnings threshold of %{formatted_lower_earnings}.
 
-    launch_warning_title: This tool is in Beta
-    launch_warning_content: That means we are testing and improving the calculator. If you have any feedback
-    launch_warning_email_text: please let us know.
-
     title: Workplace pension contribution calculator
     intro: It is now law that most employees must be enrolled into a workplace pension scheme by their employer. This calculator will show you how much will be paid into your pension by you and your employer. It will also show how these contributions might increase over time.
     edit: Edit

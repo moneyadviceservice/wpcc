@@ -26,7 +26,7 @@
   <% end %>
   <% if message_presenter.salary_near_pension_limit_message? %>
     <div class="contributions__row">
-      <div class="callout">
+      <div class="callout callout--warning">
         <p><%= message_presenter.salary_near_pension_limit_message %></p>
       </div>
     </div>
@@ -34,7 +34,7 @@
 
   <% if message_presenter.salary_near_manual_opt_in_limit_message? %>
     <div class="contributions__row">
-      <div class="callout">
+      <div class="callout callout--warning">
         <p><%= message_presenter.salary_near_manual_opt_in_limit_message %></p>
       </div>
     </div>
