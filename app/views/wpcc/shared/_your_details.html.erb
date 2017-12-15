@@ -17,4 +17,26 @@
       </div>
     </div>
   <% end %>
+  <% if message_presenter.salary_below_pension_limit_message? %>
+    <div class="contributions__row">
+      <div class="callout">
+        <p><%= message_presenter.salary_below_pension_limit_message %></p>
+      </div>
+    </div>
+  <% end %>
+  <% if message_presenter.salary_near_pension_limit_message? %>
+    <div class="contributions__row">
+      <div class="callout callout--warning">
+        <p><%= message_presenter.salary_near_pension_limit_message %></p>
+      </div>
+    </div>
+  <% end %>
+
+  <% if message_presenter.salary_near_manual_opt_in_limit_message? %>
+    <div class="contributions__row">
+      <div class="callout callout--warning">
+        <p><%= message_presenter.salary_near_manual_opt_in_limit_message %></p>
+      </div>
+    </div>
+  <% end %>
 </section>

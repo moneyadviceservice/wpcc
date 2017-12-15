@@ -11,6 +11,7 @@ Feature: Conditional messaging for users earning £5876 - £10,000 (inclusive)
   @no-javascript
   Scenario Outline: Viewing my details on step 2 and my salary is below the Manual Opt In limits
     And my salary is "<salary>" "<salary_frequency>" with "Full" contribution
+    And I submit my details
     Then I should see the salary less than the threshold "<message>"
 
     Examples:
@@ -23,14 +24,15 @@ Feature: Conditional messaging for users earning £5876 - £10,000 (inclusive)
     @welsh
     Examples:
       | salary   | salary_frequency | message                                                                                                                                                         |
-      | 5875.99  | y flwyddyn       | Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau. |
-      | 489.99   | y mis            | Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau. |
-      | 451.99   | fesul 4 wythnos  | Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau. |
-      | 121.99   | y wythnos        | Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau. |
+      | 5875.99  | y flwyddyn       | Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno. Os felly, ni fydd yn ofynnol i'ch cyflogwr wneud cyfraniadau. |
+      | 489.99   | y mis            | Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno. Os felly, ni fydd yn ofynnol i'ch cyflogwr wneud cyfraniadau. |
+      | 451.99   | fesul 4 wythnos  | Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno. Os felly, ni fydd yn ofynnol i'ch cyflogwr wneud cyfraniadau. |
+      | 112.99   | y wythnos        | Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno. Os felly, ni fydd yn ofynnol i'ch cyflogwr wneud cyfraniadau. |
 
   @no-javascript
   Scenario Outline: Viewing my details on step 2 and my salary is between the Manual Opt In limits
     And my salary is "<salary>" "<salary_frequency>" with "Full" contribution
+    And I submit my details
     Then I should see the salary between thresholds "<message>"
 
     Examples:
@@ -68,4 +70,3 @@ Feature: Conditional messaging for users earning £5876 - £10,000 (inclusive)
       | 833.01   | y mis             | Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno.|
       | 768.01   | fesul 4 wythnos   | Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno.|
       | 192.01   | y wythnos         | Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno.|
-

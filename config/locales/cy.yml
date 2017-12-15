@@ -23,10 +23,6 @@ cy:
       title: Enillion cymhwyso
       text: Dyma’r rhan o’ch cyflog blynyddol fydd yn cael ei defnyddio i gyfrifo eich cyfraniad pensiwn dan gofrestru awtomatig. Sef eich enillion cyn treth (hyd at derfyn uchafswm o %{formatted_upper_earnings} y flwyddyn) - tynnu’r trothwy enillion isaf o %{formatted_lower_earnings}.
 
-    launch_warning_title: Mae’r offeryn hwn yn un Beta
-    launch_warning_content: sy’n golygu ein bod yn profi a gwella’r gyfrifiannell. Os oes gennych chi unrhyw adborth
-    launch_warning_email_text: rhowch wybod i ni.
-
     title: Cyfrifiannell cyfraniadau pensiwn gweithle
     intro: Mae’n gyfraith erbyn hyn y dylai’r rhan fwyaf o gyflogeion gael eu cofrestru ar gynllun pensiwn gweithle gan eu cyflogwr. Bydd y gyfrifiannell hon yn dangos faint fydd yn cael ei dalu i mewn i'ch pensiwn gennych chi a'ch cyflogwr. Bydd hefyd yn dangos sut y gallai'r cyfraniadau yma gynyddu gydag amser.
     edit: Golygu
@@ -78,6 +74,9 @@ cy:
       callout__lt5876: Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno. Os felly, ni fydd yn ofynnol i'ch cyflogwr wneud cyfraniadau.
       callout__lt5876_min_contribution: Ar eich lefel enillion, bydd rhaid i chi wneud cyfraniadau yn seiliedig ar eich cyflog llawn.
       callout__gt5876_lt10000: Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau.
+
+      near_pension_limit_message_html: "Sylwer: Mae eich enillion yn agos iawn at y trothwy lle nad oes raid i’ch cyflogwr gyfrannu at eich pensiwn os dewiswch gofrestru. Dylech wirio i gadarnhau a fydd eich cyflogwr yn cyfrannu neu beidio oherwydd mae’r trothwy hwn yn amrywio yn ddibynnol ar a ydych yn cael eich talu’n fisol, wythnosol neu bob 4 wythnos. <a href='/cy/articles/gall-cofrestru-awtomatig-ennill-hyd-at-10000-i-chi'>Darllenwch fwy am y trothwyon cyflog ar gyfer pensiynau gweithle.</a>"
+      near_manual_opt_in_limit_message_html: "Sylwer: Mae eich enillion yn agos iawn at y trothwy cyflog cofrestru awtomatig. Dylech wirio gyda’ch cyflogwr i gadarnhau a ydych yn gymwys neu beidio i gael eich cofrestru’n awtomatig gan fod y trothwyon yn amrywio yn ddibynnol ar a ydych yn cael eich talu’n fisol, wythnosol neu bob 4 wythnos. <a href='/cy/articles/gall-cofrestru-awtomatig-ennill-hyd-at-10000-i-chi'>Darllenwch fwy am y trothwyon cyflog ar gyfer pensiynau gweithle.</a>"
 
       section__heading:
         age: '%{age} blynyddoedd'
