@@ -3,24 +3,6 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
 
   var SalaryConditions;
   var defaultConfig = {};
-  var optInTriggers = {
-      year: {
-        lower: 5876.00,
-        upper: 10000.00
-      },
-      month: {
-        lower: 490.00,
-        upper: 833.00
-      },
-      fourweeks: {
-        lower: 452.00,
-        upper: 768.00
-      },
-      week: {
-        lower: 113.00,
-        upper: 192.00
-      }
-    };
 
   SalaryConditions = function($el, config) {
     SalaryConditions.baseConstructor.call(this, $el, config, defaultConfig);
@@ -38,6 +20,7 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     this.contribution = 'full';
 
     // Step 2 - Contributions
+    this.optInTriggers = config;
     this.$employeeTip = this.$el.find('[data-wpcc-employee-tip]');
     this.$employeeTip_lt5876 = this.$el.find('[data-wpcc-employee-tip-lt5876]');
     this.$employerTip = this.$el.find('[data-wpcc-employer-tip]');
@@ -95,24 +78,24 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
   }
 
   SalaryConditions.prototype._belowManualOptIn = function(salary, frequency) {
-    var thresholds = optInTriggers[frequency];
+    var thresholds = this.optInTriggers[frequency];
     if (salary < thresholds.lower) return true;
   };
 
   SalaryConditions.prototype._manualOptInRequired = function(salary, frequency) {
-    var thresholds = optInTriggers[frequency];
+    var thresholds = this.optInTriggers[frequency];
     if (this._salaryInRange(salary, thresholds.lower, thresholds.upper)) return true;
   };
 
   SalaryConditions.prototype._nearPensionThreshold = function(salary, frequency) {
-    var thresholds = optInTriggers[frequency];
+    var thresholds = this.optInTriggers[frequency];
     var bottomOfRange = thresholds.lower - 10;
     var topOfRange = thresholds.lower + 10;
     if (this._salaryInRange(salary, bottomOfRange, topOfRange)) return true;
   };
 
   SalaryConditions.prototype._nearAutoEnrollThreshold = function(salary, frequency) {
-    var thresholds = optInTriggers[frequency];
+    var thresholds = this.optInTriggers[frequency];
     var bottomOfRange = thresholds.upper - 10;
     var topOfRange = thresholds.upper + 10;
     if (this._salaryInRange(salary, bottomOfRange, topOfRange)) return true;
