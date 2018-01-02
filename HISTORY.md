@@ -1,3 +1,6 @@
+## 1.13.2:
+* Updates Brakeman gem to version 4.1.1
+
 ## 1.13.0:
 * TP-8618 Add 'near threshold' warnings when user salary is close
 
