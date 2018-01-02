@@ -48,6 +48,7 @@ AllCops:
   - 'bin/**/*'
   - 'config/**/*'
   - 'db/**/*'
+  - 'Dangerfile'
   - 'Guardfile'
   - 'lib/tasks/**/*'
   - 'node_modules/**/*'
