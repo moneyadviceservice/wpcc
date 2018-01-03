@@ -16,3 +16,5 @@ bundle exec rspec -f progress
 bundle exec cucumber -f progress
 
 ./node_modules/karma/bin/karma start spec/javascripts/karma.conf.js --single-run --reporters dots
+
+bundle exec danger pr --verbose --fail-on-errors=true --base=master

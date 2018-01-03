@@ -6,7 +6,7 @@ declared_trivial = github.pr_title.include? "#trivial"
 warn("PR is classed as Work in Progress") if github.pr_title.include? "[WIP]"
 
 # Warn when there is a big PR
-warn("Big PR please consider break this down further") if git.lines_of_code > 0
+warn("Big PR please consider break this down further") if git.lines_of_code > 500
 
 # Don't let testing shortcuts get into master by accident
 fail("fdescribe left in tests") if `grep -r fdescribe spec/ `.length > 1

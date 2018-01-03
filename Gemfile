@@ -19,6 +19,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'byebug'
+  gem 'danger', require: false
   gem 'launchy'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.5'
