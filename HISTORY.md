@@ -1,3 +1,7 @@
+## 1.14
+
+* Refactoring settings to use a yaml file (including Javascript).
+
 ## 1.13.2:
 * Updates Brakeman gem to version 4.1.1
 
