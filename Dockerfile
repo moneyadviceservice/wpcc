@@ -1,89 +1,57 @@
-# Docker image to run the tests in Jenkins.
-
-FROM ubuntu:17.04
+FROM ubuntu:17.10
 MAINTAINER development.team@moneyadviceservice.org.uk
 
-# Allow other repositories to be installed.
-RUN apt-get update -q \
-    && DEBIAN_FRONTEND="noninteractive" apt-get install \
-            -qy \
-            -o Dpkg::Options::="--force-confnew" \
-            --no-install-recommends \
-                apt-transport-https \
-                curl \
-                software-properties-common \
-    && apt-get autoremove -q \
-    && apt-get clean -qy \
-    && rm -rf /var/lib/apt/lists/* \
-    && rm -f /var/cache/apt/*.bin
-
-# Install node repository.
-RUN add-apt-repository -y -r ppa:chris-lea/node.js
-RUN curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
-
-RUN echo 'deb https://deb.nodesource.com/node_8.x zesty main' > /etc/apt/sources.list.d/nodesource.list
-RUN echo 'deb-src https://deb.nodesource.com/node_8.x zesty main' >> /etc/apt/sources.list.d/nodesource.list
-
-# Install needed packages.
-RUN apt-get update -q \
-    && DEBIAN_FRONTEND="noninteractive" apt-get upgrade \
-            -qy \
-            -o Dpkg::Options::="--force-confnew" \
-            --no-install-recommends \
-    && DEBIAN_FRONTEND="noninteractive" apt-get install \
-            -qy \
-            -o Dpkg::Options::="--force-confnew" \
-            --no-install-recommends \
-                # add packages one per line, in alphabetical order
-                build-essential \
-                git \
-                libfontconfig \
-                libssl-dev \
-                libsqlite3-dev \
-                libxml2-dev \
-                nodejs \
-                rbenv \
-                ruby \
-                ruby-build \
-                ruby-bundler \
-                ruby-dev \
-                zlib1g-dev \
-    && apt-get autoremove -q \
-    && apt-get clean -qy \
-    && rm -rf /var/lib/apt/lists/* \
-    && rm -f /var/cache/apt/*.bin
-
-# Fetch phantomjs -- preferred over the one that ships with Ubuntu, because
-# it does not have a dependency on X11 being installed and configured
-RUN curl -L -O https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-RUN tar jxf phantomjs-2.1.1-linux-x86_64.tar.bz2 \
-        -C /usr/bin --strip-components 2 \
-        phantomjs-2.1.1-linux-x86_64/bin/phantomjs
-
-# Install bower.
-RUN echo '{ "allow_root": true }' > /root/.bowerrc
-RUN npm install -g bower
-
-# Install the ruby and node dependencies.
-# This caches them in the docker image, provided the package files do not
-# change, so the test script will execute much faster.
-RUN mkdir -p /var/tmp/gem/lib/wpcc
-WORKDIR /var/tmp/gem
-
-COPY .ruby-version /var/tmp/gem/
-COPY Gemfile wpcc.gemspec /var/tmp/gem/
-COPY lib/wpcc/version.rb /var/tmp/gem/lib/wpcc/
-
+ENV BUNDLER_VERSION "1.16.0"
+ENV NODE_VERSION "4.8.4"
+ENV BOWER_VERSION "1.8.2"
+ENV PHANTOMJS_VERSION "2.1.1"
+ENV PATH usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/rvm/bin:$PATH
 ENV RAILS_ENV test
 ENV BUNDLE_WITHOUT development:build
-RUN bundle install
+ENV DEBIAN_FRONTEND noninteractive
+ENV APT_PACKAGES " \
+  build-essential apt-utils git libfontconfig libpq-dev libsqlite3-dev libmysqlclient-dev \
+  libxml2-dev libreadline-dev zlib1g-dev apt-transport-https curl software-properties-common openssh-server"
 
-COPY bower.json.erb /var/tmp/gem/
-RUN bundle exec bowndler install
+#Install Prerequisites
+RUN apt-get -qq update > /dev/null && \
+  apt-get -qq dist-upgrade > /dev/null && \
+  apt-get -qq install --no-install-recommends $APT_PACKAGES > /dev/null && \
+  apt-get -qq clean  > /dev/null && \
+  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-COPY package.json /var/tmp/gem/
-RUN npm install
+WORKDIR /tmp
 
-# Set up the Jenkins user, in order to run the tests not as root.
-RUN useradd -ms /bin/bash -u 115 jenkins
-USER jenkins
+#Install Ruby
+COPY .ruby-version .ruby-version
+
+#Download RVM as root
+RUN \curl -#LO https://rvm.io/mpapis.asc && gpg --import mpapis.asc && \
+  \curl -sSL https://get.rvm.io | bash -s stable
+
+#Install RVM requirements
+RUN /bin/bash -lc "rvm requirements" && \
+  /bin/bash -lc  "rvm install $(cat .ruby-version) && rvm use $(cat .ruby-version) --default" && \
+  . /usr/local/rvm/scripts/rvm
+
+#Install Bundler
+RUN /bin/bash -lc "gem install -v ${BUNDLER_VERSION} bundler"
+
+#Install Node
+RUN curl https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz \
+  | tar -xz -C /usr --strip-components=1
+
+#Install Bower
+RUN npm install bower@${BOWER_VERSION} -g
+
+#Install PhantomJs
+RUN curl -L -O https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-${PHANTOMJS_VERSION}-linux-x86_64.tar.bz2
+RUN tar jxf phantomjs-${PHANTOMJS_VERSION}-linux-x86_64.tar.bz2 \
+  -C /usr/bin --strip-components 2 \
+  phantomjs-${PHANTOMJS_VERSION}-linux-x86_64/bin/phantomjs
+
+RUN mkdir -p /var/tmp/app
+WORKDIR /var/tmp/app
+
+#Copy Repo
+COPY . /var/tmp/app/
