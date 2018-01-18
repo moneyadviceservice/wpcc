@@ -10,7 +10,7 @@ describe('Salary Conditions', function() {
         _this.$html = $(window.__html__['spec/javascripts/fixtures/SalaryConditions.html']).appendTo('body');
         _this.component = _this.$html.find('[data-dough-component="SalaryConditions"]');
         _this.salaryConditions = SalaryConditions;
-        _this.obj = new _this.salaryConditions(_this.component);
+        _this.obj = new _this.salaryConditions(_this.component, _this.component.data('dough-salary-conditions-config'));
         _this.delay = 550;
         done();
       }, done);

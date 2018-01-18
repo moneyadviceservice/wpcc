@@ -5,15 +5,7 @@ describe Wpcc::YourDetailsForm, type: :model do
   let(:salary_frequency) { 'year' }
   let(:contribution_preference) { 'full' }
 
-  describe '.load_config' do
-    context 'file exists' do
-      let(:salary_threshold_config_file) do
-        Wpcc::Engine.root.join('config', 'salary_threshold.yml')
-      end
-
-      specify { expect(salary_threshold_config_file).to exist }
-    end
-
+  describe 'load configuration' do
     it 'returns salary frequencies' do
       expect(Wpcc::YourDetailsForm::SALARY_FREQUENCIES).to eq(
         %w[year month fourweeks week]

@@ -35,7 +35,7 @@
       'data-dough-validation-config': '{"showValidationSummary": false}',
       'novalidate': true
     }) do |f| %>
-    <div data-dough-component="SalaryConditions ContributionConditions">
+    <div data-dough-component="SalaryConditions ContributionConditions" data-dough-salary-conditions-config="<%= ::Wpcc::MessagePresenter.opt_in_thresholds %>">
       <div class="contributions__row">
         <div class="contributions__source contributions__source--employee form__row">
           <h3 class="contributions__source-title">

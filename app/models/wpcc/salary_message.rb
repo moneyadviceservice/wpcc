@@ -3,11 +3,8 @@ module Wpcc
     include ActiveModel::Model
     attr_accessor :salary, :salary_frequency, :employee_percent, :text
 
-    THRESHOLDS_FILE = Wpcc::Engine.root.join(
-      'config', 'salary_frequency_conversions.yml'
-    ).freeze
-
-    FREQUENCY_THRESHOLDS = YAML.load_file(THRESHOLDS_FILE).freeze
+    FREQUENCY_THRESHOLDS =
+      ::Wpcc::ConfigLoader.load('salary_frequency_conversions')
 
     OPT_IN_THRESHOLDS = FREQUENCY_THRESHOLDS[
       'manual_opt_in_by_frequency'

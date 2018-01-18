@@ -1,5 +1,18 @@
 module Wpcc
   class MessagePresenter < Presenter
+    def self.opt_in_thresholds
+      config = {}
+
+      ::Wpcc::SalaryMessage::OPT_IN_THRESHOLDS.each do |threshold, frequencies|
+        frequencies.each do |frequency, frequency_threshold_value|
+          config[frequency] ||= {}
+          config[frequency][threshold] = frequency_threshold_value
+        end
+      end
+
+      config.to_json
+    end
+
     def manually_opt_in_message?
       text == :manually_opt_in && manually_opt_in?
     end
