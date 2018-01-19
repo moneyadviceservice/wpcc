@@ -6,7 +6,7 @@ describe Wpcc::ContributionsCalendar, type: :model do
       eligible_salary: eligible_salary,
       salary_frequency: salary_frequency,
       periods: periods,
-      salary: salary
+      annual_salary: salary
     )
   end
 

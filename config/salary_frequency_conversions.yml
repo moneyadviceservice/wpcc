@@ -8,6 +8,22 @@ tax_relief_limit_by_frequency:
   12: 666.67
   13: 615.38
   52: 153.85
+tax_relief_on_salary_by_frequency:
+  year: 11500
+  month: 958.33
+  fourweeks: 884.61
+  week: 221.15
+manual_opt_in_by_frequency:
+  lower:
+    year: 5876
+    month: 490
+    fourweeks: 452
+    week: 113
+  upper:
+    year: 10000
+    month: 833
+    fourweeks: 768
+    week: 192
 adjectives:
   en:
     year: annual

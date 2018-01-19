@@ -35,17 +35,17 @@ describe('Email', function() {
       message += '3. Your Results\n';
       message += 'Qualifying earnings: £39,124\n\n';
       message += 'Now\n';
-      message += 'Your contribution: £32.60 (includes tax relief of £6.52)\n';
-      message += 'Employer\'s contribution: £32.60\n';
-      message += 'Total contributions: £65.20\n\n';
+      message += 'Your monthly contribution: £32.60 (includes tax relief of £6.52)\n';
+      message += 'Employer\'s monthly contribution: £32.60\n';
+      message += 'Total monthly contributions: £65.20\n\n';
       message += 'April 2018 - March 2019\n';
-      message += 'Your contribution: £97.81 (includes tax relief of £19.56)\n';
-      message += 'Employer\'s contribution: £65.21\n';
-      message += 'Total contributions: £163.02\n\n';
+      message += 'Your monthly contribution: £97.81 (includes tax relief of £19.56)\n';
+      message += 'Employer\'s monthly contribution: £65.21\n';
+      message += 'Total monthly contributions: £163.02\n\n';
       message += 'April 2019 onwards\n';
-      message += 'Your contribution: £163.02 (includes tax relief of £32.60)\n';
-      message += 'Employer\'s contribution: £97.81\n';
-      message += 'Total contributions: £260.83';
+      message += 'Your monthly contribution: £163.02 (includes tax relief of £32.60)\n';
+      message += 'Employer\'s monthly contribution: £97.81\n';
+      message += 'Total monthly contributions: £260.83';
 
       var href = 'mailto:?body=' + encodeURIComponent(message);
 

@@ -19,10 +19,9 @@ en:
       canonical_url: https://www.moneyadviceservice.org.uk/en/tools/workplace-pension-contribution-calculator
     tooltip_show: show help
     tooltip_hide: hide help
-
-    launch_warning_title: This tool is in Beta
-    launch_warning_content: That means we are testing and improving the calculator. If you have any problems
-    launch_warning_email_text: please let us know.
+    tooltip_qualifying_earnings:
+      title: Qualifying earnings
+      text: This is the part of your annual pay that will be used to calculate your pension contribution under automatic enrolment. It is your earnings before tax (up to a maximum limit of %{formatted_upper_earnings} per year) – less the lower earnings threshold of %{formatted_lower_earnings}.
 
     title: Workplace pension contribution calculator
     intro: It is now law that most employees must be enrolled into a workplace pension scheme by their employer. This calculator will show you how much will be paid into your pension by you and your employer. It will also show how these contributions might increase over time.
@@ -42,17 +41,17 @@ en:
 
       salary:
         label: Your salary
-        tooltip_html: Enter your salary before tax or other deductions are taken off.  This is known as your gross salary.  <a href="/en/articles/automatic-enrolment-into-a-workplace-pension#automatic-enrolment-when-you-have-more-than-one-job" target="_blank">If you have more than one job <span class="visually-hidden">(opens in a new window)</span></a>, you will have to enter each salary separately.
+        tooltip_html: Enter your salary before tax or other deductions are taken off. This is known as your gross salary. <a href="/en/articles/automatic-enrolment-into-a-workplace-pension#automatic-enrolment-when-you-have-more-than-one-job" target="_blank">If you have more than one job<span class="visually-hidden"> (opens in a new window)</span></a>, you will have to enter each salary separately.
         validation: Please enter your salary
         frequency:
           label: Frequency
 
       options:
         salary_frequency:
-          year: per Year
-          month: per Month
+          year: per year
+          month: per month
           fourweeks: per 4 weeks
-          week: per Week
+          week: per week
         gender:
           female: Female
           male: Male
@@ -63,20 +62,21 @@ en:
 
       calculate:
         legend: Choose how your employer makes contributions
-        qualifying_earnings_title: Qualifying earnings
         details_html_1: Your employer can choose whether to make contributions on part of your salary (known as your qualifying earnings
         details_html_2: ) or on your full salary. To find this out, you will need to check with your employer.
-        qualifying_earnings: This is the part of your annual pay that will be used to calculate your pension contribution under automatic enrolment. It is your earnings before tax (up to a maximum limit of %{formatted_upper_earnings} per year) – less the lower earnings threshold of %{formatted_lower_earnings}.
 
       next: Next
       prompt: Please choose
 
       callout__lt16: You are too young to join a workplace pension. When you reach the age of 16 you may ask your employer to enrol you. If you do so, your employer will make contributions.
-      callout__optIn: Your employer will not automatically enrol you into a pension but you can choose to join. If you do so, your employer will make contributions.
+      callout__optIn: Your employer will not automatically enrol you into a pension but you can choose to join.
       callout__gt74: You are not eligible to join a workplace pension because you are above the maximum age.
       callout__lt5876: Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will not be obliged to make contributions.
       callout__lt5876_min_contribution: At your earnings level, you will have to make contributions based on your full salary.
       callout__gt5876_lt10000: Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will make contributions.
+
+      near_pension_limit_message_html: "Please note: Your earnings are very close to the threshold at which your employer does not have to contribute to your pension if you choose to enrol. You should check to confirm whether or not your employer will contribute as this threshold varies depending on whether you are paid monthly, weekly or 4-weekly.  <a href='/en/articles/automatic-enrolment-if-you-earn-up-to-10000'>Read more about the salary thresholds for workplace pensions.</a>"
+      near_manual_opt_in_limit_message_html: "Please Note: Your earnings are very close to the automatic enrolment salary threshold. You should check with your employer to confirm whether or not you are eligible to be automatically enrolled as the thresholds vary depending on whether you are paid monthly, weekly or 4-weekly. <a href='/en/articles/automatic-enrolment-if-you-earn-up-to-10000'>Read more about the salary thresholds for workplace pensions.</a>"
 
       section__heading:
         age: '%{age} years'
@@ -91,8 +91,8 @@ en:
 
     contributions:
       title: Your contributions
-      description_minimum:  Contributions will be made on your qualifying earnings of %{eligible_salary} per year.
-      description_full:  Contributions will be made on your salary of %{eligible_salary} per year.
+      description_minimum_html:  Contributions will be made on your qualifying earnings%{tooltip_html} of %{eligible_salary} per year.
+      description_full_html:  Contributions will be made on your salary of %{eligible_salary} per year.
       your_contribution_title: Enter your contribution
       your_contribution_tip: The legal minimum is 1%
       your_contribution_tip_lt5876: At your salary level there is no legal minimum contribution but your workplace pension scheme may have a set minimum. Check with your employer.
@@ -117,10 +117,10 @@ en:
       description_html: |
         Minimum pension contribution rates will increase in April 2018 and again in April 2019.
         These figures show how this will affect your contributions.
-      description_full:
+      description_full_html:
         Contributions will be based on your salary of <span data-wpcc-eligible-salary>%{eligible_salary}</span> per year.
-      description_minimum:
-        Contributions will be based on your qualifying earnings of <span data-wpcc-eligible-salary>%{eligible_salary}</span> per year.
+      description_minimum_html:
+        Contributions will be based on your qualifying earnings%{tooltip_html} of <span data-wpcc-eligible-salary>%{eligible_salary}</span> per year.
       large_contribution_percent_for_two_periods:
         "Both you and your employer are already paying above the new minimums so we have just shown the current contributions. These won't change unless your salary increases or you and/or your employer choose to pay more."
       large_contribution_percent_for_middle_period:
@@ -130,6 +130,7 @@ en:
       employer_large_contribution_percent_for_two_periods:
         "Your employer is already paying above the new minimums so we have just shown how your contributions will increase. Your employer's contribution won't change unless your salary increases or your employer chooses to pay more."
       period_title:
+        contributor_title: Contributor
         april_2017_march_2018: Now
         april_2018_march_2019: April 2018 - March 2019
         after_april_2019: April 2019 onwards
@@ -143,8 +144,8 @@ en:
           employers_html: Employer's <span data-wpcc-title-frequency>%{salary_frequency}</span> contribution
           total_html: Total <span data-wpcc-title-frequency>%{salary_frequency}</span> contributions
         tax_relief_html: (includes tax relief of <span data-wpcc-tax-relief-value>%{formatted_tax_relief}</span>)
-      tax_relief_warning_html: If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions if your pension scheme collects contributions using the tax relief at source method. We have assumed your scheme does. Read more in our guide about <a href="https://www.moneyadviceservice.org.uk/en/articles/tax-relief-and-your-workplace-pension" target="_blank">tax relief on pension contributions <span class="visually-hidden">(opens in a new window)</span></a>.
-      tax_relief_warning: If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions if your pension scheme collects contributions using the tax relief at source method.  We have assumed your scheme does. Read more in our guide about tax relief on pension contributions.
+      tax_relief_warning_html: If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions if your pension scheme collects contributions using a method known as <em>tax relief at source</em>. We have assumed your scheme does. Read more in our guide about <a href="https://www.moneyadviceservice.org.uk/en/articles/tax-relief-and-your-workplace-pension" target="_blank">tax relief and your workplace pension<span class="visually-hidden"> (opens in a new window)</span></a>.
+      tax_relief_warning: If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions if your pension scheme collects contributions using a method known as tax relief at source. We have assumed your scheme does. Read more in our guide about tax relief and your workplace pension.
       tax_relief_tooltip_html: You get tax relief on pension contributions which means some of the money from your pay that would have gone to the government as tax goes towards your pension instead. <a href="https://www.moneyadviceservice.org.uk/en/articles/tax-relief-and-your-workplace-pension" target="_blank">Read more about how you get tax relief <span class="visually-hidden">(opens in a new window)</span></a>.
       contribution_table_link: View a table of how legal minimum contributions change
       print_link: Print your results

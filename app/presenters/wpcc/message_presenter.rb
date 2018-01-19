@@ -1,5 +1,18 @@
 module Wpcc
   class MessagePresenter < Presenter
+    def self.opt_in_thresholds
+      config = {}
+
+      ::Wpcc::SalaryMessage::OPT_IN_THRESHOLDS.each do |threshold, frequencies|
+        frequencies.each do |frequency, frequency_threshold_value|
+          config[frequency] ||= {}
+          config[frequency][threshold] = frequency_threshold_value
+        end
+      end
+
+      config.to_json
+    end
+
     def manually_opt_in_message?
       text == :manually_opt_in && manually_opt_in?
     end
@@ -8,12 +21,36 @@ module Wpcc
       t('wpcc.contributions.manually_opt_in')
     end
 
+    def salary_below_pension_limit_message?
+      salary_below_pension_limit?
+    end
+
+    def salary_below_pension_limit_message
+      t('wpcc.details.callout__lt5876')
+    end
+
     def tax_relief_warning?
       salary_below_tax_relief_threshold?
     end
 
     def tax_relief_warning
       t('wpcc.results.tax_relief_warning_html')
+    end
+
+    def salary_near_pension_limit_message?
+      salary_near_pension_limit?
+    end
+
+    def salary_near_pension_limit_message
+      t('wpcc.details.near_pension_limit_message_html')
+    end
+
+    def salary_near_manual_opt_in_limit_message?
+      salary_near_manual_opt_in_limit?
+    end
+
+    def salary_near_manual_opt_in_limit_message
+      t('wpcc.details.near_manual_opt_in_limit_message_html')
     end
 
     def your_details_summary(hash)
@@ -26,6 +63,10 @@ module Wpcc
           salary: salary),
         t("wpcc.details.section__heading.contribution_#{preference}")
       ].join(', ')
+    end
+
+    def minimum_contribution?
+      session[:contribution_preference] == 'minimum'
     end
 
     def show_above_max_contribution?

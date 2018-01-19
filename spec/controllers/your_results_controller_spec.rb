@@ -14,6 +14,7 @@ RSpec.describe Wpcc::YourResultsController do
   let(:period) { double(Wpcc::Period) }
   let(:period_presenters) { [period_presenter, period_presenter] }
   let(:period_presenter) { double(Wpcc::PeriodPresenter) }
+  let(:salary_per_year) { double(Wpcc::SalaryPerYear) }
 
   describe 'GET /your_results' do
     context 'when session has no keys' do
@@ -28,6 +29,19 @@ RSpec.describe Wpcc::YourResultsController do
 
   describe '#schedule' do
     it 'returns an array of formatted PeriodContributions' do
+      request.session[:salary] = 75
+      request.session[:salary_frequency] = 'week'
+
+      expect(Wpcc::SalaryPerYear)
+        .to receive(:new)
+        .with(
+          salary: 75,
+          salary_frequency: 'week'
+        )
+        .and_return(salary_per_year)
+
+      expect(salary_per_year).to receive(:convert)
+
       expect(Wpcc::ContributionsCalendar)
         .to receive(:new)
         .and_return(contributions_calendar)

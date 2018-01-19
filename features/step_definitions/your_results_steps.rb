@@ -128,7 +128,7 @@ end
 
 Then(/^I should see the percents information:$/) do |table|
   data = table.raw.flatten
-  headings = ['', 'Now', 'April 2018 - March 2019', 'April 2019 onwards']
+  headings = ['Contributor', 'Now', 'April 2018 - March 2019', 'April 2019 onwards']
   expect(your_results_page.percent_table_headings.map{|cell| cell.text}).to eq(headings)
   expect(your_results_page.table_cells.map{|cell| cell.text}).to eq(data)
 end
@@ -143,6 +143,10 @@ Then(/^I should see employer_contributions for "([^"]*)", "([^"]*)" and "([^"]*)
   step %{I should see my employer contributions for current period as "#{period_1}"}
   step %{I should see my employer contributions for second period as "#{period_2}"}
   step %{I should see my employer contributions for third period as "#{period_3}"}
+end
+
+Then(/^I should see that the employer_contributions is the same for each period at the "([^"]*)"$/) do |employer_contribution|
+  step %{I should see that the "#{employer_contribution}" is the same for each period}
 end
 
 Given(/^that I am on your details step I fill:$/) do |table|

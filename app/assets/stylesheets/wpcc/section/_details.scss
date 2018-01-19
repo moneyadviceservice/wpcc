@@ -7,7 +7,7 @@
     @include column(8);
     margin: 0;
   }
-  
+
   .form__label-heading {
     display: inline;
   }
@@ -46,10 +46,10 @@
 
 .details__helper {
   @include column(12);
-  
+
   @include respond-to($mq-m) {
     @include column(8);
-    
+
     .js & {
       margin-top: $baseline-unit*6;
     }
@@ -58,14 +58,6 @@
 
 .details__helper--block {
   @include column(12);
-}
-
-.details__helper-title--no-js {
-  display: inline;
-
-  .js & {
-    display: none;
-  }
 }
 
 .details__salary {
@@ -83,12 +75,6 @@
   }
 }
 
-.details__salary-frequency {
-  .form__label-heading {
-    visibility: hidden;
-  }
-}
-
 .details__calculate-heading,
 .details__calculate-intro {
   @include column(12);
@@ -98,7 +84,7 @@
 .details__calculate-item {
   @include column(12);
   position: relative;
-  
+
   @include respond-to($mq-m) {
     @include column(6);
   }
@@ -125,5 +111,5 @@
   background-color: $color-white;
   padding: $baseline-unit*6 $baseline-unit*2 $baseline-unit*2;
   display: block;
-  text-align: center;  
+  text-align: center;
 }

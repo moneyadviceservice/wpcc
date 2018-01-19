@@ -1,3 +1,7 @@
+.results__content {
+  position: relative;
+}
+
 .results__row {
   @include row(12);
 }
@@ -38,6 +42,8 @@
 }
 
 .results__helper {
+  top: 0;
+
   .no-js & {
     font-size: 0.875rem;
     padding: 0;

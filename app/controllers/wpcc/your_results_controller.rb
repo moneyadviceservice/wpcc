@@ -70,7 +70,7 @@ module Wpcc
         eligible_salary: session[:eligible_salary].to_i,
         salary_frequency: salary_frequency.to_i,
         periods: period_filter.filtered_periods,
-        salary: session[:salary].to_i
+        annual_salary: annual_salary
       }
     end
 
@@ -80,6 +80,13 @@ module Wpcc
         salary_frequency: session[:salary_frequency],
         employee_percent: session[:employee_percent]
       )
+    end
+
+    def annual_salary
+      Wpcc::SalaryPerYear.new(
+        salary: session[:salary],
+        salary_frequency: session[:salary_frequency]
+      ).convert
     end
   end
 end

@@ -1,3 +1,35 @@
+## 1.14
+
+* Refactoring settings to use a yaml file (including Javascript).
+
+## 1.13.2:
+* Updates Brakeman gem to version 4.1.1
+
+## 1.13.0:
+* TP-8618 Add 'near threshold' warnings when user salary is close
+
+## 1.12.1:
+* TP-8694 Adds visually hidden table heading for accessibility
+
+## 1.12.0:
+* Adds Dough helpers across all views for tooltips
+
+## 1.11.14:
+* Bumps version for accessibility updates
+
+## 1.11.13:
+* TP-8686: Adds field label for salary frequency
+* TP-8687: Adds labels to contribution inputs
+* TP-8689: Adds labels to contribution frequency
+* TP-8693: Adds more descriptive step header edit links
+* TP-8692: Sets pahe meta titles per step in process
+
+## 1.11.12:
+* TP-8634: Fix missing tooltip trigger for step 2 in Welsh
+
+## 1.11.5:
+* Switch build process to Jenkins
+
 ## 1.11.4:
 * TP-8601: Fix increasing employer contributions
 

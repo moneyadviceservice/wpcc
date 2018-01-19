@@ -10,7 +10,7 @@
     <table class="table--full-width contribution-changes__table">
       <thead>
         <tr>
-          <th>&nbsp;</th>
+          <th><span class="visually-hidden"><%= t('wpcc.results.period_title.contributor_title') %></span></th>
           <% period_legal_percents.each do |period| %>
             <th><%= period.title %></th>
           <% end %>

@@ -1,15 +1,35 @@
+<% set_meta_tags title: [t("wpcc.meta.title"), t("wpcc.results.title")],
+                 reverse: true %>
+
 <%= render 'wpcc/shared/your_details' %>
 <%= render 'wpcc/shared/your_contributions', message_presenter: message_presenter %>
-
 <section class="section section--results">
   <h2 class="section__heading results__heading">3. <%= t('wpcc.results.title') %></h2>
 
   <div class="results__content" data-dough-component="UpdateResults">
-    <p>
-      <%= t('wpcc.results.description_html') %>
-      <%= your_results_presenter.earnings_description.html_safe %>
-      <%= period_filter_presenter.contribution_percents_explanation %>
-    </p>
+    <div data-dough-component="PopupTip">
+      <p>
+        <%= t('wpcc.results.description_html') %>
+        <% if message_presenter.minimum_contribution? %>
+          <% tooltip_trigger_html = popup_tip_trigger options: {
+            text: t('wpcc.tooltip_show'),
+            classname: 't-qualifying-earnings'
+          } %>
+          <%= your_results_presenter.earnings_description({ tooltip_html: raw(tooltip_trigger_html) }) %>
+        <% else %>
+          <%= your_results_presenter.earnings_description.html_safe %>
+        <% end %>
+        <%= period_filter_presenter.contribution_percents_explanation %>
+      </p>
+      <%= popup_tip_content options: {
+        title: t('wpcc.tooltip_qualifying_earnings.title'),
+        text: t('wpcc.tooltip_qualifying_earnings.text',
+          formatted_upper_earnings: message_presenter.formatted_upper_earnings,
+          formatted_lower_earnings: message_presenter.formatted_lower_earnings),
+        classname: 'results__helper',
+        tooltip_hide: t('wpcc.tooltip_hide')
+      } %>
+    </div>
 
     <% if message_presenter.tax_relief_warning? %>
       <div class="callout">

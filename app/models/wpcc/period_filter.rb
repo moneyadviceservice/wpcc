@@ -3,11 +3,7 @@ module Wpcc
     include ActiveModel::Model
     attr_accessor :user_input_employee_percent, :user_input_employer_percent
 
-    PERIODS_FILE = Wpcc::Engine.root.join(
-      'config',
-      'periods_legal_percents.yml'
-    )
-    PERIODS = HashWithIndifferentAccess.new(YAML.load_file(PERIODS_FILE))
+    PERIODS = ::Wpcc::ConfigLoader.load('periods_legal_percents')
 
     def filtered_periods
       periods.reject do |legal_period|

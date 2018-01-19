@@ -15,7 +15,7 @@ Scenario Outline: Display input details on later steps
 
   Examples:
     | age | gender    | salary_frequency | salary | contribution_preference | my_details                                                               |
-    | 23  | Male      | per Year         | 6000   | Minimum                 | 23 years, male, £6,000 per year, part salary                             |
+    | 23  | Male      | per year         | 6000   | Minimum                 | 23 years, male, £6,000 per year, part salary                             |
 
   @welsh
   Examples:

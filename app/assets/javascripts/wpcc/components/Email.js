@@ -68,7 +68,7 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
       message +=
         $(resultTable).find('[data-wpcc-period-heading-yours]').text().trim() + ': ' +
         $(resultTable).find('[data-wpcc-employee-contribution]').text().trim() + ' ' +
-        $(resultTable).find('[data-wpcc-tax-relief]').text().trim() + '\n';
+        $(resultTable).find('[data-wpcc-tax-relief-text]').text().trim() + '\n';
       message +=
         $(resultTable).find('[data-wpcc-period-heading-employers]').text().trim() + ': ' +
         $(resultTable).find('[data-wpcc-employer-contribution]').text().trim() + '\n';

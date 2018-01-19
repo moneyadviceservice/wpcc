@@ -15,12 +15,12 @@ Feature: Additional message depending on your contribution preference
 
       Examples:
         | message |
-        | Contributions will be based on your qualifying earnings of £29,124 per year |
+        | Contributions will be based on your qualifying earnings i show help of £29,124 per year |
 
       @welsh
       Examples:
         | message |
-        | Bydd cyfraniadau yn seiliedig ar eich enillion cymwys o £29,124 y flwyddyn. |
+        | Bydd cyfraniadau yn seiliedig ar eich enillion cymwys i sioe help o £29,124 y flwyddyn. |
 
     Scenario Outline: When is Full Contribution
       Given I choose my contribution preference as "Full"

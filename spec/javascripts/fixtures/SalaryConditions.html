@@ -1,5 +1,6 @@
 <div>
-  <div data-dough-component="SalaryConditions">
+  <div data-dough-component="SalaryConditions"
+    data-dough-salary-conditions-config='{"year":{"lower":5876,"upper":10000},"month":{"lower":490,"upper":833},"fourweeks":{"lower":452,"upper":768},"week":{"lower":113,"upper":192}}'>
 
     <input data-wpcc-salary-input type="text" />
     <select data-wpcc-frequency-select>
@@ -14,6 +15,10 @@
     <div class="details__callout--inactive" data-wpcc-callout-gt5876_lt10000>
     </div>
     <div class="details__callout--inactive" data-wpcc-callout-lt5876-min-contribution>
+    </div>
+    <div class="details__callout--inactive" data-wpcc-callout-near_pension_threshold>
+    </div>
+    <div class="details__callout--inactive" data-wpcc-callout-near_auto_enrollment_threshold>
     </div>
 
     <input data-wpcc-employer-part-radio="true" name="your_details_form[contribution_preference]" type="radio" value="minimum" checked="true">

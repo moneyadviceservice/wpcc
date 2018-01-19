@@ -1,8 +1,7 @@
 module Wpcc
   class SalaryThresholdValidator < ActiveModel::Validator
-    extend Wpcc::SalaryThreshold
-
-    LOW_SALARY_THRESHOLDS = load_config(file: 'salary_threshold').stringify_keys
+    LOW_SALARY_THRESHOLDS =
+      ::Wpcc::ConfigLoader.load('salary_threshold').stringify_keys
 
     def validate(record)
       record.errors.add(:contribution_preference) if

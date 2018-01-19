@@ -10,7 +10,7 @@ describe('Salary Conditions', function() {
         _this.$html = $(window.__html__['spec/javascripts/fixtures/SalaryConditions.html']).appendTo('body');
         _this.component = _this.$html.find('[data-dough-component="SalaryConditions"]');
         _this.salaryConditions = SalaryConditions;
-        _this.obj = new _this.salaryConditions(_this.component);
+        _this.obj = new _this.salaryConditions(_this.component, _this.component.data('dough-salary-conditions-config'));
         _this.delay = 550;
         done();
       }, done);
@@ -29,6 +29,8 @@ describe('Salary Conditions', function() {
       this.salaryFrequency = this.component.find('[data-wpcc-frequency-select]');
       this.callout_lt5876 = this.component.find('[data-wpcc-callout-lt5876]');
       this.callout_gt5876_lt10000 = this.component.find('[data-wpcc-callout-gt5876_lt10000]');
+      this.callout_near_pension_threshold = this.component.find('[data-wpcc-callout-near_pension_threshold]');
+      this.callout_near_auto_enrollment_threshold = this.component.find('[data-wpcc-callout-near_auto_enrollment_threshold]');
       this.callout_lt5876_min_contribution = this.component.find('[data-wpcc-callout-lt5876-min-contribution]');
       this.employerPartRadio = this.component.find('[data-wpcc-employer-part-radio]');
       this.employerFullRadio = this.component.find('[data-wpcc-employer-full-radio]');
@@ -115,9 +117,58 @@ describe('Salary Conditions', function() {
       });
     });
 
-    describe('When salary is between £5876 and £10000', function() {
+    describe('When yearly salary is between £5876 and £10000', function() {
       it('Shows the correct callout and checks the correct radio control', function(done) {
+        this.salaryFrequency.val('year')
         this.salaryField.val('7000');
+        this.salaryField.trigger('keyup');
+        clock.tick(this.delay);
+        expect(
+          this.callout_gt5876_lt10000.hasClass('details__callout--active')
+        ).to.be.true;
+        expect(
+          this.component.find('input[name="your_details_form[contribution_preference]"]:checked').val()
+        ).to.equal('full');
+        done();
+      });
+    });
+
+    describe('When monthly salary is between £490 and £833', function() {
+      it('Shows the correct callout and checks the correct radio control', function(done) {
+        this.salaryFrequency.val('month')
+        this.salaryField.val('499');
+        this.salaryField.trigger('keyup');
+        clock.tick(this.delay);
+        expect(
+          this.callout_gt5876_lt10000.hasClass('details__callout--active')
+        ).to.be.true;
+        expect(
+          this.component.find('input[name="your_details_form[contribution_preference]"]:checked').val()
+        ).to.equal('full');
+        done();
+      });
+    });
+
+    describe('When 4-weekly salary is between £452 and £768', function() {
+      it('Shows the correct callout and checks the correct radio control', function(done) {
+        this.salaryFrequency.val('fourweeks')
+        this.salaryField.val('500');
+        this.salaryField.trigger('keyup');
+        clock.tick(this.delay);
+        expect(
+          this.callout_gt5876_lt10000.hasClass('details__callout--active')
+        ).to.be.true;
+        expect(
+          this.component.find('input[name="your_details_form[contribution_preference]"]:checked').val()
+        ).to.equal('full');
+        done();
+      });
+    });
+
+    describe('When weekly salary is between £113 and £192', function() {
+      it('Shows the correct callout and checks the correct radio control', function(done) {
+        this.salaryFrequency.val('week')
+        this.salaryField.val('114');
         this.salaryField.trigger('keyup');
         clock.tick(this.delay);
         expect(
@@ -136,10 +187,55 @@ describe('Salary Conditions', function() {
         this.salaryField.trigger('keyup');
         clock.tick(this.delay);
         expect(this.callout_gt5876_lt10000.hasClass('details__callout--inactive')).to.be.true;
-        expect(this.callout_gt5876_lt10000.hasClass('details__callout--inactive')).to.be.true;
         expect(
           this.component.find('input[name="your_details_form[contribution_preference]"]:checked').val()
         ).to.equal('full');
+        done();
+      });
+    });
+
+    describe('When yearly salary is within ±£10 of £5876', function() {
+      it('Shows the correct callout', function(done) {
+        this.salaryFrequency.val('year');
+        this.salaryField.val('5866');
+        this.salaryField.trigger('keyup');
+        clock.tick(this.delay);
+        expect(this.callout_near_pension_threshold.hasClass('details__callout--active')).to.be.true;
+        done();
+      });
+    });
+
+    describe('When yearly salary is NOT within ±£10 of £5876', function() {
+      it('Shows the correct callout', function(done) {
+        this.salaryFrequency.val('year');
+        this.salaryField.val('5865');
+        this.salaryField.trigger('keyup');
+        clock.tick(this.delay);
+        expect(this.callout_near_pension_threshold.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_near_pension_threshold.hasClass('details__callout--inactive')).to.be.true;
+        done();
+      });
+    });
+
+    describe('When yearly salary is within ±£10 of £10,000', function() {
+      it('Shows the correct callout', function(done) {
+        this.salaryFrequency.val('year');
+        this.salaryField.val('9990');
+        this.salaryField.trigger('keyup');
+        clock.tick(this.delay);
+        expect(this.callout_near_auto_enrollment_threshold.hasClass('details__callout--active')).to.be.true;
+        done();
+      });
+    });
+
+    describe('When yearly salary is NOT within ±£10 of 10,000', function() {
+      it('Shows the correct callout', function(done) {
+        this.salaryFrequency.val('year');
+        this.salaryField.val('9989');
+        this.salaryField.trigger('keyup');
+        clock.tick(this.delay);
+        expect(this.callout_near_auto_enrollment_threshold.hasClass('details__callout--active')).to.be.false;
+        expect(this.callout_near_auto_enrollment_threshold.hasClass('details__callout--inactive')).to.be.true;
         done();
       });
     });

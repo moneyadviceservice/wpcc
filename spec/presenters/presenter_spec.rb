@@ -9,13 +9,13 @@ RSpec.describe Wpcc::Presenter do
   describe '#salary_frequency_options' do
     let(:expected_result) do
       [
-        ['per Year', 'year',
+        ['per year', 'year',
          { data: { unit_converter: 1, frequency_adjective: 'annual' } }],
-        ['per Month', 'month',
+        ['per month', 'month',
          { data: { unit_converter: 12, frequency_adjective: 'monthly' } }],
         ['per 4 weeks', 'fourweeks',
          { data: { unit_converter: 13, frequency_adjective: '4-weekly' } }],
-        ['per Week', 'week',
+        ['per week', 'week',
          { data: { unit_converter: 52, frequency_adjective: 'weekly' } }]
       ]
     end

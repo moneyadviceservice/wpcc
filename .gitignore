@@ -13,3 +13,4 @@ spec/dummy/tmp/
 coverage
 Gemfile.lock
 .byebug_history
+package-lock.json

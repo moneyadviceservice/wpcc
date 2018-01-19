@@ -2,13 +2,40 @@
   <h2 class="section__heading details__heading">1. <%= t('wpcc.details.title') %>
     <span class="section__heading-summary" data-wpcc-details-heading-summary><%= message_presenter.your_details_summary(session) %></span>
     <span>
-      <%= link_to(t('wpcc.edit'), new_your_detail_path, class: 'section__heading-edit') %>
+      <%= link_to(new_your_detail_path, class: 'section__heading-edit') do %>
+        <%= t('wpcc.edit') %>
+        <span class="visually-hidden">
+          <%= t('wpcc.details.title') %>
+        </span>
+      <% end %>
     </span>
   </h2>
   <% if message_presenter.manually_opt_in_message? %>
     <div class="contributions__row">
       <div class="callout">
         <p><%= message_presenter.manually_opt_in_message %></p>
+      </div>
+    </div>
+  <% end %>
+  <% if message_presenter.salary_below_pension_limit_message? %>
+    <div class="contributions__row">
+      <div class="callout">
+        <p><%= message_presenter.salary_below_pension_limit_message %></p>
+      </div>
+    </div>
+  <% end %>
+  <% if message_presenter.salary_near_pension_limit_message? %>
+    <div class="contributions__row">
+      <div class="callout callout--warning">
+        <p><%= message_presenter.salary_near_pension_limit_message %></p>
+      </div>
+    </div>
+  <% end %>
+
+  <% if message_presenter.salary_near_manual_opt_in_limit_message? %>
+    <div class="contributions__row">
+      <div class="callout callout--warning">
+        <p><%= message_presenter.salary_near_manual_opt_in_limit_message %></p>
       </div>
     </div>
   <% end %>

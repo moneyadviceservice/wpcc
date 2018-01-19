@@ -6,10 +6,15 @@
   @include column(12);
   @extend %clearfix;
   clear: both;
+  position: relative;
 
   @include respond-to($mq-l) {
     @include column(8);
   }
+}
+
+.contributions__helper {
+  top: 0;
 }
 
 .contributions__source {

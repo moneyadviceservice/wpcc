@@ -14,6 +14,28 @@ RSpec.describe Wpcc::MessagePresenter do
   let(:salary_below_tax_relief_threshold?) { true }
   let(:salary_below_pension_limit?) { true }
 
+  describe '#minimum_contribution?' do
+    before do
+      allow(context).to receive(:session).and_return(session)
+    end
+
+    context 'select part salary' do
+      let(:session) { { contribution_preference: 'minimum' } }
+
+      it 'returns true' do
+        expect(subject.minimum_contribution?).to be_truthy
+      end
+    end
+
+    context 'select full salary' do
+      let(:session) { { contribution_preference: 'full' } }
+
+      it 'returns false' do
+        expect(subject.minimum_contribution?).to be_falsey
+      end
+    end
+  end
+
   describe '#manually_opt_in_message?' do
     context 'when the text is manually_opt_in' do
       let(:text) { :manually_opt_in }
