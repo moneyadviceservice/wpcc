@@ -1,11 +1,18 @@
-#!/bin/bash
+#!/bin/bash -l
+
+set -e
+
+if [ -f /.dockerenv ]; then
+    source ~/.bashrc
+    rvm use default
+fi
 
 export RAILS_ENV=production
+
 exit_code=0
 
-function run_build {
+function run {
     declare -a build_command=("$@")
-
     echo ''
     echo "=== Running \`${build_command[*]}\`"
     if ! ${build_command[*]}; then
@@ -14,13 +21,13 @@ function run_build {
     fi
 }
 
-
 # (re)install node packages to local dir before tests run
-npm install
-bundle exec bowndler install
-bundle install
 
-run_build gem build wpcc.gemspec
-run_build gem inabox *.gem -g http://gems.dev.mas.local
+run npm install
+run bundle install
+run bundle exec bowndler install --allow-root
+run gem install geminabox
+run gem build wpcc.gemspec
+run gem inabox *.gem -g http://gems.dev.mas.local
 
 exit "$exit_code"

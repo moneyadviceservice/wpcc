@@ -1,14 +1,17 @@
 #!/bin/bash -l
 
-source ~/.bashrc
-rvm use default
+set -e
+
+if [ -f /.dockerenv ]; then
+    source ~/.bashrc
+    rvm use default
+fi
 
 export RAILS_ENV=test
 exit_code=0
 
 function run {
     declare -a tests_command=("$@")
-
     echo ''
     echo "=== Running \`${tests_command[*]}\`"
     if ! ${tests_command[*]}; then
@@ -17,15 +20,23 @@ function run {
     fi
 }
 
-# (re)install node packages to local dir before tests run
+function info {
+    declare -a info_command=("$@")
+    echo ''
+    echo "=== Running for informational purposes \`${info_command[*]}\`"
+    if ! ${info_command[*]}; then
+        echo "== This test has errors and/or warnings. Please review results"
+    fi
+}
 
+# (re)install node packages to local dir before tests run
 run npm install
 run bundle install
 run bundle exec bowndler install --allow-root
-run bundle exec brakeman -z
 run bundle exec rubocop .
 run bundle exec rspec
 run bundle exec cucumber
 run ./node_modules/karma/bin/karma start spec/javascripts/karma.conf.js --single-run
+info brakeman -q --no-pager --ensure-latest
 
 exit "$exit_code"

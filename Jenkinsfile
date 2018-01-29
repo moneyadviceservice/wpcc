@@ -11,5 +11,11 @@ pipeline {
                 sh('./script/test')
             }
         }
+        stage('Build') {
+            when { branch 'master'}
+            steps {
+                sh('./script/build')
+            }
+        }
     }
 }
