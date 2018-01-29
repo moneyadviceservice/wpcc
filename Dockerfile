@@ -1,7 +1,7 @@
-FROM ubuntu:17.10
+FROM ubuntu:16.04
 MAINTAINER development.team@moneyadviceservice.org.uk
 
-ENV BUNDLER_VERSION "1.16.0"
+ENV BUNDLER_VERSION "1.16.1"
 ENV NODE_VERSION "4.8.4"
 ENV BOWER_VERSION "1.8.2"
 ENV PHANTOMJS_VERSION "2.1.1"
@@ -31,10 +31,9 @@ RUN \curl -#LO https://rvm.io/mpapis.asc && gpg --import mpapis.asc && \
 
 #Install RVM requirements
 RUN /bin/bash -lc "rvm requirements" && \
-  /bin/bash -lc  "rvm install $(cat .ruby-version) && rvm use $(cat .ruby-version) --default" && \
-  . /usr/local/rvm/scripts/rvm
+  /bin/bash -lc  "rvm install $(cat .ruby-version) && rvm use $(cat .ruby-version) --default"
 
-#Install Bundler
+#Install Bundler & Geminabox
 RUN /bin/bash -lc "gem install -v ${BUNDLER_VERSION} bundler"
 
 #Install Node
