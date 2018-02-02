@@ -7,6 +7,7 @@ All the things for Money Advice Service's Workplace Pension Contribution Calcula
 * [Git](http://git-scm.com)
 * [Rbenv](https://github.com/rbenv/rbenv)
 * [Ruby][Ruby] - see version specified in [Gemfile](Gemfile)
+* [Yarn](https://yarnpkg.com/en/)
 
 ## Installation
 
@@ -19,10 +20,10 @@ $ bundle
 $ bowndler install
 ```
 
-Install npm modules:
+Install yarn modules:
 
 ```sh
-npm install
+yarn install
 ```
 
 ## Hooks
@@ -170,12 +171,12 @@ There are 2 dependencies listed in ``wpcc.gemspec`` each are required for correc
 
 ### dough-ruby
 
-Contains UI components and helpers for tool features.  Also contains the component loader and 
+Contains UI components and helpers for tool features.  Also contains the component loader and
 base component of which all internal components are based.
 
 ### meta-tags
 
-This dependency allows the injection of meta tags into the ``<head>`` of the markup. 
+This dependency allows the injection of meta tags into the ``<head>`` of the markup.
 While this is used to add SEO content to the frontend project, the dependency is required
 within the tool to prevent undefined method errors in the dummy app.
 

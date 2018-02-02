@@ -23,7 +23,7 @@
     "sinon-chai": "^2.11.0"
   },
   "scripts": {
-    "test": "./node_modules/karma/bin/karma start spec/javascripts/karma.conf.js"
+    "test": "./node_modules/karma/bin/karma start spec/javascripts/karma.conf.js --single-run --reporters dots"
   },
   "repository": {
     "type": "git",
