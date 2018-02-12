@@ -19,7 +19,7 @@ RSpec.describe Wpcc::SalaryMessage do
       end
 
       context 'salary equal to threshold' do
-        let(:salary) { 11_500 }
+        let(:salary) { 11_850 }
 
         it 'returns false' do
           expect(subject).to_not be_salary_below_tax_relief_threshold
@@ -47,7 +47,7 @@ RSpec.describe Wpcc::SalaryMessage do
       end
 
       context 'salary below threshold' do
-        let(:salary) { 958.33 }
+        let(:salary) { 987.50 }
 
         it 'returns false' do
           expect(subject).to_not be_salary_below_tax_relief_threshold
@@ -75,7 +75,7 @@ RSpec.describe Wpcc::SalaryMessage do
       end
 
       context 'salary equal to threshold' do
-        let(:salary) { 884.61 }
+        let(:salary) { 911.54 }
 
         it 'returns false' do
           expect(subject).to_not be_salary_below_tax_relief_threshold
@@ -103,7 +103,7 @@ RSpec.describe Wpcc::SalaryMessage do
       end
 
       context 'salary equal to threshold' do
-        let(:salary) { 221.15 }
+        let(:salary) { 227.88 }
 
         it 'returns false' do
           expect(subject).to_not be_salary_below_tax_relief_threshold
