@@ -1,6 +1,6 @@
 Feature: Employer contributions do not increase when user's salary is less than the minimum threshold
   In order to understand that there is no requirement for employer contributions to increase over time
-  As an employee earning under £5876 per year
+  As an employee earning under £6032 per year
   I need to see employer contributions stay static
 
   Scenario Outline: For monthly, 4-weekly and weekly salary frequencies below the minimum threshold
@@ -43,12 +43,12 @@ Feature: Employer contributions do not increase when user's salary is less than 
 
     Examples:
         | salary | salary_frequency | part_or_full | employer_percent | period_1   | period_2 | period_3 |
-        | 1500   | per month        | Minimum      | 0                | £0.00      | £20.21   | £30.31   |
-        | 1500   | per month        | Minimum      | 1                | £10.10     | £20.21   | £30.31   |
-        | 1200   | per 4 weeks      | Minimum      | 0                | £0.00      | £14.96   | £22.44   |
-        | 1200   | per 4 weeks      | Minimum      | 1                | £7.48      | £14.96   | £22.44   |
-        | 350    | per week         | Minimum      | 0                | £0.00      | £4.74    | £7.11    |
-        | 350    | per week         | Minimum      | 1                | £2.37      | £4.74    | £7.11    |
+        | 1500   | per month        | Minimum      | 0                | £0.00      | £19.95   | £29.92   |
+        | 1500   | per month        | Minimum      | 1                | £9.97      | £19.95   | £29.92   |
+        | 1200   | per 4 weeks      | Minimum      | 0                | £0.00      | £14.72   | £22.08   |
+        | 1200   | per 4 weeks      | Minimum      | 1                | £7.36      | £14.72   | £22.08   |
+        | 350    | per week         | Minimum      | 0                | £0.00      | £4.68    | £7.02    |
+        | 350    | per week         | Minimum      | 1                | £2.34      | £4.68    | £7.02    |
 
   Scenario Outline: For annual salary frequency above the minimum threshold
     Given my "<salary>" "<salary_frequency>", regardless of "<part_or_full>" contribution, is above the minimum threshold
@@ -61,5 +61,5 @@ Feature: Employer contributions do not increase when user's salary is less than 
 
     Examples:
         | salary  | salary_frequency | part_or_full | employer_percent | period_1   | period_2 | period_3 |
-        | 11100   | per year         | Minimum      | 0                | £0.00      | £104.48  | £156.72  |
-        | 11100   | per year         | Minimum      | 1                | £52.24     | £104.48  | £156.72  |
+        | 11100   | per year         | Minimum      | 0                | £0.00      | £101.36  | £152.04  |
+        | 11100   | per year         | Minimum      | 1                | £50.68     | £101.36  | £152.04  |

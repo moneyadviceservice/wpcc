@@ -134,7 +134,7 @@ RSpec.describe Wpcc::SalaryMessage do
     let(:salary_frequency) { 'year' }
 
     context 'salary is within the range requiring manually opting in' do
-      let(:salary) { 5_876 }
+      let(:salary) { 6_032 }
 
       it 'returns true' do
         expect(subject).to be_manually_opt_in
@@ -150,7 +150,7 @@ RSpec.describe Wpcc::SalaryMessage do
     end
 
     context 'salary is below the range requiring manually opting in' do
-      let(:salary) { 5_875 }
+      let(:salary) { 6_031 }
 
       it 'returns false' do
         expect(subject).to_not be_manually_opt_in
@@ -162,7 +162,7 @@ RSpec.describe Wpcc::SalaryMessage do
     let(:salary_frequency) { 'year' }
 
     context 'salary is within the range of an automatic workplace pension' do
-      let(:salary) { 5_876 }
+      let(:salary) { 6_032 }
 
       it 'returns false' do
         expect(subject).not_to be_salary_below_pension_limit
@@ -178,7 +178,7 @@ RSpec.describe Wpcc::SalaryMessage do
     end
 
     context 'salary is below the range of an automatic workplace pension' do
-      let(:salary) { 5_875 }
+      let(:salary) { 6_031 }
 
       it 'returns true' do
         expect(subject).to be_salary_below_pension_limit
@@ -191,18 +191,18 @@ RSpec.describe Wpcc::SalaryMessage do
       let(:salary_frequency) { 'year' }
 
       context 'salary is within the range of an automatic pension warning' do
-        let(:salary) { 5_866 }
+        let(:salary) { 6_022 }
         it { is_expected.to be_salary_near_pension_limit }
 
-        let(:salary) { 5_886 }
+        let(:salary) { 6_042 }
         it { is_expected.to be_salary_near_pension_limit }
       end
 
       context 'salary is outside the range of an automatic pension warning' do
-        let(:salary) { 5_865 }
+        let(:salary) { 6_021 }
         it { is_expected.not_to be_salary_near_pension_limit }
 
-        let(:salary) { 5_887 }
+        let(:salary) { 6_043 }
         it { is_expected.not_to be_salary_near_pension_limit }
       end
     end
@@ -211,18 +211,18 @@ RSpec.describe Wpcc::SalaryMessage do
       let(:salary_frequency) { 'week' }
 
       context 'salary is within the range of an automatic pension warning' do
-        let(:salary) { 103 }
+        let(:salary) { 106 }
         it { is_expected.to be_salary_near_pension_limit }
 
-        let(:salary) { 123 }
+        let(:salary) { 126 }
         it { is_expected.to be_salary_near_pension_limit }
       end
 
       context 'salary is outside the range of an automatic pension warning' do
-        let(:salary) { 102 }
+        let(:salary) { 105 }
         it { is_expected.not_to be_salary_near_pension_limit }
 
-        let(:salary) { 124 }
+        let(:salary) { 127 }
         it { is_expected.not_to be_salary_near_pension_limit }
       end
     end

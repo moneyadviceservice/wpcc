@@ -7,8 +7,8 @@ Background:
   Given I am on the Your Details step
   When I fill in my details
 
-Scenario Outline: minimum contribution percentage on salary greater than £5,876
-  And I enter my salary as "6000"
+Scenario Outline: minimum contribution percentage on salary greater than £6,032
+  And I enter my salary as "6033"
   And I proceed to the next step
   And the "employee" contribution intro should display "<message>"
   And the "employer" contribution intro should display "<message>"
@@ -22,7 +22,7 @@ Scenario Outline: minimum contribution percentage on salary greater than £5,876
     | message                      |
     | Yr isafswm cyfreithiol yw 1% |
 
-Scenario Outline: minimum contribution percentage on salary less than £5,876
+Scenario Outline: minimum contribution percentage on salary less than £6,032
   And I enter a salary below the minimum threshold
   And I choose to make full contributions
   And I proceed to the next step
