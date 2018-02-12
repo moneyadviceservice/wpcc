@@ -7,11 +7,15 @@ class Wpcc::MinimumContributionCalculator < Wpcc::ContributionCalculator
   end
 
   def employee_percent
-    1
+    percentage(:employee)
   end
 
   def employer_percent
-    1
+    percentage(:employer)
+  end
+
+  def below_threshold?
+    false
   end
 
   private

@@ -28,12 +28,13 @@ Scenario Outline: minimum contribution percentage on salary less than £5,876
   And I proceed to the next step
   Then I should NOT see an intro for employer contributions
   Then the "employee" contribution intro should display "<message>"
+  Then the employee contribution displays "<employee_default>" percent
 
   Examples:
-    | message                                                     |
-    | At your salary level there is no legal minimum contribution |
+    | message                                                     | employee_default |
+    | At your salary level there is no legal minimum contribution | 3.0              |
 
   @welsh
   Examples:
-    | message                                           |
-    | Ar eich lefel cyflog, nid oes isafswm cyfreithiol |
+    | message                                           | employee_default |
+    | Ar eich lefel cyflog, nid oes isafswm cyfreithiol | 3.0              |
