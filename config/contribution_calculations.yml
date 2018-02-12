@@ -1,6 +1,6 @@
 salary_thresholds:
-  upper: 45_000
-  lower: 5_876
+  upper: 46_350
+  lower: 6_032
 full:
   employee:
     below_threshold: 3

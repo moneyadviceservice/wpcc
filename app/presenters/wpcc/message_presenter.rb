@@ -26,7 +26,7 @@ module Wpcc
     end
 
     def salary_below_pension_limit_message
-      t('wpcc.details.callout__lt5876')
+      t('wpcc.details.callout__lt6032')
     end
 
     def tax_relief_warning?
@@ -84,7 +84,7 @@ module Wpcc
 
     def employee_contribution_tip
       if salary_below_pension_limit?
-        t('wpcc.contributions.your_contribution_tip_lt5876')
+        t('wpcc.contributions.your_contribution_tip_lt6032')
       else
         t('wpcc.contributions.your_contribution_tip')
       end

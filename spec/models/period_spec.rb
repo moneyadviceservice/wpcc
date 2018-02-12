@@ -38,7 +38,7 @@ RSpec.describe Wpcc::Period do
     end
 
     context 'when user\'s salary is gte the minimum threshold' do
-      let(:salary) { 5_876 }
+      let(:salary) { 6_032 }
 
       it 'returns highest percent between period percent and user percent' do
         expect(Wpcc::Percent)
