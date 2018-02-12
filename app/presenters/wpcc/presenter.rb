@@ -27,14 +27,14 @@ module Wpcc
 
     def formatted_upper_earnings
       formatted_currency(
-        Wpcc::ContributionCalculator::THRESHOLDS['upper'],
+        Wpcc::ContributionCalculator::CONFIG['salary_thresholds']['upper'],
         precision: 0
       )
     end
 
     def formatted_lower_earnings
       formatted_currency(
-        Wpcc::ContributionCalculator::THRESHOLDS['lower'],
+        Wpcc::ContributionCalculator::CONFIG['salary_thresholds']['lower'],
         precision: 0
       )
     end

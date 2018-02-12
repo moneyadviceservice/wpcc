@@ -5,12 +5,17 @@ module Wpcc
     end
 
     def employee_percent
-      1
+      percentage(:employee)
     end
 
     def employer_percent
-      return 0 if salary_per_year < lower_earnings_threshold
-      return 1 if salary_per_year >= lower_earnings_threshold
+      percentage(:employer)
+    end
+
+    private
+
+    def below_threshold?
+      salary_per_year < lower_earnings_threshold
     end
   end
 end
