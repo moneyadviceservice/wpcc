@@ -38,11 +38,15 @@ module Wpcc
     end
 
     def salary_below_minimum?(annual_salary)
-      annual_salary < Wpcc::ContributionCalculator::THRESHOLDS['lower']
+      annual_salary < minimum_salary_threshold
     end
 
     def highest_employer_percent
       Percent.choose_highest(@employer_percent, @user_input_employer_percent)
+    end
+
+    def minimum_salary_threshold
+      Wpcc::ContributionCalculator::CONFIG['salary_thresholds']['lower']
     end
   end
 end

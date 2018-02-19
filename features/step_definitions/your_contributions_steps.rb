@@ -16,25 +16,25 @@ When(/^my employer contribution is "([^"]*)"$/) do |employer_percent|
 end
 
 When(/^my contribution is "([^"]*)" percent$/) do |contribution|
-  step %{my employee contribution is "#{contribution}"}
+  step %(my employee contribution is "#{contribution}")
 end
 
 When(/^I fill in my employer and employee contributions$/) do
-  step %{my employee contribution is "14"}
-  step %{my employer contribution is "15"}
+  step %(my employee contribution is "14")
+  step %(my employer contribution is "15")
 end
 
 When(/^I fill in my contributions:$/) do |table|
   data = table.hashes.first
-  step %{my employee contribution is "#{data[:your_contribution]}"}
-  step %{my employer contribution is "#{data[:employer_contribution]}"}
+  step %(my employee contribution is "#{data[:your_contribution]}")
+  step %(my employer contribution is "#{data[:employer_contribution]}")
 end
 
 When(/^I click to edit my details$/) do
   your_contributions_page.edit_link.click
 end
 
-When(/^I move( on)? to (your|the) results page$/) do |_,_|
+When(/^I move( on)? to (your|the) results page$/) do |_, _|
   your_contributions_page.next_button.click
   wait_for_page_load('your_results')
 end
@@ -52,7 +52,8 @@ When(/^I visit your contributions step directly$/) do
 end
 
 Then(/^I should see my contributions summarised$/) do
-  expect(your_results_page.your_contributions_information.text).to eq('You: 14%, Your employer: 15%')
+  expect(your_results_page.your_contributions_information.text)
+    .to eq('You: 14%, Your employer: 15%')
 end
 
 Then(/^I should return to the Your Contributions step$/) do
@@ -65,7 +66,7 @@ Then(/^I should see my current contributions in the form fields$/) do
 end
 
 Then(/^I should NOT see an intro for employer contributions$/) do
-  within(".contributions__source--employer") do
+  within('.contributions__source--employer') do
     expect(your_contributions_page).to_not have_content('The legal minimum is')
   end
 end
@@ -82,10 +83,14 @@ Then(/^I should not see any salary "([^"]*)"$/) do |message|
   expect(your_contributions_page).to_not have_content(message)
 end
 
-Then(/^I should( not| NOT)? see the warning "([^"]*)"$/) do |should_not, message|
-  if should_not
+Then(/^I should( not| NOT)? see the warning "([^"]*)"$/) do |shouldnt, message|
+  if shouldnt
     expect(your_contributions_page).to_not have_content(message)
   else
     expect(your_contributions_page).to have_content(message)
   end
+end
+
+Then(/^the employee contribution displays "([^"]*)" percent$/) do |contribution|
+  expect(your_contributions_page.employee_percent.value).to eq(contribution)
 end
