@@ -22,21 +22,21 @@ Feature: Display messaging based on results table shown in results
       | message |
       | Rydych chi a'ch cyflogwr eisoes yn talu mwy na'r isafswm newydd, felly rydym wedi dangos y cyfraniadau cyfredol yn unig. Ni fydd y rhain yn newid oni bai bod eich cyflog yn cynyddu neu rydych chi ac/neu eich cyflogwr yn dewis talu mwy. |
 
-  Scenario Outline: Employee and Employer contributions are greater than the minimum for 2018 but NOT for 2019
-    Given I fill in my contributions:
-      | your_contribution | employer_contribution |
-      | 3                 | 2.99                  |
-    When I move on to the results page
-    Then I should see a contribution explanation "<message>"
-
-    Examples:
-      | message |
-      | Both you and your employer are already paying above the new minimum for April 2018 so we have only shown the increase for April 2019. |
-
-    @welsh
-    Examples:
-      | message |
-      | Rydych chi a'ch cyflogwr eisoes yn talu mwy na'r isafswm newydd ar gyfer Ebrill 2018 felly rydym wedi dangos y cynnydd ar gyfer Ebrill 2019 yn unig. |
+  # Scenario Outline: Employee and Employer contributions are greater than the minimum for 2018 but NOT for 2019
+  #   Given I fill in my contributions:
+  #     | your_contribution | employer_contribution |
+  #     | 3                 | 2.99                  |
+  #   When I move on to the results page
+  #   Then I should see a contribution explanation "<message>"
+  #
+  #   Examples:
+  #     | message |
+  #     | Both you and your employer are already paying above the new minimum for April 2018 so we have only shown the increase for April 2019. |
+  #
+  #   @welsh
+  #   Examples:
+  #     | message |
+  #     | Rydych chi a'ch cyflogwr eisoes yn talu mwy na'r isafswm newydd ar gyfer Ebrill 2018 felly rydym wedi dangos y cynnydd ar gyfer Ebrill 2019 yn unig. |
 
   Scenario Outline: Only Employee contribution is greater than the minimum for 2018 AND 2019
     Given I fill in my contributions:
