@@ -71,9 +71,9 @@ en:
       callout__lt16: You are too young to join a workplace pension. When you reach the age of 16 you may ask your employer to enrol you. If you do so, your employer will make contributions.
       callout__optIn: Your employer will not automatically enrol you into a pension but you can choose to join.
       callout__gt74: You are not eligible to join a workplace pension because you are above the maximum age.
-      callout__lt5876: Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will not be obliged to make contributions.
-      callout__lt5876_min_contribution: At your earnings level, you will have to make contributions based on your full salary.
-      callout__gt5876_lt10000: Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will make contributions.
+      callout__lt6032: Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will not be obliged to make contributions.
+      callout__lt6032_min_contribution: At your earnings level, you will have to make contributions based on your full salary.
+      callout__gt6032_lt10000: Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will make contributions.
 
       near_pension_limit_message_html: "Please note: Your earnings are very close to the threshold at which your employer does not have to contribute to your pension if you choose to enrol. You should check to confirm whether or not your employer will contribute as this threshold varies depending on whether you are paid monthly, weekly or 4-weekly.  <a href='/en/articles/automatic-enrolment-if-you-earn-up-to-10000'>Read more about the salary thresholds for workplace pensions.</a>"
       near_manual_opt_in_limit_message_html: "Please Note: Your earnings are very close to the automatic enrolment salary threshold. You should check with your employer to confirm whether or not you are eligible to be automatically enrolled as the thresholds vary depending on whether you are paid monthly, weekly or 4-weekly. <a href='/en/articles/automatic-enrolment-if-you-earn-up-to-10000'>Read more about the salary thresholds for workplace pensions.</a>"
@@ -95,7 +95,7 @@ en:
       description_full_html:  Contributions will be made on your salary of %{eligible_salary} per year.
       your_contribution_title: Enter your contribution
       your_contribution_tip: The legal minimum is 1%
-      your_contribution_tip_lt5876: At your salary level there is no legal minimum contribution but your workplace pension scheme may have a set minimum. Check with your employer.
+      your_contribution_tip_lt6032: At your salary level there is no legal minimum contribution but your workplace pension scheme may have a set minimum. Check with your employer.
       employer_contribution_title: Enter your employer’s contribution
       employer_contribution_tip: The legal minimum is 1%
       input_of_label: '% of'
