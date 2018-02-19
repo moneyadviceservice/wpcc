@@ -115,7 +115,7 @@ en:
     results:
       title: Your Results
       description_html: |
-        Minimum pension contribution rates will increase in April 2018 and again in April 2019.
+        Minimum pension contribution rates will increase in April 2019.
         These figures show how this will affect your contributions.
       description_full_html:
         Contributions will be based on your salary of <span data-wpcc-eligible-salary>%{eligible_salary}</span> per year.
