@@ -10,17 +10,18 @@ Background:
 Scenario Outline: minimum contribution percentage on salary greater than £6,032
   And I enter my salary as "6033"
   And I proceed to the next step
-  And the "employee" contribution intro should display "<message>"
-  And the "employer" contribution intro should display "<message>"
+  And the "employee" contribution intro should display "<employee_message>"
+  And the "employer" contribution intro should display "<employer_message>"
 
   Examples:
-    | message                 |
-    | The legal minimum is 1% |
+    | employee_message        | employer_message        |
+    | The legal minimum is 3% | The legal minimum is 2% |
+
 
   @welsh
   Examples:
-    | message                      |
-    | Yr isafswm cyfreithiol yw 1% |
+    | employee_message              | employer_message             |
+    | Yr isafswm cyfreithiol yw 3%  | Yr isafswm cyfreithiol yw 2% |
 
 Scenario Outline: minimum contribution percentage on salary less than £6,032
   And I enter a salary below the minimum threshold
