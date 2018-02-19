@@ -37,17 +37,6 @@ RSpec.describe Wpcc::PeriodFilterPresenter do
       end
     end
 
-    context 'when user inputs are between 2nd and 3rd period legal minimums' do
-      let(:user_input_employee_percent) { 4 }
-      let(:user_input_employer_percent) { 2.5 }
-
-      it 'returns message' do
-        expect(contribution_percents_explanation).to eq(
-          I18n.t('wpcc.results.large_contribution_percent_for_middle_period')
-        )
-      end
-    end
-
     context 'when user employee percent is greater than legal minimums' do
       let(:user_input_employee_percent) { 6 }
       let(:user_input_employer_percent) { 1 }

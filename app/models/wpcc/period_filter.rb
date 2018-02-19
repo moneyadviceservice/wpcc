@@ -6,9 +6,9 @@ module Wpcc
     PERIODS = ::Wpcc::ConfigLoader.load('periods_legal_percents')
 
     def filtered_periods
-      periods.reject do |legal_period|
-        legal_period.below_user_contributions?(self)
-      end
+      return current_period if periods.last.should_be_filtered_out?(self)
+
+      periods
     end
 
     def periods
@@ -22,6 +22,12 @@ module Wpcc
           user_input_employer_percent: user_input_employer_percent
         )
       end
+    end
+
+    private
+
+    def current_period
+      [periods.first]
     end
   end
 end
