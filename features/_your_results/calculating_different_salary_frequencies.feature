@@ -16,11 +16,11 @@ Feature: displaying different salary frequencies
         | 1                 | 1                     |
       When I move on to the results page
       Then I should see the values on the results page as:
-      |                         | Now    | April 2018 - March 2019 | Apr 2019 onwards |
-      | Employee Contributions  | £9.97  | £29.92                  | £49.87           |
-      | Including tax relief of | £1.99  | £5.98                   | £9.97            |
-      | Employer Contributions  | £9.97  | £19.95                  | £29.92           |
-      | TOTAL Contributions     | £19.94 | £49.87                  | £79.79           |
+      |                         | Now    | Apr 2019 onwards |
+      | Employee Contributions  | £29.92 | £49.87           |
+      | Including tax relief of | £5.98  | £9.97            |
+      | Employer Contributions  | £19.95 | £29.92           |
+      | TOTAL Contributions     | £49.87 | £79.79           |
 
 
 
@@ -44,18 +44,14 @@ Feature: displaying different salary frequencies
       And I should see my employer contributions for second period as "<employer_second_period>"
       And I should see my tax relief for second period as "<tax_relief_second_period>"
       And I should see my total contributions for second period as "<total_second_period>"
-      And I should see my employee contributions for third period as "<employee_third_period>"
-      And I should see my employer contributions for third period as "<employer_third_period>"
-      And I should see my tax relief for third period as "<tax_relief_third_period>"
-      And I should see my total contributions for third period as "<total_third_period>"
       And I should see "<selected_frequency>" in the Recalculate Salary Frequency selector dropdown
     Examples:
-      | age | gender | salary | salary_frequency | contribution_preference | employee_percent | employer_percent | employee_current_period | tax_relief_current_period | employer_current_period | total_current_period | employee_second_period | employer_second_period | tax_relief_second_period | total_second_period | employee_third_period | employer_third_period | tax_relief_third_period | total_third_period | selected_frequency |
-      | 25  | male   | 25000  | per year         | Minimum                 | 1                | 1                | £15.81                  | £3.16                     | £15.81                  | £31.62               | £47.42                 | £31.61                 | £9.48                    | £79.03              | £79.03                | £47.42                | £15.81                  | £126.45            | per month          |
-      | 25  | male   | 18000  | per year         | Minimum                 | 1                | 1                | £9.97                   | £1.99                     | £9.97                   | £19.94               | £29.92                 | £19.95                 | £5.98                    | £49.87              | £49.87                | £29.92                | £9.97                   | £79.79             | per month          |
-      | 25  | male   | 1500   | per month        | Minimum                 | 1                | 1                | £9.97                   | £1.99                     | £9.97                   | £19.94               | £29.92                 | £19.95                 | £5.98                    | £49.87              | £49.87                | £29.92                | £9.97                   | £79.79             | per month          |
-      | 30  | female | 1000   | per month        | Full                    | 1                | 2                | £10.00                  | £2.00                     | £20.00                  | £30.00               | £30.00                 | £20.00                 | £6.00                    | £50.00              | £50.00                | £30.00                | £10.00                  | £80.00             | per month          |
-      | 24  | male   | 380    | per week         | Minimum                 | 1                | 2                | £2.64                   | £0.53                     | £5.28                   | £7.92                | £7.92                  | £5.28                  | £1.58                    | £13.20              | £13.20                | £7.92                 | £2.64                   | £21.12             | per week           |
-      | 32  | female | 400    | per week         | Minimum                 | 3                | 2                | £8.52                   | £1.70                     | £5.68                   | £14.20               |                        |                        |                          |                     | £14.20                | £8.52                 | £2.84                   | £22.72             | per week           |
-      | 24  | male   | 300    | per week         | Full                    | 2                | 2                | £6.00                   | £1.20                     | £6.00                   | £12.00               | £9.00                  | £6.00                  | £1.80                    | £15.00              | £15.00                | £9.00                 | £3.00                   | £24.00             | per week           |
-      | 18  | male   | 1900   | per 4 weeks      | Minimum                 | 2                | 1                | £28.72                  | £5.74                     | £14.36                  | £43.08               | £43.08                 | £28.72                 | £8.62                    | £71.80              | £71.80                | £43.08                | £14.36                  | £114.88            | per 4 weeks        |
+      | age | gender | salary | salary_frequency | contribution_preference | employee_percent | employer_percent | employee_current_period | employer_current_period | tax_relief_current_period | total_current_period | employee_second_period | employer_second_period | tax_relief_second_period | total_second_period | selected_frequency |
+      | 25  | male   | 25000  | per year         | Minimum                 | 1                | 1                | £47.42                  | £31.61                  | £9.48                     | £79.03               | £79.03                 | £47.42                 | £15.81                   | £126.45             | per month          |
+      | 25  | male   | 18000  | per year         | Minimum                 | 1                | 1                | £29.92                  | £19.95                  | £5.98                     | £49.87               | £49.87                 | £29.92                 | £9.97                    | £79.79              | per month          |
+      | 25  | male   | 1500   | per month        | Minimum                 | 1                | 1                | £29.92                  | £19.95                  | £5.98                     | £49.87               | £49.87                 | £29.92                 | £9.97                    | £79.79              | per month          |
+      | 30  | female | 1000   | per month        | Full                    | 1                | 2                | £30.00                  | £20.00                  | £6.00                     | £50.00               | £50.00                 | £30.00                 | £10.00                   | £80.00              | per month          |
+      | 24  | male   | 380    | per week         | Minimum                 | 1                | 2                | £7.92                   | £5.28                   | £1.58                     | £13.20               | £13.20                 | £7.92                  | £2.64                    | £21.12              | per week           |
+      | 32  | female | 400    | per week         | Minimum                 | 3                | 2                | £8.52                   | £5.68                   | £1.70                     | £14.20               | £14.20                 | £8.52                  | £2.84                    | £22.72              | per week           |
+      | 24  | male   | 300    | per week         | Full                    | 2                | 2                | £9.00                   | £6.00                   | £1.80                     | £15.00               | £15.00                 | £9.00                  | £3.00                    | £24.00              | per week           |
+      | 18  | male   | 1900   | per 4 weeks      | Minimum                 | 2                | 1                | £43.08                  | £28.72                  | £8.62                     | £71.80               | £71.80                 | £43.08                 | £14.36                   | £114.88             | per 4 weeks        |

@@ -15,61 +15,61 @@ Feature:
   Scenario: Recalculate results changing to monthly frequency
     When I select "per month" to change the calculations
     Then I should see the values on the results page as:
-      |                         | Now     | April 2018 - March 2019 | Apr 2019 onwards |
-      | Employee Contributions  | £666.67 | £666.67                 | £666.67          |
-      | Including tax relief of | £133.33 | £133.33                 | £133.33          |
-      | Employer Contributions  | £66.67  | £133.33                 | £200.00          |
-      | TOTAL contributions     | £733.34 | £800.00                 | £866.67          |
+      |                         | Now     | Apr 2019 onwards |
+      | Employee Contributions  | £666.67 | £666.67          |
+      | Including tax relief of | £133.33 | £133.33          |
+      | Employer Contributions  | £133.33 | £200.00          |
+      | TOTAL contributions     | £800.00 | £866.67          |
 
   @no-javascript
   Scenario: Recalculate results changing to monthly frequency
     When I select "per month" to change the calculations
     And I press recalculate
     Then I should see the values on the results page as:
-      |                         | Now     | April 2018 - March 2019 | Apr 2019 onwards |
-      | Employee Contributions  | £666.67 | £666.67                 | £666.67          |
-      | Including tax relief of | £133.33 | £133.33                 | £133.33          |
-      | Employer Contributions  | £66.67  | £133.33                 | £200.00          |
-      | TOTAL contributions     | £733.34 | £800.00                 | £866.67          |
+      |                         | Now     | Apr 2019 onwards |
+      | Employee Contributions  | £666.67 | £666.67          |
+      | Including tax relief of | £133.33 | £133.33          |
+      | Employer Contributions  | £133.33 | £200.00          |
+      | TOTAL contributions     | £800.00 | £866.67          |
 
   @javascript
   Scenario: Recalculate results changing to weekly frequency
     When I select "per week" to change the calculations
     Then I should see the values on the results page as:
-      |                         | Now     | April 2018 - March 2019 | Apr 2019 onwards |
-      | Employee Contributions  | £153.85 | £153.85                 | £153.85          |
-      | Including tax relief of | £30.77  | £30.77                  | £30.77           |
-      | Employer Contributions  | £15.38  | £30.77                  | £46.15           |
-      | TOTAL contributions     | £169.23 | £184.62                 | £200.00          |
+      |                         | Now     | Apr 2019 onwards |
+      | Employee Contributions  | £153.85 | £153.85          |
+      | Including tax relief of | £30.77  | £30.77           |
+      | Employer Contributions  | £30.77  | £46.15           |
+      | TOTAL contributions     | £184.62 | £200.00          |
 
   @no-javascript
   Scenario: Recalculate results changing to weekly frequency
     When I select "per week" to change the calculations
     And I press recalculate
     Then I should see the values on the results page as:
-      |                         | Now     | April 2018 - March 2019 | Apr 2019 onwards |
-      | Employee Contributions  | £153.85 | £153.85                 | £153.85          |
-      | Including tax relief of | £30.77  | £30.77                  | £30.77           |
-      | Employer Contributions  | £15.38  | £30.77                  | £46.15           |
-      | TOTAL contributions     | £169.23 | £184.62                 | £200.00          |
+      |                         | Now     | Apr 2019 onwards |
+      | Employee Contributions  | £153.85 | £153.85          |
+      | Including tax relief of | £30.77  | £30.77           |
+      | Employer Contributions  | £30.77  | £46.15           |
+      | TOTAL contributions     | £184.62 | £200.00          |
 
   @javascript
   Scenario: Recalculate results changing to weekly frequency
     When I select "per 4 weeks" to change the calculations
     Then I should see the values on the results page as:
-      |                         | Now     | April 2018 - March 2019 | Apr 2019 onwards |
-      | Employee Contributions  | £615.38 | £615.38                 | £615.38          |
-      | Including tax relief of | £123.08 | £123.08                 | £123.08          |
-      | Employer Contributions  | £61.54  | £123.08                 | £184.62          |
-      | TOTAL contributions     | £676.92 | £738.46                 | £800.00          |
+      |                         | Now     | Apr 2019 onwards |
+      | Employee Contributions  | £615.38 | £615.38          |
+      | Including tax relief of | £123.08 | £123.08          |
+      | Employer Contributions  | £123.08 | £184.62          |
+      | TOTAL contributions     | £738.46 | £800.00          |
 
   @no-javascript
   Scenario: Recalculate results changing to weekly frequency
     When I select "per 4 weeks" to change the calculations
     And I press recalculate
     Then I should see the values on the results page as:
-      |                         | Now     | April 2018 - March 2019 | Apr 2019 onwards |
-      | Employee Contributions  | £615.38 | £615.38                 | £615.38          |
-      | Including tax relief of | £123.08 | £123.08                 | £123.08          |
-      | Employer Contributions  | £61.54  | £123.08                 | £184.62          |
-      | TOTAL contributions     | £676.92 | £738.46                 | £800.00          |
+      |                         | Now     | Apr 2019 onwards |
+      | Employee Contributions  | £615.38 | £615.38          |
+      | Including tax relief of | £123.08 | £123.08          |
+      | Employer Contributions  | £123.08 | £184.62          |
+      | TOTAL contributions     | £738.46 | £800.00          |
