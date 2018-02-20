@@ -121,13 +121,11 @@ cy:
         Bydd cyfraniadau yn seiliedig ar eich cyflog o <span data-wpcc-eligible-salary>%{eligible_salary}</span> y flwyddyn.
       description_minimum_html:
         Bydd cyfraniadau yn seiliedig ar eich enillion cymwys%{tooltip_html} o <span data-wpcc-eligible-salary>%{eligible_salary}</span> y flwyddyn.
-      large_contribution_percent_for_two_periods:
+      contribution_percentages_over_minimum:
         Rydych chi a'ch cyflogwr eisoes yn talu mwy na'r isafswm newydd, felly rydym wedi dangos y cyfraniadau cyfredol yn unig. Ni fydd y rhain yn newid oni bai bod eich cyflog yn cynyddu neu rydych chi ac/neu eich cyflogwr yn dewis talu mwy.
-      large_contribution_percent_for_middle_period:
-        Rydych chi a'ch cyflogwr eisoes yn talu mwy na'r isafswm newydd ar gyfer Ebrill 2018 felly rydym wedi dangos y cynnydd ar gyfer Ebrill 2019 yn unig.
-      employee_large_contribution_percent_for_two_periods:
+      employee_contribution_percentage_over_minimum:
         Rydych chi eisoes yn talu mwy na'r isafswm newydd, felly rydym wedi dangos sut fydd cyfraniadau eich cyflogwr yn cynyddu yn unig. Ni fydd eich cyfraniadau yn newid oni bai bod eich cyflog yn cynyddu neu os ydych yn dewis talu mwy.
-      employer_large_contribution_percent_for_two_periods:
+      employer_contribution_percentage_over_minimum:
         Mae eich cyflogwr eisoes yn talu mwy na'r isafswm newydd, felly rydym wedi dangos sut fydd eich cyfraniadau chi yn cynyddu yn unig. Ni fydd cyfraniad eich cyflogwr yn newid oni bai bod eich cyflog yn cynyddu neu rydych chi neu eich cyflogwr yn dewis talu mwy.
       period_title:
         contributor_title: Cyfrannwr
