@@ -148,6 +148,17 @@ RSpec.describe Wpcc::MessagePresenter do
   end
 
   describe '#employee_contribution_tip' do
+    before do
+      allow(context).to receive(:session).and_return(session)
+    end
+    let(:session) do
+      {
+        contribution_preference: 'minimum',
+        salary: 25_000,
+        salary_frequency: 'year'
+      }
+    end
+
     context 'when the salary is below tax relief threshold' do
       let(:salary_below_pension_limit?) { true }
       it 'returns information message' do
@@ -168,6 +179,17 @@ RSpec.describe Wpcc::MessagePresenter do
   end
 
   describe '#employer_contribution_tip' do
+    before do
+      allow(context).to receive(:session).and_return(session)
+    end
+    let(:session) do
+      {
+        contribution_preference: 'minimum',
+        salary: 25_000,
+        salary_frequency: 'year'
+      }
+    end
+
     context 'when the salary is below tax relief threshold' do
       let(:salary_below_pension_limit?) { true }
       it 'returns no message' do
