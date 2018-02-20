@@ -1,6 +1,6 @@
 module Wpcc
   class ContributionCalculator
-    CONFIG = ::Wpcc::ConfigLoader.load('contribution_calculations')
+    include WpccConfig
 
     attr_accessor :salary_per_year, :contribution_preference
 
@@ -25,23 +25,23 @@ module Wpcc
       raise NotImplementedError
     end
 
-    def upper_earnings_threshold
-      CONFIG['salary_thresholds']['upper']
+    def upper_salary_threshold
+      salary_threshold(:upper)
     end
 
-    def lower_earnings_threshold
-      CONFIG['salary_thresholds']['lower']
+    def lower_salary_threshold
+      salary_threshold(:lower)
     end
 
     protected
 
-    def percentage(type)
-      CONFIG[contribution_preference][type][key]
+    def percentage(contributor)
+      current_min_contribution_percentage_for(contributor, limit)
     end
 
     private
 
-    def key
+    def limit
       below_threshold? ? 'below_threshold' : 'above_threshold'
     end
   end

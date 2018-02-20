@@ -1,6 +1,7 @@
 module Wpcc
   class PeriodContributionCalculator
     include ActiveModel::Model
+    extend WpccConfig
 
     attr_accessor :eligible_salary,
                   :salary_frequency,
@@ -9,11 +10,8 @@ module Wpcc
                   :tax_relief_percent,
                   :name
 
-    SALARY_FREQUENCY_CONVERSIONS =
-      ::Wpcc::ConfigLoader.load('salary_frequency_conversions')
-
     TAX_RELIEF_LIMIT_BY_FREQUENCY =
-      SALARY_FREQUENCY_CONVERSIONS['tax_relief_limit_by_frequency']
+      frequency_conversions['tax_relief_limit_by_frequency']
 
     def contribution
       log_calculation

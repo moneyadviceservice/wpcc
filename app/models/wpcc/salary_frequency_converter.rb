@@ -1,7 +1,7 @@
 module Wpcc
   class SalaryFrequencyConverter
-    CONVERSIONS = ::Wpcc::ConfigLoader.load('salary_frequency_conversions')
-    SALARY_FREQUENCIES = CONVERSIONS['salary_frequencies']
+    extend WpccConfig
+    SALARY_FREQUENCIES = frequency_conversions['salary_frequencies']
 
     def self.convert(salary_frequency)
       SALARY_FREQUENCIES[salary_frequency]

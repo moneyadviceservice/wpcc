@@ -15,7 +15,7 @@ module Wpcc
     private
 
     def below_threshold?
-      salary_per_year < lower_earnings_threshold
+      salary_per_year < lower_salary_threshold
     end
   end
 end

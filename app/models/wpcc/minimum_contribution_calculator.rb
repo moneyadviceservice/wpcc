@@ -1,10 +1,10 @@
 module Wpcc
   class MinimumContributionCalculator < ContributionCalculator
     def eligible_salary
-      return upper_less_lower_limit if salary_per_year > upper_earnings_threshold
+      return upper_less_lower_limit if salary_per_year > upper_salary_threshold
 
       return salary_per_year_less_lower_limit if
-        salary_per_year <= upper_earnings_threshold
+        salary_per_year <= upper_salary_threshold
     end
 
     def employee_percent
@@ -22,11 +22,11 @@ module Wpcc
     private
 
     def upper_less_lower_limit
-      upper_earnings_threshold - lower_earnings_threshold
+      upper_salary_threshold - lower_salary_threshold
     end
 
     def salary_per_year_less_lower_limit
-      salary_per_year - lower_earnings_threshold
+      salary_per_year - lower_salary_threshold
     end
   end
 end
