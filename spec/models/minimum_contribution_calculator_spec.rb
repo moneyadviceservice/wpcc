@@ -26,14 +26,14 @@ describe Wpcc::MinimumContributionCalculator, type: :model do
   end
 
   describe '#employee_percent' do
-    it 'returns 1' do
-      expect(subject.employee_percent).to eq(1)
+    it 'returns 3' do
+      expect(subject.employee_percent).to eq(3)
     end
   end
 
   describe '#employer_percent' do
-    it 'returns 1' do
-      expect(subject.employer_percent).to eq(1)
+    it 'returns 2' do
+      expect(subject.employer_percent).to eq(2)
     end
   end
 end
