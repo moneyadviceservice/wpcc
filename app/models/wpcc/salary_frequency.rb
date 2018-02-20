@@ -15,7 +15,7 @@ module Wpcc
     end
 
     def to_adj
-      @converter.adjectives[locale.to_s][to_s]
+      I18n.t("wpcc.frequency_adjectives.#{to_s}", locale: locale)
     end
 
     def to_i

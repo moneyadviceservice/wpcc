@@ -6,9 +6,5 @@ module Wpcc
     def self.convert(salary_frequency)
       SALARY_FREQUENCIES[salary_frequency]
     end
-
-    def self.adjectives
-      CONVERSIONS['adjectives']
-    end
   end
 end

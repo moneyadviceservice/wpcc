@@ -24,14 +24,3 @@ manual_opt_in_by_frequency:
     month: 833
     fourweeks: 768
     week: 192
-adjectives:
-  en:
-    year: annual
-    month: monthly
-    fourweeks: 4-weekly
-    week: weekly
-  cy:
-    year: blynyddol
-    month: misol
-    fourweeks: bob 4 wythnos
-    week: wythnosol

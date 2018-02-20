@@ -50,7 +50,7 @@ module Wpcc
     end
 
     def frequency_adjective(frequency)
-      @converter.adjectives[I18n.locale.to_s][frequency]
+      t("wpcc.frequency_adjectives.#{frequency}")
     end
   end
 end

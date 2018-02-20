@@ -160,3 +160,8 @@ cy:
       contribution_changes:
         you: Chi
         employer: Eich cyflogwr
+    frequency_adjectives:
+      year: blynyddol
+      month: misol
+      fourweeks: bob 4 wythnos
+      week: wythnosol

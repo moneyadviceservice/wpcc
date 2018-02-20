@@ -159,3 +159,8 @@ en:
       contribution_changes:
         you: You
         employer: Your employer
+    frequency_adjectives:
+      year: annual
+      month: monthly
+      fourweeks: 4-weekly
+      week: weekly
