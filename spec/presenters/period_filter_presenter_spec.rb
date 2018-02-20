@@ -32,7 +32,7 @@ RSpec.describe Wpcc::PeriodFilterPresenter do
 
       it 'returns message' do
         expect(contribution_percents_explanation).to eq(
-          I18n.t('wpcc.results.large_contribution_percent_for_two_periods')
+          I18n.t('wpcc.results.contribution_percentages_over_minimum')
         )
       end
     end
@@ -44,7 +44,7 @@ RSpec.describe Wpcc::PeriodFilterPresenter do
       it 'returns message' do
         expect(contribution_percents_explanation).to eq(
           I18n.t(
-            'wpcc.results.employee_large_contribution_percent_for_two_periods'
+            'wpcc.results.employee_contribution_percentage_over_minimum'
           )
         )
       end
@@ -57,7 +57,7 @@ RSpec.describe Wpcc::PeriodFilterPresenter do
       it 'returns message' do
         expect(contribution_percents_explanation).to eq(
           I18n.t(
-            'wpcc.results.employer_large_contribution_percent_for_two_periods'
+            'wpcc.results.employer_contribution_percentage_over_minimum'
           )
         )
       end
