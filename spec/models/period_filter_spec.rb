@@ -1,5 +1,4 @@
 RSpec.describe Wpcc::PeriodFilter do
-
   let(:periods) do
     {
       current: {
