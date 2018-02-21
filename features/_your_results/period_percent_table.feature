@@ -11,8 +11,8 @@ Feature: Period Percents Information Table
     When I move on to the results page
     Then I should see a link to the legal minimum contributions table
     And I should see the percents information:
-        | You           | 1% | 3% | 5% |
-        | Your employer | 1% | 2% | 3% |
+        | You           | 3% | 5% |
+        | Your employer | 2% | 3% |
 
     Examples:
         | my_contribution | employer_contribution |

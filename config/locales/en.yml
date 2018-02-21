@@ -131,12 +131,10 @@ en:
         "Your employer is already paying above the new minimums so we have just shown how your contributions will increase. Your employer's contribution won't change unless your salary increases or your employer chooses to pay more."
       period_title:
         contributor_title: Contributor
-        april_2017_march_2018: Now
-        april_2018_march_2019: April 2018 - March 2019
+        april_2018_march_2019: Now
         after_april_2019: April 2019 onwards
       period_percents_title:
-        april_2017_march_2018: Now
-        april_2018_march_2019: April 2018 - March 2019
+        april_2018_march_2019: Now
         after_april_2019: April 2019 onwards
       period:
         contribution_heading:

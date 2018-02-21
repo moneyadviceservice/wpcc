@@ -22,15 +22,11 @@ module Wpcc
       end
     end
 
-    def below_user_contributions?(period_filter)
-      legal_minimum? && percents_below_user_input_percents?(period_filter)
+    def should_be_filtered_out?(period_filter)
+      percents_below_user_input_percents?(period_filter)
     end
 
     private
-
-    def legal_minimum?
-      employee_percent.present?
-    end
 
     def percents_below_user_input_percents?(period_filter)
       employee_percent <= period_filter.user_input_employee_percent &&

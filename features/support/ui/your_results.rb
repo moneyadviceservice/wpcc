@@ -27,8 +27,7 @@ module UI
     elements :table_cells, 'table.contribution-changes__table tbody tr td'
 
     elements :results_period_headings, '.results__period-heading'
-    section :current_period, PeriodSection, '.results__period-april_2017_march_2018'
-    section :second_period, PeriodSection, '.results__period-april_2018_march_2019'
-    section :third_period, PeriodSection, '.results__period-after_april_2019'
+    section :current_period, PeriodSection, '.results__period-april_2018_march_2019'
+    section :second_period, PeriodSection, '.results__period-after_april_2019'
   end
 end
