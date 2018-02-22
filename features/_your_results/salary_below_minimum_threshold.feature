@@ -1,6 +1,6 @@
 Feature: Employer contributions do not increase when user's salary is less than the minimum threshold
   In order to understand that there is no requirement for employer contributions to increase over time
-  As an employee earning under £6032 per year
+  As an employee earning under the lower threshold per year
   I need to see employer contributions stay static
 
   Scenario Outline: For monthly, 4-weekly and weekly salary frequencies below the minimum threshold

@@ -65,7 +65,7 @@ describe('Salary Conditions', function() {
       ).to.be.true;
     });
 
-    describe('When salary is less than £6032', function() {
+    describe('When salary is less than the lower threshold', function() {
       it('Shows the correct callout and checks the correct radio control', function(done) {
         this.salaryFrequency.val('year');
         this.salaryField.val('3000');
@@ -117,7 +117,7 @@ describe('Salary Conditions', function() {
       });
     });
 
-    describe('When yearly salary is between £6032 and £10000', function() {
+    describe('When yearly salary is between lower and auto enrol thresholds', function() {
       it('Shows the correct callout and checks the correct radio control', function(done) {
         this.salaryFrequency.val('year')
         this.salaryField.val('7000');
@@ -133,7 +133,7 @@ describe('Salary Conditions', function() {
       });
     });
 
-    describe('When monthly salary is between £503 and £833', function() {
+    describe('When monthly salary is between lower and auto enrol thresholds', function() {
       it('Shows the correct callout and checks the correct radio control', function(done) {
         this.salaryFrequency.val('month')
         this.salaryField.val('503');
@@ -149,7 +149,7 @@ describe('Salary Conditions', function() {
       });
     });
 
-    describe('When 4-weekly salary is between £464 and £768', function() {
+    describe('When 4-weekly salary is between lower and auto enrol thresholds', function() {
       it('Shows the correct callout and checks the correct radio control', function(done) {
         this.salaryFrequency.val('fourweeks')
         this.salaryField.val('500');
@@ -165,7 +165,7 @@ describe('Salary Conditions', function() {
       });
     });
 
-    describe('When weekly salary is between £116 and £192', function() {
+    describe('When weekly salary is between lower and auto enrol thresholds', function() {
       it('Shows the correct callout and checks the correct radio control', function(done) {
         this.salaryFrequency.val('week')
         this.salaryField.val('116');
@@ -181,7 +181,7 @@ describe('Salary Conditions', function() {
       });
     });
 
-    describe('When salary is equal to or greater than £10000', function() {
+    describe('When yearly salary is equal to or greater than the auto enrol threshold', function() {
       it('Does not display any callouts and checks the correct radio control', function(done) {
         this.salaryField.val('22000');
         this.salaryField.trigger('keyup');
@@ -194,7 +194,7 @@ describe('Salary Conditions', function() {
       });
     });
 
-    describe('When yearly salary is within ±£10 of £6032', function() {
+    describe('When yearly salary is within ±£10 of the lower threshold', function() {
       it('Shows the correct callout', function(done) {
         this.salaryFrequency.val('year');
         this.salaryField.val('6022');
@@ -205,7 +205,7 @@ describe('Salary Conditions', function() {
       });
     });
 
-    describe('When yearly salary is NOT within ±£10 of £6032', function() {
+    describe('When yearly salary is NOT within ±£10 of the lower threshold', function() {
       it('Shows the correct callout', function(done) {
         this.salaryFrequency.val('year');
         this.salaryField.val('5865');
@@ -217,7 +217,7 @@ describe('Salary Conditions', function() {
       });
     });
 
-    describe('When yearly salary is within ±£10 of £10,000', function() {
+    describe('When yearly salary is within ±£10 of the auto enrol threshold', function() {
       it('Shows the correct callout', function(done) {
         this.salaryFrequency.val('year');
         this.salaryField.val('9990');
@@ -228,7 +228,7 @@ describe('Salary Conditions', function() {
       });
     });
 
-    describe('When yearly salary is NOT within ±£10 of 10,000', function() {
+    describe('When yearly salary is NOT within ±£10 of the auto enrol threshold', function() {
       it('Shows the correct callout', function(done) {
         this.salaryFrequency.val('year');
         this.salaryField.val('9989');
@@ -298,7 +298,7 @@ describe('Salary Conditions', function() {
       done();
     });
 
-    it('Hides the callout if frequency is changed equalling a salary over £6032', function() {
+    it('Hides the callout if frequency is changed equalling a salary over lower threshold', function() {
       this.salaryField.val('5000');
       this.salaryFrequency.val('year');
       this.salaryField.trigger('keyup');
@@ -315,7 +315,7 @@ describe('Salary Conditions', function() {
 
   });
 
-  describe('When user proceeds to step 2 with salary of £6032 or above', function() {
+  describe('When user proceeds to step 2 with salary of lower threshold or above', function() {
     var clock;
 
     beforeEach(function() {

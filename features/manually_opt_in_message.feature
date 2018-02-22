@@ -1,6 +1,6 @@
-Feature: Conditional messaging for users earning £6032 - £10,000 (inclusive)
+Feature: Conditional messaging for users earning between lower and enrolment thresholds (inclusive)
   In order to understand that I will need to actively opt-in to my workplace's workplace pension scheme,
-  As a worker earning between £6032 and £10,000 (inclusive)
+  As a worker earning between lower and enrolment thresholds (inclusive)
   I want to be notified that I won't be automatically enrolled like my higher earning colleagues
     so that I can take the appropriate action with my employer.
 
