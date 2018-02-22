@@ -27,11 +27,11 @@ describe('Salary Conditions', function() {
     beforeEach(function() {
       this.salaryField = this.component.find('[data-wpcc-salary-input]');
       this.salaryFrequency = this.component.find('[data-wpcc-frequency-select]');
-      this.callout_lt6032 = this.component.find('[data-wpcc-callout-lt6032]');
-      this.callout_gt6032_lt10000 = this.component.find('[data-wpcc-callout-gt6032_lt10000]');
+      this.callout_below_lower_threshold = this.component.find('[data-wpcc-callout-lt6032]');
+      this.callout_btwn_lower_and_auto_enrol_threshold = this.component.find('[data-wpcc-callout-gt6032_lt10000]');
       this.callout_near_pension_threshold = this.component.find('[data-wpcc-callout-near_pension_threshold]');
       this.callout_near_auto_enrollment_threshold = this.component.find('[data-wpcc-callout-near_auto_enrollment_threshold]');
-      this.callout_lt6032_min_contribution = this.component.find('[data-wpcc-callout-lt6032-min-contribution]');
+      this.callout_below_part_contributions_threshold = this.component.find('[data-wpcc-callout-lt6032-min-contribution]');
       this.employerPartRadio = this.component.find('[data-wpcc-employer-part-radio]');
       this.employerFullRadio = this.component.find('[data-wpcc-employer-full-radio]');
 
@@ -53,15 +53,15 @@ describe('Salary Conditions', function() {
       this.salaryFrequency.val('year');
 
       expect(
-        this.callout_lt6032.hasClass('details__callout--inactive')
+        this.callout_below_lower_threshold.hasClass('details__callout--inactive')
       ).to.be.true;
 
       expect(
-        this.callout_gt6032_lt10000.hasClass('details__callout--inactive')
+        this.callout_btwn_lower_and_auto_enrol_threshold.hasClass('details__callout--inactive')
       ).to.be.true;
 
       expect(
-        this.callout_lt6032_min_contribution.hasClass('details__callout--inactive')
+        this.callout_below_part_contributions_threshold.hasClass('details__callout--inactive')
       ).to.be.true;
     });
 
@@ -72,7 +72,7 @@ describe('Salary Conditions', function() {
         this.salaryField.trigger('keyup');
         clock.tick(this.delay);
         expect(
-          this.callout_lt6032.hasClass('details__callout--active')
+          this.callout_below_lower_threshold.hasClass('details__callout--active')
         ).to.be.true;
         expect(
           this.component.find('input[name="your_details_form[contribution_preference]"]:checked').val()
@@ -98,7 +98,7 @@ describe('Salary Conditions', function() {
         this.salaryField.trigger('keyup');
         clock.tick(this.delay);
         expect(
-          this.callout_lt6032_min_contribution.hasClass('details__callout--active')
+          this.callout_below_part_contributions_threshold.hasClass('details__callout--active')
         ).to.be.true;
         expect(
           this.component.find('input[name="your_details_form[contribution_preference]"]:checked').val()
@@ -124,7 +124,7 @@ describe('Salary Conditions', function() {
         this.salaryField.trigger('keyup');
         clock.tick(this.delay);
         expect(
-          this.callout_gt6032_lt10000.hasClass('details__callout--active')
+          this.callout_btwn_lower_and_auto_enrol_threshold.hasClass('details__callout--active')
         ).to.be.true;
         expect(
           this.component.find('input[name="your_details_form[contribution_preference]"]:checked').val()
@@ -140,7 +140,7 @@ describe('Salary Conditions', function() {
         this.salaryField.trigger('keyup');
         clock.tick(this.delay);
         expect(
-          this.callout_gt6032_lt10000.hasClass('details__callout--active')
+          this.callout_btwn_lower_and_auto_enrol_threshold.hasClass('details__callout--active')
         ).to.be.true;
         expect(
           this.component.find('input[name="your_details_form[contribution_preference]"]:checked').val()
@@ -156,7 +156,7 @@ describe('Salary Conditions', function() {
         this.salaryField.trigger('keyup');
         clock.tick(this.delay);
         expect(
-          this.callout_gt6032_lt10000.hasClass('details__callout--active')
+          this.callout_btwn_lower_and_auto_enrol_threshold.hasClass('details__callout--active')
         ).to.be.true;
         expect(
           this.component.find('input[name="your_details_form[contribution_preference]"]:checked').val()
@@ -172,7 +172,7 @@ describe('Salary Conditions', function() {
         this.salaryField.trigger('keyup');
         clock.tick(this.delay);
         expect(
-          this.callout_gt6032_lt10000.hasClass('details__callout--active')
+          this.callout_btwn_lower_and_auto_enrol_threshold.hasClass('details__callout--active')
         ).to.be.true;
         expect(
           this.component.find('input[name="your_details_form[contribution_preference]"]:checked').val()
@@ -186,7 +186,7 @@ describe('Salary Conditions', function() {
         this.salaryField.val('22000');
         this.salaryField.trigger('keyup');
         clock.tick(this.delay);
-        expect(this.callout_gt6032_lt10000.hasClass('details__callout--inactive')).to.be.true;
+        expect(this.callout_btwn_lower_and_auto_enrol_threshold.hasClass('details__callout--inactive')).to.be.true;
         expect(
           this.component.find('input[name="your_details_form[contribution_preference]"]:checked').val()
         ).to.equal('minimum');
@@ -254,9 +254,9 @@ describe('Salary Conditions', function() {
 
       this.salaryField = this.component.find('[data-wpcc-salary-input]');
       this.salaryFrequency = this.component.find('[data-wpcc-frequency-select]');
-      this.callout_lt6032 = this.component.find('[data-wpcc-callout-lt6032]');
-      this.callout_gt6032_lt10000 = this.component.find('[data-wpcc-callout-gt6032_lt10000]');
-      this.callout_lt6032_min_contribution = this.component.find('[data-wpcc-callout-lt6032-min-contribution]');
+      this.callout_below_lower_threshold = this.component.find('[data-wpcc-callout-lt6032]');
+      this.callout_btwn_lower_and_auto_enrol_threshold = this.component.find('[data-wpcc-callout-gt6032_lt10000]');
+      this.callout_below_part_contributions_threshold = this.component.find('[data-wpcc-callout-lt6032-min-contribution]');
       clock = sinon.useFakeTimers();
       this.obj.init();
     });
@@ -271,7 +271,7 @@ describe('Salary Conditions', function() {
       this.salaryField.trigger('keyup');
       clock.tick(this.delay);
       expect(
-        this.callout_lt6032.hasClass('details__callout--active')
+        this.callout_below_lower_threshold.hasClass('details__callout--active')
       ).to.be.true;
       done();
     });
@@ -282,7 +282,7 @@ describe('Salary Conditions', function() {
       this.salaryField.trigger('keyup');
       clock.tick(this.delay);
       expect(
-        this.callout_lt6032.hasClass('details__callout--active')
+        this.callout_below_lower_threshold.hasClass('details__callout--active')
       ).to.be.true;
       done();
     });
@@ -293,7 +293,7 @@ describe('Salary Conditions', function() {
       this.salaryField.trigger('keyup');
       clock.tick(this.delay);
       expect(
-        this.callout_lt6032.hasClass('details__callout--active')
+        this.callout_below_lower_threshold.hasClass('details__callout--active')
       ).to.be.true;
       done();
     });
@@ -304,12 +304,12 @@ describe('Salary Conditions', function() {
       this.salaryField.trigger('keyup');
       clock.tick(this.delay);
       expect(
-        this.callout_lt6032.hasClass('details__callout--active')
+        this.callout_below_lower_threshold.hasClass('details__callout--active')
       ).to.be.true;
 
       this.triggerChange(this.salaryFrequency, 'month');
       expect(
-        this.callout_lt6032.hasClass('details__callout--inactive')
+        this.callout_below_lower_threshold.hasClass('details__callout--inactive')
       ).to.be.true;
     });
 
