@@ -21,9 +21,6 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
 
     // Step 2 - Contributions
     this.optInTriggers = config;
-    this.$employeeTip = this.$el.find('[data-wpcc-employee-tip]');
-    this.$employeeTip_lt6032 = this.$el.find('[data-wpcc-employee-tip-lt6032]');
-    this.$employerTip = this.$el.find('[data-wpcc-employer-tip]');
     this.$employeeContributions = this.$el.find('[data-wpcc-employee-contributions]');
     this.$employerContributions = this.$el.find('[data-wpcc-employer-contributions]');
   };

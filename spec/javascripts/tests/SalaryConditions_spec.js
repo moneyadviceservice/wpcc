@@ -322,9 +322,6 @@ describe('Salary Conditions', function() {
       this.salaryField = this.component.find('[data-wpcc-salary-input]');
       this.employeeContributions = this.component.find('[data-wpcc-employee-contributions]');
       this.employerContributions = this.component.find('[data-wpcc-employer-contributions]');
-      this.employeeTip = this.component.find('[data-wpcc-employee-tip]');
-      this.employeeTip_lt6032 = this.component.find('[data-wpcc-employee-tip-lt6032]');
-      this.employerTip = this.component.find('[data-wpcc-employer-tip]');
       clock = sinon.useFakeTimers();
       this.obj.init();
     });
@@ -335,16 +332,6 @@ describe('Salary Conditions', function() {
       clock.tick(this.delay);
       expect(this.employeeContributions.val()).to.equal('1');
       expect(this.employerContributions.val()).to.equal('1');
-      done();
-    });
-
-    it('Displays the correct contribution tips', function(done) {
-      this.salaryField.val('6035');
-      this.salaryField.trigger('keyup');
-      clock.tick(this.delay);
-      expect(this.employeeTip.hasClass('is-hidden')).to.be.false;
-      expect(this.employeeTip_lt6032.hasClass('is-hidden')).to.be.true;
-      expect(this.employerTip.text()).to.not.equal(null);
       done();
     });
   });
