@@ -27,11 +27,11 @@ describe('Salary Conditions', function() {
     beforeEach(function() {
       this.salaryField = this.component.find('[data-wpcc-salary-input]');
       this.salaryFrequency = this.component.find('[data-wpcc-frequency-select]');
-      this.callout_below_lower_threshold = this.component.find('[data-wpcc-callout-lt6032]');
-      this.callout_btwn_lower_and_auto_enrol_threshold = this.component.find('[data-wpcc-callout-gt6032_lt10000]');
+      this.callout_below_lower_threshold = this.component.find('[data-wpcc-callout-below-lower-threshold]');
+      this.callout_btwn_lower_and_auto_enrol_threshold = this.component.find('[data-wpcc-callout-btwn-lower-and-auto-enrol-threshold]');
       this.callout_near_pension_threshold = this.component.find('[data-wpcc-callout-near_pension_threshold]');
       this.callout_near_auto_enrollment_threshold = this.component.find('[data-wpcc-callout-near_auto_enrollment_threshold]');
-      this.callout_below_part_contributions_threshold = this.component.find('[data-wpcc-callout-lt6032-min-contribution]');
+      this.callout_below_part_contributions_threshold = this.component.find('[data-wpcc-callout-below-part-contributions-threshold]');
       this.employerPartRadio = this.component.find('[data-wpcc-employer-part-radio]');
       this.employerFullRadio = this.component.find('[data-wpcc-employer-full-radio]');
 
@@ -254,9 +254,9 @@ describe('Salary Conditions', function() {
 
       this.salaryField = this.component.find('[data-wpcc-salary-input]');
       this.salaryFrequency = this.component.find('[data-wpcc-frequency-select]');
-      this.callout_below_lower_threshold = this.component.find('[data-wpcc-callout-lt6032]');
-      this.callout_btwn_lower_and_auto_enrol_threshold = this.component.find('[data-wpcc-callout-gt6032_lt10000]');
-      this.callout_below_part_contributions_threshold = this.component.find('[data-wpcc-callout-lt6032-min-contribution]');
+      this.callout_below_lower_threshold = this.component.find('[data-wpcc-callout-below-lower-threshold]');
+      this.callout_btwn_lower_and_auto_enrol_threshold = this.component.find('[data-wpcc-callout-btwn-lower-and-auto-enrol-threshold]');
+      this.callout_below_part_contributions_threshold = this.component.find('[data-wpcc-callout-below-part-contributions-threshold]');
       clock = sinon.useFakeTimers();
       this.obj.init();
     });
