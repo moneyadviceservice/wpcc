@@ -26,7 +26,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'brakeman', '~> 4.1.1', require: false
+  gem 'brakeman', '~> 4.2.0', require: false
   gem 'capybara'
   gem 'cucumber-rails', require: false
   gem 'poltergeist'
