@@ -1,0 +1,50 @@
+salary_thresholds:
+  upper: 46_350
+  lower: 6_032
+
+contribution_percentages:
+  legal_minimums_by_period:
+    april_2018_march_2019:
+      employee:
+        below_threshold: 3
+        above_threshold: 3
+      employer:
+        below_threshold: 0
+        above_threshold: 2
+      tax_relief: 20
+    after_april_2019:
+      employee:
+        above_threshold: 5
+      employer:
+        above_threshold: 3
+      tax_relief: 20
+
+frequency_conversions:
+  salary_frequencies:
+    year: 1
+    month: 12
+    fourweeks: 13
+    week: 52
+  tax_relief_limit_by_frequency:
+    1:  8000
+    12: 666.67
+    13: 615.38
+    52: 153.85
+  tax_relief_on_salary_by_frequency:
+    year: 11850
+    month: 987.50
+    fourweeks: 911.54
+    week: 227.88
+  opt_in_thresholds_by_frequency:
+    lower:
+      year: 6032
+      month: 503
+      fourweeks: 464
+      week: 116
+    upper:
+      year: 10000
+      month: 833
+      fourweeks: 768
+      week: 192
+
+session_expiry_limit: 30

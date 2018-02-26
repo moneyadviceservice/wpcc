@@ -1,5 +1,6 @@
 module Wpcc
   class Presenter < SimpleDelegator
+    include Wpcc::WpccConfig
     delegate :t, :number_to_currency, :session, to: :view_context
 
     attr_reader :object, :view_context
@@ -27,14 +28,14 @@ module Wpcc
 
     def formatted_upper_earnings
       formatted_currency(
-        Wpcc::ContributionCalculator::CONFIG['salary_thresholds']['upper'],
+        salary_threshold(:upper),
         precision: 0
       )
     end
 
     def formatted_lower_earnings
       formatted_currency(
-        Wpcc::ContributionCalculator::CONFIG['salary_thresholds']['lower'],
+        salary_threshold(:lower),
         precision: 0
       )
     end
@@ -50,7 +51,7 @@ module Wpcc
     end
 
     def frequency_adjective(frequency)
-      @converter.adjectives[I18n.locale.to_s][frequency]
+      t("wpcc.frequency_adjectives.#{frequency}")
     end
   end
 end

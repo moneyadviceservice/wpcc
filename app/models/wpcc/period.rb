@@ -3,6 +3,7 @@ module Wpcc
     LEGAL_MINIMUM_CONTRIBUTION_PERCENT = 1
 
     include ActiveModel::Model
+    include WpccConfig
     attr_accessor :name,
                   :employee_percent,
                   :employer_percent,
@@ -42,7 +43,7 @@ module Wpcc
     end
 
     def minimum_salary_threshold
-      Wpcc::ContributionCalculator::CONFIG['salary_thresholds']['lower']
+      salary_threshold(:lower)
     end
   end
 end

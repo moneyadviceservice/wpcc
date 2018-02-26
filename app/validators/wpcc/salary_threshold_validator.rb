@@ -1,7 +1,8 @@
 module Wpcc
   class SalaryThresholdValidator < ActiveModel::Validator
-    LOW_SALARY_THRESHOLDS =
-      ::Wpcc::ConfigLoader.load('salary_threshold').stringify_keys
+    extend WpccConfig
+
+    LOW_SALARY_THRESHOLDS = opt_in_thresholds_by_frequency['lower']
 
     def validate(record)
       record.errors.add(:contribution_preference) if
