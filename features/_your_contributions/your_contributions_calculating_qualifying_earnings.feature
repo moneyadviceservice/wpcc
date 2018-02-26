@@ -20,7 +20,7 @@ Scenario: Calculate minimum contribution for salary equal to or less than the Up
   And I proceed to the next step
   Then the Your Contributions step should tell me my qualifying earnings
 
-Scenario: Calculate on full pay equal to or more than £6032
+Scenario: Calculate on full pay equal to or more than the lower earnings threshold
   And I choose to make full contributions
   And I proceed to the next step
   Then the Your Contributions step should tell me my qualifying earnings are my salary

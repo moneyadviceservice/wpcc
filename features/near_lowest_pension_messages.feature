@@ -1,6 +1,6 @@
-Feature: Near limit messaging for users earning close to £6032 per year
-  In order to understand that I am close to the pension threshold of £6032
-  As a worker earning £6032 ± 10
+Feature: Near limit messaging for users earning close to lower salary threshold
+  In order to understand that I am close to the pension threshold
+  As a worker earning the lower salary threshold ± 10
   I want to be notified that my calculation might not be correct
 
   Background:
