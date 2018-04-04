@@ -1,3 +1,10 @@
+## 2.0.0
+
+* Tax year changes for April 2018
+* Refactor wpcc config yaml files
+* Refactor javascript to be flexible with the threshold values that changes
+each year.
+
 ## 1.14
 
 * Refactoring settings to use a yaml file (including Javascript).
