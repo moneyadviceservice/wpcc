@@ -55,7 +55,7 @@ When a new version of the gem is ready to be published:
   - `git tag 'v1.2.0'`
 - Push the tag to github
   - `git push origin master --tags`
-- check the [wpcc](https://go.dev.mas.local/go/tab/pipeline/history/wpcc) Go build completes
+- check the [Wpcc pipeline](http://az4-svc-bld04.dev.mas.local:8080/job/wpcc/job/master/)
 
 ## Mounting the engine
 
@@ -170,12 +170,12 @@ There are 2 dependencies listed in ``wpcc.gemspec`` each are required for correc
 
 ### dough-ruby
 
-Contains UI components and helpers for tool features.  Also contains the component loader and 
+Contains UI components and helpers for tool features.  Also contains the component loader and
 base component of which all internal components are based.
 
 ### meta-tags
 
-This dependency allows the injection of meta tags into the ``<head>`` of the markup. 
+This dependency allows the injection of meta tags into the ``<head>`` of the markup.
 While this is used to add SEO content to the frontend project, the dependency is required
 within the tool to prevent undefined method errors in the dummy app.
 
