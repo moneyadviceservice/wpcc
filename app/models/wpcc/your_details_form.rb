@@ -1,6 +1,7 @@
 module Wpcc
   class YourDetailsForm
     include ActiveModel::Model
+    extend WpccConfig
 
     attr_accessor :age, :gender, :salary
     attr_accessor :salary_frequency, :contribution_preference
@@ -8,8 +9,7 @@ module Wpcc
     AGE = { minimum: 16, maximum: 74 }.freeze
     GENDERS = %w[male female].freeze
     CONTRIBUTIONS = %w[full minimum].freeze
-    SALARY_FREQUENCIES =
-      ::Wpcc::ConfigLoader.load('salary_threshold').keys.map(&:to_s)
+    SALARY_FREQUENCIES = frequency_conversions['salary_frequencies'].keys
 
     validates :age, presence: true
     validates :age, numericality: {

@@ -148,6 +148,17 @@ RSpec.describe Wpcc::MessagePresenter do
   end
 
   describe '#employee_contribution_tip' do
+    before do
+      allow(context).to receive(:session).and_return(session)
+    end
+    let(:session) do
+      {
+        contribution_preference: 'minimum',
+        salary: 25_000,
+        salary_frequency: 'year'
+      }
+    end
+
     context 'when the salary is below tax relief threshold' do
       let(:salary_below_pension_limit?) { true }
       it 'returns information message' do
@@ -161,13 +172,24 @@ RSpec.describe Wpcc::MessagePresenter do
     context 'when the salary is above tax relief threshold' do
       let(:salary_below_pension_limit?) { false }
       it 'default legal message' do
-        string = 'The legal minimum is 1%'
+        string = 'The legal minimum is 3%'
         expect(subject.employee_contribution_tip).to eq string
       end
     end
   end
 
   describe '#employer_contribution_tip' do
+    before do
+      allow(context).to receive(:session).and_return(session)
+    end
+    let(:session) do
+      {
+        contribution_preference: 'minimum',
+        salary: 25_000,
+        salary_frequency: 'year'
+      }
+    end
+
     context 'when the salary is below tax relief threshold' do
       let(:salary_below_pension_limit?) { true }
       it 'returns no message' do
@@ -178,7 +200,7 @@ RSpec.describe Wpcc::MessagePresenter do
     context 'when the salary is above tax relief threshold' do
       let(:salary_below_pension_limit?) { false }
       it 'default legal message' do
-        string = 'The legal minimum is 1%'
+        string = 'The legal minimum is 2%'
         expect(subject.employer_contribution_tip).to eq string
       end
     end

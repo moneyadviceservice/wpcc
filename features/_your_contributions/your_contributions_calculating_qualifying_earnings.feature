@@ -12,7 +12,7 @@ Scenario: Calculate on minimum contribution for salary greater than the Upper Ea
   And my salary per year is greater than the upper earnings threshold of £45,000
   And I choose to make minimum contributions
   And I proceed to the next step
-  Then I should see that my qualifying earnings is the limit of "£39,124"
+  Then I should see that my qualifying earnings is the limit of "£40,318"
 
 Scenario: Calculate minimum contribution for salary equal to or less than the Upper Earnings Threshold
   And my salary per year is equal to or less than the upper earnings threshold of £45,000
@@ -20,7 +20,7 @@ Scenario: Calculate minimum contribution for salary equal to or less than the Up
   And I proceed to the next step
   Then the Your Contributions step should tell me my qualifying earnings
 
-Scenario: Calculate on full pay equal to or more than £5876
+Scenario: Calculate on full pay equal to or more than the lower earnings threshold
   And I choose to make full contributions
   And I proceed to the next step
   Then the Your Contributions step should tell me my qualifying earnings are my salary

@@ -26,7 +26,7 @@ module Wpcc
     end
 
     def salary_below_pension_limit_message
-      t('wpcc.details.callout__lt5876')
+      t('wpcc.details.callout__below_lower_threshold')
     end
 
     def tax_relief_warning?
@@ -84,15 +84,43 @@ module Wpcc
 
     def employee_contribution_tip
       if salary_below_pension_limit?
-        t('wpcc.contributions.your_contribution_tip_lt5876')
+        t('wpcc.contributions.your_contribution_tip_below_lower_threshold')
       else
-        t('wpcc.contributions.your_contribution_tip')
+        t(
+          'wpcc.contributions.your_contribution_tip',
+          percentage: employee_percentage
+        )
       end
     end
 
     def employer_contribution_tip
       return if salary_below_pension_limit?
-      t('wpcc.contributions.employer_contribution_tip')
+      t(
+        'wpcc.contributions.employer_contribution_tip',
+        percentage: employer_percentage
+      )
+    end
+
+    def employee_percentage
+      contribution_calculator.employee_percent
+    end
+
+    def employer_percentage
+      contribution_calculator.employer_percent
+    end
+
+    def contribution_calculator
+      Wpcc::YourContributionGenerator.new(
+        contribution_preference: session[:contribution_preference],
+        salary_per_year: salary_per_year
+      ).contribution_calculator
+    end
+
+    def salary_per_year
+      SalaryPerYear.new(
+        salary: session[:salary],
+        salary_frequency: session[:salary_frequency]
+      ).convert
     end
   end
 end

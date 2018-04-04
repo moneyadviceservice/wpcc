@@ -32,18 +32,7 @@ RSpec.describe Wpcc::PeriodFilterPresenter do
 
       it 'returns message' do
         expect(contribution_percents_explanation).to eq(
-          I18n.t('wpcc.results.large_contribution_percent_for_two_periods')
-        )
-      end
-    end
-
-    context 'when user inputs are between 2nd and 3rd period legal minimums' do
-      let(:user_input_employee_percent) { 4 }
-      let(:user_input_employer_percent) { 2.5 }
-
-      it 'returns message' do
-        expect(contribution_percents_explanation).to eq(
-          I18n.t('wpcc.results.large_contribution_percent_for_middle_period')
+          I18n.t('wpcc.results.contribution_percentages_over_minimum')
         )
       end
     end
@@ -55,7 +44,7 @@ RSpec.describe Wpcc::PeriodFilterPresenter do
       it 'returns message' do
         expect(contribution_percents_explanation).to eq(
           I18n.t(
-            'wpcc.results.employee_large_contribution_percent_for_two_periods'
+            'wpcc.results.employee_contribution_percentage_over_minimum'
           )
         )
       end
@@ -68,7 +57,7 @@ RSpec.describe Wpcc::PeriodFilterPresenter do
       it 'returns message' do
         expect(contribution_percents_explanation).to eq(
           I18n.t(
-            'wpcc.results.employer_large_contribution_percent_for_two_periods'
+            'wpcc.results.employer_contribution_percentage_over_minimum'
           )
         )
       end

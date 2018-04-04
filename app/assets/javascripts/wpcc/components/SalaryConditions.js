@@ -10,20 +10,17 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     // Step 1 - Details
     this.$salaryField = this.$el.find('[data-wpcc-salary-input]');
     this.$salaryFrequency = this.$el.find('[data-wpcc-frequency-select]');
-    this.$callout_lt5876 = this.$el.find('[data-wpcc-callout-lt5876]');
-    this.$callout_gt5876_lt10000 = this.$el.find('[data-wpcc-callout-gt5876_lt10000]');
+    this.$callout_below_lower_threshold = this.$el.find('[data-wpcc-callout-below-lower-threshold]');
+    this.$callout_btwn_lower_and_auto_enrol_threshold = this.$el.find('[data-wpcc-callout-btwn-lower-and-auto-enrol-threshold]');
     this.$callout_near_pension_threshold = this.$el.find('[data-wpcc-callout-near_pension_threshold]');
     this.$callout_near_auto_enrollment_threshold = this.$el.find('[data-wpcc-callout-near_auto_enrollment_threshold]');
-    this.$callout_lt5876_min_contribution = this.$el.find('[data-wpcc-callout-lt5876-min-contribution]');
+    this.$callout_below_part_contributions_threshold = this.$el.find('[data-wpcc-callout-below-part-contributions-threshold]');
     this.$employerPartRadio = this.$el.find('[data-wpcc-employer-part-radio]');
     this.$employerFullRadio = this.$el.find('[data-wpcc-employer-full-radio]');
-    this.contribution = 'full';
+    this.contribution = 'part';
 
     // Step 2 - Contributions
     this.optInTriggers = config;
-    this.$employeeTip = this.$el.find('[data-wpcc-employee-tip]');
-    this.$employeeTip_lt5876 = this.$el.find('[data-wpcc-employee-tip-lt5876]');
-    this.$employerTip = this.$el.find('[data-wpcc-employer-tip]');
     this.$employeeContributions = this.$el.find('[data-wpcc-employee-contributions]');
     this.$employerContributions = this.$el.find('[data-wpcc-employer-contributions]');
   };
@@ -123,23 +120,23 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     var $this          = this,
 
         // salary is below the manual opt limit
-        lt5876         = belowManualOptIn,
+        below_lower_threshold = belowManualOptIn,
 
         // salary is between the manual opt-in limits for the salary frequency
-        gt5876_lt10000 = manualOptInRequired,
+        btwn_lower_and_auto_enrol_threshold = manualOptInRequired,
 
-        // salary is near the pension threshold of 5876
+        // salary is near the lower pension threshold
         nearLowerThreshold = nearPensionThreshold,
 
-        // salary is near the pension threshold of 10000
+        // salary is near the auto enrollment threshold
         nearUpperThreshold = nearAutoEnrollThreshold;
 
-    if (!lt5876 && !gt5876_lt10000){
+    if (!below_lower_threshold && !btwn_lower_and_auto_enrol_threshold){
       $this._defaultRange($this);
-    } else if (lt5876) {
-      $this._lessThan5876($this);
-    } else if (gt5876_lt10000) {
-      $this._between5876and10000($this);
+    } else if (below_lower_threshold) {
+      $this._belowLowerThreshold($this);
+    } else if (btwn_lower_and_auto_enrol_threshold) {
+      $this._btwnLowerandAutoEnrolThreshold($this);
     };
 
     if (nearLowerThreshold){
@@ -162,12 +159,12 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
   // Function for salary outside any conditions
   SalaryConditions.prototype._defaultRange = function($this) {
     // Hide any callouts which are displayed
-    $this.$callout_lt5876.addClass('details__callout--inactive');
-    $this.$callout_lt5876.removeClass('details__callout--active');
-    $this.$callout_gt5876_lt10000.removeClass('details__callout--active');
-    $this.$callout_gt5876_lt10000.addClass('details__callout--inactive');
-    $this.$callout_lt5876_min_contribution.removeClass('details__callout--active');
-    $this.$callout_lt5876_min_contribution.addClass('details__callout--inactive');
+    $this.$callout_below_lower_threshold.addClass('details__callout--inactive');
+    $this.$callout_below_lower_threshold.removeClass('details__callout--active');
+    $this.$callout_btwn_lower_and_auto_enrol_threshold.removeClass('details__callout--active');
+    $this.$callout_btwn_lower_and_auto_enrol_threshold.addClass('details__callout--inactive');
+    $this.$callout_below_part_contributions_threshold.removeClass('details__callout--active');
+    $this.$callout_below_part_contributions_threshold.addClass('details__callout--inactive');
     $this.$callout_near_pension_threshold.removeClass('details__callout--active');
     $this.$callout_near_pension_threshold.addClass('details__callout--inactive');
     $this.$callout_near_auto_enrollment_threshold.removeClass('details__callout--active');
@@ -182,34 +179,34 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     }
   }
 
-  // Function for salary less than £5876
-  SalaryConditions.prototype._lessThan5876 = function($this) {
+  // Function for salary below lower threshold
+  SalaryConditions.prototype._belowLowerThreshold = function($this) {
     // Show relevant callouts
-    $this.$callout_lt5876.removeClass('details__callout--inactive');
-    $this.$callout_lt5876.addClass('details__callout--active');
-    $this.$callout_lt5876_min_contribution.removeClass('details__callout--inactive');
-    $this.$callout_lt5876_min_contribution.addClass('details__callout--active');
+    $this.$callout_below_lower_threshold.removeClass('details__callout--inactive');
+    $this.$callout_below_lower_threshold.addClass('details__callout--active');
+    $this.$callout_below_part_contributions_threshold.removeClass('details__callout--inactive');
+    $this.$callout_below_part_contributions_threshold.addClass('details__callout--active');
 
     // Hide other callouts if visible
-    $this.$callout_gt5876_lt10000.addClass('details__callout--inactive');
-    $this.$callout_gt5876_lt10000.removeClass('details__callout--active');
+    $this.$callout_btwn_lower_and_auto_enrol_threshold.addClass('details__callout--inactive');
+    $this.$callout_btwn_lower_and_auto_enrol_threshold.removeClass('details__callout--active');
 
     // Disable Employer contributions checkbox
     $this.$employerPartRadio.attr('disabled', true);
     $this.$employerFullRadio.prop('checked', true);
   };
 
-  // Function for salary between £5876 and £10000
-  SalaryConditions.prototype._between5876and10000 = function($this) {
+  // Function for salary between lower and auto enrol thresholds
+  SalaryConditions.prototype._btwnLowerandAutoEnrolThreshold = function($this) {
     // Display relevant callout
-    $this.$callout_gt5876_lt10000.removeClass('details__callout--inactive');
-    $this.$callout_gt5876_lt10000.addClass('details__callout--active');
+    $this.$callout_btwn_lower_and_auto_enrol_threshold.removeClass('details__callout--inactive');
+    $this.$callout_btwn_lower_and_auto_enrol_threshold.addClass('details__callout--active');
 
     // Hide previous callout if active
-    $this.$callout_lt5876.addClass('details__callout--inactive');
-    $this.$callout_lt5876.removeClass('details__callout--active');
-    $this.$callout_lt5876_min_contribution.removeClass('details__callout--active');
-    $this.$callout_lt5876_min_contribution.addClass('details__callout--inactive');
+    $this.$callout_below_lower_threshold.addClass('details__callout--inactive');
+    $this.$callout_below_lower_threshold.removeClass('details__callout--active');
+    $this.$callout_below_part_contributions_threshold.removeClass('details__callout--active');
+    $this.$callout_below_part_contributions_threshold.addClass('details__callout--inactive');
 
     // Enable radio button if disabled
     // And recheck inital option if full not already selected
@@ -220,14 +217,14 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     }
   }
 
-  // Function for salary close to £5876 callout_near_pension_threshold
+  // Function for salary close to callout_near_pension_threshold
   SalaryConditions.prototype._nearPensionThresholdMessage = function($this) {
     // Show relevant callouts
     $this.$callout_near_pension_threshold.removeClass('details__callout--inactive');
     $this.$callout_near_pension_threshold.addClass('details__callout--active');
   };
 
-  // Function for salary close to £1000 callout-near_auto_enrollment_threshold
+  // Function for salary close to callout-near_auto_enrollment_threshold
   SalaryConditions.prototype._nearAutoEnrollThresholdMessage = function($this) {
     // Show relevant callouts
     $this.$callout_near_auto_enrollment_threshold.removeClass('details__callout--inactive');

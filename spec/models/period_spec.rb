@@ -38,7 +38,7 @@ RSpec.describe Wpcc::Period do
     end
 
     context 'when user\'s salary is gte the minimum threshold' do
-      let(:salary) { 5_876 }
+      let(:salary) { 6_032 }
 
       it 'returns highest percent between period percent and user percent' do
         expect(Wpcc::Percent)
@@ -54,22 +54,15 @@ RSpec.describe Wpcc::Period do
   describe '#below_user_contributions' do
     let(:period_filter) do
       double(Wpcc::PeriodFilter,
-             user_input_employee_percent: 1,
-             user_input_employer_percent: 1)
-    end
-
-    context 'when there are no percents' do
-      let(:employee_percent) { nil }
-      it 'returns false' do
-        expect(subject.below_user_contributions?(period_filter)).to be_falsey
-      end
+             user_input_employee_percent: 3,
+             user_input_employer_percent: 3)
     end
 
     context 'when legal percents are gte percents input by the user' do
       let(:employee_percent) { 10 }
       let(:employer_percent) { 10 }
       it 'returns false' do
-        expect(subject.below_user_contributions?(period_filter)).to be_falsey
+        expect(subject.should_be_filtered_out?(period_filter)).to be_falsey
       end
     end
 
@@ -77,7 +70,7 @@ RSpec.describe Wpcc::Period do
       let(:employee_percent) { 1 }
       let(:employer_percent) { 1 }
       it 'returns true' do
-        expect(subject.below_user_contributions?(period_filter)).to be_truthy
+        expect(subject.should_be_filtered_out?(period_filter)).to be_truthy
       end
     end
   end

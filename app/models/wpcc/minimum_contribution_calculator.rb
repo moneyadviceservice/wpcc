@@ -1,26 +1,32 @@
-class Wpcc::MinimumContributionCalculator < Wpcc::ContributionCalculator
-  def eligible_salary
-    return upper_less_lower_limit if salary_per_year > upper_earnings_threshold
+module Wpcc
+  class MinimumContributionCalculator < ContributionCalculator
+    def eligible_salary
+      return upper_less_lower_limit if salary_per_year > upper_salary_threshold
 
-    return salary_per_year_less_lower_limit if
-      salary_per_year <= upper_earnings_threshold
-  end
+      return salary_per_year_less_lower_limit if
+        salary_per_year <= upper_salary_threshold
+    end
 
-  def employee_percent
-    1
-  end
+    def employee_percent
+      percentage(:employee)
+    end
 
-  def employer_percent
-    1
-  end
+    def employer_percent
+      percentage(:employer)
+    end
 
-  private
+    def below_threshold?
+      false
+    end
 
-  def upper_less_lower_limit
-    upper_earnings_threshold - lower_earnings_threshold
-  end
+    private
 
-  def salary_per_year_less_lower_limit
-    salary_per_year - lower_earnings_threshold
+    def upper_less_lower_limit
+      upper_salary_threshold - lower_salary_threshold
+    end
+
+    def salary_per_year_less_lower_limit
+      salary_per_year - lower_salary_threshold
+    end
   end
 end

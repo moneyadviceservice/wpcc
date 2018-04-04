@@ -1,7 +1,7 @@
 module Wpcc
   class SessionExpirer < ::Wpcc::BaseFilter
-    WPCC_SESSION_EXPIRY_LIMIT =
-      ::Wpcc::ConfigLoader.load('session')['expiry_limit'].minutes
+    extend WpccConfig
+    WPCC_SESSION_EXPIRY_LIMIT = config['session_expiry_limit'].minutes
 
     SESSION_KEYS = [
       YourContributionsSessionVerifier::SESSION_KEYS,

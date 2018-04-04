@@ -113,14 +113,14 @@
             <% end %>
           </div>
           <div class="details__callouts">
-            <div class="form__row details__callout details__callout--inactive" data-wpcc-callout-lt5876>
+            <div class="form__row details__callout details__callout--inactive" data-wpcc-callout-below-lower-threshold>
               <div class="callout">
-                <p><%= t('wpcc.details.callout__lt5876') %></p>
+                <p><%= t('wpcc.details.callout__below_lower_threshold') %></p>
               </div>
             </div>
-            <div class="form__row details__callout details__callout--inactive" data-wpcc-callout-gt5876_lt10000>
+            <div class="form__row details__callout details__callout--inactive" data-wpcc-callout-btwn-lower-and-auto-enrol-threshold>
               <div class="callout">
-                <p><%= t('wpcc.details.callout__gt5876_lt10000') %></p>
+                <p><%= t('wpcc.details.callout__btwn_lower_and_auto_enrol_threshold') %></p>
               </div>
             </div>
             <div class="form__row details__callout details__callout--inactive" data-wpcc-callout-near_pension_threshold>
@@ -160,9 +160,9 @@
               tooltip_hide: t('wpcc.tooltip_hide')
             } %>
             <div class="details__callouts">
-              <div class="form__row details__callout <%= @your_details_form.activate_disabled_callout %>" data-wpcc-callout-lt5876-min-contribution>
+              <div class="form__row details__callout <%= @your_details_form.activate_disabled_callout %>" data-wpcc-callout-below-part-contributions-threshold>
                 <div class="callout">
-                  <p><%= t('wpcc.details.callout__lt5876_min_contribution') %></p>
+                  <p><%= t('wpcc.details.callout__below_part_contributions_threshold') %></p>
                 </div>
               </div>
             </div>

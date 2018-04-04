@@ -1,14 +1,12 @@
 module Wpcc
   class SalaryMessage
     include ActiveModel::Model
+    extend WpccConfig
     attr_accessor :salary, :salary_frequency, :employee_percent, :text
 
-    FREQUENCY_THRESHOLDS =
-      ::Wpcc::ConfigLoader.load('salary_frequency_conversions')
+    FREQUENCY_THRESHOLDS = frequency_conversions
 
-    OPT_IN_THRESHOLDS = FREQUENCY_THRESHOLDS[
-      'manual_opt_in_by_frequency'
-    ].freeze
+    OPT_IN_THRESHOLDS = opt_in_thresholds_by_frequency.freeze
 
     TAX_RELIEF_THRESHOLDS = FREQUENCY_THRESHOLDS[
       'tax_relief_on_salary_by_frequency'

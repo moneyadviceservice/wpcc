@@ -34,15 +34,15 @@ Feature: Display Tax Relief Warning
 
     Examples:
       | salary | salary_frequency | warning_message |
-      | 11500  | per year         | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
-      | 958.33 | per month        | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
-      | 884.61 | per 4 weeks      | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
-      | 221.15 | per week         | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
+      | 11850  | per year         | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
+      | 987.50 | per month        | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
+      | 911.54 | per 4 weeks      | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
+      | 227.88 | per week         | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
 
     @welsh
     Examples:
       | salary | salary_frequency | warning_message |
-      | 11500  | y flwyddyn       | Os nad ydych chi'n talu treth incwm ar eich enillion, fyddwch chi ddim ond yn cael gostyngiad treth ar eich cyfraniadau |
+      | 11850  | y flwyddyn       | Os nad ydych chi'n talu treth incwm ar eich enillion, fyddwch chi ddim ond yn cael gostyngiad treth ar eich cyfraniadau |
 
   @no-javascript
   Scenario Outline: Earning above £11,500 per year
@@ -52,13 +52,13 @@ Feature: Display Tax Relief Warning
 
     Examples:
       | salary | salary_frequency | warning_message |
-      | 11501  | per year         | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
-      | 959.33 | per month        | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
-      | 885.61 | per 4 weeks      | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
-      | 222.14 | per week         | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
+      | 11851  | per year         | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
+      | 988.50 | per month        | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
+      | 912.54 | per 4 weeks      | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
+      | 228.88 | per week         | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
 
     @welsh
     Examples:
       | salary | salary_frequency | warning_message |
-      | 11501  | y flwyddyn       | Os nad ydych chi'n talu treth incwm ar eich enillion, fyddwch chi ddim ond yn cael gostyngiad treth ar eich cyfraniadau |
+      | 11851  | y flwyddyn       | Os nad ydych chi'n talu treth incwm ar eich enillion, fyddwch chi ddim ond yn cael gostyngiad treth ar eich cyfraniadau |
 
