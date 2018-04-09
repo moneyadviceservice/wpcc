@@ -1,6 +1,10 @@
 module Wpcc
   class YourContributionGenerator
     include ActiveModel::Model
+    CONTRIBUTION_PREFERENCE_TO_CLASS = {
+      'minimum' => MinimumContributionCalculator,
+      'full' => FullContributionCalculator
+    }.freeze
 
     attr_accessor :contribution_preference, :salary_per_year
     delegate :employee_percent,
@@ -20,10 +24,5 @@ module Wpcc
     def contribution_klass
       CONTRIBUTION_PREFERENCE_TO_CLASS[contribution_preference]
     end
-
-    CONTRIBUTION_PREFERENCE_TO_CLASS = {
-      'minimum' => MinimumContributionCalculator,
-      'full' => FullContributionCalculator
-    }.freeze
   end
 end

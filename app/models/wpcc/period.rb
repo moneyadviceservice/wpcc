@@ -1,9 +1,9 @@
 module Wpcc
   class Period
-    LEGAL_MINIMUM_CONTRIBUTION_PERCENT = 1
-
     include ActiveModel::Model
     include WpccConfig
+    LEGAL_MINIMUM_CONTRIBUTION_PERCENT = 1
+
     attr_accessor :name,
                   :employee_percent,
                   :employer_percent,

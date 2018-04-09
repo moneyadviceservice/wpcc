@@ -3,8 +3,8 @@ module Wpcc
     include ActiveModel::Model
     extend WpccConfig
 
-    attr_accessor :age, :gender, :salary
-    attr_accessor :salary_frequency, :contribution_preference
+    attr_accessor :age, :gender, :salary, :salary_frequency
+    attr_writer :contribution_preference
 
     AGE = { minimum: 16, maximum: 74 }.freeze
     GENDERS = %w[male female].freeze
@@ -25,7 +25,7 @@ module Wpcc
     def contribution_preference
       return 'full' if minimum_contribution? && contribution_errors?
 
-      @contribution_preference.blank? ? 'minimum' : @contribution_preference
+      @contribution_preference.presence || 'minimum'
     end
 
     private

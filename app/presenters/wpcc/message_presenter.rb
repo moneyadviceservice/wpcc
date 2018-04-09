@@ -95,6 +95,7 @@ module Wpcc
 
     def employer_contribution_tip
       return if salary_below_pension_limit?
+
       t(
         'wpcc.contributions.employer_contribution_tip',
         percentage: employer_percentage

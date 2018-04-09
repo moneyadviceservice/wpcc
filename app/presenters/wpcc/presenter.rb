@@ -5,9 +5,9 @@ module Wpcc
 
     attr_reader :object, :view_context
 
-    def initialize(object, args = {})
+    def initialize(object, view_context: nil)
       super(object)
-      @view_context = args[:view_context]
+      @view_context = view_context
       @object = object
       @converter = Wpcc::SalaryFrequencyConverter
     end
