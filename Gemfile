@@ -27,7 +27,7 @@ end
 
 group :test do
   gem 'brakeman', '~> 4.3.0', require: false
-  gem 'capybara'
+  gem 'capybara', '< 3.0'
   gem 'cucumber-rails', require: false
   gem 'poltergeist'
   gem 'simplecov', require: false
