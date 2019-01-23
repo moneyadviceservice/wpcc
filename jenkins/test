@@ -8,10 +8,13 @@ if [ -f /.dockerenv ]; then
 fi
 
 export RAILS_ENV=test
+export BUNDLE_WITHOUT=development:build
+
 exit_code=0
 
 function run {
     declare -a tests_command=("$@")
+
     echo ''
     echo "=== Running \`${tests_command[*]}\`"
     if ! ${tests_command[*]}; then
@@ -32,11 +35,17 @@ function info {
 # (re)install node packages to local dir before tests run
 run npm install
 run bundle install
+run bundle update brakeman --quiet
 run bundle exec bowndler install --allow-root
 run bundle exec rubocop .
 run bundle exec rspec
 run bundle exec cucumber
 run ./node_modules/karma/bin/karma start spec/javascripts/karma.conf.js --single-run
 info brakeman -q --no-pager --ensure-latest
+
+if [ -f /.dockerenv ]; then
+  run bundle exec danger --dangerfile=jenkins/Dangerfile --verbose
+fi
+
 
 exit "$exit_code"
