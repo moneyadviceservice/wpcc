@@ -26,8 +26,8 @@ group :development, :test do
 end
 
 group :test do
-  gem 'brakeman'
-  gem 'capybara'
+  gem 'brakeman', '~> 4.3.0', require: false
+  gem 'capybara', '< 3.0'
   gem 'cucumber-rails', require: false
   gem 'danger', require: false
   gem 'danger-rubocop', require: false
