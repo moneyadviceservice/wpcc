@@ -25,7 +25,7 @@ module Wpcc
     def contribution_preference
       return 'full' if minimum_contribution? && contribution_errors?
 
-      @contribution_preference.blank? ? 'minimum' : @contribution_preference
+      @contribution_preference.presence || 'minimum'
     end
 
     private

@@ -21,7 +21,7 @@ module Wpcc
     private
 
     def disable_minimum_contribution_option?
-      errors.keys.include?(:contribution_preference)
+      errors.key?(:contribution_preference)
     end
   end
 end
