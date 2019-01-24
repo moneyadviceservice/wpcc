@@ -1,3 +1,5 @@
+require 'modernizr-rails'
+
 module Wpcc
   mattr_accessor :parent_controller
 
