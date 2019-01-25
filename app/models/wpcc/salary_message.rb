@@ -50,7 +50,7 @@ module Wpcc
     end
 
     def valid_salary_frequency?
-      TAX_RELIEF_THRESHOLDS.keys.include?(salary_frequency)
+      TAX_RELIEF_THRESHOLDS.key?(salary_frequency)
     end
 
     def salary_below_frequency_threshold?

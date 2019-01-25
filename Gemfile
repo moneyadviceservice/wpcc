@@ -6,12 +6,12 @@ source 'http://gems.dev.mas.local'
 # development dependencies will be added by default to the :development group.
 gemspec
 
-ruby '2.3.3'
+ruby '2.5.3'
 
 gem 'bowndler'
 gem 'jquery-rails'
 gem 'rails', '~> 4.2.7'
-gem 'rubocop', '~> 0.49.1', require: false
+gem 'rubocop', '~> 0.63.1', require: false
 gem 'sass-rails'
 gem 'turbolinks'
 
