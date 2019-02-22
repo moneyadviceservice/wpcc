@@ -14,8 +14,8 @@ module Wpcc
       config['frequency_conversions']['opt_in_thresholds_by_frequency']
     end
 
-    def salary_threshold(limit)
-      config['salary_thresholds'][limit]
+    def salary_threshold(bracket)
+      config['salary_thresholds'][bracket]
     end
 
     def current_min_contribution_percentage_for(contributor, limit)
@@ -29,7 +29,7 @@ module Wpcc
     private
 
     def current_period
-      'april_2018_march_2019'
+      'current'
     end
   end
 end

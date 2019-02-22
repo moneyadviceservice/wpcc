@@ -29,7 +29,7 @@ RSpec.describe Wpcc::PeriodFilter do
     end
 
     it 'returns a Period object for each period in the config file' do
-      expect(Wpcc::Period).to receive(:new).exactly(2).times
+      expect(Wpcc::Period).to receive(:new).exactly(1).times
       subject.periods
     end
   end
@@ -47,7 +47,7 @@ RSpec.describe Wpcc::PeriodFilter do
       let(:user_input_employer_percent) { 1 }
 
       it 'does not exclude the period' do
-        expect(filtered_periods.size).to eq(2)
+        expect(filtered_periods.size).to eq(1)
       end
     end
 
@@ -56,7 +56,7 @@ RSpec.describe Wpcc::PeriodFilter do
       let(:user_input_employer_percent) { 4.5 }
 
       it 'does not exclude the period' do
-        expect(filtered_periods.size).to eq(2)
+        expect(filtered_periods.size).to eq(1)
       end
     end
 
@@ -65,17 +65,17 @@ RSpec.describe Wpcc::PeriodFilter do
       let(:user_input_employer_percent) { 4 }
 
       it 'excludes contribution period which is equal to the contributions' do
-        expect(filtered_periods.size).to eq(2)
+        expect(filtered_periods.size).to eq(1)
       end
     end
 
     context 'when contribution period is less than user percents' do
       context 'when one period is less than user percents' do
-        let(:user_input_employee_percent) { 4 }
-        let(:user_input_employer_percent) { 5 }
+        let(:user_input_employee_percent) { 6 }
+        let(:user_input_employer_percent) { 9 }
 
         it 'excludes the lower contribution period' do
-          expect(filtered_periods.size).to eq(2)
+          expect(filtered_periods.size).to eq(1)
         end
       end
     end
