@@ -6,6 +6,9 @@ module Wpcc
 
     PERIODS = min_contribution_percentages_by_period
 
+    # This logic is kept for precaution
+    # but it is not used at the moment
+    # as there is only 1 period available
     def filtered_periods
       return current_period if periods.last.should_be_filtered_out?(self)
 

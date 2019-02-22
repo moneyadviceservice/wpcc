@@ -126,11 +126,9 @@ cy:
         Mae eich cyflogwr eisoes yn talu mwy na'r isafswm newydd, felly rydym wedi dangos sut fydd eich cyfraniadau chi yn cynyddu yn unig. Ni fydd cyfraniad eich cyflogwr yn newid oni bai bod eich cyflog yn cynyddu neu rydych chi neu eich cyflogwr yn dewis talu mwy.
       period_title:
         contributor_title: Cyfrannwr
-        april_2018_march_2019: Nawr
-        after_april_2019: O Ebrill 2019 ymlaen
+        current: Nawr
       period_percents_title:
-        april_2018_march_2019: Nawr
-        after_april_2019: O Ebrill 2019 ymlaen
+        current: Nawr
       period:
         contribution_heading:
           yours_html: Eich cyfraniad <span data-wpcc-title-frequency>%{salary_frequency}</span>

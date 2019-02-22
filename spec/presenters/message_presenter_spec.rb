@@ -172,7 +172,7 @@ RSpec.describe Wpcc::MessagePresenter do
     context 'when the salary is above tax relief threshold' do
       let(:salary_below_pension_limit?) { false }
       it 'default legal message' do
-        string = 'The legal minimum is 3%'
+        string = 'The legal minimum is 5%'
         expect(subject.employee_contribution_tip).to eq string
       end
     end
@@ -200,7 +200,7 @@ RSpec.describe Wpcc::MessagePresenter do
     context 'when the salary is above tax relief threshold' do
       let(:salary_below_pension_limit?) { false }
       it 'default legal message' do
-        string = 'The legal minimum is 2%'
+        string = 'The legal minimum is 3%'
         expect(subject.employer_contribution_tip).to eq string
       end
     end
