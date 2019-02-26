@@ -15,7 +15,7 @@ cy:
   wpcc:
     meta:
       title: Cyfrifiannell cyfraniadau pensiwn gweithle
-      description: Bydd y gyfrifiannell hon yn dangos faint fydd yn cael ei dalu i mewn i'ch pensiwn gennych chi a'ch cyflogwr. Bydd hefyd yn dangos sut y gallai'r cyfraniadau yma gynyddu gydag amser.
+      description: Bydd y gyfrifiannell hon yn dangos faint fydd yn cael ei dalu i mewn i'ch pensiwn gennych chi a'ch cyflogwr. 
       canonical_url: https://www.moneyadviceservice.org.uk/cy/tools/cyfrifiannell-cyfraniadau-pensiwn-gweithle
     tooltip_show: sioe help
     tooltip_hide: cuddio cymorth
@@ -24,7 +24,7 @@ cy:
       text: Dyma’r rhan o’ch cyflog blynyddol fydd yn cael ei defnyddio i gyfrifo eich cyfraniad pensiwn dan gofrestru awtomatig. Sef eich enillion cyn treth (hyd at derfyn uchafswm o %{formatted_upper_earnings} y flwyddyn) - tynnu’r trothwy enillion isaf o %{formatted_lower_earnings}.
 
     title: Cyfrifiannell cyfraniadau pensiwn gweithle
-    intro: Mae’n gyfraith erbyn hyn y dylai’r rhan fwyaf o gyflogeion gael eu cofrestru ar gynllun pensiwn gweithle gan eu cyflogwr. Bydd y gyfrifiannell hon yn dangos faint fydd yn cael ei dalu i mewn i'ch pensiwn gennych chi a'ch cyflogwr. Bydd hefyd yn dangos sut y gallai'r cyfraniadau yma gynyddu gydag amser.
+    intro: Mae’n gyfraith erbyn hyn y dylai’r rhan fwyaf o gyflogeion gael eu cofrestru ar gynllun pensiwn gweithle gan eu cyflogwr. Bydd y gyfrifiannell hon yn dangos faint fydd yn cael ei dalu i mewn i'ch pensiwn gennych chi a'ch cyflogwr. 
     edit: Golygu
 
     details:
