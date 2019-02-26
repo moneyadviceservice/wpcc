@@ -98,17 +98,6 @@ Then(/^my results should have "([^"]*)" "([^"]*)" and "([^"]*)"$/) do |your_head
   expect(actual_headings).to eq(expected_headings)
 end
 
-Then(/^I should see a link to the legal minimum contributions table$/) do
-  expect(your_results_page).to have_legal_contributions_table_link
-end
-
-Then(/^I should see the percents information:$/) do |table|
-  data = table.raw.flatten
-  headings = ['Contributor', 'Now', 'April 2019 onwards']
-  expect(your_results_page.percent_table_headings.map{|cell| cell.text}).to eq(headings)
-  expect(your_results_page.table_cells.map{|cell| cell.text}).to eq(data)
-end
-
 Then(/^I should see that the "([^"]*)" is the same for each period$/) do |employer_contribution|
   step %{I should see my employer contributions for current period as "#{employer_contribution}"}
   step %{I should see my employer contributions for second period as "#{employer_contribution}"}

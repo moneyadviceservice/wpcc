@@ -114,9 +114,6 @@ cy:
 
     results:
       title: Eich canlyniadau
-      description_html: |
-        Bydd cyfraddau cyfraniadau pensiwn isaf yn cynyddu yn Ebrill 2019.
-        Bydd y ffigyrau hyn yn dangos sut y bydd hyn yn effeithio ar eich cyfraniadau.
       description_full_html:
         Bydd cyfraniadau yn seiliedig ar eich cyflog o <span data-wpcc-eligible-salary>%{eligible_salary}</span> y flwyddyn.
       description_minimum_html:
