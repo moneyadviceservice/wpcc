@@ -15,7 +15,7 @@ en:
   wpcc:
     meta:
       title: Workplace pension contribution calculator
-      description: Our workplace pension contribution calculator will show how much will be paid into your pension by you and your employer and how these contributions might increase over time.
+      description: Our workplace pension contribution calculator will show how much will be paid into your pension by you and your employer.
       canonical_url: https://www.moneyadviceservice.org.uk/en/tools/workplace-pension-contribution-calculator
     tooltip_show: show help
     tooltip_hide: hide help
@@ -24,7 +24,7 @@ en:
       text: This is the part of your annual pay that will be used to calculate your pension contribution under automatic enrolment. It is your earnings before tax (up to a maximum limit of %{formatted_upper_earnings} per year) – less the lower earnings threshold of %{formatted_lower_earnings}.
 
     title: Workplace pension contribution calculator
-    intro: It is now law that most employees must be enrolled into a workplace pension scheme by their employer. This calculator will show you how much will be paid into your pension by you and your employer. It will also show how these contributions might increase over time.
+    intro: It is now law that most employees must be enrolled into a workplace pension scheme by their employer. This calculator will show you how much will be paid into your pension by you and your employer.
     edit: Edit
 
     details:
