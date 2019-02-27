@@ -7,8 +7,8 @@ Background:
   Given I am on the Your Details step
   When I fill in my details
 
-Scenario Outline: minimum contribution percentage on salary greater than £6,032
-  And I enter my salary as "6033"
+Scenario Outline: minimum contribution percentage on salary greater than £6,136
+  And I enter my salary as "6137"
   And I proceed to the next step
   And the "employee" contribution intro should display "<employee_message>"
   And the "employer" contribution intro should display "<employer_message>"
