@@ -19,7 +19,7 @@ RSpec.describe Wpcc::SalaryMessage do
       end
 
       context 'salary equal to threshold' do
-        let(:salary) { 11_850 }
+        let(:salary) { 12_500 }
 
         it 'returns false' do
           expect(subject).to_not be_salary_below_tax_relief_threshold
@@ -46,8 +46,8 @@ RSpec.describe Wpcc::SalaryMessage do
         end
       end
 
-      context 'salary below threshold' do
-        let(:salary) { 987.50 }
+      context 'salary equal to threshold' do
+        let(:salary) { 1_042 }
 
         it 'returns false' do
           expect(subject).to_not be_salary_below_tax_relief_threshold
@@ -55,7 +55,7 @@ RSpec.describe Wpcc::SalaryMessage do
       end
 
       context 'salary above the threshold' do
-        let(:salary) { 1_000 }
+        let(:salary) { 1_043 }
 
         it 'returns false' do
           expect(subject).to_not be_salary_below_tax_relief_threshold
@@ -75,7 +75,7 @@ RSpec.describe Wpcc::SalaryMessage do
       end
 
       context 'salary equal to threshold' do
-        let(:salary) { 911.54 }
+        let(:salary) { 960 }
 
         it 'returns false' do
           expect(subject).to_not be_salary_below_tax_relief_threshold
@@ -103,7 +103,7 @@ RSpec.describe Wpcc::SalaryMessage do
       end
 
       context 'salary equal to threshold' do
-        let(:salary) { 227.88 }
+        let(:salary) { 240.00 }
 
         it 'returns false' do
           expect(subject).to_not be_salary_below_tax_relief_threshold
@@ -134,7 +134,7 @@ RSpec.describe Wpcc::SalaryMessage do
     let(:salary_frequency) { 'year' }
 
     context 'salary is within the range requiring manually opting in' do
-      let(:salary) { 6_032 }
+      let(:salary) { 6_140 }
 
       it 'returns true' do
         expect(subject).to be_manually_opt_in
@@ -162,7 +162,7 @@ RSpec.describe Wpcc::SalaryMessage do
     let(:salary_frequency) { 'year' }
 
     context 'salary is within the range of an automatic workplace pension' do
-      let(:salary) { 6_032 }
+      let(:salary) { 6_140 }
 
       it 'returns false' do
         expect(subject).not_to be_salary_below_pension_limit
@@ -178,7 +178,7 @@ RSpec.describe Wpcc::SalaryMessage do
     end
 
     context 'salary is below the range of an automatic workplace pension' do
-      let(:salary) { 6_031 }
+      let(:salary) { 6_000 }
 
       it 'returns true' do
         expect(subject).to be_salary_below_pension_limit
@@ -191,10 +191,10 @@ RSpec.describe Wpcc::SalaryMessage do
       let(:salary_frequency) { 'year' }
 
       context 'salary is within the range of an automatic pension warning' do
-        let(:salary) { 6_022 }
+        let(:salary) { 6_126 }
         it { is_expected.to be_salary_near_pension_limit }
 
-        let(:salary) { 6_042 }
+        let(:salary) { 6_146 }
         it { is_expected.to be_salary_near_pension_limit }
       end
 
@@ -222,7 +222,7 @@ RSpec.describe Wpcc::SalaryMessage do
         let(:salary) { 105 }
         it { is_expected.not_to be_salary_near_pension_limit }
 
-        let(:salary) { 127 }
+        let(:salary) { 129 }
         it { is_expected.not_to be_salary_near_pension_limit }
       end
     end

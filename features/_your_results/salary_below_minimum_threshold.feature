@@ -42,13 +42,13 @@ Feature: Employer contributions do not increase when user's salary is less than 
     Then I should see employer_contributions for "<period_1>" increase as per the legal minimums
 
     Examples:
-        | salary | salary_frequency | part_or_full | employer_percent |  period_1 |
-        | 1500   | per month        | Minimum      | 0                |  £29.92   |
-        | 1500   | per month        | Minimum      | 1                |  £29.92   |
-        | 1200   | per 4 weeks      | Minimum      | 0                |  £22.08   |
-        | 1200   | per 4 weeks      | Minimum      | 1                |  £22.08   |
-        | 350    | per week         | Minimum      | 0                |  £7.02    |
-        | 350    | per week         | Minimum      | 1                |  £7.02    |
+        | salary | salary_frequency | part_or_full | employer_percent | period_1 |
+        | 1500   | per month        | Minimum      | 0                | £29.66   |
+        | 1500   | per month        | Minimum      | 1                | £29.66   |
+        | 1200   | per 4 weeks      | Minimum      | 0                | £21.84   |
+        | 1200   | per 4 weeks      | Minimum      | 1                | £21.84   |
+        | 350    | per week         | Minimum      | 0                | £6.96    |
+        | 350    | per week         | Minimum      | 1                | £6.96    |
 
   Scenario Outline: For annual salary frequency above the minimum threshold
     Given my "<salary>" "<salary_frequency>", regardless of "<part_or_full>" contribution, is above the minimum threshold
@@ -61,5 +61,5 @@ Feature: Employer contributions do not increase when user's salary is less than 
 
     Examples:
         | salary  | salary_frequency | part_or_full | employer_percent | period_1 |
-        | 11100   | per year         | Minimum      | 0                | £152.04  |
-        | 11100   | per year         | Minimum      | 1                | £152.04  |
+        | 11100   | per year         | Minimum      | 0                | £148.92  |
+        | 11100   | per year         | Minimum      | 1                | £148.92  |
