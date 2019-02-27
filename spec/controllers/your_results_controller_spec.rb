@@ -12,8 +12,6 @@ RSpec.describe Wpcc::YourResultsController do
   let(:salary_frequency) { double(Wpcc::SalaryFrequency) }
   let(:periods) { [period, period] }
   let(:period) { double(Wpcc::Period) }
-  let(:period_presenters) { [period_presenter, period_presenter] }
-  let(:period_presenter) { double(Wpcc::PeriodPresenter) }
   let(:salary_per_year) { double(Wpcc::SalaryPerYear) }
 
   describe 'GET /your_results' do
@@ -73,29 +71,6 @@ RSpec.describe Wpcc::YourResultsController do
         .and_return(salary_frequency)
 
       @controller.send(:salary_frequency)
-    end
-  end
-
-  describe '#period_legal_percents' do
-    before do
-      allow(@controller).to receive(:view_context).and_return(view_context)
-    end
-
-    let(:view_context) { double(:view_context) }
-
-    it 'returns an array of formatted PeriodPresenters' do
-      expect(Wpcc::PeriodFilter)
-        .to receive_message_chain(:new, :periods)
-        .and_return(periods)
-
-      periods.each do |period|
-        expect(Wpcc::PeriodPresenter)
-          .to receive(:new)
-          .with(period, view_context: view_context)
-          .and_return(period_presenters)
-      end
-
-      @controller.send(:period_legal_percents)
     end
   end
 

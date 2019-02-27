@@ -29,16 +29,6 @@ module Wpcc
     end
     helper_method :your_results_presenter
 
-    def period_legal_percents
-      period_filter.periods.map do |period|
-        Wpcc::PeriodPresenter.new(
-          period,
-          view_context: view_context
-        )
-      end
-    end
-    helper_method :period_legal_percents
-
     def message_presenter
       Wpcc::MessagePresenter.new(
         salary_message,
