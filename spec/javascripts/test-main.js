@@ -28,6 +28,7 @@ require.config({
 
     // Internal modules
     DoughBaseComponent: 'vendor/assets/bower_components/dough/assets/js/components/DoughBaseComponent',
+    DoughEventConstants: 'vendor/assets/bower_components/dough/assets/js/constants/DoughEventConstants',
 
     // Dough components
     utilities: 'vendor/assets/bower_components/dough/assets/js/lib/utilities',
