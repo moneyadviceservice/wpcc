@@ -14,11 +14,11 @@ Feature: Limit Tax Relief
       And my contribution is "60" percent
       When I move on to the results page
       Then I should see the values on the results page as:
-        |                         | Now        | Apr 2019 onwards |
-        | Employee Contributions  | £4,000.00  | £4,000.00        |
-        | Including tax relief of | £666.67    | £666.67          |
-        | Employer Contributions  | £133.33    | £200.00          |
-        | TOTAL Contributions     | £4,133.33  | £4,200.00        |
+        |                         | Now              |
+        | Employee Contributions  | £4,000.00        |
+        | Including tax relief of | £666.67          |
+        | Employer Contributions  | £200.00          |
+        | TOTAL Contributions     | £4,200.00        |
 
     Scenario: Employee contributing more than £769.23 per week to pension
       Given my salary is "1200" "per week" with "Full" contribution
@@ -26,11 +26,11 @@ Feature: Limit Tax Relief
       And my contribution is "65" percent
       When I move on to the results page
       Then I should see the values on the results page as:
-        |                         | Now     | Apr 2019 onwards |
-        | Employee Contributions  | £780.00 | £780.00          |
-        | Including tax relief of | £153.85 | £153.85          |
-        | Employer Contributions  | £24.00  | £36.00           |
-        | TOTAL Contributions     | £804.00 | £816.00          |
+        |                         | Now              |
+        | Employee Contributions  | £780.00          |
+        | Including tax relief of | £153.85          |
+        | Employer Contributions  | £36.00           |
+        | TOTAL Contributions     | £816.00          |
 
     Scenario: Employee contributing more than £3,333.33 per month to pension
       Given my salary is "4000" "per month" with "Full" contribution
@@ -38,11 +38,11 @@ Feature: Limit Tax Relief
       And my contribution is "90" percent
       When I move on to the results page
       Then I should see the values on the results page as:
-        |                         | Now       | Apr 2019 onwards |
-        | Employee Contributions  | £3,600.00 | £3,600.00        |
-        | Including tax relief of | £666.67   | £666.67          |
-        | Employer Contributions  | £80.00    | £120.00          |
-        | TOTAL Contributions     | £3,680.00 | £3,720.00        |
+        |                         | Now              |
+        | Employee Contributions  | £3,600.00        |
+        | Including tax relief of | £666.67          |
+        | Employer Contributions  | £120.00          |
+        | TOTAL Contributions     | £3,720.00        |
 
     Scenario: Employee contributing more than £3,076.92 per 4 weeks to pension
       Given my salary is "5000" "per 4 weeks" with "Full" contribution
@@ -50,8 +50,8 @@ Feature: Limit Tax Relief
       And my contribution is "90" percent
       When I move on to the results page
       Then I should see the values on the results page as:
-        |                         | Now       | Apr 2019 onwards |
-        | Employee Contributions  | £4,500.00 | £4,500.00        |
-        | Including tax relief of | £615.38   | £615.38          |
-        | Employer Contributions  | £100.00   | £150.00          |
-        | TOTAL Contributions     | £4,600.00 | £4,650.00        |
+        |                         | Now              |
+        | Employee Contributions  | £4,500.00        |
+        | Including tax relief of | £615.38          |
+        | Employer Contributions  | £150.00          |
+        | TOTAL Contributions     | £4,650.00        |
