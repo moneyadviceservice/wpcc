@@ -39,16 +39,16 @@ Feature: Employer contributions do not increase when user's salary is less than 
     And my employee contribution is "1"
     And my employer contribution is "<employer_percent>"
     When I move on to the results page
-    Then I should see employer_contributions for "<period_1>" and "<period_2>" increase as per the legal minimums
+    Then I should see employer_contributions for "<period_1>" increase as per the legal minimums
 
     Examples:
-        | salary | salary_frequency | part_or_full | employer_percent | period_1 | period_2 |
-        | 1500   | per month        | Minimum      | 0                | £19.95   | £29.92   |
-        | 1500   | per month        | Minimum      | 1                | £19.95   | £29.92   |
-        | 1200   | per 4 weeks      | Minimum      | 0                | £14.72   | £22.08   |
-        | 1200   | per 4 weeks      | Minimum      | 1                | £14.72   | £22.08   |
-        | 350    | per week         | Minimum      | 0                | £4.68    | £7.02    |
-        | 350    | per week         | Minimum      | 1                | £4.68    | £7.02    |
+        | salary | salary_frequency | part_or_full | employer_percent |  period_1 |
+        | 1500   | per month        | Minimum      | 0                |  £29.92   |
+        | 1500   | per month        | Minimum      | 1                |  £29.92   |
+        | 1200   | per 4 weeks      | Minimum      | 0                |  £22.08   |
+        | 1200   | per 4 weeks      | Minimum      | 1                |  £22.08   |
+        | 350    | per week         | Minimum      | 0                |  £7.02    |
+        | 350    | per week         | Minimum      | 1                |  £7.02    |
 
   Scenario Outline: For annual salary frequency above the minimum threshold
     Given my "<salary>" "<salary_frequency>", regardless of "<part_or_full>" contribution, is above the minimum threshold
@@ -57,9 +57,9 @@ Feature: Employer contributions do not increase when user's salary is less than 
     When I move on to the results page
     And I select "<salary_frequency>" to change the calculations
     And I press recalculate
-    Then I should see employer_contributions for "<period_1>" and "<period_2>" increase as per the legal minimums
+    Then I should see employer_contributions for "<period_1>" increase as per the legal minimums
 
     Examples:
-        | salary  | salary_frequency | part_or_full | employer_percent | period_1 | period_2 |
-        | 11100   | per year         | Minimum      | 0                | £101.36  | £152.04  |
-        | 11100   | per year         | Minimum      | 1                | £101.36  | £152.04  |
+        | salary  | salary_frequency | part_or_full | employer_percent | period_1 |
+        | 11100   | per year         | Minimum      | 0                | £152.04  |
+        | 11100   | per year         | Minimum      | 1                | £152.04  |

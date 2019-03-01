@@ -6,7 +6,7 @@ module Wpcc
 
     PERIODS = min_contribution_percentages_by_period
 
-    # This logic is kept for precaution
+    # This logic is kept as a precaution
     # but it is not used at the moment
     # as there is only 1 period available
     def filtered_periods
