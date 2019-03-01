@@ -3,7 +3,7 @@ module Wpcc
     include ActiveModel::Model
     include WpccConfig
 
-    LEGAL_MINIMUM_CONTRIBUTION_PERCENT ||= 1
+    LEGAL_MINIMUM_CONTRIBUTION_PERCENT = 1
 
     attr_accessor :name,
                   :employee_percent,
