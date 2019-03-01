@@ -1,5 +1,7 @@
 module Wpcc
   module WpccConfig
+    CURRENT_PERIOD = 'current'.freeze
+
     def config
       hash = YAML.load_file(Wpcc::Engine.root.join('config', 'config.yml'))
 
@@ -19,17 +21,11 @@ module Wpcc
     end
 
     def current_min_contribution_percentage_for(contributor, limit)
-      min_contribution_percentages_by_period[current_period][contributor][limit]
+      min_contribution_percentages_by_period[CURRENT_PERIOD][contributor][limit]
     end
 
     def min_contribution_percentages_by_period
       config['contribution_percentages']['legal_minimums_by_period']
-    end
-
-    private
-
-    def current_period
-      'current'
     end
   end
 end
