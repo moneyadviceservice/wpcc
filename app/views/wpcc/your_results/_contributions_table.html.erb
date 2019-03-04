@@ -1,5 +1,5 @@
 <div class="results__row">
-  <% schedule.each do |period| %>
+  <% schedule.tap do |period| %>
     <div class="results__period results__period-<%= period.name %>" data-dough-component="PopupTip" data-wpcc-results-table>
       <h3 class="results__period-title" data-wpcc-results-period-title><%= period.title %></h3>
 
