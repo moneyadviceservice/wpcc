@@ -1,23 +1,14 @@
 module Wpcc
-  class PeriodFilter
+  class PeriodMapper
     include ActiveModel::Model
     extend WpccConfig
     attr_accessor :user_input_employee_percent, :user_input_employer_percent
 
-    PERIODS = min_contribution_percentages_by_period
+    PERIOD = min_contribution_percentages
 
-    # This logic is kept as a precaution
-    # but it is not used at the moment
-    # as there is only 1 period available
-    def filtered_periods
-      return current_period if periods.last.should_be_filtered_out?(self)
-
-      periods
-    end
-
-    def periods
-      PERIODS.map do |period, percents|
-        ::Wpcc::Period.new(
+    def map
+      PERIOD.map do |period, percents|
+        Period.new(
           name: period.to_s,
           employee_percent: percents[:employee][:above_threshold],
           employer_percent: percents[:employer][:above_threshold],
@@ -25,13 +16,7 @@ module Wpcc
           user_input_employee_percent: user_input_employee_percent,
           user_input_employer_percent: user_input_employer_percent
         )
-      end
-    end
-
-    private
-
-    def current_period
-      [periods.first]
+      end.pop
     end
   end
 end

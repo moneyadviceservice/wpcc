@@ -21,10 +21,10 @@ module Wpcc
     end
 
     def current_min_contribution_percentage_for(contributor, limit)
-      min_contribution_percentages_by_period[CURRENT_PERIOD][contributor][limit]
+      min_contribution_percentages[CURRENT_PERIOD][contributor][limit]
     end
 
-    def min_contribution_percentages_by_period
+    def min_contribution_percentages
       config['contribution_percentages']['legal_minimums_by_period']
     end
   end

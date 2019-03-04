@@ -3,12 +3,10 @@ module Wpcc
     before_action YourResultsSessionVerifier, only: :index
 
     def schedule
-      calendar.schedule.map do |period_contribution|
-        Wpcc::PeriodContributionPresenter.new(
-          period_contribution,
-          view_context: view_context
-        )
-      end
+      Wpcc::PeriodContributionPresenter.new(
+        calendar.schedule,
+        view_context: view_context
+      )
     end
     helper_method :schedule
 
@@ -37,10 +35,10 @@ module Wpcc
     end
     helper_method :message_presenter
 
-    def period_filter_presenter
-      Wpcc::PeriodFilterPresenter.new(period_filter, view_context: view_context)
+    def period_mapper_presenter
+      Wpcc::PeriodMapperPresenter.new(period_mapper, view_context: view_context)
     end
-    helper_method :period_filter_presenter
+    helper_method :period_mapper_presenter
 
     private
 
@@ -48,8 +46,8 @@ module Wpcc
       @calendar ||= Wpcc::ContributionsCalendar.new(contributions_params)
     end
 
-    def period_filter
-      @period_filter ||= PeriodFilter.new(
+    def period_mapper
+      @period_mapper ||= PeriodMapper.new(
         user_input_employee_percent: session[:employee_percent].to_f,
         user_input_employer_percent: session[:employer_percent].to_f
       )
@@ -59,7 +57,7 @@ module Wpcc
       {
         eligible_salary: session[:eligible_salary].to_i,
         salary_frequency: salary_frequency.to_i,
-        periods: period_filter.filtered_periods,
+        period: period_mapper.map,
         annual_salary: annual_salary
       }
     end

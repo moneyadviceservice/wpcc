@@ -13,7 +13,7 @@ RSpec.describe Wpcc::Period do
   let(:employer_percent) { 10 }
   let(:user_input_employee_percent) { 1 }
   let(:user_input_employer_percent) { 2 }
-  let(:period_filter) { double(Wpcc::PeriodFilter) }
+  let(:period_filter) { double(Wpcc::PeriodMapper) }
 
   describe '#highest_employee_percent' do
     let(:employee_percent) { 4 }
@@ -53,7 +53,7 @@ RSpec.describe Wpcc::Period do
 
   describe '#below_user_contributions' do
     let(:period_filter) do
-      double(Wpcc::PeriodFilter,
+      double(Wpcc::PeriodMapper,
              user_input_employee_percent: 3,
              user_input_employer_percent: 3)
     end
