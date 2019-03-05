@@ -9,7 +9,6 @@
   <div class="results__content" data-dough-component="UpdateResults">
     <div data-dough-component="PopupTip">
       <p>
-        <%= t('wpcc.results.description_html') %>
         <% if message_presenter.minimum_contribution? %>
           <% tooltip_trigger_html = popup_tip_trigger options: {
             text: t('wpcc.tooltip_show'),
@@ -39,7 +38,6 @@
 
     <%= render 'frequency_selector_form' %>
     <%= render 'contributions_table'%>
-    <%= render 'period_percents_table' %>
 
     <p><a href="#" data-dough-component="Print"><%= t('wpcc.results.print_link') %></a></p>
     <p><a href="mailto:?body=" data-wpcc-email-link><%= t('wpcc.results.email_link') %></a></p>
