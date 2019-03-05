@@ -11,23 +11,17 @@
       <thead>
         <tr>
           <th><span class="visually-hidden"><%= t('wpcc.results.period_title.contributor_title') %></span></th>
-          <% period_legal_percents.tap do |period| %>
-            <th><%= period.title %></th>
-          <% end %>
+          <th><%= period_legal_percents.title %></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><%= t('wpcc.results.contribution_changes.you') %></td>
-          <% period_legal_percents.tap do |period| %>
-            <td><%= period.employee_percent %></td>
-          <% end %>
+          <td><%= period_legal_percents.employee_percent %></td>
         </tr>
         <tr>
           <td><%= t('wpcc.results.contribution_changes.employer') %></td>
-          <% period_legal_percents.tap do |period| %>
-            <td><%= period.employer_percent %></td>
-          <% end %>
+          <td><%= period_legal_percents.employer_percent %></td>
         </tr>
       </tbody>
     </table>

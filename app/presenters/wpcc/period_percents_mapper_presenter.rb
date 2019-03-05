@@ -1,5 +1,5 @@
 module Wpcc
-  class PeriodMapperPresenter < Presenter
+  class PeriodPercentsMapperPresenter < Presenter
     def contribution_percents_explanation
       @period = map
 

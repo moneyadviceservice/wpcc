@@ -16,7 +16,7 @@ describe Wpcc::ContributionsCalendar, type: :model do
 
   describe '#schedule' do
     let(:period) do
-      Wpcc::PeriodMapper.new(
+      Wpcc::PeriodPercentsMapper.new(
         user_input_employee_percent: 1,
         user_input_employer_percent: 2
       ).map
