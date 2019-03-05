@@ -1,5 +1,5 @@
 module Wpcc
-  class PeriodMapper
+  class PeriodPercentsMapper
     include ActiveModel::Model
     extend WpccConfig
     attr_accessor :user_input_employee_percent, :user_input_employer_percent
