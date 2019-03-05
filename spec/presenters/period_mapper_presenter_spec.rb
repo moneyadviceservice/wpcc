@@ -1,10 +1,10 @@
-RSpec.describe Wpcc::PeriodMapperPresenter do
+RSpec.describe Wpcc::PeriodPercentsMapperPresenter do
   subject(:presenter) do
     described_class.new(object, view_context: context)
   end
 
   let(:object) do
-    Wpcc::PeriodMapper.new(
+    Wpcc::PeriodPercentsMapper.new(
       user_input_employee_percent: user_input_employee_percent,
       user_input_employer_percent: user_input_employer_percent
     )

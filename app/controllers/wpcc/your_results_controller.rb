@@ -35,10 +35,13 @@ module Wpcc
     end
     helper_method :message_presenter
 
-    def period_mapper_presenter
-      Wpcc::PeriodMapperPresenter.new(period_mapper, view_context: view_context)
+    def period_percents_mapper_presenter
+      Wpcc::PeriodPercentsMapperPresenter.new(
+        period_mapper,
+        view_context: view_context
+      )
     end
-    helper_method :period_mapper_presenter
+    helper_method :period_percents_mapper_presenter
 
     private
 
@@ -47,7 +50,7 @@ module Wpcc
     end
 
     def period_mapper
-      @period_mapper ||= PeriodMapper.new(
+      @period_mapper ||= PeriodPercentsMapper.new(
         user_input_employee_percent: session[:employee_percent].to_f,
         user_input_employer_percent: session[:employer_percent].to_f
       )

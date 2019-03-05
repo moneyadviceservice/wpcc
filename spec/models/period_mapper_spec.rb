@@ -1,5 +1,5 @@
-RSpec.describe Wpcc::PeriodMapper do
-  describe '#map_period' do
+RSpec.describe Wpcc::PeriodPercentsMapper do
+  describe '#map' do
     let(:user_input_employee_percent) { 1 }
     let(:user_input_employer_percent) { 1 }
 
