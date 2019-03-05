@@ -35,14 +35,6 @@ module Wpcc
     end
     helper_method :message_presenter
 
-    def period_percents_mapper_presenter
-      Wpcc::PeriodPercentsMapperPresenter.new(
-        period_mapper,
-        view_context: view_context
-      )
-    end
-    helper_method :period_percents_mapper_presenter
-
     private
 
     def calendar
