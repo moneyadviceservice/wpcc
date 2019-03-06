@@ -3,21 +3,14 @@ salary_thresholds:
   lower: 6_032
 
 contribution_percentages:
-  legal_minimums_by_period:
-    april_2018_march_2019:
-      employee:
-        below_threshold: 3
-        above_threshold: 3
-      employer:
-        below_threshold: 0
-        above_threshold: 2
-      tax_relief: 20
-    after_april_2019:
-      employee:
-        above_threshold: 5
-      employer:
-        above_threshold: 3
-      tax_relief: 20
+  current:
+    employee:
+      below_threshold: 5
+      above_threshold: 5
+    employer: 
+      below_threshold: 0
+      above_threshold: 3
+    tax_relief: 20
 
 frequency_conversions:
   salary_frequencies:

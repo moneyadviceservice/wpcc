@@ -2,7 +2,7 @@ RSpec.describe Wpcc::YourResultsController do
   routes { Wpcc::Engine.routes }
 
   let(:contributions_calendar) { double('ContributionsCalendar') }
-  let(:schedule) { [period_contribution, period_contribution] }
+  let(:schedule) { period_contribution }
   let(:period_contribution) { double(Wpcc::PeriodContribution) }
   let(:period_contribution_presenter) do
     double(Wpcc::PeriodContributionPresenter)
@@ -10,7 +10,6 @@ RSpec.describe Wpcc::YourResultsController do
   let(:message_presenter) { double(Wpcc::MessagePresenter) }
   let(:salary_message) { double(Wpcc::SalaryMessage) }
   let(:salary_frequency) { double(Wpcc::SalaryFrequency) }
-  let(:periods) { [period, period] }
   let(:period) { double(Wpcc::Period) }
   let(:salary_per_year) { double(Wpcc::SalaryPerYear) }
 
@@ -26,7 +25,7 @@ RSpec.describe Wpcc::YourResultsController do
   end
 
   describe '#schedule' do
-    it 'returns an array of formatted PeriodContributions' do
+    it 'returns a PeriodContributionPresenter' do
       request.session[:salary] = 75
       request.session[:salary_frequency] = 'week'
 
@@ -50,7 +49,7 @@ RSpec.describe Wpcc::YourResultsController do
 
       expect(Wpcc::PeriodContributionPresenter)
         .to receive(:new)
-        .exactly(2)
+        .exactly(1)
         .times
         .and_return(period_contribution_presenter)
 
