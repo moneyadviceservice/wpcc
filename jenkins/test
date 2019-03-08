@@ -32,7 +32,7 @@ function info {
     fi
 }
 
-# (re)install node packages to local dir before tests run
+run gem -v
 run bundle install
 run npm install
 run bundle update brakeman --quiet
