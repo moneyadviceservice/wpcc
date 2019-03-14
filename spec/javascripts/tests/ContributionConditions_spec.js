@@ -20,7 +20,7 @@ describe('Contribution Conditions', function() {
   });
 
   describe('When an employee contribution percentage is entered', function() {
-    
+
     beforeEach(function() {
       this.employeeContributions = this.component.find('[data-wpcc-employee-contributions]');
       this.eligibleSalary = this.component.find('[data-wpcc-contribution-salary]');

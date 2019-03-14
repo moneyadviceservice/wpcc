@@ -9,7 +9,6 @@ gemspec
 ruby '2.5.3'
 
 gem 'bowndler'
-gem 'jquery-rails'
 gem 'rails', '~> 4.2.7'
 gem 'rubocop', '~> 0.63.1', require: false
 gem 'sass-rails'
