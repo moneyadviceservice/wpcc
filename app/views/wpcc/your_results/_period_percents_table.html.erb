@@ -6,28 +6,22 @@
   </p>
   <div class="table-wrapper contribution-changes__content" data-dough-collapsable-target="contribution-table">
     <h4 class="contribution-changes__heading">How legal minimum contributions change</h4>
-    
+
     <table class="table--full-width contribution-changes__table">
       <thead>
         <tr>
           <th><span class="visually-hidden"><%= t('wpcc.results.period_title.contributor_title') %></span></th>
-          <% period_legal_percents.each do |period| %>
-            <th><%= period.title %></th>
-          <% end %>
+          <th><%= period_legal_percents.title %></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><%= t('wpcc.results.contribution_changes.you') %></td>
-          <% period_legal_percents.each do |period| %>
-            <td><%= period.employee_percent %></td>
-          <% end %>
+          <td><%= period_legal_percents.employee_percent %></td>
         </tr>
         <tr>
           <td><%= t('wpcc.results.contribution_changes.employer') %></td>
-          <% period_legal_percents.each do |period| %>
-            <td><%= period.employer_percent %></td>
-          <% end %>
+          <td><%= period_legal_percents.employer_percent %></td>
         </tr>
       </tbody>
     </table>

@@ -10,30 +10,30 @@ describe Wpcc::MinimumContributionCalculator, type: :model do
 
   describe '#eligible_salary' do
     context 'yearly salary greater than Upper Earnings Threshold' do
-      let(:salary_per_year) { 50_000 }
+      let(:salary_per_year) { 51_000 }
 
       it 'returns the upper threshold minus the lower threshold' do
-        expect(subject.eligible_salary).to eq(40_318)
+        expect(subject.eligible_salary).to eq(43_864)
       end
     end
     context 'yearly salary less than or equal to Upper Earnings Threshold' do
       let(:salary_per_year) { 45_000 }
 
       it 'returns yearly salary minus the lower threshold' do
-        expect(subject.eligible_salary).to eq(38_968)
+        expect(subject.eligible_salary).to eq(38_864)
       end
     end
   end
 
   describe '#employee_percent' do
-    it 'returns 3' do
-      expect(subject.employee_percent).to eq(3)
+    it 'returns 5' do
+      expect(subject.employee_percent).to eq(5)
     end
   end
 
   describe '#employer_percent' do
-    it 'returns 2' do
-      expect(subject.employer_percent).to eq(2)
+    it 'returns 3' do
+      expect(subject.employer_percent).to eq(3)
     end
   end
 end

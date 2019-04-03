@@ -27,7 +27,7 @@ When(/^I click the reset the calculator button$/) do
   your_results_page.reset_calculator_link.click
 end
 
-Then(/^I should see "([^"]*)" in the Recalculate Salary Frequency selector dropdown$/) do |selected_frequency|
+Then("I should see {string} in the Recalculate Salary Frequency selector dropdown") do |selected_frequency|
   expect(your_results_page).to have_select('salary_frequency', selected: selected_frequency)
 end
 
@@ -45,22 +45,6 @@ end
 
 Then(/^I should see my total contributions for current period as "([^"]*)"$/) do |total_contributions|
   expect(your_results_page.current_period.total_contributions.text).to eq(total_contributions)
-end
-
-Then(/^I should see my employee contributions for second period as "([^"]*)"$/) do |employee_contribution|
-  expect(your_results_page.second_period.employee_contribution.text).to eq(employee_contribution)
-end
-
-Then(/^I should see my employer contributions for second period as "([^"]*)"$/) do |employer_contribution|
-  expect(your_results_page.second_period.employer_contribution.text).to eq(employer_contribution)
-end
-
-Then(/^I should see my tax relief for second period as "([^"]*)"$/) do |tax_relief|
-  expect(your_results_page.second_period.tax_relief.text).to eq("(includes tax relief of #{tax_relief})")
-end
-
-Then(/^I should see my total contributions for second period as "([^"]*)"$/) do |total_contributions|
-  expect(your_results_page.second_period.total_contributions.text).to eq(total_contributions)
 end
 
 Then(/^I should( not| NOT)? see tax relief "([^"]*)"$/) do |should_not, warning_message|
@@ -98,25 +82,12 @@ Then(/^my results should have "([^"]*)" "([^"]*)" and "([^"]*)"$/) do |your_head
   expect(actual_headings).to eq(expected_headings)
 end
 
-Then(/^I should see a link to the legal minimum contributions table$/) do
-  expect(your_results_page).to have_legal_contributions_table_link
-end
-
-Then(/^I should see the percents information:$/) do |table|
-  data = table.raw.flatten
-  headings = ['Contributor', 'Now', 'April 2019 onwards']
-  expect(your_results_page.percent_table_headings.map{|cell| cell.text}).to eq(headings)
-  expect(your_results_page.table_cells.map{|cell| cell.text}).to eq(data)
-end
-
 Then(/^I should see that the "([^"]*)" is the same for each period$/) do |employer_contribution|
   step %{I should see my employer contributions for current period as "#{employer_contribution}"}
-  step %{I should see my employer contributions for second period as "#{employer_contribution}"}
 end
 
-Then(/^I should see employer_contributions for "([^"]*)" and "([^"]*)" increase as per the legal minimums$/) do |period_1, period_2|
+Then(/^I should see employer_contributions for "([^"]*)" increase as per the legal minimums$/) do |period_1|
   step %{I should see my employer contributions for current period as "#{period_1}"}
-  step %{I should see my employer contributions for second period as "#{period_2}"}
 end
 
 Then(/^I should see that the employer_contributions is the same for each period at the "([^"]*)"$/) do |employer_contribution|
@@ -141,17 +112,11 @@ end
 Then(/^I should see the values on the results page as:$/) do |table|
   data = table.transpose.raw
   current_period = data[1]
-  second_period = data[2]
 
   step %{I should see my employee contributions for current period as "#{current_period[1]}"}
   step %{I should see my tax relief for current period as "#{current_period[2]}"}
   step %{I should see my employer contributions for current period as "#{current_period[3]}"}
   step %{I should see my total contributions for current period as "#{current_period[4]}"}
-
-  step %{I should see my employee contributions for second period as "#{second_period[1]}"}
-  step %{I should see my tax relief for second period as "#{second_period[2]}"}
-  step %{I should see my employer contributions for second period as "#{second_period[3]}"}
-  step %{I should see my total contributions for second period as "#{second_period[4]}"}
 end
 
 Then(/^I should see a contribution explanation "([^"]*)"$/) do |message|

@@ -2,7 +2,7 @@ RSpec.describe Wpcc::YourResultsController do
   routes { Wpcc::Engine.routes }
 
   let(:contributions_calendar) { double('ContributionsCalendar') }
-  let(:schedule) { [period_contribution, period_contribution] }
+  let(:schedule) { period_contribution }
   let(:period_contribution) { double(Wpcc::PeriodContribution) }
   let(:period_contribution_presenter) do
     double(Wpcc::PeriodContributionPresenter)
@@ -10,10 +10,7 @@ RSpec.describe Wpcc::YourResultsController do
   let(:message_presenter) { double(Wpcc::MessagePresenter) }
   let(:salary_message) { double(Wpcc::SalaryMessage) }
   let(:salary_frequency) { double(Wpcc::SalaryFrequency) }
-  let(:periods) { [period, period] }
   let(:period) { double(Wpcc::Period) }
-  let(:period_presenters) { [period_presenter, period_presenter] }
-  let(:period_presenter) { double(Wpcc::PeriodPresenter) }
   let(:salary_per_year) { double(Wpcc::SalaryPerYear) }
 
   describe 'GET /your_results' do
@@ -28,7 +25,7 @@ RSpec.describe Wpcc::YourResultsController do
   end
 
   describe '#schedule' do
-    it 'returns an array of formatted PeriodContributions' do
+    it 'returns a PeriodContributionPresenter' do
       request.session[:salary] = 75
       request.session[:salary_frequency] = 'week'
 
@@ -52,7 +49,7 @@ RSpec.describe Wpcc::YourResultsController do
 
       expect(Wpcc::PeriodContributionPresenter)
         .to receive(:new)
-        .exactly(2)
+        .exactly(1)
         .times
         .and_return(period_contribution_presenter)
 
@@ -73,29 +70,6 @@ RSpec.describe Wpcc::YourResultsController do
         .and_return(salary_frequency)
 
       @controller.send(:salary_frequency)
-    end
-  end
-
-  describe '#period_legal_percents' do
-    before do
-      allow(@controller).to receive(:view_context).and_return(view_context)
-    end
-
-    let(:view_context) { double(:view_context) }
-
-    it 'returns an array of formatted PeriodPresenters' do
-      expect(Wpcc::PeriodFilter)
-        .to receive_message_chain(:new, :periods)
-        .and_return(periods)
-
-      periods.each do |period|
-        expect(Wpcc::PeriodPresenter)
-          .to receive(:new)
-          .with(period, view_context: view_context)
-          .and_return(period_presenters)
-      end
-
-      @controller.send(:period_legal_percents)
     end
   end
 

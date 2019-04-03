@@ -156,7 +156,7 @@ Then(/^I should see "([^"]*)" summarised$/) do |my_details|
 end
 
 Then(/^the Your Contributions step should tell me my qualifying earnings$/) do
-  expect(your_contributions_page.contributions_description).to have_content('£28,968')
+  expect(your_contributions_page.contributions_description).to have_content('£28,864')
 end
 
 Then(/^I should see that my qualifying earnings is the limit of "([^"]*)"$/) do |limit|

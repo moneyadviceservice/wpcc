@@ -15,7 +15,7 @@ en:
   wpcc:
     meta:
       title: Workplace pension contribution calculator
-      description: Our workplace pension contribution calculator will show how much will be paid into your pension by you and your employer and how these contributions might increase over time.
+      description: Our workplace pension contribution calculator will show how much will be paid into your pension by you and your employer.
       canonical_url: https://www.moneyadviceservice.org.uk/en/tools/workplace-pension-contribution-calculator
     tooltip_show: show help
     tooltip_hide: hide help
@@ -24,7 +24,7 @@ en:
       text: This is the part of your annual pay that will be used to calculate your pension contribution under automatic enrolment. It is your earnings before tax (up to a maximum limit of %{formatted_upper_earnings} per year) – less the lower earnings threshold of %{formatted_lower_earnings}.
 
     title: Workplace pension contribution calculator
-    intro: It is now law that most employees must be enrolled into a workplace pension scheme by their employer. This calculator will show you how much will be paid into your pension by you and your employer. It will also show how these contributions might increase over time.
+    intro: It is now law that most employees must be enrolled into a workplace pension scheme by their employer. This calculator will show you how much will be paid into your pension by you and your employer.
     edit: Edit
 
     details:
@@ -114,26 +114,15 @@ en:
 
     results:
       title: Your Results
-      description_html: |
-        Minimum pension contribution rates will increase in April 2019.
-        These figures show how this will affect your contributions.
       description_full_html:
         Contributions will be based on your salary of <span data-wpcc-eligible-salary>%{eligible_salary}</span> per year.
       description_minimum_html:
         Contributions will be based on your qualifying earnings%{tooltip_html} of <span data-wpcc-eligible-salary>%{eligible_salary}</span> per year.
-      contribution_percentages_over_minimum:
-        "Both you and your employer are already paying above the new minimums so we have just shown the current contributions. These won't change unless your salary increases or you and/or your employer choose to pay more."
-      employee_contribution_percentage_over_minimum:
-        "You are already paying above the new minimums so we have just shown how your employer's contributions will increase. Your contributions won't change unless your salary increases or you choose to pay more."
-      employer_contribution_percentage_over_minimum:
-        "Your employer is already paying above the new minimums so we have just shown how your contributions will increase. Your employer's contribution won't change unless your salary increases or your employer chooses to pay more."
       period_title:
         contributor_title: Contributor
-        april_2018_march_2019: Now
-        after_april_2019: April 2019 onwards
+        current: Now
       period_percents_title:
-        april_2018_march_2019: Now
-        after_april_2019: April 2019 onwards
+        current: Now
       period:
         contribution_heading:
           yours_html: Your <span data-wpcc-title-frequency>%{salary_frequency}</span> contribution

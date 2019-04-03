@@ -7,21 +7,21 @@ Background:
   Given I am on the Your Details step
   When I fill in my details
 
-Scenario Outline: minimum contribution percentage on salary greater than £6,032
-  And I enter my salary as "6033"
+Scenario Outline: minimum contribution percentage on salary greater than £6,136
+  And I enter my salary as "6137"
   And I proceed to the next step
   And the "employee" contribution intro should display "<employee_message>"
   And the "employer" contribution intro should display "<employer_message>"
 
   Examples:
     | employee_message        | employer_message        |
-    | The legal minimum is 3% | The legal minimum is 2% |
+    | The legal minimum is 5% | The legal minimum is 3% |
 
 
   @welsh
   Examples:
     | employee_message              | employer_message             |
-    | Yr isafswm cyfreithiol yw 3%  | Yr isafswm cyfreithiol yw 2% |
+    | Yr isafswm cyfreithiol yw 5%  | Yr isafswm cyfreithiol yw 3% |
 
 Scenario Outline: minimum contribution percentage on salary less than £6,032
   And I enter a salary below the minimum threshold
@@ -33,9 +33,9 @@ Scenario Outline: minimum contribution percentage on salary less than £6,032
 
   Examples:
     | message                                                     | employee_default |
-    | At your salary level there is no legal minimum contribution | 3.0              |
+    | At your salary level there is no legal minimum contribution | 5.0              |
 
   @welsh
   Examples:
     | message                                           | employee_default |
-    | Ar eich lefel cyflog, nid oes isafswm cyfreithiol | 3.0              |
+    | Ar eich lefel cyflog, nid oes isafswm cyfreithiol | 5.0              |

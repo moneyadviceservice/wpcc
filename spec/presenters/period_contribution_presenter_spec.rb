@@ -13,7 +13,7 @@ RSpec.describe Wpcc::PeriodContributionPresenter do
 
   describe '#title' do
     it 'converts the name to a more readable format' do
-      period_contribution.name = 'april_2018_march_2019'
+      period_contribution.name = 'current'
       expect(subject.title).to eq('Now')
     end
   end
