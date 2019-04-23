@@ -91,13 +91,12 @@ en:
 
     contributions:
       title: Your contributions
-      description_minimum_html:  Contributions will be made on your qualifying earnings%{tooltip_html} of %{eligible_salary} per year.
+      description_minimum_html:  Contributions will be made on your qualifying earnings%{tooltip_html} of %{eligible_salary} a year.
       description_full_html:  Contributions will be made on your salary of %{eligible_salary} per year.
       your_contribution_title: Enter your contribution
-      your_contribution_tip: The legal minimum is %{percentage}%
       your_contribution_tip_below_lower_threshold: At your salary level there is no legal minimum contribution but your workplace pension scheme may have a set minimum. Check with your employer.
+      legal_minimum: The legal minimum that must be paid into your pension is 8% a year of qualifying earnings. At least 3% must be paid by your employer. The usual split is 5% from employees and 3% from employers.
       employer_contribution_title: Enter your employer’s contribution
-      employer_contribution_tip: The legal minimum is %{percentage}%
       input_of_label: '% of'
       calculate_button: Calculate your contributions
       contribution_gt40000_warning: Tax relief is only applied to contributions of up to %{amount} per year or 100% of your earnings, whichever is lower.

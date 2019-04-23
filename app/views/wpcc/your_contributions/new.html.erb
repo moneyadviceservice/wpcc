@@ -25,6 +25,9 @@
       classname: 'contributions__helper',
       tooltip_hide: t('wpcc.tooltip_hide')
     } %>
+    <p>
+      <%= t('wpcc.contributions.legal_minimum') %>
+    </p>
   </div>
 
   <%= form_for(
@@ -65,7 +68,6 @@
               <%= t('wpcc.contributions.employer_contribution_title') %>
             </label>
           </h3>
-          <p><%=  @message_presenter.employer_contribution_tip %></p>
           <%= f.number_field :employer_percent,
             class: "contributions__source-input",
             required: true,

@@ -83,23 +83,9 @@ module Wpcc
     end
 
     def employee_contribution_tip
-      if salary_below_pension_limit?
-        t('wpcc.contributions.your_contribution_tip_below_lower_threshold')
-      else
-        t(
-          'wpcc.contributions.your_contribution_tip',
-          percentage: employee_percentage
-        )
-      end
-    end
+      return unless salary_below_pension_limit?
 
-    def employer_contribution_tip
-      return if salary_below_pension_limit?
-
-      t(
-        'wpcc.contributions.employer_contribution_tip',
-        percentage: employer_percentage
-      )
+      t('wpcc.contributions.your_contribution_tip_below_lower_threshold')
     end
 
     def employee_percentage
