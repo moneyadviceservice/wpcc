@@ -5,7 +5,6 @@ module Wpcc
     end
 
     def earnings_description(opts = {})
-      contribution_preference = session[:contribution_preference]
       description_key = earnings_description_key
 
       t(
@@ -15,8 +14,19 @@ module Wpcc
       )
     end
 
+    def legal_minimum(opts = {})
+      t(
+        "wpcc.contributions.legal_minimum_#{contribution_preference}_html",
+        tooltip_html: opts[:tooltip_html]
+      )
+    end
+
     def earnings_description_key
       raise NotImplementedError
+    end
+
+    def contribution_preference
+      session[:contribution_preference]
     end
   end
 end
