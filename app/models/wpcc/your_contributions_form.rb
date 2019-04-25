@@ -5,7 +5,8 @@ module Wpcc
     attr_accessor :employee_percent, :employer_percent
 
     validates :employee_percent, inclusion: { in: 0..100 }
-    validates :employer_percent, inclusion: { in: 0..100 }
+    validates :employer_percent, inclusion: { in: 3..100 }
+    validates_with Wpcc::ContributionsValidator
 
     def employee_percent
       @employee_percent.to_f

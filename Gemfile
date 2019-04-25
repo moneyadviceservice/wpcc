@@ -20,6 +20,7 @@ group :development, :test do
   gem 'byebug'
   gem 'launchy'
   gem 'pry-rails'
+  gem 'rb-readline'
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda-matchers', '~> 3.1'
 end

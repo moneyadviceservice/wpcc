@@ -14,15 +14,15 @@ module Wpcc
       let(:your_contribution) do
         double(
           eligible_salary: eligible_salary,
-          employee_percent: 1,
-          employer_percent: 1
+          employee_percent: 5,
+          employer_percent: 3
         )
       end
       let(:your_contributions_form) do
         double(
           Wpcc::YourContributionsForm,
-          employee_percent: 1,
-          employer_percent: 1
+          employee_percent: 5,
+          employer_percent: 3
         )
       end
 
@@ -120,8 +120,8 @@ module Wpcc
         it 'stores the form input in a session' do
           post_create
 
-          expect(session['employee_percent']).to eq('1')
-          expect(session['employer_percent']).to eq('1')
+          expect(session['employee_percent']).to eq('5')
+          expect(session['employer_percent']).to eq('3')
         end
 
         it 'redirects to Step 3: Your results section' do
@@ -132,7 +132,7 @@ module Wpcc
 
       context 'failure' do
         it 'redirects to Step 2: Your contributions page' do
-          post_create('en', 101)
+          post_create('en', 1)
 
           expect(response)
             .to redirect_to new_your_contribution_path(locale: 'en')
@@ -151,12 +151,12 @@ module Wpcc
           gender: gender
     end
 
-    def post_create(locale = 'en', employee_percent = 1)
+    def post_create(locale = 'en', employee_percent = 5)
       post :create,
            locale: locale,
            your_contributions_form: {
              employee_percent: employee_percent,
-             employer_percent: 1
+             employer_percent: 3
            }
     end
   end

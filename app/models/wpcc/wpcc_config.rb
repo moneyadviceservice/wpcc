@@ -27,5 +27,9 @@ module Wpcc
     def min_contribution_percentages
       config['contribution_percentages']
     end
+
+    def minimum_combined_contribution
+      config['contribution_percentages']['current']['combined_minimum']
+    end
   end
 end
