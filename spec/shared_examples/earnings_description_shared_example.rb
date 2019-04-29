@@ -32,7 +32,7 @@ RSpec.shared_examples_for 'an earnings conditional message' do
       it 'should return qualifying earnings description' do
         # rubocop:disable LineLength
         qualifying_earnings =
-          'Contributions will be made on your qualifying earnings of £19,124 per year.'
+          'Contributions will be made on your qualifying earnings of £19,124 a year.'
         # rubocop:enable LineLength
         expect(subject.earnings_description).to eq qualifying_earnings
       end
