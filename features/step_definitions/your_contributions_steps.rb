@@ -103,6 +103,7 @@ Then(/^I stay on the Your Contributions step$/) do
   expect(your_contributions_page.form).to be_visible
 end
 
-Then(/^I see an error message$/) do
-  true
+Then("I see an error message {string}") do |string|
+  expect(your_contributions_page).to have_content(string)
 end
+

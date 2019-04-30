@@ -44,7 +44,7 @@ describe Wpcc::FullContributionCalculator, type: :model do
     context 'yearly salary greater than or equal to Lower Earnings Threshold' do
       let(:salary_per_year) { 6_136 }
 
-      it 'returns 2' do
+      it 'returns 3' do
         expect(subject.employer_percent).to eq(3)
       end
     end

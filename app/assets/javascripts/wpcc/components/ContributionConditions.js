@@ -8,7 +8,6 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     ContributionConditions.baseConstructor.call(this, $el, config, defaultConfig);
 
     this.$employeeContributions = this.$el.find('[data-wpcc-employee-contributions]');
-    this.$employerContributions = this.$el.find('[data-wpcc-employer-contributions]');
     this.$eligibleSalary = this.$el.find('[data-wpcc-contribution-salary]');
     this.$contributionWarning = this.$el.find('[data-wpcc-callout-contribution-gt40000]');
 
@@ -34,8 +33,6 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
 
     this.$employeeContributions.keyup(contributionsCallback);
     this.$employeeContributions.change(contributionsCallback);
-    this.$employerContributions.keyup(contributionsCallback);
-    this.$employerContributions.change(contributionsCallback);
 
   }
 
@@ -53,11 +50,6 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     else {
       $this._hideMessage();
     }
-
-  }
-
-  ContributionConditions.prototype._validatePercentages = function() {
-    var $this = this
 
   }
 

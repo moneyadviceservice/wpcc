@@ -32,29 +32,14 @@ Scenario Outline: Adds up to less than 8%
   And my employer contribution is "<employer_percent>"
   And I click the Next button
   Then I stay on the Your Contributions step
-  And I see an error message
+  And I see an error message "Total contribution must be at least 8%"
   Examples:
     | contribution_preference | employee_percent | employer_percent |
-    | Full                    | 7.0              | 0.0              |
-    | Full                    | 3.0              | 4.0              |
-    | Full                    | 0.5              | 7.0              |
-    | Minimum                 | 1.0              | 6.0              |
-    | Minimum                 | 2.0              | 3.0              |
-    | Minimum                 | 5.0              | 2.0              |
-
-Scenario Outline: Employer contribution is less than 3%
-  And I choose my contribution preference as "<contribution_preference>"
-  And I click the Next button
-  And my employee contribution is "<employee_percent>"
-  And my employer contribution is "<employer_percent>"
-  And I click the Next button
-  Then I stay on the Your Contributions step
-  And I see an error message
-  Examples:
-    | contribution_preference | employee_percent | employer_percent |
-    | Full                    | 8.0              | 0.0              |
-    | Full                    | 7.0              | 1.0              |
-    | Full                    | 6.5              | 2.0              |
-    | Minimum                 | 8.0              | 0.0              |
-    | Minimum                 | 7.0              | 1.0              |
-    | Minimum                 | 6.0              | 2.0              |
+    | Full                    | 0.0              | 3.0              |
+    | Full                    | 1.0              | 3.0              |
+    | Full                    | 2.5              | 3.0              |
+    | Full                    | 2.5              | 4.0              |
+    | Minimum                 | 1.5              | 3.0              |
+    | Minimum                 | 3.0              | 3.0              |
+    | Minimum                 | 2.5              | 4.0              |
+    | Minimum                 | 2.0              | 5.0              |

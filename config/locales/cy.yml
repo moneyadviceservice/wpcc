@@ -7,6 +7,11 @@ cy:
             age:
               greater_than_or_equal_to: Rydych yn rhy ifanc i ymuno â phensiwn gweithle. Pan gyrhaeddwch 16 oed gallwch ofyn i’ch cyflogwr eich cofrestru. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau
               less_than_or_equal_to: Nid ydych yn gymwys i ymuno â phensiwn gweithle gan eich bod yn hŷn na’r uchafswm oed.
+        wpcc/your_contributions_form:
+          attributes:
+            employer_percent: Rhaid i gyfraniad y cyflogwr fod yn 3% o leiaf
+            base: 
+              minimum_combined_contribution: Rhaid i gyfanswm y cyfraniad fod yn 8% o leiaf
   dough:
     forms:
       validation:

@@ -20,6 +20,10 @@ describe Wpcc::YourContributionsForm, type: :model do
 
     context 'failure' do
       it 'fails when the sum of employee and employer percents is below 8' do
+        subject.employee_percent = 1.0
+        subject.employer_percent = 6.0
+
+        expect(subject.valid?).to be_falsey
       end
     end
   end
