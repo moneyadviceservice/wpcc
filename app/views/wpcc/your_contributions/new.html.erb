@@ -40,8 +40,8 @@
   </div>
   <%= form_for(
     @your_contributions_form,
-    url: your_contributions_path,
     builder: Wpcc::Builder,
+    url: your_contributions_path,
     html: {
       'data-dough-component': "Validation",
       'data-dough-validation-config': '{"showValidationSummary": false}',
@@ -61,23 +61,20 @@
           <% if message_presenter.salary_below_pension_limit? %>
             <p><%= message_presenter.employee_contribution_tip %></p>
           <% end %>
-          <%= f.form_row :employee_percent do %>
-            <%= f.errors_for :employee_percent %>
-            <%= f.number_field :employee_percent,
-              class: "contributions__source-input",
-              required: true,
-              min: 0,
-              max: 100,
-              step: 0.5,
-              'data-wpcc-employee-contributions': true,
-              'data-dough-validation-empty': t('wpcc.contributions.employee_validation.blank'),
-              'data-dough-validation-invalid': t('wpcc.contributions.employee_validation.out_of_range')
-            %>
-            <%= t('wpcc.contributions.input_of_label') %>
-            <span>
-              <span data-wpcc-contribution-salary><%= your_contribution.formatted_eligible_salary %></span>
-            </span>
-          <% end %>
+          <%= f.number_field :employee_percent,
+            class: "contributions__source-input",
+            required: true,
+            min: 0,
+            max: 100,
+            step: 0.5,
+            'data-wpcc-employee-contributions': true,
+            'data-dough-validation-empty': t('wpcc.contributions.employee_validation.blank'),
+            'data-dough-validation-invalid': t('wpcc.contributions.employee_validation.out_of_range')
+          %>
+          <%= t('wpcc.contributions.input_of_label') %>
+          <span>
+            <span data-wpcc-contribution-salary><%= your_contribution.formatted_eligible_salary %></span>
+          </span>
         </div>
         <div class="contributions__source contributions__source--employer form__row">
           <h3 class="contributions__source-title">
@@ -85,21 +82,18 @@
               <%= t('wpcc.contributions.employer_contribution_title') %>
             </label>
           </h3>
-          <%= f.form_row :employer_percent do %>
-            <%= f.errors_for :employer_percent %>
-            <%= f.number_field :employer_percent,
-              class: "contributions__source-input",
-              required: true,
-              min: 3,
-              max: 100,
-              step: 0.5,
-              'data-wpcc-employer-contributions': true,
-              'data-dough-validation-empty': t('wpcc.contributions.employer_validation.blank'),
-              'data-dough-validation-invalid': t('wpcc.contributions.employee_validation.out_of_range')
-            %>
-            <%= t('wpcc.contributions.input_of_label') %>
-            <span><%= your_contribution.formatted_eligible_salary %></span>
-          <% end %>
+          <%= f.number_field :employer_percent,
+            class: "contributions__source-input",
+            required: true,
+            min: 3,
+            max: 100,
+            step: 0.5,
+            'data-wpcc-employer-contributions': true,
+            'data-dough-validation-empty': t('wpcc.contributions.employer_validation.blank'),
+            'data-dough-validation-invalid': t('wpcc.contributions.employer_validation.out_of_range')
+          %>
+          <%= t('wpcc.contributions.input_of_label') %>
+          <span><%= your_contribution.formatted_eligible_salary %></span>
         </div>
       </div>
       <div class="contributions__row">

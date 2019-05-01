@@ -3,33 +3,26 @@ module Wpcc
     AGE_I18N_KEY =
       'activemodel.errors.models.wpcc/your_details_form.attributes.age'.freeze
 
-    # rubocop:disable Metrics/LineLength
-    CONTRIBUTION_I18N_KEY =
-      'activemodel.errors.models.wpcc/your_contributions_form.attributes.employee_percent'.freeze
-    # rubocop:enable Metrics/LineLength
-
     MESSAGES = [
       I18n.t("#{AGE_I18N_KEY}.greater_than_or_equal_to"),
-      I18n.t("#{AGE_I18N_KEY}.less_than_or_equal_to"),
-      I18n.t("#{CONTRIBUTION_I18N_KEY}.minimum_combined_contribution")
+      I18n.t("#{AGE_I18N_KEY}.less_than_or_equal_to")
     ].freeze
 
     def full_message
-      if age_error || employee_percent_error
+      if field_name == :age && message.in?(MESSAGES)
         message
       else
         super
       end
     end
 
-    private
-
-    def age_error
-      field_name == :age && message.in?(MESSAGES)
-    end
-
-    def employee_percent_error
-      field_name == :employee_percent && message.in?(MESSAGES)
+    # override this Dough method to remove the field name
+    # from the form error message, for example
+    # "Total contribution must be at least 8%"
+    # instead of
+    # "Base total contribution must be at least 8%"
+    def show_message_without_field_name?
+      field_name == :base
     end
   end
 end

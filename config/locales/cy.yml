@@ -10,8 +10,7 @@ cy:
         wpcc/your_contributions_form:
           attributes:
             employer_percent: Rhaid i gyfraniad y cyflogwr fod yn 3% o leiaf
-            base: 
-              minimum_combined_contribution: Rhaid i gyfanswm y cyfraniad fod yn 8% o leiaf
+  minimum_combined_contribution: Rhaid i gyfanswm y cyfraniad fod yn 8% o leia
   dough:
     forms:
       validation:
@@ -115,7 +114,7 @@ cy:
         out_of_range: Rhaid i'ch cyfraniad fod yn yr ystod 0 - 100%
       employer_validation:
         blank: Rhowch gyfraniad eich cyflogwr
-        out_of_range: Rhaid i gyfraniad eich cyflogwr fod yn yr ystod 0 - 100%
+        out_of_range: Rhaid i gyfraniad y cyflogwr fod yn 3% o leiaf
       manually_opt_in: |
         Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn
         gweithle, ond gallwch ddewis ymuno. Os felly, bydd eich cyflogwr yn

@@ -3,12 +3,7 @@ require 'spec_helper'
 describe Wpcc::YourContributionsForm, type: :model do
   subject { described_class.new }
 
-  describe 'validations' do
-    it { should validate_inclusion_of(:employee_percent).in_range(0..100) }
-    it { should validate_inclusion_of(:employer_percent).in_range(3..100) }
-  end
-
-  describe 'contributions validation' do
+  describe 'minimum combined contributions validation' do
     context 'successful' do
       it 'passes when the sum of employee and employer percents is GTE to 8' do
         subject.employee_percent = 2.0
