@@ -27,7 +27,7 @@
     } %>
   </div>
   <div class="contributions__row" data-dough-component="PopupTip">
-    <p>
+    <p class="callout">
       <% tooltip_trigger_html = popup_tip_trigger options: { text: t('wpcc.tooltip_show') } %>
       <%= your_contribution.legal_minimum({ tooltip_html: raw(tooltip_trigger_html) })%>
     </p>
@@ -37,6 +37,9 @@
       classname: 'contributions__helper',
       tooltip_hide: t('wpcc.tooltip_hide')
     } %>
+  </div>
+  <div class="contributions__row">
+    <%= render 'minimum_contribution_error' %>
   </div>
   <%= form_for(
     @your_contributions_form,
@@ -51,7 +54,11 @@
       <div class="contributions__row">
         <%= f.errors_summary %>
       </div>
-      <div class="contributions__row">
+      <div
+        class="contributions__row"
+        data-dough-component="ContributionsMinimumValidation"
+        data-dough-contributions-minimum-validation-config=<%= minimum_contributions %>
+      >
         <div class="contributions__source contributions__source--employee form__row">
           <h3 class="contributions__source-title">
             <label for="your_contributions_form_employee_percent">
