@@ -7,6 +7,10 @@ en:
             age:
               greater_than_or_equal_to: You are too young to join a workplace pension. When you reach the age of 16 you may ask your employer to enrol you. If you do so, your employer will make contributions
               less_than_or_equal_to: You are not eligible to join a workplace pension because you are above the maximum age.
+        wpcc/your_contributions_form:
+          attributes:
+            employer_percent: Employer contribution must be at least 3%
+  minimum_combined_contribution: Total contribution must be at least 8%
   dough:
     forms:
       validation:
@@ -110,7 +114,7 @@ en:
         out_of_range: Your contribution must be in the range 0% - 100%
       employer_validation:
         blank: Please enter your employer’s contribution
-        out_of_range: Your employer’s contribution must be in the range 0% - 100%
+        out_of_range: Employer contribution must be at least 3%
       manually_opt_in: |
         Your employer will not automatically enrol you into a workplace pension
         scheme but you can choose to join. If you do so, your employer will make

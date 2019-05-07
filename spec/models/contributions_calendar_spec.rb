@@ -36,8 +36,8 @@ describe Wpcc::ContributionsCalendar, type: :model do
         <<-TEST_MSG.strip_heredoc
           Calculating period current with:
           Eligible Salary: 0
-          Employee percent: 5
-          Employer percent: 3
+          Employee percent: 1
+          Employer percent: 2
           Tax relief percent: 20
         TEST_MSG
       )

@@ -1,27 +1,27 @@
 <% set_meta_tags title: [t("wpcc.meta.title"), t("wpcc.contributions.title")],
                  reverse: true %>
 
-<%= render 'wpcc/shared/your_details', message_presenter: @message_presenter %>
+<%= render 'wpcc/shared/your_details', message_presenter: message_presenter %>
 
 <section class="contributions">
   <h2 class="wpcc__heading">2. <%= t('wpcc.contributions.title') %></h2>
   <div class="contributions__row" data-dough-component="PopupTip">
     <p class="t-contributions_description">
-      <% if @message_presenter.minimum_contribution? %>
+      <% if message_presenter.minimum_contribution? %>
         <% tooltip_trigger_html = popup_tip_trigger options: {
           text: t('wpcc.tooltip_show'),
           classname: 't-qualifying-earnings'
         } %>
-        <%= @your_contribution.earnings_description({ tooltip_html: raw(tooltip_trigger_html) }) %>
+        <%= your_contribution.earnings_description({ tooltip_html: raw(tooltip_trigger_html) }) %>
       <% else %>
-        <%= @your_contribution.earnings_description %>
+        <%= your_contribution.earnings_description %>
       <% end %>
     </p>
     <%= popup_tip_content options: {
       title: t('wpcc.tooltip_qualifying_earnings.title'),
       text: t('wpcc.tooltip_qualifying_earnings.text',
-        formatted_upper_earnings: @message_presenter.formatted_upper_earnings,
-        formatted_lower_earnings: @message_presenter.formatted_lower_earnings),
+        formatted_upper_earnings: message_presenter.formatted_upper_earnings,
+        formatted_lower_earnings: message_presenter.formatted_lower_earnings),
       classname: 'contributions__helper',
       tooltip_hide: t('wpcc.tooltip_hide')
     } %>
@@ -29,18 +29,18 @@
   <div class="contributions__row" data-dough-component="PopupTip">
     <p>
       <% tooltip_trigger_html = popup_tip_trigger options: { text: t('wpcc.tooltip_show') } %>
-      <%= @your_contribution.legal_minimum({ tooltip_html: raw(tooltip_trigger_html) })%>
+      <%= your_contribution.legal_minimum({ tooltip_html: raw(tooltip_trigger_html) })%>
     </p>
     <%= popup_tip_content options: {
       title: t('wpcc.tooltip_legal_minimum.title'),
-      text: t("wpcc.tooltip_legal_minimum.text_#{@your_contribution.contribution_preference}_contribution"),
+      text: t("wpcc.tooltip_legal_minimum.text_#{your_contribution.contribution_preference}_contribution"),
       classname: 'contributions__helper',
       tooltip_hide: t('wpcc.tooltip_hide')
     } %>
   </div>
-
   <%= form_for(
     @your_contributions_form,
+    builder: Wpcc::Builder,
     url: your_contributions_path,
     html: {
       'data-dough-component': "Validation",
@@ -49,14 +49,17 @@
     }) do |f| %>
     <div data-dough-component="SalaryConditions ContributionConditions" data-dough-salary-conditions-config="<%= ::Wpcc::MessagePresenter.opt_in_thresholds %>">
       <div class="contributions__row">
+        <%= f.errors_summary %>
+      </div>
+      <div class="contributions__row">
         <div class="contributions__source contributions__source--employee form__row">
           <h3 class="contributions__source-title">
             <label for="your_contributions_form_employee_percent">
               <%= t('wpcc.contributions.your_contribution_title') %>
             </label>
           </h3>
-          <% if @message_presenter.salary_below_pension_limit? %>
-            <p><%= @message_presenter.employee_contribution_tip %></p>
+          <% if message_presenter.salary_below_pension_limit? %>
+            <p><%= message_presenter.employee_contribution_tip %></p>
           <% end %>
           <%= f.number_field :employee_percent,
             class: "contributions__source-input",
@@ -70,7 +73,7 @@
           %>
           <%= t('wpcc.contributions.input_of_label') %>
           <span>
-            <span data-wpcc-contribution-salary><%= @your_contribution.formatted_eligible_salary %></span>
+            <span data-wpcc-contribution-salary><%= your_contribution.formatted_eligible_salary %></span>
           </span>
         </div>
         <div class="contributions__source contributions__source--employer form__row">
@@ -79,25 +82,24 @@
               <%= t('wpcc.contributions.employer_contribution_title') %>
             </label>
           </h3>
-
           <%= f.number_field :employer_percent,
             class: "contributions__source-input",
             required: true,
-            min: 0,
+            min: 3,
             max: 100,
             step: 0.5,
             'data-wpcc-employer-contributions': true,
             'data-dough-validation-empty': t('wpcc.contributions.employer_validation.blank'),
-            'data-dough-validation-invalid': t('wpcc.contributions.employee_validation.out_of_range')
+            'data-dough-validation-invalid': t('wpcc.contributions.employer_validation.out_of_range')
           %>
           <%= t('wpcc.contributions.input_of_label') %>
-          <span><%= @your_contribution.formatted_eligible_salary %></span>
+          <span><%= your_contribution.formatted_eligible_salary %></span>
         </div>
       </div>
       <div class="contributions__row">
         <div class="form__row details__callout details__callout--inactive" data-wpcc-callout-contribution-gt40000>
           <div class="callout">
-            <p><%= @message_presenter.above_max_contribution %></p>
+            <p><%= message_presenter.above_max_contribution %></p>
           </div>
         </div>
         <%= f.submit(t('wpcc.contributions.calculate_button'), class: 'button button--primary', 'data-wpcc-submit': true) %>

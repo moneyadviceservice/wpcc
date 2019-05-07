@@ -7,24 +7,9 @@ module Wpcc
     after_action :store_eligible_salary, :store_percentages, only: :new
 
     def new
-      salary_per_year = SalaryPerYear.new(
-        salary: session[:salary],
-        salary_frequency: session[:salary_frequency]
-      ).convert
-
-      @your_contribution = Wpcc::YourContributionPresenter.new(
-        Wpcc::YourContributionGenerator.new(
-          contribution_preference: session[:contribution_preference],
-          salary_per_year: salary_per_year
-        ),
-        view_context: view_context
-      )
-
       @your_contributions_form = Wpcc::YourContributionsForm.new(
         contribution_percentages
       )
-
-      @message_presenter = message_presenter
     end
 
     def create
@@ -36,9 +21,25 @@ module Wpcc
         amend_session
         redirect_to your_results_path
       else
-        redirect_to new_your_contribution_path
+        render :new
       end
     end
+
+    def your_contribution
+      Wpcc::YourContributionPresenter.new(
+        Wpcc::YourContributionGenerator.new(
+          contribution_preference: session[:contribution_preference],
+          salary_per_year: salary_per_year
+        ),
+        view_context: view_context
+      )
+    end
+    helper_method :your_contribution
+
+    def message_presenter
+      Wpcc::MessagePresenter.new(salary_message, view_context: view_context)
+    end
+    helper_method :message_presenter
 
     private
 
@@ -54,7 +55,7 @@ module Wpcc
     end
 
     def store_eligible_salary
-      session[:eligible_salary] = @your_contribution.eligible_salary
+      session[:eligible_salary] = your_contribution.eligible_salary
     end
 
     def store_percentages
@@ -64,21 +65,14 @@ module Wpcc
 
     def contribution_percentages
       employee_percent = session[:employee_percent] ||
-                         @your_contribution.employee_percent
+                         your_contribution.employee_percent
       employer_percent = session[:employer_percent] ||
-                         @your_contribution.employer_percent
+                         your_contribution.employer_percent
 
       {
         employee_percent: employee_percent,
         employer_percent: employer_percent
       }
-    end
-
-    def message_presenter
-      Wpcc::MessagePresenter.new(
-        salary_message,
-        view_context: view_context
-      )
     end
 
     def salary_message
@@ -88,6 +82,13 @@ module Wpcc
         employee_percent: session[:employee_percent],
         text: :manually_opt_in
       )
+    end
+
+    def salary_per_year
+      SalaryPerYear.new(
+        salary: session[:salary],
+        salary_frequency: session[:salary_frequency]
+      ).convert
     end
   end
 end

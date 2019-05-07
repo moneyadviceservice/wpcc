@@ -14,20 +14,20 @@ module Wpcc
       let(:your_contribution) do
         double(
           eligible_salary: eligible_salary,
-          employee_percent: 1,
-          employer_percent: 1
+          employee_percent: 5,
+          employer_percent: 3
         )
       end
       let(:your_contributions_form) do
         double(
           Wpcc::YourContributionsForm,
-          employee_percent: 1,
-          employer_percent: 1
+          employee_percent: 5,
+          employer_percent: 3
         )
       end
 
       context 'english' do
-        it 'renders the start view for english' do
+        it 'renders the step 2 view for english' do
           get_new
 
           expect(response).to be_success
@@ -35,7 +35,7 @@ module Wpcc
       end
 
       context 'welsh' do
-        it 'renders the start view for welsh' do
+        it 'renders the step 2 view for welsh' do
           get_new('cy')
 
           expect(response).to be_success
@@ -90,28 +90,6 @@ module Wpcc
           expect(your_contributions_form.employee_percent).to eq(10)
           expect(your_contributions_form.employer_percent).to eq(40)
         end
-
-        it 'arranges for the conditional message to display' do
-          expect(Wpcc::SalaryMessage)
-            .to receive(:new)
-            .with(
-              salary: salary,
-              salary_frequency: salary_frequency,
-              employee_percent: 10,
-              text: :manually_opt_in
-            )
-            .and_return(salary_message)
-
-          get :new,
-              nil,
-              employee_percent: 10,
-              employer_percent: 40,
-              salary: salary,
-              contribution_preference: contribution_preference,
-              salary_frequency: 'year',
-              age: age,
-              gender: gender
-        end
       end
     end
 
@@ -120,8 +98,8 @@ module Wpcc
         it 'stores the form input in a session' do
           post_create
 
-          expect(session['employee_percent']).to eq('1')
-          expect(session['employer_percent']).to eq('1')
+          expect(session['employee_percent']).to eq('5')
+          expect(session['employer_percent']).to eq('3')
         end
 
         it 'redirects to Step 3: Your results section' do
@@ -129,20 +107,11 @@ module Wpcc
           expect(response).to redirect_to your_results_path
         end
       end
-
-      context 'failure' do
-        it 'redirects to Step 2: Your contributions page' do
-          post_create('en', 101)
-
-          expect(response)
-            .to redirect_to new_your_contribution_path(locale: 'en')
-        end
-      end
     end
 
     def get_new(locale = 'en')
       get :new,
-          nil,
+          {},
           locale: locale,
           salary: salary,
           contribution_preference: contribution_preference,
@@ -151,12 +120,12 @@ module Wpcc
           gender: gender
     end
 
-    def post_create(locale = 'en', employee_percent = 1)
+    def post_create(locale = 'en', employee_percent = 5)
       post :create,
            locale: locale,
            your_contributions_form: {
              employee_percent: employee_percent,
-             employer_percent: 1
+             employer_percent: 3
            }
     end
   end

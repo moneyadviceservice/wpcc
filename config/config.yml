@@ -11,6 +11,7 @@ contribution_percentages:
       below_threshold: 0
       above_threshold: 3
     tax_relief: 20
+    combined_minimum: 8
 
 frequency_conversions:
   salary_frequencies:

@@ -94,3 +94,16 @@ end
 Then(/^the employee contribution displays "([^"]*)" percent$/) do |contribution|
   expect(your_contributions_page.employee_percent.value).to eq(contribution)
 end
+
+Then(/^I should see the results$/) do
+  expect(your_results_page.current_period).to be_visible
+end
+
+Then(/^I stay on the Your Contributions step$/) do
+  expect(your_contributions_page.form).to be_visible
+end
+
+Then("I see an error message {string}") do |string|
+  expect(your_contributions_page).to have_content(string)
+end
+

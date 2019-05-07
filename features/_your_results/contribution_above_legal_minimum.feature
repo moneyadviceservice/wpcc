@@ -11,14 +11,14 @@ Feature:
     And I proceed to the next step
 
     Scenario: When employee contribution is above default
-      And my employee contribution is "4"
+      And my employee contribution is "6"
       When I move on to the results page
       Then I should see the values on the results page as:
-        |                         | Now    |
-        | Employee Contributions  | £57.77 |
-        | Including tax relief of | £11.55 |
-        | Employer Contributions  | £34.66 |
-        | TOTAL Contributions     | £92.43 |
+        |                         | Now     |
+        | Employee Contributions  | £69.32  |
+        | Including tax relief of | £13.86  |
+        | Employer Contributions  | £34.66  |
+        | TOTAL Contributions     | £103.98 |
 
     Scenario: When employer contribution is above default
       And my employer contribution is "5"
