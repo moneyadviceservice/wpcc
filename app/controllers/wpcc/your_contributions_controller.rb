@@ -41,6 +41,11 @@ module Wpcc
     end
     helper_method :message_presenter
 
+    def minimum_contributions
+      Wpcc::ContributionsValidator::COMBINED_MINIMUM
+    end
+    helper_method :minimum_contributions
+
     private
 
     def your_contributions_params
