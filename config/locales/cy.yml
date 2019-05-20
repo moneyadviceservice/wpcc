@@ -9,8 +9,8 @@ cy:
               less_than_or_equal_to: Nid ydych yn gymwys i ymuno â phensiwn gweithle gan eich bod yn hŷn na’r uchafswm oed.
         wpcc/your_contributions_form:
           attributes:
-            employer_percent: Rhaid i gyfraniad y cyflogwr fod yn yr ystod 3 - 100%
-  minimum_combined_contribution: Rhaid i gyfanswm y cyfraniad fod yn 8% o leia
+            employer_percent: Rhaid i gyfraniad y cyflogwr fod rhwng 3 a 100%.
+  minimum_combined_contribution: Rhaid i gyfanswm y cyfraniad fod yn 8% o leia.
   dough:
     forms:
       validation:
@@ -111,10 +111,10 @@ cy:
       contribution_gt40000_warning: Rhoddir gostyngiad treth ar gyfraniadau hyd at %{amount} y flwyddyn yn unig, neu 100% o’ch enillion, pa bynnag un sydd leiaf.
       employee_validation:
         blank: Rhowch eich cyfraniad
-        out_of_range: Rhaid i'ch cyfraniad fod yn yr ystod 0 - 100%
+        out_of_range: Rhaid i'ch cyfraniad fod rhwng 0 a 100%.
       employer_validation:
         blank: Rhowch gyfraniad eich cyflogwr
-        out_of_range: Rhaid i gyfraniad y cyflogwr fod yn yr ystod 3 - 100%
+        out_of_range: Rhaid i gyfraniad y cyflogwr fod rhwng 3 a 100%.
       manually_opt_in: |
         Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn
         gweithle, ond gallwch ddewis ymuno. Os felly, bydd eich cyflogwr yn

@@ -9,8 +9,8 @@ en:
               less_than_or_equal_to: You are not eligible to join a workplace pension because you are above the maximum age.
         wpcc/your_contributions_form:
           attributes:
-            employer_percent: Employer contribution must be between 3 and 100%
-  minimum_combined_contribution: Total contribution must be at least 8%
+            employer_percent: Employer contribution must be between 3 and 100%.
+  minimum_combined_contribution: Total contribution must be at least 8%.
   dough:
     forms:
       validation:
@@ -111,10 +111,10 @@ en:
       contribution_gt40000_warning: Tax relief is only applied to contributions of up to %{amount} per year or 100% of your earnings, whichever is lower.
       employee_validation:
         blank: Please enter your contribution
-        out_of_range: Your contribution must be in the range 0% - 100%
+        out_of_range: Your contribution must be between 0 and 100%.
       employer_validation:
         blank: Please enter your employer’s contribution
-        out_of_range: Employer contribution must be in the range 3% - 100%
+        out_of_range: Employer contribution must be between 3 and 100%.
       manually_opt_in: |
         Your employer will not automatically enrol you into a workplace pension
         scheme but you can choose to join. If you do so, your employer will make
