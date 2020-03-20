@@ -134,7 +134,7 @@ RSpec.describe Wpcc::SalaryMessage do
     let(:salary_frequency) { 'year' }
 
     context 'salary is within the range requiring manually opting in' do
-      let(:salary) { 6_140 }
+      let(:salary) { 6_244 }
 
       it 'returns true' do
         expect(subject).to be_manually_opt_in
@@ -162,7 +162,7 @@ RSpec.describe Wpcc::SalaryMessage do
     let(:salary_frequency) { 'year' }
 
     context 'salary is within the range of an automatic workplace pension' do
-      let(:salary) { 6_140 }
+      let(:salary) { 6_244 }
 
       it 'returns false' do
         expect(subject).not_to be_salary_below_pension_limit
@@ -191,18 +191,18 @@ RSpec.describe Wpcc::SalaryMessage do
       let(:salary_frequency) { 'year' }
 
       context 'salary is within the range of an automatic pension warning' do
-        let(:salary) { 6_126 }
+        let(:salary) { 6_230 }
         it { is_expected.to be_salary_near_pension_limit }
 
-        let(:salary) { 6_146 }
+        let(:salary) { 6_250 }
         it { is_expected.to be_salary_near_pension_limit }
       end
 
       context 'salary is outside the range of an automatic pension warning' do
-        let(:salary) { 6_021 }
+        let(:salary) { 6_125 }
         it { is_expected.not_to be_salary_near_pension_limit }
 
-        let(:salary) { 6_043 }
+        let(:salary) { 6_147 }
         it { is_expected.not_to be_salary_near_pension_limit }
       end
     end
@@ -211,18 +211,18 @@ RSpec.describe Wpcc::SalaryMessage do
       let(:salary_frequency) { 'week' }
 
       context 'salary is within the range of an automatic pension warning' do
-        let(:salary) { 106 }
+        let(:salary) { 108 }
         it { is_expected.to be_salary_near_pension_limit }
 
-        let(:salary) { 126 }
+        let(:salary) { 128 }
         it { is_expected.to be_salary_near_pension_limit }
       end
 
       context 'salary is outside the range of an automatic pension warning' do
-        let(:salary) { 105 }
+        let(:salary) { 107 }
         it { is_expected.not_to be_salary_near_pension_limit }
 
-        let(:salary) { 129 }
+        let(:salary) { 131 }
         it { is_expected.not_to be_salary_near_pension_limit }
       end
     end
