@@ -39,9 +39,9 @@ Feature: Employer contributions do not increase when user's salary is less than 
 
     Examples:
         | salary | salary_frequency | part_or_full | employer_percent | period_1 |
-        | 1500   | per month        | Minimum      | 3                | £29.66   |
-        | 1200   | per 4 weeks      | Minimum      | 3                | £21.84   |
-        | 350    | per week         | Minimum      | 3                | £6.96    |
+        | 1500   | per month        | Minimum      | 3                | £29.40   |
+        | 1200   | per 4 weeks      | Minimum      | 3                | £21.60   |
+        | 350    | per week         | Minimum      | 3                | £6.90    |
 
   Scenario Outline: For annual salary frequency above the minimum threshold
     Given my "<salary>" "<salary_frequency>", regardless of "<part_or_full>" contribution, is above the minimum threshold
@@ -54,4 +54,4 @@ Feature: Employer contributions do not increase when user's salary is less than 
 
     Examples:
         | salary  | salary_frequency | part_or_full | employer_percent | period_1 |
-        | 11100   | per year         | Minimum      | 3                | £148.92  |
+        | 11100   | per year         | Minimum      | 3                | £145.80  |

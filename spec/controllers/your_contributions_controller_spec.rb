@@ -7,7 +7,7 @@ module Wpcc
       let(:gender) { 'female' }
       let(:salary) { 30_000 }
       let(:contribution_preference) { 'minimum' }
-      let(:eligible_salary) { 23_864 }
+      let(:eligible_salary) { 23_760 }
       let(:salary_frequency) { 'year' }
       let(:salary_message) { double(Wpcc::SalaryMessage) }
 
