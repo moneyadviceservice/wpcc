@@ -23,6 +23,7 @@ group :development, :test do
   gem 'rb-readline'
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'sprockets', '~> 3.7.2'
 end
 
 group :test do
