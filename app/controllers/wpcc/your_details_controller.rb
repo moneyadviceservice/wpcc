@@ -2,7 +2,7 @@ module Wpcc
   class YourDetailsController < EngineController
     protect_from_forgery
 
-    before_action SessionResetter, only: :destroy
+    before_action SessionResetter, only: :reset
 
     def new
       @your_details_form = present(Wpcc::YourDetailsForm.new(session_params))
@@ -21,7 +21,7 @@ module Wpcc
       end
     end
 
-    def destroy; end
+    def reset; end
 
     private
 
