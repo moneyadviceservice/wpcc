@@ -15,17 +15,17 @@ Feature:
       When I move on to the results page
       Then I should see the values on the results page as:
         |                         | Now     |
-        | Employee Contributions  | £69.32  |
-        | Including tax relief of | £13.86  |
-        | Employer Contributions  | £34.66  |
-        | TOTAL Contributions     | £103.98 |
+        | Employee Contributions  | £68.80  |
+        | Including tax relief of | £13.76  |
+        | Employer Contributions  | £34.40  |
+        | TOTAL Contributions     | £103.20 |
 
     Scenario: When employer contribution is above default
       And my employer contribution is "5"
       When I move on to the results page
       Then I should see the values on the results page as:
         |                          | Now     |
-        | Employee Contributions   | £57.77  |
-        | Including tax relief of  | £11.55  |
-        | Employer Contributions   | £57.77  |
-        | TOTAL Contributions      | £115.54 |
+        | Employee Contributions   | £57.33  |
+        | Including tax relief of  | £11.47  |
+        | Employer Contributions   | £57.33  |
+        | TOTAL Contributions      | £114.66 |

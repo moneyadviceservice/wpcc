@@ -21,9 +21,9 @@ Scenario Outline: Adds up to 8% or more for a 30 year old male
     | Full                    | 5.0              | 3.0              | £187.50                 | £112.50                 |
     | Full                    | 4.0              | 4.0              | £150.00                 | £150.00                 |
     | Full                    | 2.0              | 6.0              | £75.00                  | £225.00                 |
-    | Minimum                 | 2.0              | 6.0              | £64.77                  | £194.32                 |
-    | Minimum                 | 7.0              | 3.0              | £226.71                 | £97.16                  |
-    | Minimum                 | 0.0              | 8.0              | £0.00                   | £259.09                 |
+    | Minimum                 | 2.0              | 6.0              | £64.60                  | £193.80                 |
+    | Minimum                 | 7.0              | 3.0              | £226.10                 | £96.90                  |
+    | Minimum                 | 0.0              | 8.0              | £0.00                   | £258.40                 |
 
 Scenario Outline: Adds up to 8% or more for a 39 year old female
   And I am a "28" year old "female"
@@ -38,7 +38,7 @@ Scenario Outline: Adds up to 8% or more for a 39 year old female
   Examples:
     | contribution_preference | employee_percent | employer_percent | employee_current_period | employer_current_period |
     | Full                    | 5.5              | 6.5              | £130.94                 | £154.75                 |
-    | Minimum                 | 5.5              | 6.5              | £102.82                 | £121.51                 |
+    | Minimum                 | 5.5              | 6.5              | £102.34                 | £120.95                 |
 
 Scenario Outline: Adds up to 8% or more for a 64 year old male
   And I am a "64" year old "male"
@@ -52,7 +52,7 @@ Scenario Outline: Adds up to 8% or more for a 64 year old male
   Examples:
     | contribution_preference | employee_percent | employer_percent | employee_current_period | employer_current_period |
     | Full                    | 3.0              | 7.0              | £123.00                 | £287.00                 |
-    | Minimum                 | 3.0              | 7.0              | £107.66                 | £251.21                 |
+    | Minimum                 | 3.0              | 7.0              | £107.40                 | £250.60                 |
 
 
 Scenario Outline: Adds up to less than 8%

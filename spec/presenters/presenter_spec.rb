@@ -33,7 +33,7 @@ RSpec.describe Wpcc::Presenter do
 
   describe '#formatted_lower_earnings' do
     it 'gets the lower earnings threshold and formats it' do
-      expect(subject.formatted_lower_earnings).to eq('£6,136')
+      expect(subject.formatted_lower_earnings).to eq('£6,240')
     end
   end
 

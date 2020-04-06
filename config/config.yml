@@ -1,6 +1,6 @@
 salary_thresholds:
   upper: 50_000
-  lower: 6_136
+  lower: 6_240
 
 contribution_percentages:
   current:
@@ -31,10 +31,10 @@ frequency_conversions:
     week: 240
   opt_in_thresholds_by_frequency:
     lower:
-      year: 6136
-      month: 512
-      fourweeks: 472
-      week: 118
+      year: 6240
+      month: 520
+      fourweeks: 480
+      week: 120
     upper:
       year: 10000
       month: 833
