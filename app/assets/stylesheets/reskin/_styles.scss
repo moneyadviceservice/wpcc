@@ -1,0 +1,163 @@
+
+// -- Generic elements -----------------------------------------------------
+    h1,h2,h3,h4,h5,h6{
+        color: $text_colour;
+    }
+    h1{
+        font-style: normal;
+        font-weight: bold;
+        font-size: 48px;
+        line-height: 54px;
+        color: $h1_colour;
+    }
+    h2{
+        font-style: normal;
+        font-weight: normal;
+        font-size: 42px;
+        line-height: 48px;
+        color: $text_colour;
+    }
+
+    p{
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 23px;
+        color: $text_colour;
+    }
+// -------------------------------------------------------------------------
+
+// -- Buttons --------------------------------------------------------------
+    .button{
+        box-sizing: border-box;
+        &:active, &:focus, &:hover{
+            outline: none!important;
+        }
+        &.button--primary{
+            background: $button_default_bg;
+            color: $white;
+            font-size: 16px;
+            border: 3px solid $button_default_bg;
+            border-radius: $border_radius;
+            box-shadow: 0px 3px 0px rgba(0, 11, 59, 0.25);
+            padding: 8px 16px;
+            &:hover{
+                background: $button_hover_bg;
+            }
+            &:active{
+                background: $button_active_bg;
+                border: 3px solid $button_active_bdr;
+                box-shadow: 0px 3px 0px $white, inset 0px 5px 2px rgba(0, 11, 59, 0.25);
+            }
+        }
+    }
+    .js .popup-tip__container{
+        border: 1px solid $input_border;
+        border-radius: $border_radius;
+        .popup-tip__close{
+            border: 1px solid #394752;
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CgogPGc+CiAgPHRpdGxlPmJhY2tncm91bmQ8L3RpdGxlPgogIDxyZWN0IGZpbGw9Im5vbmUiIGlkPSJjYW52YXNfYmFja2dyb3VuZCIgaGVpZ2h0PSI0MiIgd2lkdGg9IjQyIiB5PSItMSIgeD0iLTEiPjwvcmVjdD4KIDwvZz4KIDxnPgogIDx0aXRsZT5MYXllciAxPC90aXRsZT4KICA8cGF0aCBzdHJva2U9Im51bGwiIGlkPSJzdmdfMSIgZD0ibTIzLjEzOTYsMjAuMDAwMjVsMTMuMzQzODcsLTEzLjM0NDI3YzAuODY4NCwtMC44Njc5OSAwLjg2ODQsLTIuMjcxNDEgMCwtMy4xMzk0Yy0wLjg2Nzk5LC0wLjg2Nzk5IC0yLjI3MTQxLC0wLjg2Nzk5IC0zLjEzOTQsMGwtMTMuMzQ0MjcsMTMuMzQ0MjdsLTEzLjM0Mzg3LC0xMy4zNDQyN2MtMC44Njg0LC0wLjg2Nzk5IC0yLjI3MTQxLC0wLjg2Nzk5IC0zLjEzOTQsMGMtMC44Njg0LDAuODY3OTkgLTAuODY4NCwyLjI3MTQxIDAsMy4xMzk0bDEzLjM0Mzg3LDEzLjM0NDI3bC0xMy4zNDM4NywxMy4zNDQyN2MtMC44Njg0LDAuODY3OTkgLTAuODY4NCwyLjI3MTQxIDAsMy4xMzk0YzAuNDMyNTcsMC40MzI5OCAxLjAwMTM0LDAuNjUwNDggMS41Njk3LDAuNjUwNDhjMC41NjgzNiwwIDEuMTM2NzIsLTAuMjE3NTEgMS41Njk3LC0wLjY1MDQ4bDEzLjM0Mzg3LC0xMy4zNDQyN2wxMy4zNDQyNywxMy4zNDQyN2MwLjQzMjk4LDAuNDMyOTggMS4wMDEzNCwwLjY1MDQ4IDEuNTY5NywwLjY1MDQ4YzAuNTY4MzYsMCAxLjEzNjcyLC0wLjIxNzUxIDEuNTY5NywtMC42NTA0OGMwLjg2ODQsLTAuODY3OTkgMC44Njg0LC0yLjI3MTQxIDAsLTMuMTM5NGwtMTMuMzQzODcsLTEzLjM0NDI3em0wLDAiPjwvcGF0aD4KIDwvZz4KPC9zdmc+");
+            background-repeat: no-repeat;
+            background-size: 16px;
+            background-position: 50%;
+        }
+    }
+// -------------------------------------------------------------------------
+
+// -- Form elements --------------------------------------------------------
+    .form__row.is-errored{
+        input[type=text]{
+            border-width: 2px;
+        }
+    }
+    label{
+        font-size: 18px;
+        font-weight: 400;
+    }
+    input[type=text]{
+        width: 285px;
+        box-sizing: border-box;
+        background-color: $white;
+        border: 1px solid $input_border;
+        border-radius: $border_radius;
+        padding: 9px 12px 9px 12px;
+        &:focus{
+            border: 1px solid $input_border;
+            border-radius: $border_radius;
+            box-shadow: 0 0 8px $button_active_bdr;
+            outline: 0;
+        }
+    }
+    input[type=radio]{
+        display: none;
+        + label{
+            &:before{
+                content: '';
+                border: 1px solid $input_border;
+                border-radius: 50%;
+                display: block;
+                height: 28px;
+                width: 28px;
+                position: absolute;
+                top: 10px;
+                left: calc( 50% - 10px );
+            }
+        }
+        &:checked{
+            + label{
+                &:after{
+                    content: '';
+                    display: block;
+                    width: 16px;
+                    height: 16px;
+                    background: $button_default_bg;
+                    position: absolute;
+                    top: 16px;
+                    left: calc( 50% - 4px );
+                    border-radius: 50%;
+                }
+            }
+        }
+        &:focus{
+            + label{
+                &:before{
+                    box-shadow: 0 0 10px $button_active_bdr;
+                }
+            }
+        }
+    }
+    .details__salary-amount{
+        input{
+            width: 111px;
+        }
+    }
+    select{
+        width: 285px;
+        box-sizing: border-box;
+        background-color: $white;
+        border: 1px solid $input_border;
+        border-radius: $border_radius;
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CgogPGc+CiAgPHRpdGxlPmJhY2tncm91bmQ8L3RpdGxlPgogIDxyZWN0IGZpbGw9IiNjODJhODciIGlkPSJjYW52YXNfYmFja2dyb3VuZCIgaGVpZ2h0PSI0MiIgd2lkdGg9IjQyIiB5PSItMSIgeD0iLTEiPjwvcmVjdD4KIDwvZz4KIDxnPgogIDx0aXRsZT5MYXllciAxPC90aXRsZT4KICA8cGF0aCBpZD0ic3ZnXzEiIGZpbGw9IndoaXRlIiBkPSJtMzEuNjY2NjcsMTcuMTY2NjdsLTMuMzMzMywtMy4zMzMzM2wtNi41LDYuNWMtMSwxIC0yLjUsMSAtMy41LDBsLTYuNjY2NzEsLTYuNWwtMy4zMzMzMywzLjMzMzMzbDYuOTk5OTksNi45OTk5N2MyLjY2NjY1LDIuNjY2NyA2LjgzMzM1LDIuNjY2NyA5LjUwMDA1LDBsNi44MzMzLC02Ljk5OTk3eiI+PC9wYXRoPgogPC9nPgo8L3N2Zz4=");
+        background-size: 33px;
+        background-repeat: no-repeat;
+        background-position: 100% -2px;
+        &:focus{
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8Zz4KICA8dGl0bGU+YmFja2dyb3VuZDwvdGl0bGU+CiAgPHJlY3QgeD0iLTEiIHk9Ii0xIiB3aWR0aD0iNDIiIGhlaWdodD0iNDIiIGlkPSJjYW52YXNfYmFja2dyb3VuZCIgZmlsbD0iI2M4MmE4NyI+PC9yZWN0PgogPC9nPgoKIDxnPgogIDx0aXRsZT5MYXllciAxPC90aXRsZT4KICA8cGF0aCB0cmFuc2Zvcm09InJvdGF0ZSgxODAgMjAsMjAuMDAwMDAxOTA3MzQ4NjMzKSAiIGQ9Im0zMS42NjY2NywxNy4xNjY2N2wtMy4zMzMzLC0zLjMzMzMzbC02LjUsNi41Yy0xLDEgLTIuNSwxIC0zLjUsMGwtNi42NjY3MSwtNi41bC0zLjMzMzMzLDMuMzMzMzNsNi45OTk5OSw2Ljk5OTk3YzIuNjY2NjUsMi42NjY3IDYuODMzMzUsMi42NjY3IDkuNTAwMDUsMGw2LjgzMzMsLTYuOTk5OTd6IiBmaWxsPSJ3aGl0ZSIgaWQ9InN2Z18xIj48L3BhdGg+CiA8L2c+Cjwvc3ZnPg==");
+        }
+    }
+    .details__salary-frequency{
+        select{
+            width: 166px;
+        }
+    }
+    fieldset{
+        legend{
+            font-size: 22px;
+            font-weight: 700;
+        }
+    }
+    .details__calculate-item-label{
+        min-height: 130px;
+        border-radius: $border_radius;
+    }
+// -------------------------------------------------------------------------
