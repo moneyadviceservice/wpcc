@@ -1,0 +1,49 @@
+// -- WPCC specific styles -------------------------------------------------
+    .details__field{
+        width: auto;
+        .details__salary{
+            width: auto;
+            .details__salary-amount{
+                width: 40%;
+            }
+            .details__salary-frequency{
+                select{
+                    width: 162px;
+                }
+            }
+        }
+    }
+    .details__calculate-item-label{
+        min-height: 130px;
+    }
+    .details__salary-amount{
+        input{
+            width: 111px;
+        }
+    }
+    .section__heading-summary{
+        font-size: 16px;
+        line-height: 23px;
+        color: $text_secondary;
+    }
+    a.section__heading-edit{
+        font-size: 16px;
+        line-height: 23px;
+        color: $magenta_primary;
+        text-decoration: underline;
+        &:hover{
+            color: $magenta_dark;
+            text-decoration: none;
+        }
+        &:visited{
+            color: $link_visited;
+        }
+    }
+    .contributions__source-title{
+        label{
+            color: $text_secondary;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    }
+// -------------------------------------------------------------------------
