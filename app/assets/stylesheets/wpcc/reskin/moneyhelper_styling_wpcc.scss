@@ -134,4 +134,14 @@
             }
         }
     }
+    html:not(.js){
+        .results__content{
+            p{
+                display: none;
+                &:last-child{
+                    display: block;
+                }
+            }
+        }
+    }
 // -------------------------------------------------------------------------
