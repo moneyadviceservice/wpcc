@@ -136,11 +136,50 @@
     }
     html:not(.js){
         .results__content{
-            p{
-                display: none;
-                &:last-child{
-                    display: block;
+            .results__row{
+                clear: both;
+                + p,
+                + p + p{
+                    display: none;
                 }
+            }
+        }
+        .results__salary-frequency{
+            height: 60px;
+            .results__salary-frequency-submit{
+                display: block;
+                margin-left: 20px;
+                background: $magenta_primary;
+                color: $white;
+                font-size: 16px;
+                border: 3px solid $magenta_primary;
+                border-radius: $border_radius;
+                box-shadow: 0px 3px 0px rgba(0, 11, 59, 0.25);
+                padding: 7px 16px;
+                &:hover{
+                    background: $magenta_dark;
+                    border: 3px solid $magenta_dark;
+                }
+                &:focus{
+                    outline: none;
+                    background-color: $yellow_secondary;
+                    border: 3px solid $support_focus;
+                    color: $text_secondary;
+                }
+                &:active{
+                    background: $magenta_darker;
+                    color: $white;
+                    border: 3px solid $yellow_secondary;
+                    box-shadow: 0px 3px 0px $white, inset 0px 5px 2px rgba(0, 11, 59, 0.25);
+                }
+            }
+            .results__salary-label{
+                padding-top: 6px;
+            }
+            .results__salary-label,
+            select,
+            .results__salary-frequency-submit{
+                float: left;
             }
         }
     }
