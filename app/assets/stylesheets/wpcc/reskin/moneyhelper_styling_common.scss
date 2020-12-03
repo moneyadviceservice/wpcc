@@ -132,9 +132,10 @@
 
 // -- Form elements ----------------------------------------------------------------
     label{
-        font-family: 'Roobert-Regular', sans-serif;
-        font-size: 18px;
-        font-weight: 400;
+        font-family: 'Roobert-Bold', sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        color: $text_secondary;
     }
     input[type=text],
     input[type=number]{
@@ -220,9 +221,24 @@
         }
     }
     .form__row.is-errored{
+        border-color: $red_error;
+        label{
+            color: $text_secondary;
+        }
         input[type=text],
         input[type=number]{
-            border-width: 2px;
+            border: 2px solid $red_error;
+        }
+        select{
+            border: 2px solid $red_error;
+            color: $text_secondary;
+        }
+        .js-inline-error{
+            p{
+                color: $red_error;
+                font-size: 16px;
+                line-height: 23px;
+            }
         }
     }
 // ---------------------------------------------------------------------------------
