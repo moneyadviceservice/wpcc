@@ -43,7 +43,51 @@
         label{
             color: $text_secondary;
             font-size: 16px;
+            line-height: 23px;
             font-weight: bold;
+        }
+    }
+    .contributions__row{
+        div{
+            background-color: $light_grey_2;
+        }
+    }
+    .results__content{
+        .results__salary-frequency{
+            background-color: $light_grey;
+        }
+        a{
+            font-family: 'Roobert-Regular', sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 23px;
+            text-decoration: underline;
+            color: $magenta_primary;
+            &:hover{
+                text-decoration: none;
+                color: $magenta_dark;
+            }
+            &:visited{
+                color: $link_visited;
+            }
+        }
+    }
+    h4.next-steps__heading{
+        font-size: 32px;
+        line-height: 39px;
+        color: $text_secondary;
+        @media(max-width:$mobile_width){
+            font-size: 25px;
+            line-height: 33px;
+        }
+    }
+    .next-steps__list{
+        li:before{
+            border-radius: 0;
+            background-color: $white;
+            border: 2px solid $teal_secondary;
+            color: $teal_secondary;
         }
     }
 // -------------------------------------------------------------------------
