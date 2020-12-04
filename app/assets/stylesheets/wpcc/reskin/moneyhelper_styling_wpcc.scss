@@ -182,5 +182,46 @@
                 float: left;
             }
         }
+
+    }
+    .minimum-contributions-error{
+        margin-bottom: 10px;
+        .validation-summary{
+            .validation-summary__content-container{
+                background-color: $red_error_background;
+                .validation-summary__title{
+                    color: $red_error;
+                    font-weight: bold;
+                }
+                padding: 1px 10px;
+                border-left: 4px solid $red_error;
+                color: $red_error;
+            }
+        }
+    }
+    .contributions__source--employee,
+    .contributions__source--employer{
+        &.is-errored{
+            min-height: 210px;
+            position: relative;
+            .js-inline-error{
+                background-color: $red_error_background;
+            }
+            &::before{
+                content: '';
+                display: block;
+                width: 4px;
+                height: 65%;
+                background-color: $red_error;
+                position: absolute;
+                top: 34px;
+            }
+            div, h3, input{
+                margin-left: 20px ;
+            }
+            @media(max-width:$mobile_width){
+                min-height: auto;
+            }
+        }
     }
 // -------------------------------------------------------------------------
