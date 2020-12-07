@@ -100,17 +100,19 @@
     }
     .js{
         .popup-tip__button{
-            border: 2px solid $blue_primary;
+            border: 0;
             font-size: 0;
-            border-radius: 0 0 0 5px;
+            border-radius: 0;
             background-color: $white;
             background-image: $i_svg;
             background-repeat: no-repeat;
             background-position: 50%;
-            background-size: 3px;
-            vertical-align: top;
+            background-size: 18px;
+            width: 18px;
+            height: 18px;
+            vertical-align: text-top;
             &:focus{
-                box-shadow: 0 0 8px $yellow_secondary;
+                box-shadow: 0 0 0 4px $yellow_secondary;
                 outline: 0;
             }
             @media print{
@@ -128,6 +130,9 @@
                 background-position: 50%;
                 width: 32px;
                 height: 32px;
+                span{
+                    display: none;
+                }
             }
         }
     }
@@ -154,7 +159,7 @@
         &:focus{
             border: 1px solid $input_border;
             border-radius: $border_radius;
-            box-shadow: 0 0 8px $yellow_secondary;
+            box-shadow: 0 0 0 4px $yellow_secondary;
             outline: 0;
         }
     }
@@ -173,7 +178,7 @@
         &:focus{
             border: 1px solid $input_border;
             border-radius: $border_radius;
-            box-shadow: 0 0 8px $yellow_secondary;
+            box-shadow: 0 0 0 4px $yellow_secondary;
             background-image: $select_up_svg;
             outline: 0;
         }
@@ -187,6 +192,7 @@
     }
     .form__row.is-errored{
         border-color: $red_error;
+        border-width: 4px;
         label{
             color: $text_secondary;
         }

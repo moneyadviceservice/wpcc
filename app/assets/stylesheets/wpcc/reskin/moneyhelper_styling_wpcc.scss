@@ -15,6 +15,8 @@
     }
     .details__calculate-item-label{
         min-height: 130px;
+        font-family: 'Roobert-Regular', sans-serif;
+        font-weight: normal;
     }
     .details__salary-amount{
         input{
@@ -25,6 +27,8 @@
         font-size: 16px;
         line-height: 23px;
         color: $text_secondary;
+        font-family: 'Roobert-Regular', sans-serif;
+        font-weight: normal;
     }
     a.section__heading-edit{
         font-size: 16px;
@@ -186,9 +190,11 @@
     }
     .minimum-contributions-error{
         margin-bottom: 10px;
+        background-color: $red_error_background;
         .validation-summary{
             .validation-summary__content-container{
                 background-color: $red_error_background;
+                width: 100%;
                 .validation-summary__title{
                     color: $red_error;
                     font-weight: bold;
@@ -204,6 +210,7 @@
         &.is-errored{
             min-height: 210px;
             position: relative;
+            background-color: $red_error_background;
             .js-inline-error{
                 background-color: $red_error_background;
             }
@@ -223,5 +230,8 @@
                 min-height: auto;
             }
         }
+    }
+    .validation-summary__list{
+        font-size: 16px;
     }
 // -------------------------------------------------------------------------
