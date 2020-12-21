@@ -12,6 +12,10 @@
     h6{ color: $text_secondary; }
 // ---------------------------------------------------------------------------------
 
+// -- Lists ------------------------------------------------------------------------
+    ul,ol{
+        font-family: 'Roobert-Regular', sans-serif;
+    }
 
 // -- Paragraphs -------------------------------------------------------------------
     p{
@@ -27,13 +31,45 @@
             padding: 10px;
         }
     }
+    .callout{
+        background: $light_grey!important;
+        a{
+            font-size: 1rem!important;
+        }
+        &.callout--warning{
+            background-color: $yellow_secondary!important;
+        }
+
+    }
 // ---------------------------------------------------------------------------------
 
+// -- Links ------------------------------------------------------------------------
+    a{
+        color: $magenta_primary!important;
+        text-decoration: underline;
+        font-size: 18px!important;
+        &:hover{
+            color: $magenta_dark;
+            text-decoration: none;
+        }
+        &:active{
+            color: $magenta_darker;
+            text-decoration: none;
+        }
+        &:focus{
+            color: $text_secondary;
+            background-color: $yellow_secondary;
+            border-bottom: 4px solid $support_focus;
+            text-decoration: none;
+            outline: none;
+        }
+    }
+// ---------------------------------------------------------------------------------
 
 // -- Buttons ----------------------------------------------------------------------
     .button{
         box-sizing: border-box;
-        font-family: 'Roobert-Regular', sans-serif;
+        font-family: 'Roobert-SemiBold', sans-serif;
         &:active, &:focus, &:hover{
             outline: none!important;
         }
@@ -60,6 +96,12 @@
                 border: 3px solid $yellow_secondary;
                 box-shadow: 0px 3px 0px $white, inset 0px 5px 2px rgba(0, 11, 59, 0.25);
             }
+            &:disabled{
+                background: $light_grey;
+                color: $input_border;
+                box-shadow: none;
+                border: 1px solid $support_hr;
+            }
         }
     }
     .js{
@@ -82,7 +124,23 @@
             }
         }
         .popup-tip__container{
-            border: 1px solid #aeb0bd;
+            border: 2px solid $blue_primary;
+            .popup-tip__close{
+                border: 2px solid $blue_primary;
+                svg{
+                    display: none;
+                }
+                &:before{
+                    content: '';
+                    background-image: $close_svg;
+                    width: 24px;
+                    height: 24px;
+                    background-size: 18px;
+                    background-position: 50%;
+                    background-repeat: no-repeat;
+                    display: block;
+                }
+            }
         }
     }
 // ---------------------------------------------------------------------------------
@@ -130,13 +188,14 @@
     fieldset{
         legend{
             font-family: 'Roobert-Bold', sans-serif;
-            font-size: 22px;
+            font-size: 16px;
             font-weight: 700;
         }
     }
     .form__row.is-errored{
+        border-width: 0 0 0 4px;
+        border-style: solid;
         border-color: $red_error;
-        border-width: 4px;
         label{
             color: $text_secondary;
         }
@@ -147,6 +206,7 @@
         select{
             border: 2px solid $red_error;
             color: $text_secondary;
+            padding: 6px 12px;
         }
         .js-inline-error{
             p{
@@ -154,6 +214,12 @@
                 font-size: 16px;
                 line-height: 23px;
             }
+        }
+    }
+    .validation-summary__content-container{
+        border-width: 4px;
+        .validation-summary__title{
+            color: $red_error;
         }
     }
 // ---------------------------------------------------------------------------------
