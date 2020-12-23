@@ -1,6 +1,6 @@
 # Wpcc
 
-All the things for Money Advice Service's Workplace Pension Contribution Calculator.
+All the things for Money Helper's Workplace Pension Contribution Calculator.
 
 ## Prerequisites
 

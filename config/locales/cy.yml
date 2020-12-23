@@ -20,7 +20,7 @@ cy:
     meta:
       title: Cyfrifiannell cyfraniadau pensiwn gweithle
       description: Bydd y gyfrifiannell hon yn dangos faint fydd yn cael ei dalu i mewn i'ch pensiwn gennych chi a'ch cyflogwr. 
-      canonical_url: https://www.moneyadviceservice.org.uk/cy/tools/cyfrifiannell-cyfraniadau-pensiwn-gweithle
+      canonical_url: https://www.moneyhelper.org/cy/tools/cyfrifiannell-cyfraniadau-pensiwn-gweithle
     tooltip_show: sioe help
     tooltip_hide: cuddio cymorth
     tooltip_qualifying_earnings:
@@ -138,9 +138,9 @@ cy:
           employers_fourweeks_html: Cyfraniad y cyflogwr <span data-wpcc-title-frequency>%{salary_frequency}</span>
           total_html: Cyfanswm y cyfraniad <span data-wpcc-title-frequency>%{salary_frequency}</span>
         tax_relief_html: (yn cynnwys gostyngiad treth o <span data-wpcc-tax-relief-value>%{formatted_tax_relief}</span>)
-      tax_relief_warning_html: Os nad ydych chi'n talu treth incwm ar eich enillion, cewch ostyngiad treth yn unig ar eich cyfraniadau pensiwn os bydd eich cynllun pensiwn yn casglu cyfraniadau yn defnyddio’r hyn a elwir yn ostyngiad treth ar y cychwyn. Rydym wedi tybio bod eich cynllun yn gwneud hyn. Darllenwch ragor yn ein canllaw am <a href="https://www.moneyadviceservice.org.uk/cy/articles/gostyngiad-treth-ach-pensiwn-gweithle" target="_blank">ostyngiadau treth ar eich pensiwn gweithle<span class="visually-hidden"> (Yn agor mewn ffenestr newydd)</span></a>.
+      tax_relief_warning_html: Os nad ydych chi'n talu treth incwm ar eich enillion, cewch ostyngiad treth yn unig ar eich cyfraniadau pensiwn os bydd eich cynllun pensiwn yn casglu cyfraniadau yn defnyddio’r hyn a elwir yn ostyngiad treth ar y cychwyn. Rydym wedi tybio bod eich cynllun yn gwneud hyn. Darllenwch ragor yn ein canllaw am <a href="https://www.moneyhelper.org/cy/articles/gostyngiad-treth-ach-pensiwn-gweithle" target="_blank">ostyngiadau treth ar eich pensiwn gweithle<span class="visually-hidden"> (Yn agor mewn ffenestr newydd)</span></a>.
       tax_relief_warning: Os nad ydych chi'n talu treth incwm ar eich enillion, cewch ostyngiad treth yn unig ar eich cyfraniadau pensiwn os bydd eich cynllun pensiwn yn casglu cyfraniadau yn defnyddio’r hyn a elwir yn ostyngiad treth ar y cychwyn. Rydym wedi tybio bod eich cynllun yn gwneud hyn. Darllenwch ragor yn ein canllaw am ostyngiadau treth ar eich pensiwn gweithle.
-      tax_relief_tooltip_html: Byddwch yn cael gostyngiad treth ar eich cyfraniadau pensiwn sy'n golygu y rhoddir peth o’r arian o'ch cyflog a fyddai wedi mynd i’r llywodraeth fel treth tuag at eich pensiwn yn hytrach. <a href="https://www.moneyadviceservice.org.uk/cy/articles/gostyngiad-treth-ach-pensiwn-gweithle" target="_blank">Darllenwch fwy am sut i gael gostyngiad treth <span class="visually-hidden">(Yn agor mewn ffenestr newydd)</span></a>.
+      tax_relief_tooltip_html: Byddwch yn cael gostyngiad treth ar eich cyfraniadau pensiwn sy'n golygu y rhoddir peth o’r arian o'ch cyflog a fyddai wedi mynd i’r llywodraeth fel treth tuag at eich pensiwn yn hytrach. <a href="https://www.moneyhelper.org/cy/articles/gostyngiad-treth-ach-pensiwn-gweithle" target="_blank">Darllenwch fwy am sut i gael gostyngiad treth <span class="visually-hidden">(Yn agor mewn ffenestr newydd)</span></a>.
       contribution_table_link: Darllen tabl sy’n dangos sut mae isafswm cyfraniadau cyfreithlon yn newid
       print_link: Argraffu eich canlyniadau
       email_link: E-bostio eich canlyniadau
@@ -148,9 +148,9 @@ cy:
       next_steps:
         heading: Y Camau Nesaf
         list:
-          pension_calculator_html: Defnyddiwch ein <a href="https://www.moneyadviceservice.org.uk/cy/tools/cyfrifiannell-pensiwn" target="_blank">Cyfrifiannell Pensiwn <span class="visually-hidden">(Yn agor mewn ffenestr newydd)</span></a> i weld faint o bensiwn y bydd eich cronfa yn ei chronni dros amser.
-          workplace_pensions_html: Dysgwch ragor am <a href="https://www.moneyadviceservice.org.uk/cy/categories/automatic-enrolment" target="_blank">bensiynau gweithle <span class="visually-hidden">(Yn agor mewn ffenestr newydd)</span></a>.
-          budget_planner_html: Defnyddiwch ein <a href="https://www.moneyadviceservice.org.uk/cy/tools/cynllunydd-cyllideb/start" target="_blank">cynllunydd cyllideb <span class="visually-hidden">(Yn agor mewn ffenestr newydd)</span></a> i weld pa effaith y bydd eich cyfraniadau yn eu cael ar eich incwm.
+          pension_calculator_html: Defnyddiwch ein <a href="https://www.moneyhelper.org/cy/tools/cyfrifiannell-pensiwn" target="_blank">Cyfrifiannell Pensiwn <span class="visually-hidden">(Yn agor mewn ffenestr newydd)</span></a> i weld faint o bensiwn y bydd eich cronfa yn ei chronni dros amser.
+          workplace_pensions_html: Dysgwch ragor am <a href="https://www.moneyhelper.org/cy/categories/automatic-enrolment" target="_blank">bensiynau gweithle <span class="visually-hidden">(Yn agor mewn ffenestr newydd)</span></a>.
+          budget_planner_html: Defnyddiwch ein <a href="https://www.moneyhelper.org/cy/tools/cynllunydd-cyllideb/start" target="_blank">cynllunydd cyllideb <span class="visually-hidden">(Yn agor mewn ffenestr newydd)</span></a> i weld pa effaith y bydd eich cyfraniadau yn eu cael ar eich incwm.
       edit_frequency:
         label: Dangos fy nghyfraniadau
         button: Al-gyfrifo
