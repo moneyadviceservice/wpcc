@@ -65,7 +65,7 @@
             font-family: 'Roobert-Regular', sans-serif;
             font-style: normal;
             font-weight: normal;
-            font-size: 16px;
+            font-size: 16px!important;
             line-height: 23px;
             text-decoration: underline;
             color: $magenta_primary;
@@ -75,6 +75,9 @@
             }
             &:visited{
                 color: $link_visited;
+            }
+            &:focus{
+                text-decoration: none;
             }
         }
     }
@@ -86,11 +89,18 @@
         }
     }
     .next-steps__list{
-        li:before{
-            border-radius: 0;
-            background-color: $white;
-            border: 2px solid $teal_secondary;
-            color: $teal_secondary;
+        li{
+            color: $text_secondary;
+            &:before{
+                border-radius: 0;
+                background-color: $white;
+                border: 2px solid $teal_secondary;
+                color: $teal_secondary;
+                line-height: 1.5em;
+            }
+        }
+        a{
+            font-size: 18px!important;
         }
     }
 
@@ -207,10 +217,37 @@
     }
     .validation-summary__list{
         font-size: 16px;
+        li{
+            a{
+                color: $red_error!important;
+                &:focus{
+                    text-decoration: none;
+                }
+            }
+            &::marker{
+                color: $red_error;
+            }
+        }
     }
     .contributions__source{
         .contributions__source-input{
             width: 90px;
+        }
+    }
+
+    .stripe-banner{
+        display: none;
+    }
+    .section__heading-edit{
+        font-size: 16px!important;
+    }
+    .contributions__source--employee,
+    .contributions__source--employer{
+        &.is-errored{
+            background-color: $light_grey_2;
+            &::before{
+                display: none;
+            }
         }
     }
 // -------------------------------------------------------------------------
