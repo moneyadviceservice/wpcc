@@ -173,8 +173,9 @@
     select{
         width: 285px;
         background-color: $white;
-        -webkit-appearance: none;
-        -moz-appearance: none;
+        -webkit-appearance: menulist;
+        -moz-appearance: menulist;
+        background-image: none;
         padding: 7px 12px 7px 12px;
         height: auto;
         border-radius: $border_radius;
@@ -184,6 +185,11 @@
             background-color: $yellow_secondary;
             outline: 0;
         }
+    }
+    select::-ms-expand {
+        display: block;
+        border: none;
+        background: none;
     }
     fieldset{
         legend{
