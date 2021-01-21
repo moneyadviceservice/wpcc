@@ -179,6 +179,7 @@
         padding: 7px 12px 7px 12px;
         height: auto;
         border-radius: $border_radius;
+        color: $text_secondary;
         &:focus{
             border: 2px solid $support_focus;
             border-radius: 0;
