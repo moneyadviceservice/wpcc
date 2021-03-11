@@ -7,3 +7,4 @@ require 'rspec/rails'
 
 ActionController::Base.allow_rescue = false
 Capybara.javascript_driver = :poltergeist
+Cucumber::Rails::Database.autorun_database_cleaner = false

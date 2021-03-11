@@ -32,7 +32,6 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'danger', require: false
   gem 'danger-rubocop', require: false
-  gem 'database_cleaner-active_record'
   gem 'poltergeist'
   gem 'simplecov', require: false
   gem 'site_prism'
