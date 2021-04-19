@@ -19,7 +19,7 @@ cy:
   wpcc:
     meta:
       title: Cyfrifiannell cyfraniadau pensiwn gweithle
-      description: Bydd y gyfrifiannell hon yn dangos faint fydd yn cael ei dalu i mewn i'ch pensiwn gennych chi a'ch cyflogwr. 
+      description: Bydd y gyfrifiannell hon yn dangos faint fydd yn cael ei dalu i mewn i'ch pensiwn gennych chi a'ch cyflogwr.
       canonical_url: https://www.moneyhelper.org/cy/tools/cyfrifiannell-cyfraniadau-pensiwn-gweithle
     tooltip_show: sioe help
     tooltip_hide: cuddio cymorth
@@ -32,7 +32,7 @@ cy:
       text_full_contribution: "Y ffigwr gofynnol cyffredinol sydd yn rhaid ei dalu i mewn i'ch pensiwn yw 8% o'ch enillion cymwys.  Rhaid i'ch cyflogwr dalu 3% o leiaf, ond os bydd eich cyflogwr yn talu mwy na 3% yna dim ond y balans hyd at 8% sydd angen i chi ei dalu.  Er enghraifft, os bydd eich cyflogwr yn talu 6%, yna dim ond 2% sydd angen i chi ei dalu. Fodd bynnag, po fwyaf y byddwch chi a'ch cyflogwr yn ei dalu i mewn, po uchaf fydd eich incwm ymddeol."
 
     title: Cyfrifiannell cyfraniadau pensiwn gweithle
-    intro: Mae’n gyfraith erbyn hyn y dylai’r rhan fwyaf o gyflogeion gael eu cofrestru ar gynllun pensiwn gweithle gan eu cyflogwr. Bydd y gyfrifiannell hon yn dangos faint fydd yn cael ei dalu i mewn i'ch pensiwn gennych chi a'ch cyflogwr. 
+    intro: Mae’n gyfraith erbyn hyn y dylai’r rhan fwyaf o gyflogeion gael eu cofrestru ar gynllun pensiwn gweithle gan eu cyflogwr. Bydd y gyfrifiannell hon yn dangos faint fydd yn cael ei dalu i mewn i'ch pensiwn gennych chi a'ch cyflogwr.
     edit: Golygu
 
     details:
@@ -87,7 +87,7 @@ cy:
       near_manual_opt_in_limit_message_html: "Sylwer: Mae eich enillion yn agos iawn at y trothwy cyflog cofrestru awtomatig. Dylech wirio gyda’ch cyflogwr i gadarnhau a ydych yn gymwys neu beidio i gael eich cofrestru’n awtomatig gan fod y trothwyon yn amrywio yn ddibynnol ar a ydych yn cael eich talu’n fisol, wythnosol neu bob 4 wythnos. <a href='/cy/articles/gall-cofrestru-awtomatig-ennill-hyd-at-10000-i-chi'>Darllenwch fwy am y trothwyon cyflog ar gyfer pensiynau gweithle.</a>"
 
       section__heading:
-        age: '%{age} blynyddoedd'
+        age: "%{age} blynyddoedd"
         gender_male: gwrywaidd
         gender_female: benywaidd
         salary_year: £%{salary} y flwyddyn
@@ -106,7 +106,7 @@ cy:
       employer_contribution_title: Nodwch gyfraniad eich cyflogwr
       legal_minimum_minimum_html: Y ffigwr gofynnol cyfreithiol sydd yn rhaid ei dalu i mewn i'ch pensiwn yw 8% y flwyddyn o'r enillion cymwys. Rhaid i'ch cyflogwr dalu 3% o leiaf. Y rhaniad fel arfer yw 5% gan gyflogeion a 3% gan gyflogwyr.%{tooltip_html}
       legal_minimum_full_html: Y ffigwr gofynnol cyfreithiol sydd yn rhaid ei dalu i mewn i'ch pensiwn yw 8% y flwyddyn. Rhaid i'ch cyflogwr dalu 3% o leiaf ohono. Y rhaniad fel arfer yw 5% gan gyflogeion a 3% gan gyflogwyr.%{tooltip_html}
-      input_of_label: '% o'
+      input_of_label: "% o"
       calculate_button: Cyfrifwch eich cyfraniadau
       contribution_gt40000_warning: Rhoddir gostyngiad treth ar gyfraniadau hyd at %{amount} y flwyddyn yn unig, neu 100% o’ch enillion, pa bynnag un sydd leiaf.
       employee_validation:
@@ -122,10 +122,8 @@ cy:
 
     results:
       title: Eich canlyniadau
-      description_full_html:
-        Bydd cyfraniadau yn seiliedig ar eich cyflog o <span data-wpcc-eligible-salary>%{eligible_salary}</span> y flwyddyn.
-      description_minimum_html:
-        Bydd cyfraniadau yn seiliedig ar eich enillion cymwys%{tooltip_html} o <span data-wpcc-eligible-salary>%{eligible_salary}</span> y flwyddyn.
+      description_full_html: Bydd cyfraniadau yn seiliedig ar eich cyflog o <span data-wpcc-eligible-salary>%{eligible_salary}</span> y flwyddyn.
+      description_minimum_html: Bydd cyfraniadau yn seiliedig ar eich enillion cymwys%{tooltip_html} o <span data-wpcc-eligible-salary>%{eligible_salary}</span> y flwyddyn.
       period_title:
         contributor_title: Cyfrannwr
         current: Nawr
@@ -148,9 +146,9 @@ cy:
       next_steps:
         heading: Y Camau Nesaf
         list:
-          pension_calculator_html: Defnyddiwch ein <a href="https://www.moneyhelper.org/cy/tools/cyfrifiannell-pensiwn" target="_blank">Cyfrifiannell Pensiwn <span class="visually-hidden">(Yn agor mewn ffenestr newydd)</span></a> i weld faint o bensiwn y bydd eich cronfa yn ei chronni dros amser.
-          workplace_pensions_html: Dysgwch ragor am <a href="https://www.moneyhelper.org/cy/categories/automatic-enrolment" target="_blank">bensiynau gweithle <span class="visually-hidden">(Yn agor mewn ffenestr newydd)</span></a>.
-          budget_planner_html: Defnyddiwch ein <a href="https://www.moneyhelper.org/cy/tools/cynllunydd-cyllideb/start" target="_blank">cynllunydd cyllideb <span class="visually-hidden">(Yn agor mewn ffenestr newydd)</span></a> i weld pa effaith y bydd eich cyfraniadau yn eu cael ar eich incwm.
+          pension_calculator_html: Defnyddiwch ein <a href="https://www.moneyhelper.org.uk/cy/pensions-and-retirement/pension-basics/pension-calculator" target="_blank">Cyfrifiannell Pensiwn <span class="visually-hidden">(Yn agor mewn ffenestr newydd)</span></a> i weld faint o bensiwn y bydd eich cronfa yn ei chronni dros amser.
+          workplace_pensions_html: Dysgwch ragor am <a href="https://www.moneyhelper.org.uk/cy/pensions-and-retirement/auto-enrolment" target="_blank">bensiynau gweithle <span class="visually-hidden">(Yn agor mewn ffenestr newydd)</span></a>.
+          budget_planner_html: Defnyddiwch ein <a href="https://www.moneyhelper.org.uk/cy/everyday-money/budgeting/budget-planner" target="_blank">cynllunydd cyllideb <span class="visually-hidden">(Yn agor mewn ffenestr newydd)</span></a> i weld pa effaith y bydd eich cyfraniadau yn eu cael ar eich incwm.
       edit_frequency:
         label: Dangos fy nghyfraniadau
         button: Al-gyfrifo
