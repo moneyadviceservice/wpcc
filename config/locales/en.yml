@@ -87,7 +87,7 @@ en:
       near_manual_opt_in_limit_message_html: "Please Note: Your earnings are very close to the automatic enrolment salary threshold. You should check with your employer to confirm whether or not you are eligible to be automatically enrolled as the thresholds vary depending on whether you are paid monthly, weekly or 4-weekly. <a href='/en/articles/automatic-enrolment-if-you-earn-up-to-10000'>Read more about the salary thresholds for workplace pensions.</a>"
 
       section__heading:
-        age: '%{age} years'
+        age: "%{age} years"
         gender_male: male
         gender_female: female
         salary_year: £%{salary} per year
@@ -99,14 +99,14 @@ en:
 
     contributions:
       title: Your contributions
-      description_minimum_html:  Contributions will be made on your qualifying earnings%{tooltip_html} of %{eligible_salary} a year.
-      description_full_html:  Contributions will be made on your salary of %{eligible_salary} per year.
+      description_minimum_html: Contributions will be made on your qualifying earnings%{tooltip_html} of %{eligible_salary} a year.
+      description_full_html: Contributions will be made on your salary of %{eligible_salary} per year.
       your_contribution_title: Enter your contribution
       your_contribution_tip_below_lower_threshold: At your salary level there is no legal minimum contribution but your workplace pension scheme may have a set minimum. Check with your employer.
       legal_minimum_minimum_html: The legal minimum that must be paid into your pension is 8% a year of qualifying earnings. At least 3% must be paid by your employer. The usual split is 5% from employees and 3% from employers.%{tooltip_html}
       legal_minimum_full_html: The legal minimum that must be paid into your pension is 8% a year. At least 3% of this must be paid by your employer. The usual split is 5% from employees and 3% from employers.%{tooltip_html}
       employer_contribution_title: Enter your employer’s contribution
-      input_of_label: '% of'
+      input_of_label: "% of"
       calculate_button: Calculate your contributions
       contribution_gt40000_warning: Tax relief is only applied to contributions of up to %{amount} per year or 100% of your earnings, whichever is lower.
       employee_validation:
@@ -122,10 +122,8 @@ en:
 
     results:
       title: Your Results
-      description_full_html:
-        Contributions will be based on your salary of <span data-wpcc-eligible-salary>%{eligible_salary}</span> per year.
-      description_minimum_html:
-        Contributions will be based on your qualifying earnings%{tooltip_html} of <span data-wpcc-eligible-salary>%{eligible_salary}</span> per year.
+      description_full_html: Contributions will be based on your salary of <span data-wpcc-eligible-salary>%{eligible_salary}</span> per year.
+      description_minimum_html: Contributions will be based on your qualifying earnings%{tooltip_html} of <span data-wpcc-eligible-salary>%{eligible_salary}</span> per year.
       period_title:
         contributor_title: Contributor
         current: Now
@@ -147,9 +145,9 @@ en:
       next_steps:
         heading: Next steps
         list:
-          pension_calculator_html: Use our <a href="https://www.moneyhelper.org/en/tools/pension-calculator" target="_blank">Pension Calculator <span class="visually-hidden">(opens in a new window)</span></a> to see how much pension pot you will build over time.
-          workplace_pensions_html: Find out more about <a href="https://www.moneyhelper.org/en/categories/automatic-enrolment" target="_blank">workplace pensions <span class="visually-hidden">(opens in a new window)</span></a>.
-          budget_planner_html: Use our <a href="https://www.moneyhelper.org/en/tools/budget-planner" target="_blank">budget planner <span class="visually-hidden">(opens in a new window)</span></a> to see what effect your contributions will have on your income.
+          pension_calculator_html: Use our <a href="https://www.moneyhelper.org.uk/en/pensions-and-retirement/pension-basics/pension-calculator" target="_blank">Pension Calculator <span class="visually-hidden">(opens in a new window)</span></a> to see how much pension pot you will build over time.
+          workplace_pensions_html: Find out more about <a href="https://www.moneyhelper.org.uk/en/pensions-and-retirement/auto-enrolment" target="_blank">workplace pensions <span class="visually-hidden">(opens in a new window)</span></a>.
+          budget_planner_html: Use our <a href="https://www.moneyhelper.org.uk/en/everyday-money/budgeting/budget-planner" target="_blank">budget planner <span class="visually-hidden">(opens in a new window)</span></a> to see what effect your contributions will have on your income.
       edit_frequency:
         label: Show my contributions
         button: Recalculate
