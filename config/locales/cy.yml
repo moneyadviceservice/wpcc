@@ -76,9 +76,9 @@ cy:
       next: Nesaf
       prompt: os gwelwch yn dda dewiswch
 
-      callout__lt16: Rydych yn rhy ifanc i ymuno â phensiwn gweithle. Pan gyrhaeddwch 16 oed gallwch ofyn i’ch cyflogwr eich cofrestru. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau.
-      callout__optIn: Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am bensiwn, ond gallwch ddewis ymuno.
-      callout__gt74: Nid ydych yn gymwys i ymuno â phensiwn gweithle gan eich bod yn hŷn na’r uchafswm oed.
+      callout__lt16: Rydych yn rhy ifanc i ymuno â phensiwn gweithle. Pan gyrhaeddwch 16 oed gallwch ddewis ymuno.  Os gwnewch hynny, gallai eich cyflogwr wneud cyfraniadau hefyd yn dibynnu ar faint rydych yn ei ennill.
+      callout__optIn: Ni fydd eich cyflogwr yn eich ymrestru'n awtomatig i mewn i bensiwn ond gallwch ddewis ymuno. Os ydych yn ennill mwy na'r lefel is o enillion cymwys, rhaid i'ch cyflogwr gyfrannu hefyd.
+      callout__gt74: Nid oes gennych hawl i gael eich ymrestru'n awtomatig mewn pensiwn gweithle. Mae llawer o'r buddion treth o gynilo i mewn i gynllun pensiwn yn stopio yn 75 oed.
       callout__below_lower_threshold: Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno. Os felly, ni fydd yn ofynnol i'ch cyflogwr wneud cyfraniadau.
       callout__below_part_contributions_threshold: Ar eich lefel enillion, bydd rhaid i chi wneud cyfraniadau yn seiliedig ar eich cyflog llawn.
       callout__btwn_lower_and_auto_enrol_threshold: Ni fydd eich cyflogwr yn eich cofrestru yn awtomatig am gynllun pensiwn gweithle, ond gallwch ddewis ymuno. Os felly, bydd eich cyflogwr yn gwneud cyfraniadau.
