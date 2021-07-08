@@ -57,8 +57,7 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
         this.$callout_lt16.addClass('details__callout--active');
         this.$submit.attr('disabled', true);
       } else if (age > 15 && age < 22 ||
-                 age > 64 && age <= 74 && gender == 'male' ||
-                 age > 63 && age <= 74 && gender == 'female') {
+                 age > 65 && age <= 74) {
         this.$callout_optIn.removeClass('details__callout--inactive');
         this.$callout_optIn.addClass('details__callout--active');
       } else if (age >= 75) {

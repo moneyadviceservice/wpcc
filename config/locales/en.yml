@@ -44,7 +44,6 @@ en:
 
       gender:
         label: Your gender
-        tooltip: We need to know your gender because the contribution rules vary slightly due to current differences in State Pension retirement dates for men and women.
         validation: Please select your gender
 
       salary:
@@ -76,10 +75,10 @@ en:
       next: Next
       prompt: Please choose
 
-      callout__lt16: You are too young to join a workplace pension. When you reach the age of 16 you may ask your employer to enrol you. If you do so, your employer will make contributions.
-      callout__optIn: Your employer will not automatically enrol you into a pension but you can choose to join.
-      callout__gt74: You are not eligible to join a workplace pension because you are above the maximum age.
-      callout__below_lower_threshold: Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will not be obliged to make contributions.
+      callout__lt16: You are too young to join a workplace pension. When you reach the age of 16 you can choose to join. If you do so, your employer might make contributions too depending on how much you earn.
+      callout__optIn: Your employer will not automatically enrol you into a pension but you can choose to join. If you earn more than the lower level of qualifying earnings, your employer must also contribute.
+      callout__gt74: You are not entitled to be automatically enrolled into a workplace pension. Many of the tax benefits of saving into a pension stop at age 75.
+      callout__below_lower_threshold: Your employer will not automatically enrol you into a pension but you can choose to join. If you earn more than the lower level of qualifying earnings, your employer must also contribute.
       callout__below_part_contributions_threshold: At your earnings level, you will have to make contributions based on your full salary.
       callout__btwn_lower_and_auto_enrol_threshold: Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will make contributions.
 
