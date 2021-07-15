@@ -1,5 +1,5 @@
 salary_thresholds:
-  upper: 50_000
+  upper: 50_270
   lower: 6_240
 
 contribution_percentages:
