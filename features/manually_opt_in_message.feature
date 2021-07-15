@@ -16,10 +16,10 @@ Feature: Conditional messaging for users earning between lower and enrolment thr
 
     Examples:
       | salary  | salary_frequency | message                                                                                                                                                                           |
-      | 6130.99 | per year         | Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will not be obliged to make contributions. |
-      | 511.99  | per month        | Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will not be obliged to make contributions. |
-      | 471.99  | per 4 weeks      | Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will not be obliged to make contributions. |
-      | 115.99  | per week         | Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will not be obliged to make contributions. |
+      | 6130.99 | per year         | Your employer will not automatically enrol you into a pension but you can choose to join. If you earn more than the lower level of qualifying earnings, your employer must also contribute. |
+      | 511.99  | per month        | Your employer will not automatically enrol you into a pension but you can choose to join. If you earn more than the lower level of qualifying earnings, your employer must also contribute. |
+      | 471.99  | per 4 weeks      | Your employer will not automatically enrol you into a pension but you can choose to join. If you earn more than the lower level of qualifying earnings, your employer must also contribute. |
+      | 115.99  | per week         | Your employer will not automatically enrol you into a pension but you can choose to join. If you earn more than the lower level of qualifying earnings, your employer must also contribute. |
 
     @welsh
     Examples:

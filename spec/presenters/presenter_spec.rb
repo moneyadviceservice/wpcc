@@ -27,7 +27,7 @@ RSpec.describe Wpcc::Presenter do
 
   describe '#formatted_upper_earnings' do
     it 'gets the upper earnings threshold and formats it' do
-      expect(subject.formatted_upper_earnings).to eq('£50,000')
+      expect(subject.formatted_upper_earnings).to eq('£50,270')
     end
   end
 

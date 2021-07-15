@@ -128,7 +128,7 @@ describe('Conditional Messaging', function() {
         expect(this.callout_gt74.hasClass('details__callout--active')).to.be.false;
         expect(this.callout_gt74.hasClass('details__callout--inactive')).to.be.true;
 
-        // age: 22-63; gender: female
+        // age: 22-65; gender: female
         this.triggerKeyUp(this.ageField, 63);
 
         expect(this.callout_lt16.hasClass('details__callout--active')).to.be.false;
@@ -166,8 +166,8 @@ describe('Conditional Messaging', function() {
         expect(this.callout_gt74.hasClass('details__callout--active')).to.be.false;
         expect(this.callout_gt74.hasClass('details__callout--inactive')).to.be.true;
 
-        // age: 65-74; gender: male
-        this.triggerKeyUp(this.ageField, 65);
+        // age: 66-74; gender: male
+        this.triggerKeyUp(this.ageField, 66);
 
         expect(this.callout_lt16.hasClass('details__callout--active')).to.be.false;
         expect(this.callout_lt16.hasClass('details__callout--inactive')).to.be.true;
@@ -185,7 +185,7 @@ describe('Conditional Messaging', function() {
         expect(this.callout_gt74.hasClass('details__callout--active')).to.be.false;
         expect(this.callout_gt74.hasClass('details__callout--inactive')).to.be.true;
 
-        // age: 64-74; gender: female
+        // age: 66-74; gender: female
         this.triggerChange(this.genderField, 'female');
 
         expect(this.callout_lt16.hasClass('details__callout--active')).to.be.false;
@@ -195,7 +195,7 @@ describe('Conditional Messaging', function() {
         expect(this.callout_gt74.hasClass('details__callout--active')).to.be.false;
         expect(this.callout_gt74.hasClass('details__callout--inactive')).to.be.true;
 
-        this.triggerKeyUp(this.ageField, 64);
+        this.triggerKeyUp(this.ageField, 66);
 
         expect(this.callout_lt16.hasClass('details__callout--active')).to.be.false;
         expect(this.callout_lt16.hasClass('details__callout--inactive')).to.be.true;

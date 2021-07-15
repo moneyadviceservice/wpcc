@@ -32,9 +32,9 @@ Feature: Display validation messages for age
 
     Examples:
       | language | age | validation_message |
-      | English  | 75  | You are not eligible to join a workplace pension because you are above the maximum age |
+      | English  | 75  | You are not entitled to be automatically enrolled into a workplace pension. Many of the tax benefits of saving into a pension stop at age 75. |
 
     @welsh
     Examples:
       | language | age | validation_message |
-      | Welsh    | 80  | Nid ydych yn gymwys i ymuno â phensiwn gweithle gan eich bod yn hŷn na’r uchafswm oed |
+      | Welsh    | 80  | Nid oes gennych hawl i gael eich ymrestru'n awtomatig mewn pensiwn gweithle. Mae llawer o'r buddion treth o gynilo i mewn i gynllun pensiwn yn stopio yn 75 oed. |

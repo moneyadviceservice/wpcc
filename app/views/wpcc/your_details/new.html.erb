@@ -40,14 +40,11 @@
           tooltip_hide: t('wpcc.tooltip_hide')
         } %>
       </div>
-      <div class="details__row" data-dough-component="PopupTip">
+      <div class="details__row">
         <div class="details__field">
           <%= f.form_row :gender do %>
             <div class="details__field-label">
               <%= f.label :gender, t('wpcc.details.gender.label'), class: 'form__label-heading' %>
-              <%= popup_tip_trigger options: {
-                text: t('wpcc.tooltip_show')
-              } %>
             </div>
             <%= f.errors_for :gender %>
             <%= f.select :gender,
@@ -59,11 +56,6 @@
             %>
           <% end %>
         </div>
-        <%= popup_tip_content options: {
-          text: t('wpcc.details.gender.tooltip'),
-          classname: 'details__helper',
-          tooltip_hide: t('wpcc.tooltip_hide')
-        } %>
       </div>
       <div class="details__row">
         <div class="details__callouts">
