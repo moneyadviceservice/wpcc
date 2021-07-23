@@ -20,7 +20,7 @@ en:
     meta:
       title: Workplace pension contribution calculator
       description: Our workplace pension contribution calculator will show how much will be paid into your pension by you and your employer.
-      canonical_url: https://www.moneyhelper.org/en/tools/workplace-pension-contribution-calculator
+      canonical_url: https://www.moneyhelper.org.uk/en/tools/workplace-pension-contribution-calculator
     tooltip_show: show help
     tooltip_hide: hide help
     tooltip_qualifying_earnings:
@@ -134,9 +134,9 @@ en:
           employers_html: Employer's <span data-wpcc-title-frequency>%{salary_frequency}</span> contribution
           total_html: Total <span data-wpcc-title-frequency>%{salary_frequency}</span> contributions
         tax_relief_html: (includes tax relief of <span data-wpcc-tax-relief-value>%{formatted_tax_relief}</span>)
-      tax_relief_warning_html: If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions if your pension scheme collects contributions using a method known as <em>tax relief at source</em>. We have assumed your scheme does. Read more in our guide about <a href="https://www.moneyhelper.org/en/articles/tax-relief-and-your-workplace-pension" target="_blank">tax relief and your workplace pension<span class="visually-hidden"> (opens in a new window)</span></a>.
+      tax_relief_warning_html: If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions if your pension scheme collects contributions using a method known as <em>tax relief at source</em>. We have assumed your scheme does. Read more in our guide about <a href="https://www.moneyhelper.org.uk/en/articles/tax-relief-and-your-workplace-pension" target="_blank">tax relief and your workplace pension<span class="visually-hidden"> (opens in a new window)</span></a>.
       tax_relief_warning: If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions if your pension scheme collects contributions using a method known as tax relief at source. We have assumed your scheme does. Read more in our guide about tax relief and your workplace pension.
-      tax_relief_tooltip_html: You get tax relief on pension contributions which means some of the money from your pay that would have gone to the government as tax goes towards your pension instead. <a href="https://www.moneyhelper.org/en/articles/tax-relief-and-your-workplace-pension" target="_blank">Read more about how you get tax relief <span class="visually-hidden">(opens in a new window)</span></a>.
+      tax_relief_tooltip_html: You get tax relief on pension contributions which means some of the money from your pay that would have gone to the government as tax goes towards your pension instead. <a href="https://www.moneyhelper.org.uk/en/articles/tax-relief-and-your-workplace-pension" target="_blank">Read more about how you get tax relief <span class="visually-hidden">(opens in a new window)</span></a>.
       contribution_table_link: View a table of how legal minimum contributions change
       print_link: Print your results
       email_link: Email your results

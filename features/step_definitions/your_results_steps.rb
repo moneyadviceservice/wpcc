@@ -56,7 +56,7 @@ Then(/^I should( not| NOT)? see tax relief "([^"]*)"$/) do |should_not, warning_
 end
 
 Then(/^I should see a link to "([^"]*)" which reads "([^"]*)"$/) do |tax_relief_link, tax_relief_link_text|
-  link = "https://www.moneyhelper.org/#{@language}/articles/#{tax_relief_link}"
+  link = "https://www.moneyhelper.org.uk/#{@language}/articles/#{tax_relief_link}"
   expect(your_results_page).to have_link(tax_relief_link_text, href: link)
 end
 

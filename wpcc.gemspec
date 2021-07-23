@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = Wpcc::Version::STRING
   s.authors     = ['Money Helper']
   s.email       = ['development.team@moneyadviceservice.org.uk']
-  s.homepage    = 'https://www.moneyhelper.org'
+  s.homepage    = 'https://www.moneyhelper.org.uk'
   s.summary     = 'Workplace Pensions Cost Calculator'
   s.description = 'Workplace Pensions Cost Calculator'
   s.license     = 'MIT'
