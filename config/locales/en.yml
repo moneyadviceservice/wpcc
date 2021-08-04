@@ -20,7 +20,7 @@ en:
     meta:
       title: Workplace pension contribution calculator
       description: Our workplace pension contribution calculator will show how much will be paid into your pension by you and your employer.
-      canonical_url: https://www.moneyadviceservice.org.uk/en/tools/workplace-pension-contribution-calculator
+      canonical_url: https://www.moneyhelper.org.uk/en/tools/workplace-pension-contribution-calculator
     tooltip_show: show help
     tooltip_hide: hide help
     tooltip_qualifying_earnings:
@@ -44,12 +44,11 @@ en:
 
       gender:
         label: Your gender
-        tooltip: We need to know your gender because the contribution rules vary slightly due to current differences in State Pension retirement dates for men and women.
         validation: Please select your gender
 
       salary:
         label: Your salary
-        tooltip_html: Enter your salary before tax or other deductions are taken off. This is known as your gross salary. <a href="/en/articles/automatic-enrolment-into-a-workplace-pension#automatic-enrolment-when-you-have-more-than-one-job" target="_blank">If you have more than one job<span class="visually-hidden"> (opens in a new window)</span></a>, you will have to enter each salary separately.
+        tooltip_html: Enter your salary before tax or other deductions are taken off. This is known as your gross salary. <a href=" https://www.moneyhelper.org.uk/en/pensions-and-retirement/auto-enrolment/i-have-more-than-one-job-how-does-this-affect-my-pension" target="_blank">If you have more than one job<span class="visually-hidden"> (opens in a new window)</span></a>, you will have to enter each salary separately.
         validation: Please enter your salary
         frequency:
           label: Frequency
@@ -76,10 +75,10 @@ en:
       next: Next
       prompt: Please choose
 
-      callout__lt16: You are too young to join a workplace pension. When you reach the age of 16 you may ask your employer to enrol you. If you do so, your employer will make contributions.
-      callout__optIn: Your employer will not automatically enrol you into a pension but you can choose to join.
-      callout__gt74: You are not eligible to join a workplace pension because you are above the maximum age.
-      callout__below_lower_threshold: Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will not be obliged to make contributions.
+      callout__lt16: You are too young to join a workplace pension. When you reach the age of 16 you can choose to join. If you do so, your employer might make contributions too depending on how much you earn.
+      callout__optIn: Your employer will not automatically enrol you into a pension but you can choose to join. If you earn more than the lower level of qualifying earnings, your employer must also contribute.
+      callout__gt74: You are not entitled to be automatically enrolled into a workplace pension. Many of the tax benefits of saving into a pension stop at age 75.
+      callout__below_lower_threshold: Your employer will not automatically enrol you into a pension but you can choose to join. If you earn more than the lower level of qualifying earnings, your employer must also contribute.
       callout__below_part_contributions_threshold: At your earnings level, you will have to make contributions based on your full salary.
       callout__btwn_lower_and_auto_enrol_threshold: Your employer will not automatically enrol you into a workplace pension scheme but you can choose to join. If you do so, your employer will make contributions.
 
@@ -87,7 +86,7 @@ en:
       near_manual_opt_in_limit_message_html: "Please Note: Your earnings are very close to the automatic enrolment salary threshold. You should check with your employer to confirm whether or not you are eligible to be automatically enrolled as the thresholds vary depending on whether you are paid monthly, weekly or 4-weekly. <a href='/en/articles/automatic-enrolment-if-you-earn-up-to-10000'>Read more about the salary thresholds for workplace pensions.</a>"
 
       section__heading:
-        age: '%{age} years'
+        age: "%{age} years"
         gender_male: male
         gender_female: female
         salary_year: £%{salary} per year
@@ -99,14 +98,14 @@ en:
 
     contributions:
       title: Your contributions
-      description_minimum_html:  Contributions will be made on your qualifying earnings%{tooltip_html} of %{eligible_salary} a year.
-      description_full_html:  Contributions will be made on your salary of %{eligible_salary} per year.
+      description_minimum_html: Contributions will be made on your qualifying earnings%{tooltip_html} of %{eligible_salary} a year.
+      description_full_html: Contributions will be made on your salary of %{eligible_salary} per year.
       your_contribution_title: Enter your contribution
       your_contribution_tip_below_lower_threshold: At your salary level there is no legal minimum contribution but your workplace pension scheme may have a set minimum. Check with your employer.
       legal_minimum_minimum_html: The legal minimum that must be paid into your pension is 8% a year of qualifying earnings. At least 3% must be paid by your employer. The usual split is 5% from employees and 3% from employers.%{tooltip_html}
       legal_minimum_full_html: The legal minimum that must be paid into your pension is 8% a year. At least 3% of this must be paid by your employer. The usual split is 5% from employees and 3% from employers.%{tooltip_html}
       employer_contribution_title: Enter your employer’s contribution
-      input_of_label: '% of'
+      input_of_label: "% of"
       calculate_button: Calculate your contributions
       contribution_gt40000_warning: Tax relief is only applied to contributions of up to %{amount} per year or 100% of your earnings, whichever is lower.
       employee_validation:
@@ -122,10 +121,8 @@ en:
 
     results:
       title: Your Results
-      description_full_html:
-        Contributions will be based on your salary of <span data-wpcc-eligible-salary>%{eligible_salary}</span> per year.
-      description_minimum_html:
-        Contributions will be based on your qualifying earnings%{tooltip_html} of <span data-wpcc-eligible-salary>%{eligible_salary}</span> per year.
+      description_full_html: Contributions will be based on your salary of <span data-wpcc-eligible-salary>%{eligible_salary}</span> per year.
+      description_minimum_html: Contributions will be based on your qualifying earnings%{tooltip_html} of <span data-wpcc-eligible-salary>%{eligible_salary}</span> per year.
       period_title:
         contributor_title: Contributor
         current: Now
@@ -137,9 +134,9 @@ en:
           employers_html: Employer's <span data-wpcc-title-frequency>%{salary_frequency}</span> contribution
           total_html: Total <span data-wpcc-title-frequency>%{salary_frequency}</span> contributions
         tax_relief_html: (includes tax relief of <span data-wpcc-tax-relief-value>%{formatted_tax_relief}</span>)
-      tax_relief_warning_html: If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions if your pension scheme collects contributions using a method known as <em>tax relief at source</em>. We have assumed your scheme does. Read more in our guide about <a href="https://www.moneyadviceservice.org.uk/en/articles/tax-relief-and-your-workplace-pension" target="_blank">tax relief and your workplace pension<span class="visually-hidden"> (opens in a new window)</span></a>.
+      tax_relief_warning_html: If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions if your pension scheme collects contributions using a method known as <em>tax relief at source</em>. We have assumed your scheme does. Read more in our guide about <a href="https://www.moneyhelper.org.uk/en/pensions-and-retirement/tax-and-pensions/tax-relief-and-your-pension" target="_blank">tax relief and your workplace pension<span class="visually-hidden"> (opens in a new window)</span></a>.
       tax_relief_warning: If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions if your pension scheme collects contributions using a method known as tax relief at source. We have assumed your scheme does. Read more in our guide about tax relief and your workplace pension.
-      tax_relief_tooltip_html: You get tax relief on pension contributions which means some of the money from your pay that would have gone to the government as tax goes towards your pension instead. <a href="https://www.moneyadviceservice.org.uk/en/articles/tax-relief-and-your-workplace-pension" target="_blank">Read more about how you get tax relief <span class="visually-hidden">(opens in a new window)</span></a>.
+      tax_relief_tooltip_html: You get tax relief on pension contributions which means some of the money from your pay that would have gone to the government as tax goes towards your pension instead. <a href="https://www.moneyhelper.org.uk/en/pensions-and-retirement/tax-and-pensions/tax-relief-and-your-pension" target="_blank">Read more about how you get tax relief <span class="visually-hidden">(opens in a new window)</span></a>.
       contribution_table_link: View a table of how legal minimum contributions change
       print_link: Print your results
       email_link: Email your results
@@ -147,9 +144,9 @@ en:
       next_steps:
         heading: Next steps
         list:
-          pension_calculator_html: Use our <a href="https://www.moneyadviceservice.org.uk/en/tools/pension-calculator" target="_blank">Pension Calculator <span class="visually-hidden">(opens in a new window)</span></a> to see how much pension pot you will build over time.
-          workplace_pensions_html: Find out more about <a href="https://www.moneyadviceservice.org.uk/en/categories/automatic-enrolment" target="_blank">workplace pensions <span class="visually-hidden">(opens in a new window)</span></a>.
-          budget_planner_html: Use our <a href="https://www.moneyadviceservice.org.uk/en/tools/budget-planner" target="_blank">budget planner <span class="visually-hidden">(opens in a new window)</span></a> to see what effect your contributions will have on your income.
+          pension_calculator_html: Use our <a href="https://www.moneyhelper.org.uk/en/pensions-and-retirement/pension-basics/pension-calculator" target="_blank">Pension Calculator <span class="visually-hidden">(opens in a new window)</span></a> to see how much pension pot you will build over time.
+          workplace_pensions_html: Find out more about <a href="https://www.moneyhelper.org.uk/en/pensions-and-retirement/auto-enrolment" target="_blank">workplace pensions <span class="visually-hidden">(opens in a new window)</span></a>.
+          budget_planner_html: Use our <a href="https://www.moneyhelper.org.uk/en/everyday-money/budgeting/budget-planner" target="_blank">budget planner <span class="visually-hidden">(opens in a new window)</span></a> to see what effect your contributions will have on your income.
       edit_frequency:
         label: Show my contributions
         button: Recalculate

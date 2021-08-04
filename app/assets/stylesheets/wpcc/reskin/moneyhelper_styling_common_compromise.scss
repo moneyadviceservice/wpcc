@@ -1,0 +1,232 @@
+// -- Headers ----------------------------------------------------------------------
+    h1,h2,h3,h4,h5,h6{
+        font-family: 'Roobert-Bold', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+    }
+    h1{ color: $blue_primary; }
+    h2{ color: $blue_primary; }
+    h3{ color: $text_secondary; }
+    // -- *Note H4 restricted to footer links - out of scope for reskin tools --
+    h5{ color: $text_secondary; }
+    h6{ color: $text_secondary; }
+// ---------------------------------------------------------------------------------
+
+// -- Lists ------------------------------------------------------------------------
+    ul,ol{
+        font-family: 'Roobert-Regular', sans-serif;
+    }
+
+// -- Paragraphs -------------------------------------------------------------------
+    p{
+        font-family: 'Roobert-Regular', sans-serif!important;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 23px;
+        color: $text_secondary;
+        &.callout{
+            background-color: $light_grey;
+            border-radius: $border_radius;
+            padding: 10px;
+        }
+    }
+    .callout{
+        background: $light_grey!important;
+        a{
+            font-size: 1rem!important;
+        }
+        &.callout--warning{
+            background-color: $yellow_secondary!important;
+        }
+
+    }
+// ---------------------------------------------------------------------------------
+
+// -- Links ------------------------------------------------------------------------
+    a{
+        color: $magenta_primary!important;
+        text-decoration: underline;
+        font-size: 18px!important;
+        &:hover{
+            color: $magenta_dark;
+            text-decoration: none;
+        }
+        &:active{
+            color: $magenta_darker;
+            text-decoration: none;
+        }
+        &:focus{
+            color: $text_secondary;
+            background-color: $yellow_secondary;
+            border-bottom: 4px solid $support_focus;
+            text-decoration: none;
+            outline: none;
+        }
+    }
+// ---------------------------------------------------------------------------------
+
+// -- Buttons ----------------------------------------------------------------------
+    .button{
+        box-sizing: border-box;
+        font-family: 'Roobert-SemiBold', sans-serif;
+        &:active, &:focus, &:hover{
+            outline: none!important;
+        }
+        &.button--primary{
+            background: $magenta_primary;
+            color: $white;
+            font-size: 16px;
+            border: 3px solid $magenta_primary;
+            border-radius: $border_radius;
+            box-shadow: 0px 3px 0px rgba(0, 11, 59, 0.25);
+            padding: 8px 16px;  
+            &:hover{
+                background: $magenta_dark;
+                border: 3px solid $magenta_dark;
+            }
+            &:focus{
+                background-color: $yellow_secondary;
+                border: 3px solid $support_focus;
+                color: $text_secondary;
+            }
+            &:active{
+                background: $magenta_darker;
+                color: $white;
+                border: 3px solid $yellow_secondary;
+                box-shadow: 0px 3px 0px $white, inset 0px 5px 2px rgba(0, 11, 59, 0.25);
+            }
+            &:disabled{
+                background: $light_grey;
+                color: $input_border;
+                box-shadow: none;
+                border: 1px solid $support_hr;
+            }
+        }
+    }
+    .js{
+        .popup-tip__button{
+            background-color: #F3F1F3;
+            color: #C82A87;
+            border: 3px solid #C82A87;
+            &:focus{
+                background-color: #F0F05A;
+                border-color: #8200D1;
+                color: #8200D1;
+                outline: none;
+            }
+            @media print{
+                display: none;
+            }
+            span{
+                display: block;
+                margin-top: -2px;
+            }
+        }
+        .popup-tip__container{
+            border: 2px solid $blue_primary;
+            .popup-tip__close{
+                border: 2px solid $blue_primary;
+                svg{
+                    display: none;
+                }
+                &:before{
+                    content: '';
+                    background-image: $close_svg;
+                    width: 24px;
+                    height: 24px;
+                    background-size: 18px;
+                    background-position: 50%;
+                    background-repeat: no-repeat;
+                    display: block;
+                }
+            }
+        }
+    }
+// ---------------------------------------------------------------------------------
+
+
+// -- Form elements ----------------------------------------------------------------
+    label{
+        font-family: 'Roobert-Bold', sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        color: $text_secondary;
+    }
+    input[type=text],
+    input[type=number]{
+        width: 285px;
+        height: 40px;
+        font-family: 'Roobert-Regular', sans-serif;
+        box-sizing: border-box;
+        background-color: $white;
+        border: 1px solid $input_border;
+        border-radius: $border_radius;
+        padding: 9px 12px 9px 12px;
+        &:focus{
+            border: 2px solid $support_focus;
+            border-radius: 0;
+            background-color: $yellow_secondary;
+            outline: 0;
+        }
+    }
+    select{
+        width: 285px;
+        background-color: $white;
+        -webkit-appearance: menulist;
+        -moz-appearance: menulist;
+        background-image: none;
+        padding: 7px 12px 7px 12px;
+        height: auto;
+        border-radius: $border_radius;
+        color: $text_secondary;
+        &:focus{
+            border: 2px solid $support_focus;
+            border-radius: 0;
+            background-color: $yellow_secondary;
+            outline: 0;
+        }
+    }
+    select::-ms-expand {
+        display: block;
+        border: none;
+        background: none;
+    }
+    fieldset{
+        legend{
+            font-family: 'Roobert-Bold', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+        }
+    }
+    .form__row.is-errored{
+        border-width: 0 0 0 4px;
+        border-style: solid;
+        border-color: $red_error;
+        label{
+            color: $text_secondary;
+        }
+        input[type=text],
+        input[type=number]{
+            border: 2px solid $red_error;
+        }
+        select{
+            border: 2px solid $red_error;
+            color: $text_secondary;
+            padding: 6px 12px;
+        }
+        .js-inline-error{
+            p{
+                color: $red_error;
+                font-size: 16px;
+                line-height: 23px;
+            }
+        }
+    }
+    .validation-summary__content-container{
+        border-width: 4px;
+        .validation-summary__title{
+            color: $red_error;
+        }
+    }
+// ---------------------------------------------------------------------------------

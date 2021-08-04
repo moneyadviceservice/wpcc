@@ -1,0 +1,253 @@
+// -- WPCC specific styles -------------------------------------------------
+    .details__field{
+        width: auto;
+        .details__salary{
+            width: auto;
+            .details__salary-amount{
+                width: 40%;
+            }
+            .details__salary-frequency{
+                select{
+                    width: 162px;
+                }
+            }
+        }
+    }
+    .details__calculate-item-label{
+        min-height: 130px;
+        font-family: 'Roobert-Regular', sans-serif;
+        font-weight: normal;
+    }
+    .details__salary-amount{
+        input{
+            width: 111px;
+        }
+    }
+    .section__heading-summary{
+        font-size: 16px;
+        line-height: 23px;
+        color: $text_secondary;
+        font-family: 'Roobert-Regular', sans-serif;
+        font-weight: normal;
+    }
+    a.section__heading-edit{
+        font-size: 16px;
+        line-height: 23px;
+        color: $magenta_primary;
+        text-decoration: underline;
+        &:hover{
+            color: $magenta_dark;
+            text-decoration: none;
+        }
+        &:visited{
+            color: $link_visited;
+        }
+    }
+    .contributions__source-title{
+        label{
+            color: $text_secondary;
+            font-size: 16px;
+            line-height: 23px;
+            font-weight: bold;
+        }
+    }
+    .contributions__row{
+        div{
+            background-color: $light_grey_2;
+        }
+    }
+    .results__content,
+    .next-steps{
+        .results__salary-frequency{
+            background-color: $light_grey;
+        }
+        a{
+            font-family: 'Roobert-Regular', sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px!important;
+            line-height: 23px;
+            text-decoration: underline;
+            color: $magenta_primary;
+            &:hover{
+                text-decoration: none;
+                color: $magenta_dark;
+            }
+            &:visited{
+                color: $link_visited;
+            }
+            &:focus{
+                text-decoration: none;
+            }
+        }
+    }
+    h4.next-steps__heading{
+        color: $text_secondary;
+        @media(max-width:$mobile_width){
+            font-size: 25px;
+            line-height: 33px;
+        }
+    }
+    .next-steps__list{
+        li{
+            color: $text_secondary;
+            &:before{
+                border-radius: 0;
+                background-color: $white;
+                border: 2px solid $teal_secondary;
+                color: $teal_secondary;
+                line-height: 1.5em;
+            }
+        }
+        a{
+            font-size: 18px!important;
+        }
+    }
+
+    .details__calculate-item{
+        input[type=radio]{
+            &:focus,
+            &:hover{
+                outline-color: $support_focus;
+            }
+            + label{
+                cursor: pointer;
+            }
+            &:checked{
+                + label{
+                    border: 1px solid $blue_primary;
+                    background-color: $light_grey;
+                }
+            }
+        }
+    }
+
+    html:not(.js){
+        .results__content{
+            .results__row{
+                clear: both;
+                + p,
+                + p + p{
+                    display: none;
+                }
+            }
+        }
+        .results__salary-frequency{
+            height: 60px;
+            .results__salary-frequency-submit{
+                display: block;
+                margin-left: 20px;
+                background: $magenta_primary;
+                color: $white;
+                font-size: 16px;
+                border: 3px solid $magenta_primary;
+                border-radius: $border_radius;
+                box-shadow: 0px 3px 0px rgba(0, 11, 59, 0.25);
+                padding: 7px 16px;
+                &:hover{
+                    background: $magenta_dark;
+                    border: 3px solid $magenta_dark;
+                }
+                &:focus{
+                    outline: none;
+                    background-color: $yellow_secondary;
+                    border: 3px solid $support_focus;
+                    color: $text_secondary;
+                }
+                &:active{
+                    background: $magenta_darker;
+                    color: $white;
+                    border: 3px solid $yellow_secondary;
+                    box-shadow: 0px 3px 0px $white, inset 0px 5px 2px rgba(0, 11, 59, 0.25);
+                }
+            }
+            .results__salary-label{
+                padding-top: 6px;
+            }
+            .results__salary-label,
+            select,
+            .results__salary-frequency-submit{
+                float: left;
+            }
+        }
+
+    }
+    .minimum-contributions-error{
+        margin-bottom: 10px;
+        background-color: $red_error_background;
+        .validation-summary{
+            .validation-summary__content-container{
+                background-color: $red_error_background;
+                width: 100%;
+                .validation-summary__title{
+                    color: $red_error;
+                    font-weight: bold;
+                }
+                padding: 1px 10px;
+                border-left: 4px solid $red_error;
+                color: $red_error;
+            }
+        }
+    }
+    .contributions__source--employee,
+    .contributions__source--employer{
+        &.is-errored{
+            min-height: 210px;
+            position: relative;
+            background-color: $red_error_background;
+            .js-inline-error{
+                background-color: $red_error_background;
+            }
+            &::before{
+                content: '';
+                display: block;
+                width: 4px;
+                height: 65%;
+                background-color: $red_error;
+                position: absolute;
+                top: 34px;
+            }
+            div, h3, input{
+                margin-left: 20px ;
+            }
+            @media(max-width:$mobile_width){
+                min-height: auto;
+            }
+        }
+    }
+    .validation-summary__list{
+        font-size: 16px;
+        li{
+            a{
+                color: $red_error!important;
+                &:focus{
+                    text-decoration: none;
+                }
+            }
+            &::marker{
+                color: $red_error;
+            }
+        }
+    }
+    .contributions__source{
+        .contributions__source-input{
+            width: 90px;
+        }
+    }
+
+    .stripe-banner{
+        display: none;
+    }
+    .section__heading-edit{
+        font-size: 16px!important;
+    }
+    .contributions__source--employee,
+    .contributions__source--employer{
+        &.is-errored{
+            background-color: $light_grey_2;
+            &::before{
+                display: none;
+            }
+        }
+    }
+// -------------------------------------------------------------------------
