@@ -3,7 +3,6 @@ module Wpcc
     SESSION_KEYS =
       %i[
         age
-        gender
         salary
         salary_frequency
         contribution_preference

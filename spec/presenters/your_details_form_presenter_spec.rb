@@ -6,25 +6,14 @@ RSpec.describe Wpcc::YourDetailsFormPresenter do
   let(:your_details_form) { Wpcc::YourDetailsForm.new }
   let(:context) { ActionController::Base.new.view_context }
 
-  describe '#gender_options' do
-    it 'returns an array of keys and values for gender select options' do
-      genders = %w[male female]
-      expected_result = genders.map { |gender| [gender.capitalize, gender] }
-
-      expect(subject.gender_options).to eq(expected_result)
-    end
-  end
-
   describe '#activate_disabled_callout' do
     context 'salary lower than threshold' do
       let(:age) { 35 }
-      let(:gender) { 'female' }
       let(:salary) { 4000 }
       let(:salary_frequency) { 'year' }
 
       let(:your_details_form) do
         Wpcc::YourDetailsForm.new(age: age,
-                                  gender: gender,
                                   salary: salary,
                                   salary_frequency: salary_frequency,
                                   contribution_preference: pref)

@@ -42,10 +42,6 @@ en:
         tooltip: We need to know your age so that we can work out the contributions correctly – the rules vary slightly based on age. This is explained in the letter you receive from your employer about automatic enrolment.
         validation: Please enter your age
 
-      gender:
-        label: Your gender
-        validation: Please select your gender
-
       salary:
         label: Your salary
         tooltip_html: Enter your salary before tax or other deductions are taken off. This is known as your gross salary. <a href=" https://www.moneyhelper.org.uk/en/pensions-and-retirement/auto-enrolment/i-have-more-than-one-job-how-does-this-affect-my-pension" target="_blank">If you have more than one job<span class="visually-hidden"> (opens in a new window)</span></a>, you will have to enter each salary separately.
@@ -59,9 +55,6 @@ en:
           month: per month
           fourweeks: per 4 weeks
           week: per week
-        gender:
-          female: Female
-          male: Male
         contribution_preference:
           descriptor: Contribution
           full: My employer makes contributions on my full salary
@@ -87,8 +80,6 @@ en:
 
       section__heading:
         age: "%{age} years"
-        gender_male: male
-        gender_female: female
         salary_year: £%{salary} per year
         salary_month: £%{salary} per month
         salary_fourweeks: £%{salary} per 4-weeks

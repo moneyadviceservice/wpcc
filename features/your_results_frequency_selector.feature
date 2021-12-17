@@ -5,7 +5,7 @@ Feature:
 
   Background:
     Given I am on the Your Details step
-    And I am a "25" year old "female"
+    And I am a "25" year old
     And my salary is "80000" "per year" with "Full" contribution
     And I click the Next button
     And my contribution is "10" percent

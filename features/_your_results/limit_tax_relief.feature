@@ -6,7 +6,7 @@ Feature: Limit Tax Relief
 
   Background:
     Given I am on the Your Details step
-    And I am a "25" year old "male"
+    And I am a "25" year old
 
     Scenario: Employee contributing more than £40,000 per year to pension
       Given my salary is "80000" "per year" with "Full" contribution

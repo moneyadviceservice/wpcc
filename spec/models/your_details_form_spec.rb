@@ -15,7 +15,6 @@ describe Wpcc::YourDetailsForm, type: :model do
 
   subject do
     described_class.new(age: 32,
-                        gender: 'female',
                         salary: salary,
                         salary_frequency: salary_frequency,
                         contribution_preference: contribution_preference)
@@ -64,10 +63,6 @@ describe Wpcc::YourDetailsForm, type: :model do
         it { is_expected.not_to allow_value(90).for(:age)  }
         it { is_expected.not_to allow_value(120).for(:age) }
       end
-    end
-
-    context 'gender' do
-      it { should validate_inclusion_of(:gender).in_array %w[male female] }
     end
 
     context 'salary' do

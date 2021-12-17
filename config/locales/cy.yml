@@ -42,11 +42,6 @@ cy:
         tooltip: Mae arnom angen gwybod eich oedran er mwyn i ni fedru cyfrifo’r cyfraniadau’n gywir – mae’r rheolau’n amrywio ychydig yn seiliedig ar oed. Eglurir hyn yn y llythyr a gewch gan eich cyflogwr am gofrestru awtomatig.
         validation: Nodwch eich oed
 
-      gender:
-        label: Eich rhyw
-        tooltip: Rhaid i ni wybod eich rhyw oherwydd mae rheolau cyfrannu’n amrywio ychydig yn sgil gwahaniaethau presennol yn nyddiadau ymddeol Pensiwn y Wladwriaeth ar gyfer dynion a merched.
-        validation: Dewiswch eich rhywedd
-
       salary:
         label: Eich cyflog
         tooltip_html: Rhowch eich cyflog cyn i’r dreth nag unrhyw ddidyniadau eraill gael eu tynnu. Gelwir hyn yn gyflog gros. <a href="https://www.moneyhelper.org.uk/cy/pensions-and-retirement/auto-enrolment/i-have-more-than-one-job-how-does-this-affect-my-pension" target="_blank">Os oes gennych fwy nag un swydd<span class="visually-hidden"> (Yn agor mewn ffenestr newydd)</span></a>, bydd raid i chi roi pob cyflog ar wahân.
@@ -60,9 +55,6 @@ cy:
           month: y mis
           fourweeks: fesul 4 wythnos
           week: y wythnos
-        gender:
-          female: Benywaidd
-          male: Gwrywaidd
         contribution_preference:
           descriptor: Cyfraniad
           full: Mae fy nghyflogwr yn cyfrannu ar fy nghyflog llawn
@@ -88,8 +80,6 @@ cy:
 
       section__heading:
         age: "%{age} blynyddoedd"
-        gender_male: gwrywaidd
-        gender_female: benywaidd
         salary_year: £%{salary} y flwyddyn
         salary_month: £%{salary} y mis
         salary_fourweeks: £%{salary} fesul 4 wythnos

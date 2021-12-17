@@ -6,8 +6,8 @@ Feature:
   Background:
     Given I am on the Your Details step
     And I fill in my details:
-      | age | gender | salary | salary_frequency | contribution |
-      | 25  | male   | 20000  | per year         | Minimum      |
+      | age | salary | salary_frequency | contribution |
+      | 25  | 20000  | per year         | Minimum      |
     And I proceed to the next step
 
     Scenario: When employee contribution is above default

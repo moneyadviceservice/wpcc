@@ -6,8 +6,8 @@ Feature: Validating contribution percentages
 Background:
   Given I am on the Your Details step
   
-Scenario Outline: Adds up to 8% or more for a 30 year old male
-  And I am a "30" year old "male"
+Scenario Outline: Adds up to 8% or more for a 30 year old
+  And I am a "30" year old
   And I enter my salary as "45000"
   And I choose my contribution preference as "<contribution_preference>"
   And I click the Next button
@@ -25,8 +25,8 @@ Scenario Outline: Adds up to 8% or more for a 30 year old male
     | Minimum                 | 7.0              | 3.0              | £226.10                 | £96.90                  |
     | Minimum                 | 0.0              | 8.0              | £0.00                   | £258.40                 |
 
-Scenario Outline: Adds up to 8% or more for a 39 year old female
-  And I am a "28" year old "female"
+Scenario Outline: Adds up to 8% or more for a 39 year old
+  And I am a "28" year old
   And I enter my salary as "28569"
   And I choose my contribution preference as "<contribution_preference>"
   And I click the Next button
@@ -40,8 +40,8 @@ Scenario Outline: Adds up to 8% or more for a 39 year old female
     | Full                    | 5.5              | 6.5              | £130.94                 | £154.75                 |
     | Minimum                 | 5.5              | 6.5              | £102.34                 | £120.95                 |
 
-Scenario Outline: Adds up to 8% or more for a 64 year old male
-  And I am a "64" year old "male"
+Scenario Outline: Adds up to 8% or more for a 64 year old
+  And I am a "64" year old
   And my salary is "4100" "per month" with "<contribution_preference>" contribution
   And I click the Next button
   And my employee contribution is "<employee_percent>"

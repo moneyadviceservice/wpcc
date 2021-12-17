@@ -117,7 +117,6 @@ RSpec.describe Wpcc::MessagePresenter do
       let(:hash) do
         {
           age: 23,
-          gender: 'Male',
           salary: 6_000,
           salary_frequency: 'year',
           contribution_preference: 'Minimum'
@@ -125,7 +124,7 @@ RSpec.describe Wpcc::MessagePresenter do
       end
 
       it 'formats the session details to a string' do
-        string = '23 years, male, £6,000 per year, part salary'
+        string = '23 years, £6,000 per year, part salary'
         expect(subject.your_details_summary(hash)).to eq(string)
       end
     end
@@ -134,14 +133,13 @@ RSpec.describe Wpcc::MessagePresenter do
       let(:hash) do
         {
           age: 43,
-          gender: 'Female',
           salary: 26_000,
           salary_frequency: 'week',
           contribution_preference: 'Full'
         }
       end
       it 'formats the session details to a string' do
-        string = '43 years, female, £26,000 per week, full salary'
+        string = '43 years, £26,000 per week, full salary'
         expect(subject.your_details_summary(hash)).to eq(string)
       end
     end

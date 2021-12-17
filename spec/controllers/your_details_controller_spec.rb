@@ -5,7 +5,6 @@ module Wpcc
       {
         'age' => 34,
         'salary' => 30_000,
-        'gender' => 'female',
         'salary_frequency' => 'month',
         'contribution_preference' => 'full'
       }

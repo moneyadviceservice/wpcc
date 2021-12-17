@@ -41,23 +41,6 @@
         } %>
       </div>
       <div class="details__row">
-        <div class="details__field">
-          <%= f.form_row :gender do %>
-            <div class="details__field-label">
-              <%= f.label :gender, t('wpcc.details.gender.label'), class: 'form__label-heading' %>
-            </div>
-            <%= f.errors_for :gender %>
-            <%= f.select :gender,
-              options_for_select(@your_details_form.gender_options, @your_details_form.gender),
-              {prompt: t('wpcc.details.prompt')},
-              'data-wpcc-gender-select': true,
-              required: true,
-              'data-dough-validation-empty': t('wpcc.details.gender.validation')
-            %>
-          <% end %>
-        </div>
-      </div>
-      <div class="details__row">
         <div class="details__callouts">
           <div class="form__row details__callout details__callout--inactive" data-wpcc-callout-lt16>
             <div class="callout">

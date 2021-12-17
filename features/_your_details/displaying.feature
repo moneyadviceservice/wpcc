@@ -6,7 +6,6 @@ Feature: Your Details displaying
 Scenario Outline: Display input details on later steps
   Given I am on the Your Details step
   When I enter my age as "<age>"
-  And I select my gender as "<gender>"
   And I select my salary frequency as "<salary_frequency>"
   And I choose my contribution preference as "<contribution_preference>"
   And I enter my salary as "<salary>"
@@ -14,10 +13,10 @@ Scenario Outline: Display input details on later steps
   Then I should see "<my_details>" summarised
 
   Examples:
-    | age | gender    | salary_frequency | salary | contribution_preference | my_details                                                               |
-    | 23  | Male      | per year         | 6240   | Minimum                 | 23 years, male, £6,240 per year, part salary                             |
+    | age | salary_frequency | salary | contribution_preference | my_details                                                         |
+    | 23  | per year         | 6240   | Minimum                 | 23 years, £6,240 per year, part salary                             |
 
   @welsh
   Examples:
-    | age | gender    | salary_frequency | salary | contribution_preference | my_details                                                               |
-    | 34  | Benywaidd | fesul 4 wythnos  | 36000  | Minimum                 | 34 blynyddoedd, benywaidd, £36,000 fesul 4 wythnos, nghyflog rhan Golygu |
+    | age | salary_frequency | salary | contribution_preference | my_details                                                    |
+    | 34  | fesul 4 wythnos  | 36000  | Minimum                 | 34 blynyddoedd, £36,000 fesul 4 wythnos, nghyflog rhan Golygu |

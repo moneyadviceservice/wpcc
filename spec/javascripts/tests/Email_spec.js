@@ -30,7 +30,7 @@ describe('Email', function() {
     it('Tests the email link is correct', function() {
       var message = '';
 
-      message += '1. Your details: 31 years, male, £50,000 per year, part salary\n\n';
+      message += '1. Your details: 31 years, £50,000 per year, part salary\n\n';
       message += '2. Your contributions: You: 1%, Your employer: 1%\n\n';
       message += '3. Your Results\n';
       message += 'Qualifying earnings: £39,124\n\n';
