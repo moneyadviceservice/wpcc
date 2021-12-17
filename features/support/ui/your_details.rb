@@ -6,7 +6,6 @@ module UI
 
     element :form, "#new_your_details_form"
     element :age, "input[name='your_details_form[age]']"
-    element :genders, "select[name='your_details_form[gender]']"
     element :salary, "input[name='your_details_form[salary]']"
     element :salary_frequencies, "select[name='your_details_form[salary_frequency]']"
     element :minimum_contribution_button, '#your_details_form_contribution_preference_minimum'

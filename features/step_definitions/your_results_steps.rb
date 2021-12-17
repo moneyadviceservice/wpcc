@@ -96,7 +96,6 @@ end
 Given(/^that I am on your details step I fill:$/) do |table|
   data = table.hashes.first
   step %{I enter my age as "#{data[:age]}"}
-  step %{I select my gender as "#{data[:gender]}"}
   step %{I enter my salary as "#{data[:salary]}"}
   step %{I select my salary frequency as "#{data[:salary_frequency]}"}
   step %{I choose my contribution preference as "#{data[:contribution]}"}

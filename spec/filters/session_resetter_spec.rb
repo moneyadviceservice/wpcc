@@ -6,7 +6,6 @@ RSpec.describe Wpcc::SessionResetter do
       {
         'age' => 34,
         'salary' => 30_000,
-        'gender' => 'female',
         'salary_frequency' => 'month',
         'contribution_preference' => 'full',
         'eligible_salary' => 19_524,
@@ -24,7 +23,6 @@ RSpec.describe Wpcc::SessionResetter do
       expect(session.except(:wpcc_expires_at)).to eq(
         'age' => nil,
         'salary' => nil,
-        'gender' => nil,
         'salary_frequency' => nil,
         'contribution_preference' => nil,
         'eligible_salary' => nil,

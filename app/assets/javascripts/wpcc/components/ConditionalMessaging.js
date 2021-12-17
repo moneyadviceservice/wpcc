@@ -8,7 +8,6 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     ConditionalMessaging.baseConstructor.call(this, $el, config, defaultConfig);
 
     this.$ageField = this.$el.find('[data-wpcc-age-field]');
-    this.$genderSelect = this.$el.find('[data-wpcc-gender-select]');
     this.$callout_lt16 = this.$el.find('[data-wpcc-callout-lt16]');
     this.$callout_optIn = this.$el.find('[data-wpcc-callout-optIn]');
     this.$callout_gt74 = this.$el.find('[data-wpcc-callout-gt74]');
@@ -33,15 +32,10 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     this.$ageField.keyup(function() {
       _this._displayMessage();
     })
-
-    this.$genderSelect.change(function() {
-      _this._displayMessage();
-    })
   }
 
   ConditionalMessaging.prototype._displayMessage = function() {
     var age = this.$ageField.val();
-    var gender = this.$genderSelect.val();
 
     this.$callout_lt16.addClass('details__callout--inactive');
     this.$callout_lt16.removeClass('details__callout--active');
@@ -51,7 +45,7 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
     this.$callout_gt74.removeClass('details__callout--active');
     this.$submit.attr('disabled', false);
 
-    if (age && gender) {
+    if (age) {
       if (age < 16) {
         this.$callout_lt16.removeClass('details__callout--inactive');
         this.$callout_lt16.addClass('details__callout--active');

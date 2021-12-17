@@ -35,7 +35,6 @@ module Wpcc
     def your_details_form_params
       params.require(:your_details_form).permit(:age,
                                                 :salary,
-                                                :gender,
                                                 :salary_frequency,
                                                 :contribution_preference)
     end
@@ -44,7 +43,6 @@ module Wpcc
       session.to_hash.slice(
         'age',
         'salary',
-        'gender',
         'salary_frequency',
         'contribution_preference'
       )

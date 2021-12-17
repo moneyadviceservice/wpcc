@@ -15,10 +15,6 @@ Given(/^I enter my age as "([^"]*)"$/) do |age|
   your_details_page.age.set(age)
 end
 
-Given(/^I select my gender as "([^"]*)"$/) do |gender|
-  your_details_page.genders.select(gender.capitalize)
-end
-
 Given(/^I enter my salary as "([^"]*)"$/) do |salary|
   your_details_page.salary.set(salary)
 end
@@ -39,9 +35,8 @@ When(/^I choose to make( the)? full contribution(s)?$/) do |_,_|
   your_details_page.full_contribution_button.set(true)
 end
 
-Given(/^I am a "([^"]*)" year old "([^"]*)"$/) do |age, gender|
+Given(/^I am a "([^"]*)" year old$/) do |age|
   step %{I enter my age as "#{age}"}
-  step %{I select my gender as "#{gender}"}
 end
 
 Given(/^my "([^"]*)" "([^"]*)", regardless of "([^"]*)" contribution, is (above|below)? the minimum threshold$/) do |salary, salary_frequency, part_or_full, _|
@@ -53,12 +48,10 @@ end
 
 When(/^I enter my details$/) do
   step %{I enter my age as "35"}
-  step %{I select my gender as "#{I18n.translate('wpcc.details.options.gender.female')}"}
 end
 
 When(/^I enter my personal details$/) do
   step %{I enter my age as "35"}
-  step %{I select my gender as "#{I18n.translate('wpcc.details.options.gender.female')}"}
   step %{I choose to make minimum contributions}
 end
 
@@ -77,7 +70,6 @@ end
 
 When(/^I fill in my details$/) do
   step %{I enter my age as "35"}
-  step %{I select my gender as "#{I18n.translate('wpcc.details.options.gender.female')}"}
   step %{I enter my salary as "35000"}
   step %{I select my salary frequency as "#{I18n.translate('wpcc.details.options.salary_frequency.year')}"}
   step %{I choose to make minimum contributions}
@@ -86,7 +78,6 @@ end
 When(/^I fill in my details:$/) do |table|
   data = table.hashes.first
   step %{I enter my age as "#{data[:age]}"}
-  step %{I select my gender as "#{data[:gender]}"}
   step %{I enter my salary as "#{data[:salary]}"}
   step %{I select my salary frequency as "#{data[:salary_frequency]}"}
   step %{I choose my contribution preference as "#{data[:contribution]}"}
@@ -171,9 +162,8 @@ Then(/^I should return to the Your Details step$/) do
   expect(your_details_page.form).to be_visible
 end
 
-Then(/^I should see my "([^"]*)", "([^"]*)", "([^"]*)", "([^"]*)" and "([^"]*)" in the form$/) do |age, gender, salary, selected_frequency, contribution |
+Then(/^I should see my "([^"]*)", "([^"]*)", "([^"]*)" and "([^"]*)" in the form$/) do |age, salary, selected_frequency, contribution |
   expect(your_details_page.age.value).to eq(age)
-  expect(your_details_page.genders.value).to eq(gender)
   expect(your_details_page.salary.value).to eq(salary)
   expect(your_details_page.salary_frequencies.value).to eq(selected_frequency)
   expect(your_details_page.send("#{contribution.downcase}_contribution_button")).to be_truthy
@@ -203,7 +193,6 @@ end
 
 Then(/^The form should be reset to its default values$/) do
   expect(your_details_page.age.value).to be_nil
-  expect(your_details_page.genders.value).to eq("")
   expect(your_details_page.salary.value).to be_nil
   expect(your_details_page.salary_frequencies.value).to eq('year')
   expect(your_details_page.minimum_contribution_button).to be_truthy

@@ -58,7 +58,6 @@ module Wpcc
       preference = hash[:contribution_preference].downcase
       [
         t('wpcc.details.section__heading.age', age: hash[:age]),
-        t("wpcc.details.section__heading.gender_#{hash[:gender].downcase}"),
         t("wpcc.details.section__heading.salary_#{hash[:salary_frequency]}",
           salary: salary),
         t("wpcc.details.section__heading.contribution_#{preference}")

@@ -1,11 +1,5 @@
 module Wpcc
   class YourDetailsFormPresenter < Presenter
-    def gender_options
-      Wpcc::YourDetailsForm::GENDERS.map do |gender|
-        [text_for('gender', gender), gender.downcase]
-      end
-    end
-
     def error_class(attribute)
       object.errors[attribute].any? ? 'form__row--is-errored' : nil
     end

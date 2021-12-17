@@ -4,7 +4,6 @@ module Wpcc
 
     describe '#new' do
       let(:age) { 20 }
-      let(:gender) { 'female' }
       let(:salary) { 30_000 }
       let(:contribution_preference) { 'minimum' }
       let(:eligible_salary) { 23_760 }
@@ -84,8 +83,7 @@ module Wpcc
               salary: salary,
               contribution_preference: contribution_preference,
               salary_frequency: 'year',
-              age: age,
-              gender: gender
+              age: age
 
           expect(your_contributions_form.employee_percent).to eq(10)
           expect(your_contributions_form.employer_percent).to eq(40)
@@ -116,8 +114,7 @@ module Wpcc
           salary: salary,
           contribution_preference: contribution_preference,
           salary_frequency: salary_frequency,
-          age: age,
-          gender: gender
+          age: age
     end
 
     def post_create(locale = 'en', employee_percent = 5)
