@@ -14,5 +14,3 @@ bundle exec bowndler install -q
 
 bundle exec rspec -f progress
 bundle exec cucumber -f progress
-
-./node_modules/karma/bin/karma start spec/javascripts/karma.conf.js --single-run --reporters dots
