@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
 
   s.test_files = Dir['spec/**/*']
 
-  s.add_dependency 'dough-ruby', '~> 5.38'
+  s.add_dependency 'dough-ruby', '< 6'
   s.add_dependency 'meta-tags'
   s.add_runtime_dependency 'modernizr-rails', '~> 2.6.2'
 
