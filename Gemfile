@@ -31,14 +31,10 @@ group :development, :test do
 end
 
 group :test do
-  gem 'brakeman', '~> 4.5.1', require: false
   gem 'capybara', '< 3.0'
   gem 'cucumber-rails', require: false
-  gem 'danger', require: false
-  gem 'danger-rubocop', require: false
   gem 'poltergeist'
   gem 'phantomjs', require: 'phantomjs/poltergeist'
-  gem 'simplecov', require: false
   gem 'site_prism'
   gem 'timecop'
   gem 'tzinfo-data'
