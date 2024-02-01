@@ -37,6 +37,7 @@ group :test do
   gem 'danger', require: false
   gem 'danger-rubocop', require: false
   gem 'poltergeist'
+  gem 'phantomjs', require: 'phantomjs/poltergeist'
   gem 'simplecov', require: false
   gem 'site_prism'
   gem 'timecop'
