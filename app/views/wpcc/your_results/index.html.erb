@@ -1,6 +1,12 @@
 <% set_meta_tags title: [t("wpcc.meta.title"), t("wpcc.results.title")],
                  reverse: true %>
 
+<% content_for(:page_name, 'workplace-pension-contribution-calculator--your_results') %>
+<% content_for(:page_title, 'Your Results - Workplace pension contribution calculator') %>
+<% content_for(:tool_name, 'Workplace Pension Contribution Calculator') %>
+<% content_for(:tool_step, '3') %>
+<% content_for(:step_name, 'Results') %>
+
 <%= render 'wpcc/shared/your_details' %>
 <%= render 'wpcc/shared/your_contributions', message_presenter: message_presenter %>
 <section class="section section--results">

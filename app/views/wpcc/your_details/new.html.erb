@@ -1,5 +1,11 @@
 <% set_meta_tags title: t("wpcc.meta.title") %>
 
+<% content_for(:page_name, 'workplace-pension-contribution-calculator') %>
+<% content_for(:page_title, 'Workplace pension contribution calculator') %>
+<% content_for(:tool_name, 'Workplace Pension Contribution Calculator') %>
+<% content_for(:tool_step, '1') %>
+<% content_for(:step_name, 'Your details') %>
+
 <section class="section section--details details" data-dough-component="ConditionalMessaging">
   <%= form_for(
     @your_details_form,
