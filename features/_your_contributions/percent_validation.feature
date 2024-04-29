@@ -17,9 +17,9 @@ Scenario Outline: minimum contribution percentage on salary less than £6,032
 
   Examples:
     | message                                                     | employee_default |
-    | At your salary level there is no legal minimum contribution | 5.0              |
+    | At your salary level there is no legal minimum contribution | 4.0              |
 
   @welsh
   Examples:
     | message                                           | employee_default |
-    | Ar eich lefel cyflog, nid oes isafswm cyfreithiol | 5.0              |
+    | Ar eich lefel cyflog, nid oes isafswm cyfreithiol | 4.0              |

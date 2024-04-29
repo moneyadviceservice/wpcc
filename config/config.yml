@@ -5,13 +5,13 @@ salary_thresholds:
 contribution_percentages:
   current:
     employee:
-      below_threshold: 5
-      above_threshold: 5
+      below_threshold: 4
+      above_threshold: 4
     employer: 
       below_threshold: 0
       above_threshold: 3
     tax_relief: 20
-    combined_minimum: 8
+    combined_minimum: 7
 
 frequency_conversions:
   salary_frequencies:

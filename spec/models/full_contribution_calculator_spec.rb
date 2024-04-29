@@ -19,7 +19,7 @@ describe Wpcc::FullContributionCalculator, type: :model do
       let(:salary_per_year) { 5_000 }
 
       it 'returns 5' do
-        expect(subject.employee_percent).to eq(5)
+        expect(subject.employee_percent).to eq(4)
       end
     end
 
@@ -27,7 +27,7 @@ describe Wpcc::FullContributionCalculator, type: :model do
       let(:salary_per_year) { 6_032 }
 
       it 'returns 5' do
-        expect(subject.employee_percent).to eq(5)
+        expect(subject.employee_percent).to eq(4)
       end
     end
   end

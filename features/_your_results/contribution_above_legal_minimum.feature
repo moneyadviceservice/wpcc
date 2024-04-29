@@ -25,7 +25,7 @@ Feature:
       When I move on to the results page
       Then I should see the values on the results page as:
         |                          | Now     |
-        | Employee Contributions   | £57.33  |
-        | Including tax relief of  | £11.47  |
+        | Employee Contributions   | £45.87  |
+        | Including tax relief of  | £9.17   |
         | Employer Contributions   | £57.33  |
-        | TOTAL Contributions      | £114.66 |
+        | TOTAL Contributions      | £103.20 |

@@ -74,4 +74,4 @@ Scenario Outline: Adds up to less than 8%
     | Minimum                 | 1.5              | 3.0              |
     | Minimum                 | 3.0              | 3.0              |
     | Minimum                 | 2.5              | 4.0              |
-    | Minimum                 | 2.0              | 5.0              |
+    | Minimum                 | 1.0              | 5.0              |

@@ -5,18 +5,18 @@ describe Wpcc::YourContributionsForm, type: :model do
 
   describe 'minimum combined contributions validation' do
     context 'successful' do
-      it 'passes when the sum of employee and employer percents is GTE to 8' do
+      it 'passes when the sum of employee and employer percents is GTE to 7' do
         subject.employee_percent = 2.0
-        subject.employer_percent = 6.0
+        subject.employer_percent = 5.0
 
         expect(subject.valid?).to be_truthy
       end
     end
 
     context 'failure' do
-      it 'fails when the sum of employee and employer percents is below 8' do
+      it 'fails when the sum of employee and employer percents is below 7' do
         subject.employee_percent = 1.0
-        subject.employer_percent = 6.0
+        subject.employer_percent = 5.0
 
         expect(subject.valid?).to be_falsey
       end

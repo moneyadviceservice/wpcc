@@ -27,7 +27,7 @@ describe Wpcc::MinimumContributionCalculator, type: :model do
 
   describe '#employee_percent' do
     it 'returns 5' do
-      expect(subject.employee_percent).to eq(5)
+      expect(subject.employee_percent).to eq(4)
     end
   end
 
