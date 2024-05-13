@@ -32,7 +32,9 @@ en:
       text_full_contribution: The overall minimum that must be paid into your pension is 8% of your earnings.  At least 3% must be paid by your employer,  however if your employer pays more than 3% you need only pay the balance up to 8%.  For example, if your employer pays 6%, you need only pay 2%. However, the more you and your employer pay in, the better your retirement income will be.
 
     title: Workplace pension contribution calculator
-    intro: It is now law that most employees must be enrolled into a workplace pension scheme by their employer. This calculator will show you how much will be paid into your pension by you and your employer.
+    intro_html: |
+      <p class="wpcc__intro">This calculator will give you an estimate of how much you and your employer will pay into your pension.</p>
+      <p class="wpcc__intro">To find the exact amount, check your payslip or talk to your employer. This tool is for information and guidance only.</p>
     edit: Edit
 
     details:
@@ -93,8 +95,8 @@ en:
       description_full_html: Contributions will be made on your salary of %{eligible_salary} per year.
       your_contribution_title: Enter your contribution
       your_contribution_tip_below_lower_threshold: At your salary level there is no legal minimum contribution but your workplace pension scheme may have a set minimum. Check with your employer.
-      legal_minimum_minimum_html: The legal minimum that must be paid into your pension is 8% a year of qualifying earnings. At least 3% must be paid by your employer. The usual split is 5% from employees and 3% from employers.%{tooltip_html}
-      legal_minimum_full_html: The legal minimum that must be paid into your pension is 8% a year. At least 3% of this must be paid by your employer. The usual split is 5% from employees and 3% from employers.%{tooltip_html}
+      legal_minimum_minimum_html: For most people, the minimum you and your employer can put into your pension is 8% of your qualifying earnings. At least 3% of this must come from your employer. See our page on <a href="https://www.moneyhelper.org.uk/en/pensions-and-retirement/auto-enrolment/how-much-do-i-and-my-employer-have-to-pay" target="_blank">workplace pension contributions</a> for more details.%{tooltip_html}
+      legal_minimum_full_html: For most people, the minimum you and your employer can put into your pension is 8% of your qualifying earnings. It can be less if your employer makes contributions based on your <strong>full</strong> earnings instead, including bonuses, overtime and commission. At least 3% of this must still come from your employer. This calculator does not cover cases where the total contribution is lower than 8%. See our page on <a href="https://www.moneyhelper.org.uk/en/pensions-and-retirement/auto-enrolment/how-much-do-i-and-my-employer-have-to-pay" target="_blank">workplace pension contributions</a> for more details.%{tooltip_html}
       employer_contribution_title: Enter your employer’s contribution
       input_of_label: "% of"
       calculate_button: Calculate your contributions
