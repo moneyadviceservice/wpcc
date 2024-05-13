@@ -32,7 +32,9 @@ cy:
       text_full_contribution: "Y ffigwr gofynnol cyffredinol sydd yn rhaid ei dalu i mewn i'ch pensiwn yw 8% o'ch enillion cymwys.  Rhaid i'ch cyflogwr dalu 3% o leiaf, ond os bydd eich cyflogwr yn talu mwy na 3% yna dim ond y balans hyd at 8% sydd angen i chi ei dalu.  Er enghraifft, os bydd eich cyflogwr yn talu 6%, yna dim ond 2% sydd angen i chi ei dalu. Fodd bynnag, po fwyaf y byddwch chi a'ch cyflogwr yn ei dalu i mewn, po uchaf fydd eich incwm ymddeol."
 
     title: Cyfrifiannell cyfraniadau pensiwn gweithle
-    intro: Mae’n gyfraith erbyn hyn y dylai’r rhan fwyaf o gyflogeion gael eu cofrestru ar gynllun pensiwn gweithle gan eu cyflogwr. Bydd y gyfrifiannell hon yn dangos faint fydd yn cael ei dalu i mewn i'ch pensiwn gennych chi a'ch cyflogwr.
+    intro_html: |
+      <p class="wpcc__intro">Bydd y gyfrifiannell hon yn rhoi amcangyfrif i chi o faint y byddwch chi a'ch cyflogwr yn ei dalu i mewn i'ch pensiwn.</p>
+      <p class="wpcc__intro">I ddod o hyd i'r union swm, gwiriwch eich slip cyflog neu siaradwch â'ch cyflogwr. Er gwybodaeth ac arweiniad yn unig y mae'r teclyn hwn.</p>
     edit: Golygu
 
     details:
@@ -94,8 +96,8 @@ cy:
       your_contribution_title: Nodwch eich cyfraniad
       your_contribution_tip_below_lower_threshold: Ar eich lefel cyflog, nid oes isafswm cyfreithiol o gyfraniad ond efallai y bydd eich cynllun pensiwn gweithlu wedi gosod isafswm. Holwch eich cyflogwr.
       employer_contribution_title: Nodwch gyfraniad eich cyflogwr
-      legal_minimum_minimum_html: Y ffigwr gofynnol cyfreithiol sydd yn rhaid ei dalu i mewn i'ch pensiwn yw 8% y flwyddyn o'r enillion cymwys. Rhaid i'ch cyflogwr dalu 3% o leiaf. Y rhaniad fel arfer yw 5% gan gyflogeion a 3% gan gyflogwyr.%{tooltip_html}
-      legal_minimum_full_html: Y ffigwr gofynnol cyfreithiol sydd yn rhaid ei dalu i mewn i'ch pensiwn yw 8% y flwyddyn. Rhaid i'ch cyflogwr dalu 3% o leiaf ohono. Y rhaniad fel arfer yw 5% gan gyflogeion a 3% gan gyflogwyr.%{tooltip_html}
+      legal_minimum_minimum_html: I’r rhan fwyaf o bobl, yr isafswm y gallwch chi a’ch cyflogwr ei roi yn eich pensiwn yw 8% o’ch enillion cymwys. Rhaid i o leiaf 3% o hyn ddod oddi wrth eich cyflogwr. Gweler ein tudalen ar <a href="https://www.moneyhelper.org.uk/cy/pensions-and-retirement/auto-enrolment/how-much-do-i-and-my-employer-have-to-pay" target="_blank">gyfraniadau pensiwn gweithle</a> am fwy o fanylion.%{tooltip_html}
+      legal_minimum_full_html: I’r rhan fwyaf o bobl, yr isafswm y gallwch chi a’ch cyflogwr ei roi yn eich pensiwn yw 8% o’ch enillion cymwys. Gall fod yn llai os bydd eich cyflogwr yn gwneud cyfraniadau yn seiliedig ar eich enillion <strong>llawn</strong> yn lle, gan gynnwys bonysau, goramser a chomisiwn. Rhaid i o leiaf 3% o hyn ddod gan eich cyflogwr o hyd. Nid yw'r gyfrifiannell hon yn cynnwys achosion lle mae cyfanswm y cyfraniad yn is nag 8%. Gweler ein tudalen ar <a href="https://www.moneyhelper.org.uk/cy/pensions-and-retirement/auto-enrolment/how-much-do-i-and-my-employer-have-to-pay" target="_blank">gyfraniadau pensiwn gweithle</a> am fwy o fanylion.%{tooltip_html}
       input_of_label: "% o"
       calculate_button: Cyfrifwch eich cyfraniadau
       contribution_gt40000_warning: Rhoddir gostyngiad treth ar gyfraniadau hyd at %{amount} y flwyddyn yn unig, neu 100% o’ch enillion, pa bynnag un sydd leiaf.
