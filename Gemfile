@@ -26,7 +26,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rb-readline'
   gem 'rspec-rails', '~> 3.5'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '~> 3'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'sprockets', '~> 3.7.2'
 end
