@@ -78,7 +78,7 @@ module Wpcc
         precision: 0
       )
 
-      t('wpcc.contributions.contribution_gt40000_warning', amount: amount)
+      t('wpcc.contributions.contribution_gt60000_warning', amount: amount)
     end
 
     def employee_contribution_tip

@@ -24,7 +24,7 @@ describe('Contribution Conditions', function() {
     beforeEach(function() {
       this.employeeContributions = this.component.find('[data-wpcc-employee-contributions]');
       this.eligibleSalary = this.component.find('[data-wpcc-contribution-salary]');
-      this.contributionWarning = this.component.find('[data-wpcc-callout-contribution-gt40000]');
+      this.contributionWarning = this.component.find('[data-wpcc-callout-contribution-gt60000]');
 
       this.obj.init();
     });
