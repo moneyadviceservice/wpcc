@@ -100,7 +100,7 @@ en:
       employer_contribution_title: Enter your employer’s contribution
       input_of_label: "% of"
       calculate_button: Calculate your contributions
-      contribution_gt40000_warning: Tax relief is only applied to contributions of up to %{amount} per year or 100% of your earnings, whichever is lower.
+      contribution_gt60000_warning: Tax relief is only applied to contributions of up to %{amount} per year or 100% of your earnings, whichever is lower.
       employee_validation:
         blank: Please enter your contribution
         out_of_range: Your contribution must be between 0 and 100%.

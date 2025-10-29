@@ -12,7 +12,7 @@ module Wpcc
       'tax_relief_on_salary_by_frequency'
     ].freeze
 
-    TAX_RELIEF_MAX_CONTRIBUTION = 40_000
+    TAX_RELIEF_MAX_CONTRIBUTION = 60_000
 
     WARNING_RANGE = 10
 

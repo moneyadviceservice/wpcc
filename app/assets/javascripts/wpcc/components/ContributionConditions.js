@@ -9,7 +9,7 @@ define(['jquery', 'DoughBaseComponent'], function($, DoughBaseComponent) {
 
     this.$employeeContributions = this.$el.find('[data-wpcc-employee-contributions]');
     this.$eligibleSalary = this.$el.find('[data-wpcc-contribution-salary]');
-    this.$contributionWarning = this.$el.find('[data-wpcc-callout-contribution-gt40000]');
+    this.$contributionWarning = this.$el.find('[data-wpcc-callout-contribution-gt60000]');
 
   };
 
