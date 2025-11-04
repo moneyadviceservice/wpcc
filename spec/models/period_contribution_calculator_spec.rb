@@ -120,7 +120,7 @@ describe Wpcc::PeriodContributionCalculator, type: :model do
         let(:salary_frequency) { 1 }
 
         it 'returns employee tax relief' do
-          expect(period_contribution.tax_relief).to eq(8000)
+          expect(period_contribution.tax_relief).to eq(9600)
         end
       end
 
@@ -128,7 +128,7 @@ describe Wpcc::PeriodContributionCalculator, type: :model do
         let(:salary_frequency) { 12 }
 
         it 'returns employee tax relief limit' do
-          expect(period_contribution.tax_relief).to eq(666.67)
+          expect(period_contribution.tax_relief).to eq(800)
         end
       end
 
@@ -136,7 +136,7 @@ describe Wpcc::PeriodContributionCalculator, type: :model do
         let(:salary_frequency) { 13 }
 
         it 'returns employee tax relief limit' do
-          expect(period_contribution.tax_relief).to eq(615.38)
+          expect(period_contribution.tax_relief.round(2)).to eq(738.46)
         end
       end
 
@@ -144,7 +144,7 @@ describe Wpcc::PeriodContributionCalculator, type: :model do
         let(:salary_frequency) { 52 }
 
         it 'returns employee tax relief limit' do
-          expect(period_contribution.tax_relief).to eq(153.85)
+          expect(period_contribution.tax_relief.round(2)).to eq(184.62)
         end
       end
     end
