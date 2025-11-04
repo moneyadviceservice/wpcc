@@ -20,15 +20,15 @@ frequency_conversions:
     fourweeks: 13
     week: 52
   tax_relief_limit_by_frequency:
-    1:  8000
-    12: 666.67
-    13: 615.38
-    52: 153.85
+    1:  12000
+    12: 1000
+    13: 923
+    52: 230.7
   tax_relief_on_salary_by_frequency:
-    year: 12500
-    month: 1042
-    fourweeks: 960
-    week: 240
+    year: 12570
+    month: 1047.50
+    fourweeks: 967
+    week: 241.7
   opt_in_thresholds_by_frequency:
     lower:
       year: 6240

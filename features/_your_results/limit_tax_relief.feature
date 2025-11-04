@@ -16,7 +16,7 @@ Feature: Limit Tax Relief
       Then I should see the values on the results page as:
         |                         | Now              |
         | Employee Contributions  | £4,000.00        |
-        | Including tax relief of | £666.67          |
+        | Including tax relief of | £800.00          |
         | Employer Contributions  | £200.00          |
         | TOTAL Contributions     | £4,200.00        |
 
@@ -28,7 +28,7 @@ Feature: Limit Tax Relief
       Then I should see the values on the results page as:
         |                         | Now              |
         | Employee Contributions  | £780.00          |
-        | Including tax relief of | £153.85          |
+        | Including tax relief of | £156.00          |
         | Employer Contributions  | £36.00           |
         | TOTAL Contributions     | £816.00          |
 
@@ -40,7 +40,7 @@ Feature: Limit Tax Relief
       Then I should see the values on the results page as:
         |                         | Now              |
         | Employee Contributions  | £3,600.00        |
-        | Including tax relief of | £666.67          |
+        | Including tax relief of | £720.00          |
         | Employer Contributions  | £120.00          |
         | TOTAL Contributions     | £3,720.00        |
 
@@ -52,6 +52,6 @@ Feature: Limit Tax Relief
       Then I should see the values on the results page as:
         |                         | Now              |
         | Employee Contributions  | £4,500.00        |
-        | Including tax relief of | £615.38          |
+        | Including tax relief of | £900.00          |
         | Employer Contributions  | £150.00          |
         | TOTAL Contributions     | £4,650.00        |

@@ -8,7 +8,7 @@ Feature: Display Tax Relief Warning
     When I enter my personal details
 
   @no-javascript
-  Scenario Outline: Earning below £12,500 per year
+  Scenario Outline: Earning below £12,570 per year
     And my salary is "<salary>" "<salary_frequency>"
     And I progress to the results page
     Then I should see tax relief "<warning_message>"
@@ -27,17 +27,17 @@ Feature: Display Tax Relief Warning
       | 11000  | y flwyddyn       | Os nad ydych chi'n talu treth incwm ar eich enillion, cewch ostyngiad treth yn unig ar eich cyfraniadau | ostyngiadau treth ar eich pensiwn gweithle |
 
   @no-javascript
-  Scenario Outline: Earning £12,500 per year
+  Scenario Outline: Earning £12,570 per year
     And my salary is "<salary>" "<salary_frequency>"
     And I progress to the results page
     Then I should NOT see tax relief "<warning_message>"
 
     Examples:
       | salary | salary_frequency | warning_message |
-      | 12500  | per year         | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
-      | 1042   | per month        | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
-      | 960    | per 4 weeks      | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
-      | 240    | per week         | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
+      | 12570  | per year         | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
+      | 1047.50| per month        | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
+      | 967    | per 4 weeks      | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
+      | 241.7  | per week         | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
 
     @welsh
     Examples:
@@ -45,17 +45,17 @@ Feature: Display Tax Relief Warning
       | 11850  | y flwyddyn       | Os nad ydych chi'n talu treth incwm ar eich enillion, fyddwch chi ddim ond yn cael gostyngiad treth ar eich cyfraniadau |
 
   @no-javascript
-  Scenario Outline: Earning above £12,500 per year
+  Scenario Outline: Earning above £12,570 per year
     And my salary is "<salary>" "<salary_frequency>"
     And I progress to the results page
     Then I should NOT see tax relief "<warning_message>"
 
     Examples:
       | salary | salary_frequency | warning_message |
-      | 12501  | per year         | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
-      | 1043   | per month        | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
-      | 960    | per 4 weeks      | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
-      | 240.88 | per week         | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
+      | 12571  | per year         | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
+      | 1048   | per month        | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
+      | 968    | per 4 weeks      | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
+      | 242    | per week         | If you don’t pay income tax on your earnings, you will only receive tax relief on your pension contributions            |
 
     @welsh
     Examples:
